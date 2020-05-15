@@ -7,10 +7,12 @@ import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowD
 import { Language } from "@styled-icons/material/Language"
 
 const Navigation = styled.nav`
-  display:none;
+  display: none;
+
   @media (max-width: 768px) {
-  display:block;
-}`
+    display: block;
+  }
+`
 
 const Top = styled.div`
   width: 100vw;
@@ -28,7 +30,8 @@ const TopItems = styled.div`
 `
 
 const Bottom = styled.div`
-  position: absolute;
+  position: fixed;
+  overflow: hidden;
   bottom: 0;
   width: 100vw;
   display: flex;

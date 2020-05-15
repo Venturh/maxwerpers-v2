@@ -9,6 +9,7 @@ const Home = ({ data }) => {
     <Layout>
       <Seo title="Home" />
       <Start />
+      <Start />
     </Layout>
   )
 }
