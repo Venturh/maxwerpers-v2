@@ -7,21 +7,15 @@ import { useToggleTheme } from "../utils/useToggleTheme"
 import ThemeContext from "../utils/ThemeContext"
 
 const MainWrapper = styled.div`
-  padding: ${props => props.theme.spacing.mobile.sides};
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: ${({ theme }) => theme.fontSizes.xs};
+  margin: 0 ${props => props.theme.spacing.mobile.sides} 0
+    ${props => props.theme.spacing.mobile.sides};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    padding: ${props => props.theme.spacing.desktop.sides};
+    margin: 0 ${props => props.theme.spacing.desktop.sides} 0
+      ${props => props.theme.spacing.desktop.sides};
   }
 `
 
-const Content = styled.div`
-  padding: 0 var(--sides-padding-desktop);
-  margin: 0 auto;
-  max-width: 1400px;
-`
+const Content = styled.div``
 
 const Layout = ({ children }) => {
   const [theme, toggleTheme] = useToggleTheme()

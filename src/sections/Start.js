@@ -9,7 +9,14 @@ import Shape from "../components/Base/Shape"
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
+  justify-content: center;
+  height: 94vh;
+
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    flex-direction: row-reverse;
+    justify-content: space-evenly;
+    align-items: center;
+  }
 `
 
 const Shapes = styled.div`
@@ -21,30 +28,41 @@ const Shapes = styled.div`
 `
 
 const Cover = styled.img`
-  margin-top: 30%;
   height: 30vh;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    height: 60vh;
+  }
 `
 
 const InfoWrapper = styled.div`
-  margin-top: 15%;
+  margin-top: 5%;
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin-top: 0;
+    align-items: start;
+  }
 `
 
-export const TextTitle = styled.h5`
-  color: ${props => props.theme.primaryColor};
-`
 export const ButtonGroup = styled.div`
   display: flex;
   flex-direction: column;
   justify-items: center;
   align-items: center;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    flex-direction: row;
+    justify-content: start;
+  }
 `
 export const StyledButton = styled(Button)`
-  min-width: 40vw;
+  width: 50vw;
   margin-top: 0.5rem;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 12.5vw;
+    margin-right: 0.5rem;
+  }
 `
 
 const Start = () => {
@@ -77,20 +95,20 @@ const Start = () => {
       <Cover src={cover_dark} />
       <InfoWrapper>
         <Typography
-          variant="p"
-          fontSize="xs"
+          variant="h4"
+          fontSize={{ xs: "mobile.xs", md: "desktop.xs" }}
           color="secondary"
           text={intl.formatMessage({ id: "welcomeTitle" })}
         />
         <Typography
-          variant="p"
-          fontSize="lg"
+          variant="h4"
+          fontSize={{ xs: "mobile.xl", md: "desktop.lg" }}
           color="bodyContrast"
           text={intl.formatMessage({ id: "welcomeMsg" })}
         />
         <Typography
-          variant="p"
-          fontSize="lg"
+          variant="h4"
+          fontSize={{ xs: "mobile.lg", md: "desktop.lg" }}
           color="bodyContrast"
           text={intl.formatMessage({ id: "welcomeSub" })}
         />
