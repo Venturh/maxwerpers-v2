@@ -6,8 +6,16 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/src/images`,
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -54,6 +62,33 @@ module.exports = {
       options: {
         name: `navigation`,
         path: `./src/data/navigation.json`,
+      },
+    },
+    {
+      resolve: `gatsby-source-github-api`,
+      options: {
+        token: "69c9cd01b3b0f99871a770939ef2ec8b5dba6b4d",
+        variables: {},
+        graphQLQuery: `
+          query {
+            user(login: "Venturh") {
+              pinnedItems(first: 6, types: REPOSITORY) {
+                nodes {
+                  ... on Repository {
+                    url
+                    nameWithOwner
+                    description
+                    homepageUrl
+                    primaryLanguage {
+                      name
+                      color
+                    }
+                  }
+                }
+              }
+            }
+          }
+          `,
       },
     },
   ],

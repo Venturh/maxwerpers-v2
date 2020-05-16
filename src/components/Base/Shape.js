@@ -6,10 +6,10 @@ export const StyledShape = styled.div`
   ${color}
   ${border}
   ${layout}
+  z-index: -1;
 
 `
 const Shape = props => {
-  console.log("shape", props)
   return <StyledShape {...props} />
 }
 

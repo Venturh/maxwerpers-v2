@@ -3,10 +3,10 @@ import { useIntl } from "gatsby-plugin-intl"
 import Button from "../components/Base/Button"
 import styled from "styled-components"
 import Typography from "../components/Base/Typography"
-import cover_dark from "../images/landing_cover_dark.svg"
+import cover_dark from "../images/landing_cover.svg"
 import Shape from "../components/Base/Shape"
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,31 +71,18 @@ const Start = () => {
     <Wrapper>
       <Shapes>
         <Shape
-          type="rectangle"
           bg="primary"
           width={100}
           height={20}
           borderRadius="10px 0px 0px 10px"
         />
-        <Shape
-          type="rectangle"
-          bg="primary"
-          width={20}
-          height={20}
-          borderRadius="100%"
-        />
-        <Shape
-          type="rectangle"
-          bg="primary"
-          width={20}
-          height={20}
-          borderRadius="100%"
-        />
+        <Shape bg="primary" width={20} height={20} borderRadius="100%" />
+        <Shape bg="primary" width={20} height={20} borderRadius="100%" />
       </Shapes>
       <Cover src={cover_dark} />
       <InfoWrapper>
         <Typography
-          variant="h4"
+          variant="p"
           fontSize={{ xs: "mobile.xs", md: "desktop.xs" }}
           color="secondary"
           text={intl.formatMessage({ id: "welcomeTitle" })}
