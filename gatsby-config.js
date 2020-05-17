@@ -91,5 +91,20 @@ module.exports = {
           `,
       },
     },
+    {
+      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      options: {
+        fonts: [
+          {
+            family: `Open Sans`,
+            variants: [`400`, `700`],
+          },
+          {
+            family: `Poppins`,
+            variants: [`100`, `400`, `500`, `600`, `700`],
+          },
+        ],
+      },
+    },
   ],
 }

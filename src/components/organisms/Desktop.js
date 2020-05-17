@@ -1,13 +1,14 @@
 import React from "react"
-
 import styled from "styled-components"
-import ThemeToggle from "../ThemeToggle"
-import { Tabs, Tab } from "../Base/Tabs"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { useTheme } from "styled-components"
 import { Language } from "@styled-icons/material/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
-import LanguageSwitch from "../Base/LanguageSwitch"
+
+import ThemeToggle from "../atoms/ThemeToggle"
+import { Tabs, Tab } from "../molecules/Tabs"
+import LanguageSwitch from "../molecules/LanguageSwitch"
+
 const Nav = styled.div`
   display: flex;
   justify-content: space-between;
@@ -38,6 +39,7 @@ const NavTool = styled.div`
 const Desktop = ({ navlinks }) => {
   const intl = useIntl()
   const l = ["Deutsch", "English", "Francais"]
+  console.log("navlinks", navlinks)
   const theme = useTheme()
   return (
     <Nav>
@@ -52,7 +54,7 @@ const Desktop = ({ navlinks }) => {
               <Tab
                 key={index}
                 label={link.name.toUpperCase()}
-                href={link.path}
+                path={link.path}
               />
             )
           })}

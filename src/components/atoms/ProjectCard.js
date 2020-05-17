@@ -1,25 +1,27 @@
 import React from "react"
 import styled from "styled-components"
-import Typography from "./Base/Typography"
-import Button from "./Base/Button"
-import Shape from "./Base/Shape"
+import Typography from "./Typography"
+import Button from "./Button"
+import Shape from "./Shape"
 
 export const Card = styled.div`
   background-color: ${props => props.theme.colors.toolbarBackground};
   border-radius: 0.25rem;
   padding: 1rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (min-width: ${props => props.theme.breakpoints.md}) {
     padding: 0.5rem;
   }
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    padding: 2rem;
+    padding: 1rem;
   }
 `
 
 export const TagWrapper = styled.div`
   display: flex;
   align-items: center;
-  h4 {
+  p {
     margin-left: 0.25rem;
   }
 `
@@ -33,10 +35,11 @@ const StyledDescription = styled(Typography)`
 
 export const ButtonWrapper = styled.div`
   display: flex;
-  margin-top: 1rem;
+  margin-top: 0.75em;
   Button {
-    margin-right: 1rem;
-    padding: 5px 10px 5px 10px;
+    margin-right: 1em;
+    padding-left: 1em;
+    padding-right: 1em;
   }
 `
 
@@ -59,22 +62,19 @@ const ProjectCard = ({
           borderRadius="100%"
         />
         <Typography
-          variant="h4"
-          fontSize={{ xs: "mobile.xs", xl: "desktop.sm" }}
+          variant="p"
+          fontSize="caption"
           text={primaryLanguage.name}
         />
       </TagWrapper>
       <TextWrapper>
         <Typography
-          variant="h3"
-          fontSize={{ xs: "mobile.xl", xl: "desktop.md" }}
+          variant="p"
+          fontWeight="bold"
+          fontSize="title"
           text={nameWithOwner}
         />
-        <StyledDescription
-          variant="h3"
-          fontSize={{ xs: "mobile.sm", xl: "desktop.sm" }}
-          text={description}
-        />
+        <StyledDescription variant="p" fontSize="body" text={description} />
       </TextWrapper>
       <ButtonWrapper>
         <Button

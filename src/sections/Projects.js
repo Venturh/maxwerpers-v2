@@ -1,7 +1,8 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
-import ProjectCard from "../components/ProjectCard"
+
+import ProjectCard from "../components/atoms/ProjectCard"
 
 const Wrapper = styled.div`
   height: 100%;
@@ -49,7 +50,7 @@ const Projects = () => {
     `
   )
   return (
-    <Wrapper>
+    <Wrapper id="projects">
       <Cards>
         {githubData.data.user.pinnedItems.nodes.map((data, index) => {
           return <ProjectCard key={index} {...data} />

@@ -1,8 +1,9 @@
 import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-import Desktop from "./Navigation/Desktop"
-import Mobile from "./Navigation/Mobile"
 import { useIntl } from "gatsby-plugin-intl"
+
+import Desktop from "./Desktop"
+import Mobile from "./Mobile"
 
 const Header = () => {
   const currentLanguage = useIntl().locale
@@ -21,9 +22,11 @@ const Header = () => {
       }
     `
   )
+
   const headerByLanguage = allNavigationJson.nodes.filter(
     nodes => nodes.lang === currentLanguage
   )
+
   return (
     <header>
       <Desktop navlinks={headerByLanguage} />

@@ -1,10 +1,11 @@
 import React from "react"
-import { GlobalStyles } from "../theme/GlobalStyles"
+import { GlobalStyles } from "../../theme/GlobalStyles"
 import styled, { ThemeProvider } from "styled-components"
-import Header from "./Header"
-import { darkTheme, lightTheme } from "../theme/Theme"
-import { useToggleTheme } from "../utils/useToggleTheme"
-import ThemeContext from "../utils/ThemeContext"
+
+import { useToggleTheme } from "../../utils/useToggleTheme"
+import { darkTheme, lightTheme } from "../../theme/Theme"
+import ThemeContext from "../../utils/ThemeContext"
+import Header from "../organisms/Header"
 
 const MainWrapper = styled.div`
   margin: 0 ${props => props.theme.spacing.mobile.sides} 20vh

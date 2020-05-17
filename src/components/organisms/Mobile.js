@@ -1,11 +1,14 @@
 import React from "react"
 import styled, { useTheme } from "styled-components"
-import LanguageSwitch from "../Base/LanguageSwitch"
-import ThemeToggle from "../ThemeToggle"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { Language } from "@styled-icons/material/Language"
 
+import Typography from "../atoms/Typography"
+import ThemeToggle from "../atoms/ThemeToggle"
+import LanguageSwitch from "../molecules/LanguageSwitch"
+
+//TODO: Scroll to
 const Navigation = styled.nav`
   display: none;
 
@@ -46,6 +49,7 @@ const Item = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  cursor: pointer;
 `
 
 const IconImage = styled.svg`
@@ -90,7 +94,7 @@ const Mobile = ({ navlinks }) => {
               <IconImage>
                 <path d={link.icon} />
               </IconImage>
-              <IconLink>{link.name}</IconLink>
+              <Typography variant="a" fontSize="body" text={link.name} />
             </Item>
           )
         })}

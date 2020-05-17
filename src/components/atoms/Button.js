@@ -14,7 +14,11 @@ const StyledButton = styled.button`
 
 const Button = ({ children, ...props }) => (
   <StyledButton {...props}>
-    <Typography fontSize={14} fontWeight={600} text={children} />
+    <Typography
+      fontSize="button"
+      fontWeight="light"
+      text={children.toUpperCase()}
+    />
   </StyledButton>
 )
 

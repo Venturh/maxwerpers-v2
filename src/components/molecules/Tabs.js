@@ -2,6 +2,8 @@ import React, { useState } from "react"
 import styled from "styled-components"
 import scrollTo from "gatsby-plugin-smoothscroll"
 
+import Typography from "../atoms/Typography"
+
 const TabsWrapper = styled.div`
   display: flex;
 `
@@ -18,7 +20,7 @@ const StyledChild = styled.div`
   color: ${props => props.textColor || "white"};
 `
 
-const StyledTab = styled.div`
+const StyledTab = styled(Typography)`
   padding: 10px 10px;
 
   cursor: pointer;
@@ -45,7 +47,7 @@ export const Tabs = ({ children, indicatorColor, fontSize, textColor }) => {
           tabPosition={position}
           key={index}
           onClick={() => {
-            clicked(index, Child.props.label)
+            clicked(index, Child.props.path)
           }}
         >
           {Child}
@@ -56,5 +58,5 @@ export const Tabs = ({ children, indicatorColor, fontSize, textColor }) => {
 }
 
 export const Tab = ({ label }) => {
-  return <StyledTab>{label}</StyledTab>
+  return <StyledTab fontSize="subbody">{label}</StyledTab>
 }

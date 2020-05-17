@@ -19,11 +19,9 @@ export const GlobalStyles = createGlobalStyle`
     color:  ${({ theme }) => theme.colors.bodyContrast};
     transition: background 0.25s linear;
     font-family: 'Roboto', sans-serif;
-
-
-
-    @media (max-width: 849px) {
-      	font-size: 1rem;
+    font-size: 16px;
+    @media (min-width: ${props => props.theme.breakpoints.lg}) {
+      font-size: 18px;
     }
   }
 
@@ -62,6 +60,7 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set core body defaults */
   body {
+    font-family: 'Poppins', sans-serif;
     line-height: 1.5;
     min-height: 100vh;
     scroll-behavior: smooth;

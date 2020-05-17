@@ -1,10 +1,11 @@
 import React from "react"
 import { useIntl } from "gatsby-plugin-intl"
-import Button from "../components/Base/Button"
 import styled from "styled-components"
-import Typography from "../components/Base/Typography"
+
+import Button from "../components/atoms/Button"
+import Typography from "../components/atoms/Typography"
+import Shape from "../components/atoms/Shape"
 import cover_dark from "../images/landing_cover.svg"
-import Shape from "../components/Base/Shape"
 
 const Wrapper = styled.section`
   display: flex;
@@ -69,7 +70,7 @@ export const StyledButton = styled(Button)`
 const Start = () => {
   const intl = useIntl()
   return (
-    <Wrapper>
+    <Wrapper id="home">
       <Shapes>
         <Shape
           bg="primary"
@@ -84,19 +85,19 @@ const Start = () => {
       <InfoWrapper>
         <Typography
           variant="p"
-          fontSize={{ xs: "mobile.xs", md: "desktop.xs" }}
+          fontSize="subbody"
           color="secondary"
           text={intl.formatMessage({ id: "welcomeTitle" })}
         />
         <Typography
-          variant="h4"
-          fontSize={{ xs: "mobile.xl", md: "desktop.lg" }}
+          variant="h3"
+          fontSize="title"
           color="bodyContrast"
           text={intl.formatMessage({ id: "welcomeMsg" })}
         />
         <Typography
-          variant="h4"
-          fontSize={{ xs: "mobile.lg", md: "desktop.lg" }}
+          variant="p"
+          fontSize="subtitle"
           color="bodyContrast"
           text={intl.formatMessage({ id: "welcomeSub" })}
         />
