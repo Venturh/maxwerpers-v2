@@ -4,7 +4,7 @@ import { Language } from "@styled-icons/material/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 
-import DropDown from "../atoms/Dropdown"
+import DropDown from "../atoms/DropDown"
 
 const StyledLanguageSwitch = styled.div`
   padding: 10px;
