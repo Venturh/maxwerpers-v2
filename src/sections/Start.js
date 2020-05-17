@@ -25,6 +25,7 @@ const Shapes = styled.div`
   top: 10vh;
   display: flex;
   flex-direction: row-reverse;
+  z-index: -1;
 `
 
 const Cover = styled.img`

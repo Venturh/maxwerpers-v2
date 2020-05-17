@@ -7,7 +7,7 @@ import { useToggleTheme } from "../utils/useToggleTheme"
 import ThemeContext from "../utils/ThemeContext"
 
 const MainWrapper = styled.div`
-  margin: 0 ${props => props.theme.spacing.mobile.sides} 0
+  margin: 0 ${props => props.theme.spacing.mobile.sides} 20vh
     ${props => props.theme.spacing.mobile.sides};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0 ${props => props.theme.spacing.desktop.sides} 0

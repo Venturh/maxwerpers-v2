@@ -1,10 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { color, fontSize, margin } from "styled-system"
+import { color, fontSize, fontWeight } from "styled-system"
 
-const StyledTypography = styled.h1`
+const StyledTypography = styled.p`
   ${color}
   ${fontSize}
+  ${fontWeight}
 `
 
 const Typography = ({ children, variant, text, ...props }) => (
