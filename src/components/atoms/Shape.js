@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { color, border, layout } from "styled-system"
 
-export const StyledShape = styled.div`
+export const StyledShape = styled.span`
   ${color}
   ${border}
   ${layout}

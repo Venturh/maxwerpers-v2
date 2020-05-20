@@ -26,7 +26,6 @@ const Header = () => {
   const headerByLanguage = allNavigationJson.nodes.filter(
     nodes => nodes.lang === currentLanguage
   )
-
   return (
     <header>
       <Desktop navlinks={headerByLanguage} />

@@ -3,7 +3,7 @@ import styled, { useTheme } from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { Language } from "@styled-icons/material/Language"
-import scrollTo from "gatsby-plugin-smoothscroll"
+import { scroller } from "react-scroll"
 
 import Typography from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
@@ -35,6 +35,7 @@ const TopItems = styled.div`
 const Bottom = styled.div`
   position: fixed;
   overflow: hidden;
+  z-index: 1;
   bottom: 0;
   width: 100vw;
   display: flex;
@@ -62,6 +63,15 @@ const Mobile = ({ navlinks }) => {
   const intl = useIntl()
   const l = ["Deutsch", "English", "Francais"]
   const theme = useTheme()
+
+  const scrollTo = id => {
+    scroller.scrollTo(id, {
+      duration: 300,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    })
+  }
+
   return (
     <Navigation>
       <Top>
@@ -86,7 +96,7 @@ const Mobile = ({ navlinks }) => {
       <Bottom>
         {navlinks.map((link, index) => {
           return (
-            <Item key={index} onClick={() => scrollTo("#" + link.path)}>
+            <Item key={index} onClick={() => scrollTo(link.path)}>
               <IconImage>
                 <path d={link.icon} />
               </IconImage>

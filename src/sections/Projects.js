@@ -7,19 +7,17 @@ import Typography from "../components/atoms/Typography"
 
 const Wrapper = styled.section`
   height: 100%;
-  margin-bottom: 10vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100vh;
-    margin-bottom: 0;
   }
 `
 const Cards = styled.div`
   display: grid;
   grid-template-columns: auto;
   grid-gap: 1rem;
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    grid-template-columns: repeat(2, auto);
-  }
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     grid-template-columns: repeat(3, auto);
   }

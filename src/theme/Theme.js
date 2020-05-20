@@ -7,8 +7,8 @@ export const lightTheme = {
     body: "#E2E2E2;",
     bodyContrast: "#121212",
     bodyTint: "#eaeaea",
-    toolbar: "#121212",
-    toolbarBackground: "#f5f6f9",
+    toolbarContrast: "#121212",
+    toolbar: "#f5f6f9",
   },
   spacing: {
     desktop: {
@@ -44,16 +44,16 @@ export const lightTheme = {
 
 export const darkTheme = {
   colors: {
-    primary: "#7c4dff",
-    primaryContrast: "#ffffff;",
-    secondary: "#64ffda",
+    primary: "#85EEA7",
+    primaryContrast: "#292929",
+    secondary: "#78A8D6",
     secondaryContrast: "#121212",
     accent: "#6a64ff",
     body: "#121212;",
-    bodyContrast: "#bdbdbd",
+    bodyContrast: "#f4f5f8",
     bodyTint: "#292929",
-    toolbar: "#f4f5f8",
-    toolbarBackground: "#1E1E1E",
+    toolbarContrast: "#f4f5f8",
+    toolbar: "#1E1E1E",
   },
   spacing: {
     desktop: {

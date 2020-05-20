@@ -65,6 +65,20 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `skills`,
+        path: `./src/data/skills.json`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `experience`,
+        path: `./src/data/experience.json`,
+      },
+    },
+    {
       resolve: `gatsby-source-github-api`,
       options: {
         token: "69c9cd01b3b0f99871a770939ef2ec8b5dba6b4d",

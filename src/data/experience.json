@@ -1,0 +1,72 @@
+[
+  {
+    "type": "Student",
+    "work": "Bachelor of science: media computer science",
+    "place": "Hochschule Rhein Main - Wiesbaden",
+    "time": "Oktober 2016 - April 2021",
+    "lang": "en"
+  },
+  {
+    "type": "Student",
+    "work": "Student of applied computer science",
+    "place": "Hochschule Rhein Main - Wiesbaden",
+    "time": "Oktober 2015 - September 2016",
+    "lang": "en"
+  },
+  {
+    "type": "Volunteer",
+    "work": "Voluntary year of social service",
+    "place": "gGis - Hannover",
+    "time": "August 2014 - July 2015",
+    "lang": "en"
+  },
+  {
+    "type": "Student",
+    "work": "Abitur",
+    "place": "Wilhelm Busch Gymnasium Stadthagen",
+    "time": "2007 - 2014",
+    "lang": "en"
+  },
+  {
+    "type": "Student",
+    "work": "One Year at French School",
+    "place": "College Saint Joseph - Carpentras",
+    "time": "2006 - 2007",
+    "lang": "en"
+  },
+  {
+    "type": "Student",
+    "work": "Bachelor of Science Medieninformatik",
+    "place": "Hochschule Rhein Main - Wiesbaden",
+    "time": "Oktober 2016 - April 2021",
+    "lang": "de"
+  },
+  {
+    "type": "Student",
+    "work": "Student der angewandten Informatik",
+    "place": "Hochschule Rhein Main - Wiesbaden",
+    "time": "Oktober 2015 - September 2016",
+    "lang": "de"
+  },
+  {
+    "type": "Volunteer",
+    "work": "Freiwilliges soziales Jahr",
+    "place": "gGis - Hannover",
+    "time": "August 2014 - July 2015",
+    "lang": "de"
+  },
+  {
+    "type": "Student",
+    "work": "Abitur",
+    "place": "Wilhelm Busch Gymnasium Stadthagen",
+    "time": "2007 - 2014",
+    "lang": "de"
+  },
+  {
+    "type": "Student",
+    "work": "Ein Jahr an einer französischen Schule",
+    "place": "College Saint Joseph - Carpentras",
+    "time": "2006 - 2007",
+    "lang": "de"
+  }
+]

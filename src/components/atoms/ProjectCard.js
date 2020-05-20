@@ -5,7 +5,7 @@ import Button from "./Button"
 import Shape from "./Shape"
 
 export const Card = styled.div`
-  background-color: ${props => props.theme.colors.toolbarBackground};
+  background-color: ${props => props.theme.colors.toolbar};
   border-radius: 0.25rem;
   padding: 1rem;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
