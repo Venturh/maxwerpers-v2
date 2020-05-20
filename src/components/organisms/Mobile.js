@@ -10,10 +10,11 @@ import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 
 const Navigation = styled.nav`
-  display: none;
+  
 
-  @media (max-width: 768px) {
-    display: block;
+    @media (min-width: ${props => props.theme.breakpoints.lg}) {
+display: none;
+  }
   }
 `
 

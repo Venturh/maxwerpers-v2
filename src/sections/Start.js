@@ -1,6 +1,8 @@
 import React from "react"
 import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
+import { StyledIconBase } from "@styled-icons/styled-icon"
+import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
@@ -48,23 +50,49 @@ const InfoWrapper = styled.div`
   }
 `
 
-export const ButtonGroup = styled.div`
-  display: flex;
+const ButtonGroup = styled.div`
+  display: none;
   flex-direction: column;
   justify-items: center;
   align-items: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: flex;
     flex-direction: row;
     justify-content: start;
   }
 `
 
-export const StyledButton = styled(Button)`
+const StyledButton = styled(Button)`
   width: 50vw;
   margin-top: 0.5rem;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 12.5vw;
     margin-right: 0.5rem;
+  }
+`
+
+const Social = styled.div`
+  display: flex;
+  width: 50vw;
+  justify-content: space-around;
+  margin-top: 1em;
+  ${StyledIconBase} {
+    width: 2em;
+    color: ${props => props.theme.colors.primary};
+    cursor: pointer;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
+    width: 25vw;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    height: 15vh;
+    flex-direction: column;
+    align-content: space-around;
+    position: absolute;
+    left: 1vw;
+    top: 10vh;
   }
 `
 
@@ -110,6 +138,21 @@ const Start = () => {
             Erfahrung
           </StyledButton>
         </ButtonGroup>
+        <Social>
+          <Github onClick={() => window.open("https://github.com/Venturh")} />
+          <PlayStore
+            onClick={() =>
+              window.open(
+                "https://play.google.com/store/apps/developer?id=Venturh&hl=gsw"
+              )
+            }
+          />
+          <Linkedin
+            onClick={() =>
+              window.open("https://www.linkedin.com/in/max-werpers-9474251a5/")
+            }
+          />
+        </Social>
       </InfoWrapper>
     </Wrapper>
   )

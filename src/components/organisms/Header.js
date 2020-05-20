@@ -10,7 +10,7 @@ const Header = () => {
 
   const { allNavigationJson } = useStaticQuery(
     graphql`
-      query Blu {
+      query Navigation {
         allNavigationJson {
           nodes {
             name

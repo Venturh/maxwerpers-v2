@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-
   background-color: ${props => props.theme.colors.primary};
   border-radius: 0px 0px 25px 25px;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -75,8 +74,8 @@ const ExperienceContainer = experienceByLanguage => {
       <LineWrapper>
         <Experiences>
           {Object.values(experienceByLanguage).map((experience, index) => (
-            <StyledTimelineCard>
-              <TimeLineCard key={index} {...experience} />
+            <StyledTimelineCard key={index}>
+              <TimeLineCard {...experience} />
               <StyledCircle
                 bg="secondary"
                 width={12.5}
