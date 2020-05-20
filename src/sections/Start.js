@@ -58,6 +58,7 @@ export const ButtonGroup = styled.div`
     justify-content: start;
   }
 `
+
 export const StyledButton = styled(Button)`
   width: 50vw;
   margin-top: 0.5rem;

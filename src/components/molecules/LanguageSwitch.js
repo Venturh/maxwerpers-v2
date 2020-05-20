@@ -20,7 +20,9 @@ const Display = styled.div`
 `
 const StyledLanguageIcon = styled(Language)``
 
-const StyledDropIcon = styled(KeyboardArrowDown)``
+const StyledDropIcon = styled(KeyboardArrowDown)`
+  cursor: pointer;
+`
 
 const CurrentLanguage = styled.p`
   font-size: ${props => props.fontSize || "1.125rem"};
@@ -80,13 +82,11 @@ const LanguageSwitch = ({
         <CurrentLanguage fontSize={fontSize}>
           {currentLanguage.toUpperCase()}
         </CurrentLanguage>
-        <a>
-          <StyledDropIcon
-            onClick={() => {
-              setOpen(!open)
-            }}
-          />
-        </a>
+        <StyledDropIcon
+          onClick={() => {
+            setOpen(!open)
+          }}
+        />
         {open ? (
           <div ref={node}>
             <DropDown

@@ -3,8 +3,9 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 import ProjectCard from "../components/atoms/ProjectCard"
+import Typography from "../components/atoms/Typography"
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   height: 100%;
   margin-bottom: 10vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -22,6 +23,10 @@ const Cards = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     grid-template-columns: repeat(3, auto);
   }
+`
+
+const Heading = styled(Typography)`
+  margin-bottom: ${props => props.theme.spacing.mobile.sides};
 `
 
 const Projects = () => {
@@ -51,6 +56,7 @@ const Projects = () => {
   )
   return (
     <Wrapper id="projects">
+      <Heading variant="h1" fontSize="subheader" text="Projects" />
       <Cards>
         {githubData.data.user.pinnedItems.nodes.map((data, index) => {
           return <ProjectCard key={index} {...data} />

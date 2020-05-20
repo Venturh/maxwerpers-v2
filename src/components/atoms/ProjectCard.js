@@ -40,6 +40,7 @@ export const ButtonWrapper = styled.div`
     margin-right: 1em;
     padding-left: 1em;
     padding-right: 1em;
+    min-width: 30%;
   }
 `
 

@@ -1,9 +1,9 @@
 import React from "react"
 import Seo from "../components/atoms/Seo"
-import { graphql } from "gatsby"
 import Layout from "../components/templates/Layout"
 import Start from "../sections/Start"
 import Projects from "../sections/Projects"
+import Skills from "../sections/Skills"
 
 const Home = ({ data }) => {
   return (
@@ -11,6 +11,7 @@ const Home = ({ data }) => {
       <Seo title="Home" />
       <Start />
       <Projects />
+      <Skills />
     </Layout>
   )
 }

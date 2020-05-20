@@ -3,12 +3,12 @@ import styled, { useTheme } from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { Language } from "@styled-icons/material/Language"
+import scrollTo from "gatsby-plugin-smoothscroll"
 
 import Typography from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 
-//TODO: Scroll to
 const Navigation = styled.nav`
   display: none;
 
@@ -58,10 +58,6 @@ const IconImage = styled.svg`
   height: 24px;
 `
 
-const IconLink = styled.a`
-  /* ... */
-`
-
 const Mobile = ({ navlinks }) => {
   const intl = useIntl()
   const l = ["Deutsch", "English", "Francais"]
@@ -90,7 +86,7 @@ const Mobile = ({ navlinks }) => {
       <Bottom>
         {navlinks.map((link, index) => {
           return (
-            <Item key={index}>
+            <Item key={index} onClick={() => scrollTo("#" + link.path)}>
               <IconImage>
                 <path d={link.icon} />
               </IconImage>

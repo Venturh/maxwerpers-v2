@@ -69,6 +69,8 @@ const Desktop = ({ navlinks }) => {
             iconLeft={<Language />}
             iconRight={<KeyboardArrowDown />}
             iconColor={theme.colors.primary}
+            iconSize="1em"
+            fontSize="caption"
             dropdownBackground={theme.colors.bodyTint}
             dropdownHoverColor={theme.colors.toolbarBackground}
           ></LanguageSwitch>
