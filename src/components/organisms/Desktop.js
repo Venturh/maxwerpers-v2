@@ -4,6 +4,7 @@ import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { useTheme } from "styled-components"
 import { Language } from "@styled-icons/material/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
+import { animateScroll as scroll, scroller } from "react-scroll"
 
 import ThemeToggle from "../atoms/ThemeToggle"
 import { Tabs, Tab } from "../molecules/Tabs"
@@ -17,10 +18,8 @@ const Nav = styled.div`
   padding: 0 var(--sides-padding-desktop);
   background-color: ${({ theme }) => theme.colors.body};
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.75);
-    @media (max-width: ${props => props.theme.breakpoints.lg}) {
-display: none;
-  }
-    
+  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+    display: none;
   }
 `
 
@@ -42,6 +41,21 @@ const Desktop = ({ navlinks }) => {
   const intl = useIntl()
   const l = ["Deutsch", "English", "Francais"]
   const theme = useTheme()
+
+  const scrollTo = label => {
+    const options = {
+      duration: 300,
+      delay: 0,
+      smooth: "easeInOutQuart",
+    }
+    console.log("label")
+    if (label === "home") {
+      scroll.scrollToTop(options)
+    } else {
+      scroller.scrollTo(label, options)
+    }
+  }
+
   return (
     <Nav>
       <Logo>Logo</Logo>
@@ -49,6 +63,7 @@ const Desktop = ({ navlinks }) => {
         <Tabs
           indicatorColor={theme.colors.primary}
           textColor={theme.colors.bodyContrast}
+          onClick={id => scrollTo(id)}
         >
           {navlinks.map((link, index) => {
             return (

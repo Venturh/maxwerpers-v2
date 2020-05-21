@@ -62,12 +62,17 @@ const Mobile = ({ navlinks }) => {
   const l = ["Deutsch", "English", "Francais"]
   const theme = useTheme()
 
-  const scrollTo = id => {
-    scroller.scrollTo(id, {
+  const scrollTo = label => {
+    const options = {
       duration: 300,
       delay: 0,
       smooth: "easeInOutQuart",
-    })
+    }
+    if (label === "home") {
+      scroll.scrollToTop(options)
+    } else {
+      scroller.scrollTo(label, options)
+    }
   }
 
   return (
@@ -94,18 +99,7 @@ const Mobile = ({ navlinks }) => {
       <Bottom>
         {navlinks.map((link, index) => {
           return (
-            <Item
-              key={index}
-              onClick={() =>
-                index === 0
-                  ? scroll.scrollToTop({
-                      duration: 300,
-                      delay: 0,
-                      smooth: "easeInOutQuart",
-                    })
-                  : scrollTo(link.path)
-              }
-            >
+            <Item key={index} onClick={() => scrollTo(link.path)}>
               <IconImage>
                 <path d={link.icon} />
               </IconImage>

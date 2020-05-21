@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import { animateScroll as scroll, scroller } from "react-scroll"
 
 import Typography from "../atoms/Typography"
 
@@ -26,17 +25,18 @@ const StyledTab = styled(Typography)`
   cursor: pointer;
 `
 
-export const Tabs = ({ children, indicatorColor, fontSize, textColor }) => {
+export const Tabs = ({
+  children,
+  indicatorColor,
+  fontSize,
+  textColor,
+  onClick,
+}) => {
   const [position, setTabPosition] = useState(0)
 
-  const clicked = (index, label) => {
-    if (label) {
-      scroller.scrollTo(label, {
-        duration: 300,
-        delay: 0,
-        smooth: "easeInOutQuart",
-      })
-    }
+  const clickAction = (index, label, onClick) => {
+    console.log("label", label)
+    onClick(label)
     setTabPosition(index)
   }
 
@@ -50,15 +50,7 @@ export const Tabs = ({ children, indicatorColor, fontSize, textColor }) => {
           value={index}
           tabPosition={position}
           key={index}
-          onClick={() =>
-            index === 0
-              ? scroll.scrollToTop({
-                  duration: 300,
-                  delay: 0,
-                  smooth: "easeInOutQuart",
-                })
-              : clicked(index, Child.props.path)
-          }
+          onClick={() => clickAction(index, Child.props.path, onClick)}
         >
           {Child}
         </StyledChild>
