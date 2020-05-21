@@ -21,7 +21,7 @@ const ToggleButton = styled.button`
   cursor: pointer;
   ${StyledIconBase} {
     width: ${props => props.iconSize || "1.8em"};
-    color: ${({ theme }) => theme.colors.primary};
+    color: ${({ theme }) => theme.colors.bodyContrast};
     animation: ${props => (props.animate ? scaleUp : null)} 0.1s
       cubic-bezier(0.455, 0.03, 0.515, 0.955);
   }

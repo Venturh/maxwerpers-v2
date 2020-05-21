@@ -35,6 +35,7 @@ const NavItems = styled.ul`
 const NavTool = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 1em;
 `
 
 const Desktop = ({ navlinks }) => {
@@ -84,7 +85,7 @@ const Desktop = ({ navlinks }) => {
             space={"6vh"}
             iconLeft={<Language />}
             iconRight={<KeyboardArrowDown />}
-            iconColor={theme.colors.primary}
+            iconColor={theme.colors.bodyContrast}
             iconSize="1em"
             fontSize="caption"
             dropdownBackground={theme.colors.bodyTint}

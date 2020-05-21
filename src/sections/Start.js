@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
 import { StyledIconBase } from "@styled-icons/styled-icon"
@@ -7,7 +7,9 @@ import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
-import cover_dark from "../images/landing_cover.svg"
+import coverDark from "../images/cover_dark.svg"
+import coverLight from "../images/cover_light.svg"
+import ThemeContext from "../utils/ThemeContext"
 
 const Wrapper = styled.section`
   display: flex;
@@ -97,6 +99,7 @@ const Social = styled.div`
 `
 
 const Start = () => {
+  const { theme } = useContext(ThemeContext)
   const intl = useIntl()
   return (
     <Wrapper id="home">
@@ -110,7 +113,7 @@ const Start = () => {
         <Shape bg="primary" width={20} height={20} borderRadius="100%" />
         <Shape bg="primary" width={20} height={20} borderRadius="100%" />
       </Shapes>
-      <Cover src={cover_dark} />
+      <Cover src={theme === "light" ? coverLight : coverDark} />
       <InfoWrapper>
         <Typography
           variant="p"
@@ -132,10 +135,10 @@ const Start = () => {
         />
         <ButtonGroup>
           <StyledButton color="primaryContrast" bg="primary" rounded>
-            Projekte
+            {intl.formatMessage({ id: "projects" })}
           </StyledButton>
           <StyledButton color="secondaryContrast" bg="secondary" rounded>
-            Erfahrung
+            {intl.formatMessage({ id: "experience" })}
           </StyledButton>
         </ButtonGroup>
         <Social>

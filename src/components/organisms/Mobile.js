@@ -88,12 +88,12 @@ const Mobile = ({ navlinks }) => {
             iconLeft={<Language />}
             iconRight={<KeyboardArrowDown />}
             iconSize="1em"
-            iconColor={theme.colors.primary}
+            iconColor={theme.colors.bodyContrast}
             fontSize="0.75em"
             dropdownBackground={theme.colors.bodyTint}
             dropdownHoverColor={theme.colors.toolbarBackground}
           />
-          <ThemeToggle iconSize="1em" />
+          <ThemeToggle iconSize="0.95em" />
         </TopItems>
       </Top>
       <Bottom>
