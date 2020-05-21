@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
+import { useIntl } from "gatsby-plugin-intl"
 
 import ProjectCard from "../components/atoms/ProjectCard"
 import Typography from "../components/atoms/Typography"
@@ -28,6 +29,7 @@ const Heading = styled(Typography)`
 `
 
 const Projects = () => {
+  const intl = useIntl()
   const { githubData } = useStaticQuery(
     graphql`
       query ProjectQuery {
@@ -54,7 +56,11 @@ const Projects = () => {
   )
   return (
     <Wrapper id="projects">
-      <Heading variant="h1" fontSize="subheader" text="Projects" />
+      <Heading
+        variant="h1"
+        fontSize="subheader"
+        text={intl.formatMessage({ id: "projects" })}
+      />
       <Cards>
         {githubData.data.user.pinnedItems.nodes.map((data, index) => {
           return <ProjectCard key={index} {...data} />

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 import Headroom from "react-headroom"

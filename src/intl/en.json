@@ -3,5 +3,8 @@
   "title": "Hello i hate it",
   "welcomeTitle": "Hello, my name is",
   "welcomeMsg": "Max Werpers.",
-  "welcomeSub": " Welcome to my portfolio !"
+  "welcomeSub": " Welcome to my portfolio !",
+  "projects": "Projects",
+  "skills": "Skills",
+  "experience": "Experience"
 }

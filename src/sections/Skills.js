@@ -67,7 +67,7 @@ const Skills = () => {
       }
     }
   `)
-
+  const intl = useIntl()
   const currentLanguage = useIntl().locale
   const experienceByLanguage = allExperienceJson.nodes.filter(
     nodes => nodes.lang === currentLanguage
@@ -78,20 +78,20 @@ const Skills = () => {
         color="bodyContrast"
         fontSize="subheader"
         variant="h1"
-        text="Skills"
+        text={intl.formatMessage({ id: "skills" })}
       />
       <DesktopHeaders>
         <Typography
           color="bodyContrast"
           fontSize="subheader"
           variant="h1"
-          text="Experience"
+          text={intl.formatMessage({ id: "experience" })}
         />
         <Typography
           color="bodyContrast"
           fontSize="subheader"
           variant="h1"
-          text="Skills"
+          text={intl.formatMessage({ id: "skills" })}
         />
       </DesktopHeaders>
       <Content>

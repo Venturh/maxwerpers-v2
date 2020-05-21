@@ -68,5 +68,40 @@
     "place": "College Saint Joseph - Carpentras",
     "time": "2006 - 2007",
     "lang": "de"
+  },
+  {
+    "type": "Étudiant",
+    "work": "Bachelier en sciences Informatique des médias",
+    "place": "Hochschule Rhein Main - Wiesbaden",
+    "time": "octobre 2016 - avril 2021",
+    "lang": "fr"
+  },
+  {
+    "type": "Étudiant",
+    "work": "Étudiant d´informatique appliquée",
+    "place": "Hochschule Rhein Main - Wiesbaden",
+    "time": "octobre 2015 - septembre 2016",
+    "lang": "fr"
+  },
+  {
+    "type": "Volunteer",
+    "work": "Année sociale volontaire",
+    "place": "gGis - Hannover",
+    "time": "août 2014 - juillet 2015",
+    "lang": "fr"
+  },
+  {
+    "type": "Étudiant",
+    "work": "Baccalauréat",
+    "place": "Wilhelm Busch Gymnasium Stadthagen",
+    "time": "2007 - 2014",
+    "lang": "fr"
+  },
+  {
+    "type": "Étudiant",
+    "work": "Une année dans une école française",
+    "place": "College Saint Joseph - Carpentras",
+    "time": "2006 - 2007",
+    "lang": "fr"
   }
 ]
