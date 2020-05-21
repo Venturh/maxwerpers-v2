@@ -6,8 +6,8 @@ import Shape from "./Shape"
 
 export const Card = styled.div`
   background-color: ${props => props.theme.colors.toolbar};
-  border-radius: 0.25rem;
-  padding: 1rem;
+  border-radius: 1em;
+  padding: 1em;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (min-width: ${props => props.theme.breakpoints.md}) {
@@ -64,7 +64,8 @@ const ProjectCard = ({
         />
         <Typography
           variant="p"
-          fontSize="caption"
+          fontSize="button"
+          fontWeight="400"
           text={primaryLanguage.name}
         />
       </TagWrapper>
@@ -72,10 +73,15 @@ const ProjectCard = ({
         <Typography
           variant="p"
           fontWeight="bold"
-          fontSize="title"
+          fontSize="subtitle"
           text={nameWithOwner}
         />
-        <StyledDescription variant="p" fontSize="body" text={description} />
+        <StyledDescription
+          variant="p"
+          fontSize="body"
+          fontWeight="400"
+          text={description}
+        />
       </TextWrapper>
       <ButtonWrapper>
         <Button

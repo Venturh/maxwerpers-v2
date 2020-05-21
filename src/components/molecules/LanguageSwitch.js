@@ -1,15 +1,17 @@
 import React, { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
 //import { Language } from "@styled-icons/material/Language"
-import { Language } from "@styled-icons/entypo/Language"
+import { Language } from "@styled-icons/fa-solid/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
+import { KeyboardArrowUp } from "@styled-icons/material-rounded/KeyboardArrowUp"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 
 import DropDown from "../atoms/DropDown"
 
-const StyledLanguageSwitch = styled.div`
-  padding: 10px;
-`
+const DropdownIcon = ({ open }) =>
+  open ? <KeyboardArrowUp /> : <KeyboardArrowDown />
+
+const Wrapper = styled.div``
 
 const Display = styled.div`
   display: flex;
@@ -18,10 +20,6 @@ const Display = styled.div`
     color: ${props => props.iconColor || "#5ea7f9"};
     width: ${props => props.iconSize || "1.8em"};
   }
-`
-
-const StyledDropIcon = styled(KeyboardArrowDown)`
-  cursor: pointer;
 `
 
 const CurrentLanguage = styled.p`
@@ -45,9 +43,14 @@ const LanguageSwitch = ({
 }) => {
   const [open, setOpen] = useState(false)
 
-  const node = useRef()
+  const dropdownRef = useRef()
+  const displayRef = useRef()
+
   const handleClickOutside = e => {
-    if (node.current.contains(e.target)) {
+    if (
+      dropdownRef.current.contains(e.target) ||
+      displayRef.current.contains(e.target)
+    ) {
       return
     }
     setOpen(false)
@@ -74,21 +77,26 @@ const LanguageSwitch = ({
       }
     })
   }
-
   return (
-    <StyledLanguageSwitch>
+    <Wrapper
+      ref={displayRef}
+      onClick={() => {
+        setOpen(!open)
+      }}
+    >
       <Display iconColor={iconColor} iconSize={iconSize}>
         <Language />
         <CurrentLanguage fontSize={fontSize}>
           {currentLanguage.toUpperCase()}
         </CurrentLanguage>
-        <StyledDropIcon
+        <DropdownIcon
+          open={open}
           onClick={() => {
             setOpen(!open)
           }}
         />
         {open ? (
-          <div ref={node}>
+          <div ref={dropdownRef}>
             <DropDown
               items={languages}
               getItem={change}
@@ -102,7 +110,7 @@ const LanguageSwitch = ({
           </div>
         ) : null}
       </Display>
-    </StyledLanguageSwitch>
+    </Wrapper>
   )
 }
 

@@ -11,21 +11,25 @@ const Wrapper = styled.section`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     height: 100vh;
   }
 `
 const Cards = styled.div`
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 100%;
+  margin: auto;
   grid-gap: 1rem;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     grid-template-columns: repeat(3, auto);
+    justify-content: center;
   }
 `
 
 const Heading = styled(Typography)`
-  margin-bottom: ${props => props.theme.spacing.mobile.sides};
+  margin: ${props => props.theme.spacing.heading} 0;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin: 10vh 0 0 0;
+  }
 `
 
 const Projects = () => {

@@ -12,15 +12,14 @@ const Wrapper = styled.div`
   background-color: ${props => props.theme.colors.primary};
   border-radius: 25px 25px 0 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 40vw;
-    height: 94vh;
-    justify-content: center;
+    width: 35vw;
+    height: 92.5vh;
   }
 `
 
 const Section = styled.div`
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 `
 
 const SectionTitle = styled(Typography)`

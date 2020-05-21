@@ -56,6 +56,7 @@ export const darkTheme = {
     toolbar: "#1E1E1E",
   },
   spacing: {
+    heading: "0.5em",
     desktop: {
       sides: "3%",
     },

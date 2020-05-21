@@ -13,13 +13,13 @@ const Wrapper = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 35vw;
     flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end;
     background-color: inherit;
   }
 `
 
 const Header = styled(Typography)`
+  margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }
@@ -30,19 +30,28 @@ const Experiences = styled.div`
   grid-gap: 1em;
 `
 
-const StyledTimelineCard = styled.div`
+const StyledTimelineCards = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
     //line
-    &:not(:last-child):after {
+    &:not(:last-child):before {
       content: "";
       position: relative;
       width: 3px;
       background-color: ${props => props.theme.colors.secondary};
+      border-radius: 3px;
       top: 50%;
       margin-top: 15px;
       bottom: 0;
-      left: 25.5%;
+      right: 15.5%;
+    }
+    //no line on last child
+    &:last-child::before {
+      content: "";
+      position: relative;
+      width: 3px;
+      top: 50%;
+      bottom: 0;
     }
   }
 `
@@ -54,7 +63,7 @@ const LineWrapper = styled.div`
     span {
       align-self: center;
       position: relative;
-      left: calc(25% + 9px);
+      right: calc(15% + 9px);
       z-index: 1;
     }
   }
@@ -74,15 +83,15 @@ const ExperienceContainer = experienceByLanguage => {
       <LineWrapper>
         <Experiences>
           {Object.values(experienceByLanguage).map((experience, index) => (
-            <StyledTimelineCard key={index}>
-              <TimeLineCard {...experience} />
+            <StyledTimelineCards key={index}>
               <StyledCircle
                 bg="secondary"
                 width={12.5}
                 height={12.5}
                 borderRadius="100%"
               />
-            </StyledTimelineCard>
+              <TimeLineCard {...experience} />
+            </StyledTimelineCards>
           ))}
         </Experiences>
       </LineWrapper>

@@ -8,25 +8,28 @@ const Card = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.colors.toolbar};
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.55);
-  width: 300px;
+  width: 80vw;
   height: 100px;
   border-radius: 1em;
   padding: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 350px;
+    height: 125px;
   }
 `
 
 const TypeTime = styled.div`
   display: flex;
   justify-content: space-between;
-  margin-bottom: 0.25em;
 `
 
 const Place = styled.div`
-  position: absolute;
-  bottom: 10px;
   display: flex;
+  margin-top: 0.5em;
 `
 
 const TimeLineCard = ({ type, work, place, time }) => (

@@ -10,6 +10,7 @@ import ExperienceContainer from "../components/templates/ExperienceContainer"
 const Wrapper = styled.div``
 
 const Header = styled(Typography)`
+  margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }
@@ -23,14 +24,11 @@ const Content = styled.div`
   }
 `
 
-const DesktopHeaders = styled.div`
+const DesktopHeader = styled(Typography)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: flex;
-    justify-content: space-between;
-    h1:last-child {
-      margin: 0 33vw;
-    }
+    display: block;
+    margin: ${props => props.theme.spacing.heading} 0;
   }
 `
 const Skills = () => {
@@ -80,23 +78,26 @@ const Skills = () => {
         variant="h1"
         text={intl.formatMessage({ id: "skills" })}
       />
-      <DesktopHeaders>
-        <Typography
-          color="bodyContrast"
-          fontSize="subheader"
-          variant="h1"
-          text={intl.formatMessage({ id: "experience" })}
-        />
-        <Typography
-          color="bodyContrast"
-          fontSize="subheader"
-          variant="h1"
-          text={intl.formatMessage({ id: "skills" })}
-        />
-      </DesktopHeaders>
+
       <Content>
-        <SkillsContainer {...allDataJson} />
-        <ExperienceContainer {...experienceByLanguage} />
+        <div>
+          <DesktopHeader
+            color="bodyContrast"
+            fontSize="subheader"
+            variant="h1"
+            text={intl.formatMessage({ id: "skills" })}
+          />{" "}
+          <SkillsContainer {...allDataJson} />
+        </div>
+        <div>
+          <DesktopHeader
+            color="bodyContrast"
+            fontSize="subheader"
+            variant="h1"
+            text={intl.formatMessage({ id: "experience" })}
+          />
+          <ExperienceContainer {...experienceByLanguage} />
+        </div>
       </Content>
     </Wrapper>
   )
