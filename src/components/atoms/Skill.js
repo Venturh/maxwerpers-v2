@@ -15,8 +15,8 @@ const Card = styled.div`
   align-items: center;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 85px;
-    height: 80px;
+    width: 92px;
+    height: 92px;
   }
 `
 

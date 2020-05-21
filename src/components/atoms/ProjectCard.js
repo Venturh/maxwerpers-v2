@@ -6,7 +6,7 @@ import Shape from "./Shape"
 
 export const Card = styled.div`
   background-color: ${props => props.theme.colors.toolbar};
-  border-radius: 1em;
+  border-radius: 0.5em;
   padding: 1em;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);

@@ -28,6 +28,13 @@ const Header = styled(Typography)`
 const Experiences = styled.div`
   display: grid;
   grid-gap: 1em;
+  :last-child {
+    margin-bottom: ${props => props.theme.spacing.heading};
+  }
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    grid-template-columns: repeat(1, auto);
+    grid-gap: 2em;
+  }
 `
 
 const StyledTimelineCards = styled.div`

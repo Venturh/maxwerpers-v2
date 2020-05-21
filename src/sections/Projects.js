@@ -5,6 +5,8 @@ import { useIntl } from "gatsby-plugin-intl"
 
 import ProjectCard from "../components/atoms/ProjectCard"
 import Typography from "../components/atoms/Typography"
+import rocketDark from "../images/rocket_dark.svg"
+import Button from "../components/atoms/Button"
 
 const Wrapper = styled.section`
   height: 100%;
@@ -17,18 +19,43 @@ const Wrapper = styled.section`
 const Cards = styled.div`
   display: grid;
   grid-template-columns: 100%;
-  margin: auto;
   grid-gap: 1rem;
+
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     grid-template-columns: repeat(3, auto);
-    justify-content: center;
+    margin: auto 0;
   }
 `
 
 const Heading = styled(Typography)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 10vh 0 0 0;
+    margin: 6vh 0 ${props => props.theme.spacing.heading} 0;
+  }
+`
+
+const Content = styled.div`
+  display: flex;
+  justify-content: space-around;
+`
+
+const Rocket = styled.img`
+  display: none;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: block;
+    height: 80vh;
+  }
+`
+
+const CardsWrapper = styled.div`
+  margin: auto 0;
+`
+
+const ShowMore = styled(Button)`
+  width: 100%;
+  margin: 1em 0.1em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 10vw;
   }
 `
 
@@ -65,11 +92,25 @@ const Projects = () => {
         fontSize="subheader"
         text={intl.formatMessage({ id: "projects" })}
       />
-      <Cards>
-        {githubData.data.user.pinnedItems.nodes.map((data, index) => {
-          return <ProjectCard key={index} {...data} />
-        })}
-      </Cards>
+      <Content>
+        <CardsWrapper>
+          <Cards>
+            {githubData.data.user.pinnedItems.nodes.map((data, index) => {
+              return <ProjectCard key={index} {...data} />
+            })}
+          </Cards>
+          <ShowMore
+            color="primaryContrast"
+            bg="primary"
+            rounded
+            onClick={() => window.open("https://github.com/Venturh")}
+          >
+            {intl.formatMessage({ id: "showmore" })}
+          </ShowMore>
+        </CardsWrapper>
+
+        <Rocket src={rocketDark} />
+      </Content>
     </Wrapper>
   )
 }

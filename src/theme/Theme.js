@@ -8,7 +8,7 @@ export const lightTheme = {
     bodyContrast: "#292929",
     bodyTint: "#292929",
     toolbarContrast: "#1E1E1E",
-    toolbar: "#f4f5f8",
+    toolbar: "#F1F1EF",
   },
   spacing: {
     heading: "0.5em",

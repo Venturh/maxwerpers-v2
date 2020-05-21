@@ -5,7 +5,6 @@ import Skill from "../atoms/Skill"
 import Typography from "../atoms/Typography"
 
 const Wrapper = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -13,23 +12,22 @@ const Wrapper = styled.div`
   border-radius: 25px 25px 0 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 35vw;
-    height: 92.5vh;
+    height: 100%;
   }
 `
 
-const Section = styled.div`
-  text-align: center;
-  margin-bottom: 10px;
-`
-
 const SectionTitle = styled(Typography)`
-  margin-bottom: 10px;
+  text-align: center;
+  margin: ${props => props.theme.spacing.heading} 0;
 `
 
 const SectionSkills = styled.div`
   display: grid;
   grid-template-columns: repeat(3, auto);
   grid-gap: 1em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    grid-gap: 1em 2em;
+  }
 `
 
 const SkillsContainer = allDataJson => {
@@ -37,18 +35,18 @@ const SkillsContainer = allDataJson => {
     <Wrapper>
       {Object.keys(allDataJson.nodes[0]).map((section, index) => {
         return (
-          <Section key={index}>
+          <div key={index}>
             <SectionTitle
               color="primaryContrast"
               fontSize="subtitle"
-              text={section}
+              text={section.replace("_", " ")}
             />
             <SectionSkills>
               {allDataJson.nodes[0][section].map((skill, index) => (
                 <Skill key={index} iconName={skill.name} icon={skill.path} />
               ))}
             </SectionSkills>
-          </Section>
+          </div>
         )
       })}
     </Wrapper>

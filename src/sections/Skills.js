@@ -28,6 +28,7 @@ const DesktopHeader = styled(Typography)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
+    text-align: center;
     margin: ${props => props.theme.spacing.heading} 0;
   }
 `
@@ -40,7 +41,7 @@ const Skills = () => {
             name
             path
           }
-          Software {
+          Software_Development {
             name
             path
           }

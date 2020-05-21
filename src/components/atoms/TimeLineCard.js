@@ -17,8 +17,8 @@ const Card = styled.div`
   justify-content: space-around;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 350px;
-    height: 125px;
+    width: 25vw;
+    height: 15vh;
   }
 `
 

@@ -6,7 +6,7 @@ import Typography from "./Typography"
 const StyledButton = styled.button`
   ${color}
   padding: 10px;
-  border-radius: ${props => (props.rounded ? "5px" : 0)};
+  border-radius: ${props => (props.rounded ? "0.25em" : 0)};
   border: inherit;
   cursor: pointer;
   white-space: nowrap;
