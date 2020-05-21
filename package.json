@@ -28,6 +28,7 @@
 		"prop-types": "^15.7.2",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
+		"react-headroom": "^3.0.0",
 		"react-helmet": "^6.0.0",
 		"react-scroll": "^1.7.16",
 		"styled-components": "^5.1.0",

@@ -41,7 +41,6 @@ const NavTool = styled.div`
 const Desktop = ({ navlinks }) => {
   const intl = useIntl()
   const l = ["Deutsch", "English", "Francais"]
-  console.log("navlinks", navlinks)
   const theme = useTheme()
   return (
     <Nav>
