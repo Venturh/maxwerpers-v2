@@ -3,7 +3,7 @@ import styled, { useTheme } from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { Language } from "@styled-icons/material/Language"
-import { scroller } from "react-scroll"
+import { animateScroll as scroll, scroller } from "react-scroll"
 
 import Typography from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
@@ -94,7 +94,18 @@ const Mobile = ({ navlinks }) => {
       <Bottom>
         {navlinks.map((link, index) => {
           return (
-            <Item key={index} onClick={() => scrollTo(link.path)}>
+            <Item
+              key={index}
+              onClick={() =>
+                index === 0
+                  ? scroll.scrollToTop({
+                      duration: 300,
+                      delay: 0,
+                      smooth: "easeInOutQuart",
+                    })
+                  : scrollTo(link.path)
+              }
+            >
               <IconImage>
                 <path d={link.icon} />
               </IconImage>

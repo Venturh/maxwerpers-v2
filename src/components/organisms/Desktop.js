@@ -75,7 +75,7 @@ const Desktop = ({ navlinks }) => {
             dropdownBackground={theme.colors.bodyTint}
             dropdownHoverColor={theme.colors.toolbarBackground}
           ></LanguageSwitch>
-          <ThemeToggle />
+          <ThemeToggle iconSize="1.25em" />
         </NavTool>
       </NavItems>
     </Nav>

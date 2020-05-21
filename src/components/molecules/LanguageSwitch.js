@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
-import { Language } from "@styled-icons/material/Language"
+//import { Language } from "@styled-icons/material/Language"
+import { Language } from "@styled-icons/entypo/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 
@@ -18,7 +19,6 @@ const Display = styled.div`
     width: ${props => props.iconSize || "1.8em"};
   }
 `
-const StyledLanguageIcon = styled(Language)``
 
 const StyledDropIcon = styled(KeyboardArrowDown)`
   cursor: pointer;
@@ -78,7 +78,7 @@ const LanguageSwitch = ({
   return (
     <StyledLanguageSwitch>
       <Display iconColor={iconColor} iconSize={iconSize}>
-        <StyledLanguageIcon />
+        <Language />
         <CurrentLanguage fontSize={fontSize}>
           {currentLanguage.toUpperCase()}
         </CurrentLanguage>

@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import styled from "styled-components"
-import scrollTo from "gatsby-plugin-smoothscroll"
+import { animateScroll as scroll, scroller } from "react-scroll"
 
 import Typography from "../atoms/Typography"
 
@@ -31,7 +31,11 @@ export const Tabs = ({ children, indicatorColor, fontSize, textColor }) => {
 
   const clicked = (index, label) => {
     if (label) {
-      scrollTo("#" + label)
+      scroller.scrollTo(label, {
+        duration: 300,
+        delay: 0,
+        smooth: "easeInOutQuart",
+      })
     }
     setTabPosition(index)
   }
@@ -46,9 +50,15 @@ export const Tabs = ({ children, indicatorColor, fontSize, textColor }) => {
           value={index}
           tabPosition={position}
           key={index}
-          onClick={() => {
-            clicked(index, Child.props.path)
-          }}
+          onClick={() =>
+            index === 0
+              ? scroll.scrollToTop({
+                  duration: 300,
+                  delay: 0,
+                  smooth: "easeInOutQuart",
+                })
+              : clicked(index, Child.props.path)
+          }
         >
           {Child}
         </StyledChild>
