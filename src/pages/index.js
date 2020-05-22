@@ -4,6 +4,7 @@ import Layout from "../components/templates/Layout"
 import Start from "../sections/Start"
 import Projects from "../sections/Projects"
 import Skills from "../sections/Skills"
+import Blog from "../sections/Blog"
 
 const Home = ({ data }) => {
   return (
@@ -12,6 +13,7 @@ const Home = ({ data }) => {
       <Start />
       <Projects />
       <Skills />
+      <Blog />
     </Layout>
   )
 }

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { useTheme } from "styled-components"
@@ -6,9 +6,12 @@ import { Language } from "@styled-icons/material/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { animateScroll as scroll, scroller } from "react-scroll"
 
+import logoDark from "../../images/logo_dark.svg"
+import logoLight from "../../images/logo_light.svg"
 import ThemeToggle from "../atoms/ThemeToggle"
 import { Tabs, Tab } from "../molecules/Tabs"
 import LanguageSwitch from "../molecules/LanguageSwitch"
+import ThemeContext from "../../utils/ThemeContext"
 
 const Nav = styled.div`
   display: flex;
@@ -23,8 +26,8 @@ const Nav = styled.div`
   }
 `
 
-const Logo = styled.h4`
-  color: ${({ theme }) => theme.colors.primary};
+const Logo = styled.img`
+  height: 4vh;
 `
 
 const NavItems = styled.ul`
@@ -42,6 +45,7 @@ const Desktop = ({ navlinks }) => {
   const intl = useIntl()
   const l = ["Deutsch", "English", "Francais"]
   const theme = useTheme()
+  const themeMode = useContext(ThemeContext)
 
   const scrollTo = label => {
     const options = {
@@ -49,17 +53,15 @@ const Desktop = ({ navlinks }) => {
       delay: 0,
       smooth: "easeInOutQuart",
     }
-    console.log("label")
     if (label === "home") {
       scroll.scrollToTop(options)
     } else {
       scroller.scrollTo(label, options)
     }
   }
-
   return (
     <Nav>
-      <Logo>Logo</Logo>
+      <Logo src={themeMode.theme === "dark" ? logoDark : logoLight} />
       <NavItems>
         <Tabs
           indicatorColor={theme.colors.primary}

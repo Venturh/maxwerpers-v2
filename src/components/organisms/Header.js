@@ -24,8 +24,8 @@ const Header = () => {
     `
   )
 
-  const headerByLanguage = allNavigationJson.nodes.filter(
-    nodes => nodes.lang === currentLanguage
+  const headerByLanguage = allNavigationJson.nodes.filter(nodes =>
+    nodes.lang.includes(currentLanguage)
   )
 
   return (

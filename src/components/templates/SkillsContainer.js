@@ -10,9 +10,9 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
   border-radius: 25px 25px 0 0;
+  padding-bottom: ${props => props.theme.spacing.heading};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 35vw;
-    height: 100%;
   }
 `
 
