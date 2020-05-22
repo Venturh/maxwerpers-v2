@@ -6,10 +6,10 @@ import Projects from "../sections/Projects"
 import Skills from "../sections/Skills"
 import Blog from "../sections/Blog"
 
-const Home = () => {
+const Portfolio = () => {
   return (
     <Layout>
-      <Seo title="Home" />
+      <Seo title="Portfolio Max Werpers" />
       <Start />
       <Projects />
       <Skills />
@@ -18,4 +18,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Portfolio
