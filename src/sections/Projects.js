@@ -5,7 +5,6 @@ import { useIntl } from "gatsby-plugin-intl"
 
 import ProjectCard from "../components/atoms/ProjectCard"
 import Typography from "../components/atoms/Typography"
-import rocketDark from "../images/rocket_dark.svg"
 import Button from "../components/atoms/Button"
 
 const Wrapper = styled.section`
@@ -14,16 +13,6 @@ const Wrapper = styled.section`
     display: flex;
     flex-direction: column;
     height: 100vh;
-  }
-`
-const Cards = styled.div`
-  display: grid;
-  grid-template-columns: 100%;
-  grid-gap: 1rem;
-
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    grid-template-columns: repeat(3, auto);
-    margin: auto 0;
   }
 `
 
@@ -35,20 +24,17 @@ const Heading = styled(Typography)`
 `
 
 const Content = styled.div`
-  display: flex;
-  justify-content: space-around;
-`
-
-const Rocket = styled.img`
-  display: none;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: block;
-    height: 80vh;
-  }
-`
-
-const CardsWrapper = styled.div`
   margin: auto 0;
+`
+
+const Cards = styled.div`
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 1rem;
+
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    grid-template-columns: repeat(3, auto);
+  }
 `
 
 const ShowMore = styled(Button)`
@@ -92,24 +78,21 @@ const Projects = () => {
         fontSize="subheader"
         text={intl.formatMessage({ id: "projects" })}
       />
-      <Content>
-        <CardsWrapper>
-          <Cards>
-            {githubData.data.user.pinnedItems.nodes.map((data, index) => {
-              return <ProjectCard key={index} {...data} />
-            })}
-          </Cards>
-          <ShowMore
-            color="primaryContrast"
-            bg="primary"
-            rounded
-            onClick={() => window.open("https://github.com/Venturh")}
-          >
-            {intl.formatMessage({ id: "showmore" })}
-          </ShowMore>
-        </CardsWrapper>
 
-        <Rocket src={rocketDark} />
+      <Content>
+        <Cards>
+          {githubData.data.user.pinnedItems.nodes.map((data, index) => {
+            return <ProjectCard key={index} {...data} />
+          })}
+        </Cards>
+        <ShowMore
+          color="primaryContrast"
+          bg="primary"
+          rounded
+          onClick={() => window.open("https://github.com/Venturh")}
+        >
+          {intl.formatMessage({ id: "showmore" })}
+        </ShowMore>
       </Content>
     </Wrapper>
   )

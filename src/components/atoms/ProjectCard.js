@@ -4,21 +4,15 @@ import Typography from "./Typography"
 import Button from "./Button"
 import Shape from "./Shape"
 
-export const Card = styled.div`
+const Card = styled.div`
   background-color: ${props => props.theme.colors.toolbar};
   border-radius: 0.5em;
-  padding: 1em;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    padding: 0.5rem;
-  }
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    padding: 1rem;
-  }
+  padding: 0.75em;
 `
 
-export const TagWrapper = styled.div`
+const TagWrapper = styled.div`
   display: flex;
   align-items: center;
   p {
@@ -33,18 +27,14 @@ const StyledDescription = styled(Typography)`
   -webkit-box-orient: vertical;
 `
 
-export const ButtonWrapper = styled.div`
+const ButtonWrapper = styled.div`
   display: flex;
-  margin-top: 0.75em;
+  margin-top: 0.5em;
   Button {
-    margin-right: 1em;
-    padding-left: 1em;
-    padding-right: 1em;
-    min-width: 30%;
+    margin-right: 0.5em;
+    padding: 0.5em 1em;
   }
 `
-
-export const TextWrapper = styled.div``
 
 const ProjectCard = ({
   url,
@@ -58,8 +48,8 @@ const ProjectCard = ({
       <TagWrapper>
         <Shape
           bg={primaryLanguage.color}
-          width={10}
-          height={10}
+          width={7.5}
+          height={7.5}
           borderRadius="100%"
         />
         <Typography
@@ -69,20 +59,18 @@ const ProjectCard = ({
           text={primaryLanguage.name}
         />
       </TagWrapper>
-      <TextWrapper>
-        <Typography
-          variant="p"
-          fontWeight="bold"
-          fontSize="subtitle"
-          text={nameWithOwner}
-        />
-        <StyledDescription
-          variant="p"
-          fontSize="body"
-          fontWeight="400"
-          text={description}
-        />
-      </TextWrapper>
+      <Typography
+        variant="p"
+        fontWeight="bold"
+        fontSize="body"
+        text={nameWithOwner}
+      />
+      <StyledDescription
+        variant="p"
+        fontSize="subbody"
+        fontWeight="400"
+        text={description}
+      />
       <ButtonWrapper>
         <Button
           rounded

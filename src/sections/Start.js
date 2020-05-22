@@ -44,8 +44,8 @@ const InfoWrapper = styled.div`
   margin-top: 5%;
   display: flex;
   flex-direction: column;
-  justify-items: center;
   align-items: center;
+  text-align: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-top: 0;
     align-items: start;
@@ -129,7 +129,7 @@ const Start = () => {
         />
         <Typography
           variant="p"
-          fontSize="subtitle"
+          fontSize="body"
           color="bodyContrast"
           text={intl.formatMessage({ id: "welcomeSub" })}
         />
