@@ -35,7 +35,6 @@ export const Tabs = ({
   const [position, setTabPosition] = useState(0)
 
   const clickAction = (index, label, onClick) => {
-    console.log("label", label)
     onClick(label)
     setTabPosition(index)
   }

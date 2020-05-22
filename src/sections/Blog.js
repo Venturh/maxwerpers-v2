@@ -2,10 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import Typography from "../components/atoms/Typography"
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  height: 100vh;
+`
 
 const Header = styled(Typography)`
-  margin: ${props => props.theme.spacing.heading} 0;
+  margin: 6vh 0 ${props => props.theme.spacing.heading} 0;
 `
 
 const Content = styled.div``

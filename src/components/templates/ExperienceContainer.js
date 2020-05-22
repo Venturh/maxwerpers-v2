@@ -9,7 +9,6 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
-  border-radius: 0px 0px 25px 25px;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 35vw;
     flex-direction: row;

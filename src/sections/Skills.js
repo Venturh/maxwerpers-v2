@@ -29,7 +29,7 @@ const DesktopHeader = styled(Typography)`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
     text-align: center;
-    margin: ${props => props.theme.spacing.heading} 0;
+    margin: 6vh 0 ${props => props.theme.spacing.heading} 0;
   }
 `
 const Skills = () => {

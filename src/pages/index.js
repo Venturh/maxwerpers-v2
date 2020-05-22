@@ -6,7 +6,7 @@ import Projects from "../sections/Projects"
 import Skills from "../sections/Skills"
 import Blog from "../sections/Blog"
 
-const Home = ({ data }) => {
+const Home = () => {
   return (
     <Layout>
       <Seo title="Home" />

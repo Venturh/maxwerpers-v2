@@ -32,8 +32,7 @@ function Seo({ description, lang, meta, title }) {
       htmlAttributes={{
         lang,
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      title={site.siteMetadata.title}
       meta={[
         {
           name: `description`,
@@ -73,7 +72,7 @@ function Seo({ description, lang, meta, title }) {
 }
 
 Seo.defaultProps = {
-  lang: `en`,
+  lang: `de`,
   meta: [],
   description: ``,
 }

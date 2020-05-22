@@ -18,7 +18,7 @@ const Card = styled.div`
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 25vw;
-    height: 15vh;
+    height: 12.5vh;
   }
 `
 
