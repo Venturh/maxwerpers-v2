@@ -35,6 +35,7 @@ const TypeTime = styled.div`
 const Place = styled.div`
   display: flex;
   margin-top: 0.5em;
+  align-items: center;
 `
 
 const TimeLineCard = ({ type, work, place, time }) => (
