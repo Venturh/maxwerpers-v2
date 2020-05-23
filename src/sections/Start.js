@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
+import { scroller } from "react-scroll"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 
@@ -134,10 +135,32 @@ const Start = () => {
           text={intl.formatMessage({ id: "welcomeSub" })}
         />
         <ButtonGroup>
-          <StyledButton color="primaryContrast" bg="primary" rounded>
+          <StyledButton
+            color="primaryContrast"
+            bg="primary"
+            rounded
+            onClick={() =>
+              scroller.scrollTo("projects", {
+                duration: 300,
+                delay: 0,
+                smooth: "easeInOutQuart",
+              })
+            }
+          >
             {intl.formatMessage({ id: "projects" })}
           </StyledButton>
-          <StyledButton color="secondaryContrast" bg="secondary" rounded>
+          <StyledButton
+            color="secondaryContrast"
+            bg="secondary"
+            rounded
+            onClick={() =>
+              scroller.scrollTo("skills", {
+                duration: 300,
+                delay: 0,
+                smooth: "easeInOutQuart",
+              })
+            }
+          >
             {intl.formatMessage({ id: "experience" })}
           </StyledButton>
         </ButtonGroup>
