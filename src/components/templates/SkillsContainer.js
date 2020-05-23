@@ -8,12 +8,13 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${props => props.theme.colors.primary};
   border-radius: 25px 25px 0 0;
   padding-bottom: ${props => props.theme.spacing.heading};
+  background-color: ${props => props.theme.colors.primary};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 35vw;
     border-radius: 25px;
+    padding-bottom: 1.75em;
   }
 `
 

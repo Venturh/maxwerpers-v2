@@ -19,7 +19,7 @@ const Header = styled(Typography)`
 const Content = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-direction: row-reverse;
   }
 `
@@ -29,7 +29,8 @@ const DesktopHeader = styled(Typography)`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
     text-align: center;
-    margin: 6vh 0 ${props => props.theme.spacing.heading} 0;
+    margin: ${props => props.theme.spacing.heading} 0
+      ${props => props.theme.spacing.heading} 0;
   }
 `
 const Skills = () => {

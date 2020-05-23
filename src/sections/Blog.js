@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Typography from "../components/atoms/Typography"
 
 const Wrapper = styled.div`
+  position: relative;
   height: 100vh;
 `
 
@@ -24,7 +25,7 @@ const Blog = () => {
       <Content>
         <Typography
           color="bodyContrast"
-          fontSize="subheader"
+          fontSize="title"
           variant="h1"
           text="Comming soon"
         />

@@ -19,7 +19,8 @@ const Wrapper = styled.section`
 const Heading = styled(Typography)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 6vh 0 ${props => props.theme.spacing.heading} 0;
+    margin: ${props => props.theme.spacing.heading} 0
+      ${props => props.theme.spacing.heading} 0;
   }
 `
 

@@ -4,6 +4,7 @@ import styled from "styled-components"
 import Typography from "./Typography"
 
 const Card = styled.div`
+  position: relative;
   background-color: ${({ theme }) => theme.colors.toolbar};
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.55);
   width: 72px;
@@ -11,8 +12,8 @@ const Card = styled.div`
   border-radius: 1em;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
+  justify-content: center;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 92px;
@@ -22,14 +23,16 @@ const Card = styled.div`
 
 const Icon = styled.svg`
   fill: ${({ theme }) => theme.colors.primary};
-  width: 2rem;
+  width: 2em;
+  margin-bottom: 0.75em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 2.5em;
+    margin-bottom: 0.5em;
   }
 `
 
 const StyledTypography = styled(Typography)`
-  margin-top: 0.5em;
+  position: absolute;
+  bottom: 0.5em;
 `
 
 const Skill = ({ icon, iconName }) => (
@@ -37,7 +40,7 @@ const Skill = ({ icon, iconName }) => (
     <Icon viewBox="0 0 24 24">
       <path d={icon} />
     </Icon>
-    <StyledTypography variant="p" fontSize="caption" text={iconName} />
+    <StyledTypography variant="p" fontSize="xs" text={iconName} />
   </Card>
 )
 

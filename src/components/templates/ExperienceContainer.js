@@ -10,10 +10,10 @@ const Wrapper = styled.div`
   align-items: center;
   background-color: ${props => props.theme.colors.primary};
   border-radius: 0 0 25px 25px;
+  padding-bottom: 1.75em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 35vw;
-    flex-direction: row;
-    justify-content: flex-end;
+    margin-top: 10%;
+    width: 40vw;
     background-color: inherit;
   }
 `

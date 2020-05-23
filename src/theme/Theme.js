@@ -1,3 +1,31 @@
+const fontSizes = {
+  xs: "0.675em",
+  caption: "0.675em",
+  button: "0.775em",
+  subbody: "0.875em",
+  body: "1em",
+  subtitle: "1.25em",
+  title: "1.5em",
+  subheader: "2em",
+  header: "3em",
+}
+
+const spacing = {
+  heading: "0.5em",
+  desktop: {
+    sides: "3%",
+  },
+  mobile: {
+    sides: "5%",
+  },
+}
+
+const breakpoints = {
+  sm: "576px",
+  md: "768px",
+  lg: "992px",
+  xl: "1200px",
+}
 export const lightTheme = {
   colors: {
     primary: "#58E887 ",
@@ -10,31 +38,9 @@ export const lightTheme = {
     toolbarContrast: "#1E1E1E",
     toolbar: "#F1F1EF",
   },
-  spacing: {
-    heading: "0.5em",
-    desktop: {
-      sides: "3%",
-    },
-    mobile: {
-      sides: "5%",
-    },
-  },
-  fontSizes: {
-    caption: "0.675em",
-    button: "0.775em",
-    subbody: "0.875em",
-    body: "1em",
-    subtitle: "1.25em",
-    title: "1.5em",
-    subheader: "2em",
-    header: "3em",
-  },
-  breakpoints: {
-    sm: "576px",
-    md: "768px",
-    lg: "992px",
-    xl: "1200px",
-  },
+  fontSizes,
+  spacing,
+  breakpoints,
 }
 
 export const darkTheme = {
@@ -49,29 +55,7 @@ export const darkTheme = {
     toolbarContrast: "#f4f5f8",
     toolbar: "#1E1E1E",
   },
-  spacing: {
-    heading: "0.5em",
-    desktop: {
-      sides: "3%",
-    },
-    mobile: {
-      sides: "5%",
-    },
-  },
-  fontSizes: {
-    caption: "0.675em",
-    button: "0.775em",
-    subbody: "0.875em",
-    body: "1em",
-    subtitle: "1.25em",
-    title: "1.5em",
-    subheader: "2em",
-    header: "3em",
-  },
-  breakpoints: {
-    sm: "576px",
-    md: "768px",
-    lg: "992px",
-    xl: "1200px",
-  },
+  fontSizes,
+  spacing,
+  breakpoints,
 }
