@@ -6,6 +6,7 @@ module.exports = {
     title: `Portfolio Max Werpers`,
     description: `Wilkommen auf meinem persönlichen Portfolio. Hier stelle ich meine aktuellsten Projekte und Erfahrungen aus.`,
     author: `@venturh`,
+    keywords: "Werpers",
     lan: "de",
   },
   plugins: [
