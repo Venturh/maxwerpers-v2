@@ -61,7 +61,10 @@ const Desktop = ({ navlinks }) => {
   }
   return (
     <Nav>
-      <Logo src={themeMode.theme === "dark" ? logoDark : logoLight} />
+      <Logo
+        src={themeMode.theme === "dark" ? logoDark : logoLight}
+        alt="logo-nav"
+      />
       <NavItems>
         <Tabs
           indicatorColor={theme.colors.primary}

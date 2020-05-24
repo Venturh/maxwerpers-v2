@@ -114,7 +114,7 @@ const Start = () => {
         <Shape bg="primary" width={20} height={20} borderRadius="100%" />
         <Shape bg="primary" width={20} height={20} borderRadius="100%" />
       </Shapes>
-      <Cover src={theme === "light" ? coverLight : coverDark} />
+      <Cover src={theme === "light" ? coverLight : coverDark} alt="cover" />
       <InfoWrapper>
         <Typography
           variant="p"

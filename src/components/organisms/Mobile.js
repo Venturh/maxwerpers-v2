@@ -86,7 +86,10 @@ const Mobile = ({ navlinks }) => {
   return (
     <Navigation>
       <Top>
-        <Logo src={themeMode.theme === "dark" ? logoDark : logoLight} />
+        <Logo
+          src={themeMode.theme === "dark" ? logoDark : logoLight}
+          alt="logo-nav"
+        />
         <TopItems>
           <LanguageSwitch
             changeLanguage={changeLocale}
