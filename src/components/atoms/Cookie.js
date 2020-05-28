@@ -44,6 +44,7 @@ const Cookie = ({
 
   useEffect(() => {
     if (Cookies.get(cookiename)) {
+      setShow(false)
     }
   }, [cookiename])
 
