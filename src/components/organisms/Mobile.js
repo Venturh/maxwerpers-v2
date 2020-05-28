@@ -40,6 +40,7 @@ const TopItems = styled.div`
 const Bottom = styled.div`
   position: fixed;
   overflow: hidden;
+  height: 8vh;
   z-index: 1;
   bottom: 0;
   width: 100vw;

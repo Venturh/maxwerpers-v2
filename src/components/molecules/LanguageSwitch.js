@@ -11,7 +11,9 @@ import DropDown from "../atoms/DropDown"
 const DropdownIcon = ({ open }) =>
   open ? <KeyboardArrowUp /> : <KeyboardArrowDown />
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  cursor: pointer;
+`
 
 const Display = styled.div`
   display: flex;

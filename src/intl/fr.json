@@ -6,5 +6,8 @@
   "projects": "Projets",
   "skills": "Compétences",
   "experience": "Expérience",
-  "showmore": "voir tout"
+  "showmore": "voir tout",
+  "cookieMessage": "J'utilise des cookies pour personnaliser ma page et suivre le trafic",
+  "accept": "Accepter",
+  "decline": "Rejeter"
 }

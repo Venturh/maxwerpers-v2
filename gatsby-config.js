@@ -105,5 +105,15 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: `gatsby-plugin-gdpr-cookies`,
+      options: {
+        googleAnalytics: {
+          trackingId: process.env.GATSBY_GA_TOKEN,
+          cookieName: "gatsby-gdpr-google-analytics",
+          anonymize: true, // default
+        },
+      },
+    },
   ],
 }

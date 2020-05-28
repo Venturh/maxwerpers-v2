@@ -5,11 +5,14 @@ import { scroller } from "react-scroll"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 
+import coverDark from "../images/cover_dark.svg"
+import coverLight from "../images/cover_light.svg"
+
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
-import coverDark from "../images/cover_dark.svg"
-import coverLight from "../images/cover_light.svg"
+import Cookie from "../components/atoms/Cookie"
+
 import ThemeContext from "../utils/ThemeContext"
 
 const Wrapper = styled.section`
@@ -25,10 +28,25 @@ const Wrapper = styled.section`
   }
 `
 
+const CookieWrapper = styled.div`
+  position: absolute;
+  top: 5vh; /* position the top  edge of the element at the middle of the parent */
+  left: 50%; /* position the left edge of the element at the middle of the parent */
+
+  transform: translate(-50%, 1em);
+
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    bottom: 0px;
+    top: initial;
+    left: initial;
+    transform: initial;
+  }
+`
+
 const Shapes = styled.div`
   position: absolute;
   right: 0px;
-  top: 10vh;
+  top: 8vh;
   display: flex;
   flex-direction: row-reverse;
   z-index: -1;
@@ -102,8 +120,19 @@ const Social = styled.div`
 const Start = () => {
   const { theme } = useContext(ThemeContext)
   const intl = useIntl()
+
   return (
     <Wrapper id="home">
+      <CookieWrapper>
+        <Cookie
+          cookiename="gatsby-gdpr-google-analytics"
+          message={intl.formatMessage({ id: "cookieMessage" })}
+          acceptMessage={intl.formatMessage({ id: "accept" })}
+          accept={true}
+          decline={false}
+          declineMessage={intl.formatMessage({ id: "decline" })}
+        />
+      </CookieWrapper>
       <Shapes>
         <Shape
           bg="primary"
