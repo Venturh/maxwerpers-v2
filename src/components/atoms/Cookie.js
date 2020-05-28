@@ -40,11 +40,11 @@ const Cookie = ({
   accept,
   decline,
 }) => {
-  const [show, setShow] = useState(true)
+  const [show, setShow] = useState(false)
 
   useEffect(() => {
-    if (Cookies.get(cookiename)) {
-      setShow(false)
+    if (Cookies.get(cookiename) === undefined) {
+      setShow(true)
     }
   }, [cookiename])
 
