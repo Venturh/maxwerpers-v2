@@ -11,7 +11,7 @@ import coverLight from "../images/cover_light.svg"
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
-import Cookie from "../components/atoms/Cookie"
+// import Cookie from "../components/atoms/Cookie"
 
 import ThemeContext from "../utils/ThemeContext"
 
@@ -28,20 +28,20 @@ const Wrapper = styled.section`
   }
 `
 
-const CookieWrapper = styled.div`
-  position: absolute;
-  top: 5vh; /* position the top  edge of the element at the middle of the parent */
-  left: 50%; /* position the left edge of the element at the middle of the parent */
+// const CookieWrapper = styled.div`
+//   position: absolute;
+//   top: 5vh;
+//   left: 50%;
 
-  transform: translate(-50%, 1em);
+//   transform: translate(-50%, 1em);
 
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    bottom: 0px;
-    top: initial;
-    left: initial;
-    transform: initial;
-  }
-`
+//   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+//     bottom: 0px;
+//     top: initial;
+//     left: initial;
+//     transform: initial;
+//   }
+// `
 
 const Shapes = styled.div`
   position: absolute;
@@ -123,7 +123,7 @@ const Start = () => {
 
   return (
     <Wrapper id="home">
-      <CookieWrapper>
+      {/* <CookieWrapper>
         <Cookie
           cookiename="gatsby-gdpr-google-analytics"
           message={intl.formatMessage({ id: "cookieMessage" })}
@@ -132,7 +132,7 @@ const Start = () => {
           decline={false}
           declineMessage={intl.formatMessage({ id: "decline" })}
         />
-      </CookieWrapper>
+      </CookieWrapper> */}
       <Shapes>
         <Shape
           bg="primary"
