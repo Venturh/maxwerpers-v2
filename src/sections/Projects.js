@@ -64,6 +64,9 @@ const Projects = () => {
                     name
                     color
                   }
+                  stargazers {
+                    totalCount
+                  }
                 }
               }
             }

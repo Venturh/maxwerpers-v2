@@ -82,6 +82,9 @@ module.exports = {
                       name
                       color
                     }
+                    stargazers{
+                      totalCount
+                    }
                   }
                 }
               }

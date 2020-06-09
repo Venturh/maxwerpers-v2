@@ -1,5 +1,7 @@
 import React from "react"
 import styled from "styled-components"
+import { Star } from "@styled-icons/remix-line/Star"
+
 import Typography from "./Typography"
 import Button from "./Button"
 import Shape from "./Shape"
@@ -20,6 +22,7 @@ const Card = styled.div`
 `
 
 const TagWrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   p {
@@ -36,11 +39,24 @@ const StyledDescription = styled(Typography)`
 
 const ButtonWrapper = styled.div`
   display: flex;
+  align-items: center;
   margin-top: 0.5em;
   Button {
     margin-right: 0.5em;
     padding: 0.5em 1em;
   }
+`
+
+const StarWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  position: absolute;
+  right: 0px;
+`
+
+const StyledStar = styled(Star)`
+  width: 1em;
+  margin-right: 0.1em;
 `
 
 const ProjectCard = ({
@@ -49,6 +65,7 @@ const ProjectCard = ({
   description,
   homepageUrl,
   primaryLanguage,
+  stargazers,
 }) => {
   return (
     <Card>
@@ -65,6 +82,15 @@ const ProjectCard = ({
           fontWeight="400"
           text={primaryLanguage.name}
         />
+        <StarWrapper>
+          <StyledStar />
+          <Typography
+            variant="p"
+            fontSize="button"
+            fontWeight="400"
+            text={stargazers.totalCount}
+          />
+        </StarWrapper>
       </TagWrapper>
       <Typography
         variant="p"
