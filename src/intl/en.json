@@ -9,5 +9,6 @@
   "showmore": "show all",
   "cookieMessage": "I use third party cookies to personalize the content and analyze site traffic",
   "accept": "Accept",
-  "decline": "Decline"
+  "decline": "Decline",
+  "infoMessage": "Currently looking for an internship in frontend development"
 }

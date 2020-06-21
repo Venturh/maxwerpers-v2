@@ -11,7 +11,7 @@ import coverLight from "../images/cover_light.svg"
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
-// import Cookie from "../components/atoms/Cookie"
+import Message from "../components/atoms/Message"
 
 import ThemeContext from "../utils/ThemeContext"
 
@@ -28,20 +28,16 @@ const Wrapper = styled.section`
   }
 `
 
-// const CookieWrapper = styled.div`
-//   position: absolute;
-//   top: 5vh;
-//   left: 50%;
-
-//   transform: translate(-50%, 1em);
-
-//   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-//     bottom: 0px;
-//     top: initial;
-//     left: initial;
-//     transform: initial;
-//   }
-// `
+const MessageWrapper = styled.div`
+  display: none;
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
+    display: block;
+    position: absolute;
+    top: 6.1vh;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+`
 
 const Shapes = styled.div`
   position: absolute;
@@ -123,16 +119,9 @@ const Start = () => {
 
   return (
     <Wrapper id="home">
-      {/* <CookieWrapper>
-        <Cookie
-          cookiename="gatsby-gdpr-google-analytics"
-          message={intl.formatMessage({ id: "cookieMessage" })}
-          acceptMessage={intl.formatMessage({ id: "accept" })}
-          accept={true}
-          decline={false}
-          declineMessage={intl.formatMessage({ id: "decline" })}
-        />
-      </CookieWrapper> */}
+      <MessageWrapper>
+        <Message message={intl.formatMessage({ id: "infoMessage" })} />
+      </MessageWrapper>
       <Shapes>
         <Shape
           bg="primary"

@@ -45,10 +45,11 @@ const StyledTimelineCards = styled.div`
       content: "";
       position: relative;
       width: 3px;
-      background-color: ${props => props.theme.colors.secondary};
+      background-color: ${props => props.theme.colors.primary};
       border-radius: 3px;
       top: 50%;
-      margin-top: 15px;
+      margin-top: 2em;
+
       bottom: 0;
       right: 15.5%;
     }
@@ -57,7 +58,7 @@ const StyledTimelineCards = styled.div`
       content: "";
       position: relative;
       width: 3px;
-      top: 50%;
+      top: 62%;
       bottom: 0;
     }
   }
@@ -70,7 +71,7 @@ const LineWrapper = styled.div`
     span {
       align-self: center;
       position: relative;
-      right: calc(15% + 9px);
+      right: calc(15.5% + 7px);
       z-index: 1;
     }
   }
@@ -92,7 +93,7 @@ const ExperienceContainer = experienceByLanguage => {
           {Object.values(experienceByLanguage).map((experience, index) => (
             <StyledTimelineCards key={index}>
               <StyledCircle
-                bg="secondary"
+                bg="primary"
                 width={12.5}
                 height={12.5}
                 borderRadius="100%"
