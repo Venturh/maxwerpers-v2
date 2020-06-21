@@ -11,7 +11,6 @@ import coverLight from "../images/cover_light.svg"
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
-import Message from "../components/atoms/Message"
 
 import ThemeContext from "../utils/ThemeContext"
 
@@ -27,18 +26,6 @@ const Wrapper = styled.section`
     align-items: center;
   }
 `
-
-const MessageWrapper = styled.div`
-  display: none;
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    display: block;
-    position: absolute;
-    top: 6.1vh;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-`
-
 const Shapes = styled.div`
   position: absolute;
   right: 0px;
@@ -119,9 +106,6 @@ const Start = () => {
 
   return (
     <Wrapper id="home">
-      <MessageWrapper>
-        <Message message={intl.formatMessage({ id: "infoMessage" })} />
-      </MessageWrapper>
       <Shapes>
         <Shape
           bg="primary"
@@ -147,10 +131,16 @@ const Start = () => {
           text={intl.formatMessage({ id: "welcomeMsg" })}
         />
         <Typography
-          variant="p"
+          variant="span"
           fontSize="body"
           color="bodyContrast"
           text={intl.formatMessage({ id: "welcomeSub" })}
+        />
+        <Typography
+          variant="span"
+          fontSize="subbody"
+          color="primary"
+          text={intl.formatMessage({ id: "infoMessage" })}
         />
         <ButtonGroup>
           <StyledButton
