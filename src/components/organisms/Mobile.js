@@ -20,7 +20,6 @@ const Navigation = styled.nav`
 
 const Top = styled.div`
   width: 100vw;
-  height: 6vh;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -41,7 +40,7 @@ const TopItems = styled.div`
 const Bottom = styled.div`
   position: fixed;
   overflow: hidden;
-  height: 8vh;
+  height: 3.5em;
   z-index: 1;
   bottom: 0;
   width: 100vw;
@@ -64,6 +63,7 @@ const IconImage = styled.svg`
   fill: ${({ theme }) => theme.colors.primary};
   width: 24px;
   height: 24px;
+  flex-shrink: 0;
 `
 
 const Mobile = ({ navlinks }) => {
@@ -116,7 +116,7 @@ const Mobile = ({ navlinks }) => {
               <IconImage>
                 <path d={link.icon} />
               </IconImage>
-              <Typography variant="a" fontSize="subbody" text={link.name} />
+              <Typography variant="a" fontSize="button" text={link.name} />
             </Item>
           )
         })}
