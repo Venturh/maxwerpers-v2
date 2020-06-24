@@ -6,9 +6,11 @@
   "projects": "Projects",
   "skills": "Skills",
   "experience": "Experience",
+  "aboutMe": "About Me",
   "showmore": "show all",
   "cookieMessage": "I use third party cookies to personalize the content and analyze site traffic",
   "accept": "Accept",
   "decline": "Decline",
-  "infoMessage": "Currently looking for an internship in frontend development"
+  "infoMessage": "Currently looking for an internship in frontend development",
+  "aboutMeDesc": "I am currently studying media informatics at Rhein Main university in Wiesbaden. During my studies i felt in love with web development and now i follow my own projects in my free time. I balance this out with doing lots of sports and traveling."
 }
