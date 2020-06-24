@@ -27,7 +27,7 @@ const Blog = () => {
           color="bodyContrast"
           fontSize="title"
           variant="h1"
-          text="Comming soon"
+          text="Coming soon"
         />
       </Content>
     </Wrapper>
