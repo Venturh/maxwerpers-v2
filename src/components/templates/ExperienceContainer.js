@@ -8,7 +8,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.toolbar};
   border-radius: 0 0 25px 25px;
   padding-bottom: 1.75em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -87,7 +87,12 @@ const StyledCircle = styled(Shape)`
 const ExperienceContainer = experienceByLanguage => {
   return (
     <Wrapper>
-      <Header color="toolbar" fontSize="title" variant="p" text="Experience" />
+      <Header
+        color="toolbarContrast"
+        fontSize="title"
+        variant="p"
+        text="Experience"
+      />
       <LineWrapper>
         <Experiences>
           {Object.values(experienceByLanguage).map((experience, index) => (

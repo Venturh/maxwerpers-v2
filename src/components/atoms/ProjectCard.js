@@ -9,8 +9,7 @@ import Shape from "./Shape"
 const Card = styled.div`
   background-color: ${props => props.theme.colors.toolbar};
   border-radius: 0.5em;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
   padding: 0.75em;
   transition: all 0.2s ease-in-out;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {

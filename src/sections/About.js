@@ -19,6 +19,14 @@ const Wrapper = styled.section`
 const Heading = styled(Typography)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: none;
+  }
+`
+
+const DesktopHeader = styled(Typography)`
+  display: none;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: block;
     margin: ${props => props.theme.spacing.heading} 0
       ${props => props.theme.spacing.heading} 0;
   }
@@ -48,6 +56,9 @@ const InformationWrapper = styled.div`
 const Image = styled.img`
   height: 25vh;
   margin-bottom: 1em;
+  background: transparent;
+  border-radius: 100%;
+  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     height: 40vh;
   }
@@ -79,9 +90,9 @@ const About = () => {
   return (
     <Wrapper id="about">
       <Heading
-        color="bodyContrast"
+        color="primary"
         fontSize="subheader"
-        variant="h1"
+        variant="p"
         text={intl.formatMessage({ id: "aboutMe" })}
       />
 
@@ -105,6 +116,12 @@ const About = () => {
           </LocationWrapper>
         </InformationWrapper>
         <Description>
+          <DesktopHeader
+            color="primary"
+            fontSize="subheader"
+            variant="p"
+            text={intl.formatMessage({ id: "aboutMe" })}
+          />
           <Typography
             color="bodyContrast"
             fontSize="body"

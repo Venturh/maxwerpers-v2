@@ -75,27 +75,27 @@ const Skills = () => {
   return (
     <Wrapper id="skills">
       <Header
-        color="bodyContrast"
+        color="primary"
         fontSize="subheader"
-        variant="h1"
+        variant="p"
         text={intl.formatMessage({ id: "skills" })}
       />
 
       <Content>
         <div>
           <DesktopHeader
-            color="bodyContrast"
+            color="primary"
             fontSize="subheader"
-            variant="h1"
+            variant="p"
             text={intl.formatMessage({ id: "skills" })}
           />{" "}
           <SkillsContainer {...allDataJson} />
         </div>
         <div>
           <DesktopHeader
-            color="bodyContrast"
+            color="primary"
             fontSize="subheader"
-            variant="h1"
+            variant="p"
             text={intl.formatMessage({ id: "experience" })}
           />
           <ExperienceContainer {...experienceByLanguage} />

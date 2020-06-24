@@ -78,8 +78,9 @@ const Projects = () => {
   return (
     <Wrapper id="projects">
       <Heading
-        variant="h1"
+        color="primary"
         fontSize="subheader"
+        variant="p"
         text={intl.formatMessage({ id: "projects" })}
       />
 

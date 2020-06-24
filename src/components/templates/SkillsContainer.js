@@ -10,7 +10,9 @@ const Wrapper = styled.div`
   align-items: center;
   border-radius: 25px 25px 0 0;
   padding-bottom: ${props => props.theme.spacing.heading};
-  background-color: ${props => props.theme.colors.primary};
+  background-color: ${props => props.theme.colors.toolbar};
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 35vw;
     border-radius: 25px;
@@ -39,7 +41,7 @@ const SkillsContainer = allDataJson => {
         return (
           <div key={index}>
             <SectionTitle
-              color="primaryContrast"
+              color="toolbarContrast"
               fontSize="subtitle"
               text={section.replace("_", " ")}
             />
