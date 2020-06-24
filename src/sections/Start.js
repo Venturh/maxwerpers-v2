@@ -121,7 +121,7 @@ const Start = () => {
         <Typography
           variant="p"
           fontSize="subbody"
-          color="secondary"
+          color={theme === "dark" ? "secondary" : "bodyContrast"}
           text={intl.formatMessage({ id: "welcomeTitle" })}
         />
         <Typography
@@ -139,7 +139,7 @@ const Start = () => {
         <Typography
           variant="span"
           fontSize="subbody"
-          color="primary"
+          color={theme === "dark" ? "primary" : "bodyContrast"}
           text={intl.formatMessage({ id: "infoMessage" })}
         />
         <ButtonGroup>

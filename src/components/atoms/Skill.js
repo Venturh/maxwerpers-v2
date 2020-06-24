@@ -6,7 +6,7 @@ import Typography from "./Typography"
 const Card = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.colors.toolbar};
-  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.55);
+  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
   width: 72px;
   height: 72px;
   border-radius: 1em;

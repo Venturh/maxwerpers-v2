@@ -64,7 +64,7 @@ const IconImage = styled.svg`
   fill: ${props =>
     props.selectedItem === props.position
       ? props.theme.colors.primary
-      : props.theme.colors.secondary};
+      : props.theme.colors.bodyContrast};
 
   width: 24px;
   height: 24px;
