@@ -15,13 +15,12 @@ const Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-
+  transition: all 0.2s ease-in-out;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 25vw;
     height: 12.5vh;
     :hover {
-      transition: all 0.2s ease-in-out;
-      transform: scale(1.25) translateY(-10px);
+      transform: scale(1.2) translateY(-10px);
       cursor: default;
     }
   }

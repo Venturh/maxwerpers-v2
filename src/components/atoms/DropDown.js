@@ -7,6 +7,8 @@ const StyledDropDown = styled.div`
   transform: translateX(-100%);
   border-radius: 5%;
   background-color: ${props => props.backgroundColor || "#1E1E1E"};
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 `
 
 const StyledDropdownItem = styled.div`
@@ -71,7 +73,7 @@ const DropDownItem = ({
   iconRight,
   getItem,
   hoverColor,
-  fontSize
+  fontSize,
 }) => {
   return (
     <StyledDropdownItem hoverColor={hoverColor} onClick={getItem}>
