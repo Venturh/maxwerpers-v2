@@ -13,25 +13,25 @@ const Header = styled(Typography)`
 
 const Content = styled.div``
 
-const Blog = () => {
+const About = () => {
   return (
     <Wrapper id="blog">
       <Header
         color="bodyContrast"
         fontSize="subheader"
         variant="h1"
-        text="Blog"
+        text="About"
       />
       <Content>
         <Typography
           color="bodyContrast"
           fontSize="title"
           variant="h1"
-          text="Comming soon"
+          text="Coming soon"
         />
       </Content>
     </Wrapper>
   )
 }
 
-export default Blog
+export default About

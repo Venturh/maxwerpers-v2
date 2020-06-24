@@ -4,7 +4,7 @@ import Layout from "../components/templates/Layout"
 import Start from "../sections/Start"
 import Projects from "../sections/Projects"
 import Skills from "../sections/Skills"
-import Blog from "../sections/Blog"
+import About from "../sections/About"
 
 const Portfolio = () => {
   return (
@@ -13,7 +13,7 @@ const Portfolio = () => {
       <Start />
       <Projects />
       <Skills />
-      <Blog />
+      <About />
     </Layout>
   )
 }

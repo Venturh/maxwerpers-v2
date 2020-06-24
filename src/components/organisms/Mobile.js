@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled, { useTheme } from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
@@ -61,6 +61,11 @@ const Item = styled.div`
 
 const IconImage = styled.svg`
   fill: ${({ theme }) => theme.colors.primary};
+  fill: ${props =>
+    props.selectedItem === props.position
+      ? props.theme.colors.primary
+      : props.theme.colors.secondary};
+
   width: 24px;
   height: 24px;
   flex-shrink: 0;
@@ -72,7 +77,9 @@ const Mobile = ({ navlinks }) => {
   const theme = useTheme()
   const themeMode = useContext(ThemeContext)
 
-  const scrollTo = label => {
+  const [selectedItem, setSelectedItem] = useState(0)
+
+  const scrollTo = (label, index) => {
     const options = {
       duration: 300,
       delay: 0,
@@ -83,6 +90,7 @@ const Mobile = ({ navlinks }) => {
     } else {
       scroller.scrollTo(label, options)
     }
+    setSelectedItem(index)
   }
 
   return (
@@ -110,16 +118,14 @@ const Mobile = ({ navlinks }) => {
         </TopItems>
       </Top>
       <Bottom>
-        {navlinks.map((link, index) => {
-          return (
-            <Item key={index} onClick={() => scrollTo(link.path)}>
-              <IconImage>
-                <path d={link.icon} />
-              </IconImage>
-              <Typography variant="a" fontSize="button" text={link.name} />
-            </Item>
-          )
-        })}
+        {navlinks.map((link, index) => (
+          <Item key={index} onClick={() => scrollTo(link.path, index)}>
+            <IconImage selectedItem={selectedItem} position={index}>
+              <path d={link.icon} />
+            </IconImage>
+            <Typography variant="a" fontSize="button" text={link.name} />
+          </Item>
+        ))}
       </Bottom>
     </Navigation>
   )
