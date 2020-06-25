@@ -33,7 +33,7 @@ const DesktopHeader = styled(Typography)`
       ${props => props.theme.spacing.heading} 0;
   }
 `
-const Skills = () => {
+const Skills = ({ id, refs }) => {
   const { allDataJson, allExperienceJson } = useStaticQuery(graphql`
     query Skills {
       allDataJson {
@@ -73,7 +73,7 @@ const Skills = () => {
     nodes => nodes.lang === currentLanguage
   )
   return (
-    <Wrapper id="skills">
+    <Wrapper id={id} ref={refs}>
       <Header
         color="primary"
         fontSize="subheader"

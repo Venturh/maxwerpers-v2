@@ -6,6 +6,7 @@ import { useToggleTheme } from "../../utils/useToggleTheme"
 import { darkTheme, lightTheme } from "../../theme/Theme"
 import ThemeContext from "../../utils/ThemeContext"
 import Header from "../organisms/Header"
+import SectionContext from "../../utils/SectionContext"
 
 const MainWrapper = styled.div`
   margin: 0 ${props => props.theme.spacing.mobile.sides} 20vh
@@ -18,7 +19,7 @@ const MainWrapper = styled.div`
 
 const Content = styled.div``
 
-const Layout = ({ children }) => {
+const Layout = ({ children, section }) => {
   const [theme, toggleTheme] = useToggleTheme()
 
   const themeValue = { theme, toggleTheme }
@@ -26,13 +27,15 @@ const Layout = ({ children }) => {
   const themeMode = theme === "light" ? lightTheme : darkTheme
   return (
     <ThemeContext.Provider value={themeValue}>
-      <ThemeProvider theme={themeMode}>
-        <GlobalStyles />
-        <Header />
-        <MainWrapper>
-          <Content>{children}</Content>
-        </MainWrapper>
-      </ThemeProvider>
+      <SectionContext.Provider value={section}>
+        <ThemeProvider theme={themeMode}>
+          <GlobalStyles />
+          <Header />
+          <MainWrapper>
+            <Content>{children}</Content>
+          </MainWrapper>
+        </ThemeProvider>
+      </SectionContext.Provider>
     </ThemeContext.Provider>
   )
 }

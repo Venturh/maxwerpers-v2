@@ -46,7 +46,7 @@ const ShowMore = styled(Button)`
   }
 `
 
-const Projects = () => {
+const Projects = ({ id, refs }) => {
   const intl = useIntl()
   const { githubData } = useStaticQuery(
     graphql`
@@ -76,7 +76,7 @@ const Projects = () => {
     `
   )
   return (
-    <Wrapper id="projects">
+    <Wrapper id={id} ref={refs}>
       <Heading
         color="primary"
         fontSize="subheader"

@@ -84,11 +84,11 @@ const Description = styled.article`
   }
 `
 
-const About = () => {
+const About = ({ id, refs }) => {
   const { theme } = useContext(ThemeContext)
   const intl = useIntl()
   return (
-    <Wrapper id="about">
+    <Wrapper id={id} ref={refs}>
       <Heading
         color="primary"
         fontSize="subheader"

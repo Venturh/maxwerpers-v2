@@ -1,7 +1,7 @@
-import { createContext } from 'react'
+import { createContext } from "react"
 
 const ThemeContext = createContext({
-	theme: 'dark',
-	setTheme: () => null
+  theme: "dark",
+  setTheme: () => null,
 })
 export default ThemeContext

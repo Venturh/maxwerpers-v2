@@ -100,12 +100,12 @@ const Social = styled.div`
   }
 `
 
-const Start = () => {
+const Start = ({ id, refs }) => {
   const { theme } = useContext(ThemeContext)
   const intl = useIntl()
 
   return (
-    <Wrapper id="home">
+    <Wrapper id={id} ref={refs}>
       <Shapes>
         <Shape
           bg="primary"
