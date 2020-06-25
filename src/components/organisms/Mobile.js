@@ -78,7 +78,6 @@ const Mobile = ({ navlinks }) => {
   const theme = useTheme()
   const themeMode = useContext(ThemeContext)
   const { section, setSection } = useContext(SectionContext)
-  console.log("Mobile -> section", section)
 
   const scrollTo = (label, index) => {
     const options = {
