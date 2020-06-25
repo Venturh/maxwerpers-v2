@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import styled, { useTheme } from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
@@ -11,7 +11,6 @@ import Typography from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 import ThemeContext from "../../utils/ThemeContext"
-import SectionContext from "../../utils/SectionContext"
 
 const Navigation = styled.nav`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -63,7 +62,7 @@ const Item = styled.div`
 const IconImage = styled.svg`
   fill: ${({ theme }) => theme.colors.primary};
   fill: ${props =>
-    props.section === props.path
+    props.selectedItem === props.position
       ? props.theme.colors.primary
       : props.theme.colors.bodyContrast};
 
@@ -77,7 +76,8 @@ const Mobile = ({ navlinks }) => {
   const l = ["Deutsch", "English", "Francais"]
   const theme = useTheme()
   const themeMode = useContext(ThemeContext)
-  const { section, setSection } = useContext(SectionContext)
+
+  const [selectedItem, setSelectedItem] = useState(0)
 
   const scrollTo = (label, index) => {
     const options = {
@@ -90,7 +90,7 @@ const Mobile = ({ navlinks }) => {
     } else {
       scroller.scrollTo(label, options)
     }
-    setSection(label)
+    setSelectedItem(index)
   }
 
   return (
@@ -120,7 +120,7 @@ const Mobile = ({ navlinks }) => {
       <Bottom>
         {navlinks.map((link, index) => (
           <Item key={index} onClick={() => scrollTo(link.path, index)}>
-            <IconImage path={link.path} section={section}>
+            <IconImage selectedItem={selectedItem} position={index}>
               <path d={link.icon} />
             </IconImage>
             <Typography variant="a" fontSize="button" text={link.name} />
