@@ -38,49 +38,63 @@ const Experiences = styled.div`
 `
 
 const StyledTimelineCards = styled.div`
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: flex;
-    //line
-    &:not(:last-child):before {
-      content: "";
-      position: relative;
-      width: 3px;
-      background-color: ${props => props.theme.colors.primary};
-      border-radius: 3px;
-      top: 50%;
-      margin-top: 2em;
+  display: flex;
+  //line
+  &:not(:last-child):before {
+    content: "";
+    position: relative;
+    width: 2px;
+    background-color: ${props => props.theme.colors.primary};
+    border-radius: 2px;
+    top: 50%;
+    margin: 1em 0.25em 0 0.25em;
+  }
 
-      bottom: 0;
-      right: 15.5%;
-    }
-    //no line on last child
-    &:last-child::before {
-      content: "";
-      position: relative;
+  &:last-child::before {
+    content: "";
+    position: relative;
+    width: 2px;
+    border-radius: 2px;
+    top: 50%;
+    margin: 1em 0.25em 0 0.25em;
+  }
+
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    &:not(:last-child):before {
       width: 3px;
-      top: 62%;
-      bottom: 0;
+      top: 55%;
+      margin: 1em 0em 0 0em;
+      right: 2em;
+    }
+    &:last-child::before {
+      width: 3px;
+      margin: 0;
     }
   }
 `
 
 const LineWrapper = styled.div`
+  //circle
+  span {
+    align-self: center;
+    position: relative;
+    left: -9px;
+    z-index: 1;
+  }
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: flex;
-    //circle
     span {
-      align-self: center;
       position: relative;
-      right: calc(15.5% + 7px);
-      z-index: 1;
+      left: calc(-2em - 7.5px);
     }
   }
 `
 
 const StyledCircle = styled(Shape)`
-  display: none;
+  width: 9px;
+  height: 9px;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: block;
+    width: 12.5px;
+    height: 12.5px;
   }
 `
 
