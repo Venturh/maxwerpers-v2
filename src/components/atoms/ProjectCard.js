@@ -30,6 +30,7 @@ const TagWrapper = styled.div`
 `
 
 const StyledDescription = styled(Typography)`
+  height: 33%;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -75,18 +76,12 @@ const ProjectCard = ({
           height={7.5}
           borderRadius="100%"
         />
-        <Typography
-          variant="p"
-          fontSize="button"
-          fontWeight="400"
-          text={primaryLanguage.name}
-        />
+        <Typography variant="p" fontSize="button" text={primaryLanguage.name} />
         <StarWrapper>
           <StyledStar />
           <Typography
             variant="p"
             fontSize="button"
-            fontWeight="400"
             text={stargazers.totalCount}
           />
         </StarWrapper>
@@ -97,12 +92,7 @@ const ProjectCard = ({
         fontSize="body"
         text={nameWithOwner}
       />
-      <StyledDescription
-        variant="p"
-        fontSize="subbody"
-        fontWeight="400"
-        text={description}
-      />
+      <StyledDescription variant="p" fontSize="subbody" text={description} />
       <ButtonWrapper>
         <Button
           rounded

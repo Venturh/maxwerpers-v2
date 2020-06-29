@@ -14,17 +14,6 @@ export const GlobalStyles = createGlobalStyle`
     text-decoration: none;
   }
 
-  body {
-    background: ${({ theme }) => theme.colors.body};
-    color:  ${({ theme }) => theme.colors.bodyContrast};
-    transition: background 0.25s linear;
-    font-family: 'Roboto', sans-serif;
-    font-size: 16px;
-    @media (min-width: ${props => props.theme.breakpoints.lg}) {
-      font-size: 18px;
-    }
-  }
-
   /* CSS Reset */
 
   /* Box sizing rules */
@@ -60,9 +49,16 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set core body defaults */
   body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Quicksand', sans-serif;
     line-height: 1.5;
     min-height: 100vh;
+    background: ${({ theme }) => theme.colors.body};
+    color:  ${({ theme }) => theme.colors.bodyContrast};
+    transition: background 0.25s linear;
+    font-size: 16px;
+    @media (min-width: ${props => props.theme.breakpoints.lg}) {
+      font-size: 18px;
+    }
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     -moz-osx-font-smoothing: grayscale;

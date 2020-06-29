@@ -98,11 +98,11 @@ module.exports = {
       options: {
         fonts: [
           {
-            family: `Open Sans`,
-            variants: [`400`, `700`],
+            family: `Poppins`,
+            variants: [`100`, `400`, `500`, `600`, `700`],
           },
           {
-            family: `Poppins`,
+            family: `Quicksand`,
             variants: [`100`, `400`, `500`, `600`, `700`],
           },
         ],
