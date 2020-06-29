@@ -30,7 +30,6 @@ const TagWrapper = styled.div`
 `
 
 const StyledDescription = styled(Typography)`
-  height: 33%;
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
