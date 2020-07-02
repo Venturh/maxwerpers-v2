@@ -3,6 +3,7 @@ import styled from "styled-components"
 import Typography from "../atoms/Typography"
 import TimeLineCard from "../atoms/TimeLineCard"
 import Shape from "../atoms/Shape"
+import { useIntl } from "gatsby-plugin-intl"
 
 const Wrapper = styled.div`
   display: flex;
@@ -99,13 +100,14 @@ const StyledCircle = styled(Shape)`
 `
 
 const ExperienceContainer = experienceByLanguage => {
+  const intl = useIntl()
   return (
     <Wrapper>
       <Header
         color="toolbarContrast"
         fontSize="title"
         variant="p"
-        text="Experience"
+        text={intl.formatMessage({ id: "experience" })}
       />
       <LineWrapper>
         <Experiences>

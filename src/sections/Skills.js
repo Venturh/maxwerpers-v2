@@ -80,7 +80,6 @@ const Skills = ({ id, refs }) => {
         variant="p"
         text={intl.formatMessage({ id: "skills" })}
       />
-
       <Content>
         <div>
           <DesktopHeader
@@ -88,7 +87,7 @@ const Skills = ({ id, refs }) => {
             fontSize="subheader"
             variant="p"
             text={intl.formatMessage({ id: "skills" })}
-          />{" "}
+          />
           <SkillsContainer {...allDataJson} />
         </div>
         <div>

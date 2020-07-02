@@ -14,9 +14,17 @@ const Wrapper = styled.div`
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin-top: 10%;
     width: 35vw;
     border-radius: 25px;
     padding-bottom: 1.75em;
+  }
+`
+
+const Header = styled(Typography)`
+  margin: ${props => props.theme.spacing.heading} 0;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: none;
   }
 `
 
