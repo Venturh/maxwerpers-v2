@@ -19,7 +19,7 @@ const Card = styled.div`
     width: 30vw;
     height: 15vh;
     :hover {
-      transform: scale(1.2) translateY(-10px);
+      transform: scale(1.1) translateY(-10px);
       cursor: default;
     }
   }
