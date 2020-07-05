@@ -6,7 +6,6 @@ import { useIntl } from "gatsby-plugin-intl"
 import ProjectCard from "../components/atoms/ProjectCard"
 import Typography from "../components/atoms/Typography"
 import Button from "../components/atoms/Button"
-import Image from "../components/atoms/Image"
 
 const Wrapper = styled.section`
   height: 100%;
@@ -47,14 +46,6 @@ const ShowMore = styled(Button)`
   margin: 1em 0.1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 10vw;
-  }
-`
-
-const StyledImage = styled(Image)`
-  display: none;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: block;
-    height: 60vh;
   }
 `
 

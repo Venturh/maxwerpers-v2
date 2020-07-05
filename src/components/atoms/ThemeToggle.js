@@ -13,7 +13,7 @@ const scaleUp = keyframes`
     transform: scale(1);
   }
 `
-const ToggleButton = styled.button`
+const ToggleButton = styled.div`
   background: none;
   border: none;
   outline: 0;

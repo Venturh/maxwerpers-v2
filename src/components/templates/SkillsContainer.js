@@ -21,13 +21,6 @@ const Wrapper = styled.div`
   }
 `
 
-const Header = styled(Typography)`
-  margin: ${props => props.theme.spacing.heading} 0;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: none;
-  }
-`
-
 const SectionTitle = styled(Typography)`
   text-align: center;
   margin: ${props => props.theme.spacing.heading} 0;
