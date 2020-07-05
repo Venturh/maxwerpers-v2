@@ -5,20 +5,17 @@ import { scroller } from "react-scroll"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 
-import coverDark from "../images/cover_dark.svg"
-import coverLight from "../images/cover_light.svg"
-
+import ThemeContext from "../utils/ThemeContext"
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
-
-import ThemeContext from "../utils/ThemeContext"
+import Image from "../components/atoms/Image"
 
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 94vh;
+  height: 100vh;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row-reverse;
@@ -35,10 +32,10 @@ const Shapes = styled.div`
   z-index: -1;
 `
 
-const Cover = styled.img`
+const Cover = styled(Image)`
   height: 30vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 60vh;
+    height: 50vh;
   }
 `
 
@@ -116,7 +113,7 @@ const Start = ({ id, refs }) => {
         <Shape bg="primary" width={20} height={20} borderRadius="100%" />
         <Shape bg="primary" width={20} height={20} borderRadius="100%" />
       </Shapes>
-      <Cover src={theme === "light" ? coverLight : coverDark} alt="cover" />
+      <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
       <InfoWrapper>
         <Typography
           variant="p"

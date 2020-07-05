@@ -6,13 +6,12 @@ import { useIntl } from "gatsby-plugin-intl"
 import ProjectCard from "../components/atoms/ProjectCard"
 import Typography from "../components/atoms/Typography"
 import Button from "../components/atoms/Button"
+import Image from "../components/atoms/Image"
 
 const Wrapper = styled.section`
   height: 100%;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
+    height: 100%;
   }
 `
 
@@ -25,8 +24,12 @@ const Heading = styled(Typography)`
 `
 
 const Content = styled.div`
-  margin: auto 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 `
+
+const Main = styled.div``
 
 const Cards = styled.div`
   display: grid;
@@ -34,7 +37,8 @@ const Cards = styled.div`
   grid-gap: 1rem;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    grid-template-columns: repeat(3, auto);
+    grid-template-columns: repeat(3, minmax(200px, 23vw));
+    grid-gap: 2em;
   }
 `
 
@@ -43,6 +47,14 @@ const ShowMore = styled(Button)`
   margin: 1em 0.1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 10vw;
+  }
+`
+
+const StyledImage = styled(Image)`
+  display: none;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: block;
+    height: 60vh;
   }
 `
 
@@ -77,27 +89,28 @@ const Projects = ({ id, refs }) => {
   )
   return (
     <Wrapper id={id} ref={refs}>
-      <Heading
-        color="primary"
-        fontSize="subheader"
-        variant="p"
-        text={intl.formatMessage({ id: "projects" })}
-      />
-
       <Content>
-        <Cards>
-          {githubData.data.user.pinnedItems.nodes.map((data, index) => {
-            return <ProjectCard key={index} {...data} />
-          })}
-        </Cards>
-        <ShowMore
-          color="primaryContrast"
-          bg="primary"
-          rounded
-          onClick={() => window.open("https://github.com/Venturh")}
-        >
-          {intl.formatMessage({ id: "showmore" })}
-        </ShowMore>
+        <Main>
+          <Heading
+            color="primary"
+            fontSize="subheader"
+            variant="p"
+            text={intl.formatMessage({ id: "projects" })}
+          />
+          <Cards>
+            {githubData.data.user.pinnedItems.nodes.map((data, index) => {
+              return <ProjectCard key={index} {...data} />
+            })}
+          </Cards>
+          <ShowMore
+            color="primaryContrast"
+            bg="primary"
+            rounded
+            onClick={() => window.open("https://github.com/Venturh")}
+          >
+            {intl.formatMessage({ id: "showmore" })}
+          </ShowMore>
+        </Main>
       </Content>
     </Wrapper>
   )

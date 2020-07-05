@@ -1,14 +1,12 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
+import { useIntl } from "gatsby-plugin-intl"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 import { LocationOn } from "@styled-icons/material/LocationOn"
 
-import Typography from "../components/atoms/Typography"
-
-import AboutDark from "../images/about_dark.svg"
-import AboutLight from "../images/about_light.svg"
 import ThemeContext from "../utils/ThemeContext"
-import { useIntl } from "gatsby-plugin-intl"
+import Typography from "../components/atoms/Typography"
+import Image from "../components/atoms/Image"
 
 const Wrapper = styled.section`
   display: flex;
@@ -53,7 +51,7 @@ const InformationWrapper = styled.div`
   text-align: center;
 `
 
-const Image = styled.img`
+const Cover = styled(Image)`
   height: 25vh;
   margin-bottom: 1em;
   background: transparent;
@@ -98,7 +96,7 @@ const About = ({ id, refs }) => {
 
       <Content>
         <InformationWrapper>
-          <Image src={theme === "light" ? AboutLight : AboutDark} alt="cover" />
+          <Cover name={theme === "light" ? "about_light" : "about_dark"} />
           <Typography
             color="bodyContrast"
             fontSize="body"

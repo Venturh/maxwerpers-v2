@@ -21,7 +21,6 @@ module.exports = {
         name: `Portfolio Max Werpers`,
         start_url: `/`,
         display: `minimal-ui`,
-        icon: `src/images/logo.svg`,
       },
     },
     {
