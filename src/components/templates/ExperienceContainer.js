@@ -105,7 +105,7 @@ const ExperienceContainer = experienceByLanguage => {
   return (
     <Wrapper>
       <Header
-        color="toolbarContrast"
+        color="primary"
         fontSize="title"
         variant="p"
         text={intl.formatMessage({ id: "experience" })}

@@ -3,13 +3,13 @@ import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
 import { scroller } from "react-scroll"
 import { StyledIconBase } from "@styled-icons/styled-icon"
-import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 
 import ThemeContext from "../utils/ThemeContext"
 import Button from "../components/atoms/Button"
 import Typography from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
 import Image from "../components/atoms/Image"
+import Socials from "../components/atoms/Socials"
 
 const Wrapper = styled.section`
   display: flex;
@@ -169,19 +169,7 @@ const Start = ({ id, refs }) => {
           </StyledButton>
         </ButtonGroup>
         <Social>
-          <Github onClick={() => window.open("https://github.com/Venturh")} />
-          <PlayStore
-            onClick={() =>
-              window.open(
-                "https://play.google.com/store/apps/developer?id=Venturh&hl=gsw"
-              )
-            }
-          />
-          <Linkedin
-            onClick={() =>
-              window.open("https://www.linkedin.com/in/max-werpers-9474251a5/")
-            }
-          />
+          <Socials />
         </Social>
       </InfoWrapper>
     </Wrapper>

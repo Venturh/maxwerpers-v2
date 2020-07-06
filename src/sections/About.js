@@ -7,6 +7,7 @@ import { LocationOn } from "@styled-icons/material/LocationOn"
 import ThemeContext from "../utils/ThemeContext"
 import Typography from "../components/atoms/Typography"
 import Image from "../components/atoms/Image"
+import SocialCard from "../components/atoms/SocialCard"
 
 const Wrapper = styled.section`
   display: flex;
@@ -58,14 +59,14 @@ const Cover = styled(Image)`
   border-radius: 100%;
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 40vh;
+    height: 30vh;
   }
 `
 
 const LocationWrapper = styled.div`
   display: flex;
   ${StyledIconBase} {
-    width: 1em;
+    width: 1.5em;
     color: ${props => props.theme.colors.primary};
     cursor: pointer;
   }
@@ -99,7 +100,7 @@ const About = ({ id, refs }) => {
           <Cover name={theme === "light" ? "about_light" : "about_dark"} />
           <Typography
             color="bodyContrast"
-            fontSize="body"
+            fontSize="subtitle"
             variant="span"
             text="Max Werpers, 25"
           />
@@ -107,7 +108,7 @@ const About = ({ id, refs }) => {
             <LocationOn />
             <Typography
               color="bodyContrast"
-              fontSize="body"
+              fontSize="subtitle"
               variant="span"
               text="Wiesbaden, Germany"
             />
@@ -122,11 +123,18 @@ const About = ({ id, refs }) => {
           />
           <Typography
             color="bodyContrast"
-            fontSize="body"
+            fontSize="title"
+            variant="p"
+            text="Student - Developer"
+          />
+          <Typography
+            color="bodyContrast"
+            fontSize="subtitle"
             variant="p"
             text={intl.formatMessage({ id: "aboutMeDesc" })}
           />
         </Description>
+        <SocialCard />
       </Content>
     </Wrapper>
   )
