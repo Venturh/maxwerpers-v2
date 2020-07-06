@@ -4,8 +4,6 @@ export const GlobalStyles = createGlobalStyle`
   :root {
     --sides-padding-desktop: 3%;
     --sides-padding-mobile: 5%;
-
-
   }
 
 

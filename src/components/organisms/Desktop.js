@@ -30,7 +30,7 @@ const Logo = styled.img`
   height: 4vh;
 `
 
-const NavItems = styled.ul`
+const NavItems = styled.div`
   display: flex;
   align-items: center;
 `

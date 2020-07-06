@@ -32,9 +32,10 @@ const Experiences = styled.div`
   :last-child {
     margin-bottom: ${props => props.theme.spacing.heading};
   }
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    grid-template-columns: repeat(1, auto);
-    grid-gap: 2em;
+
+  @media (min-width: ${props => props.theme.breakpoints.xl}) {
+    grid-template-columns: repeat(1, minmax(100px, 25vw));
+    grid-gap: 1.5em;
   }
 `
 

@@ -28,9 +28,10 @@ const SectionTitle = styled(Typography)`
 
 const SectionSkills = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, auto);
+  grid-template-columns: repeat(3, minmax(0px, 1fr));
   grid-gap: 1em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+
+  @media (min-width: ${props => props.theme.breakpoints.xl}) {
     grid-gap: 1em 2em;
   }
 `

@@ -64,11 +64,10 @@ const ButtonGroup = styled.div`
 `
 
 const StyledButton = styled(Button)`
-  width: 50vw;
-  margin-top: 0.5rem;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 12.5vw;
-    margin-right: 0.5rem;
+    width: 12em;
+    padding: 0.75em 0;
+    margin: 0.5em 0.5em 0 0;
   }
 `
 
@@ -116,29 +115,29 @@ const Start = ({ id, refs }) => {
       <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
       <InfoWrapper>
         <Typography
-          variant="p"
-          fontSize="subbody"
-          color={theme === "dark" ? "secondary" : "bodyContrast"}
+          variant="span"
+          fontSize="body"
+          color={theme === "dark" ? "primary" : "bodyContrast"}
           text={intl.formatMessage({ id: "welcomeTitle" })}
         />
         <Typography
-          variant="h3"
-          fontSize="title"
-          color="bodyContrast"
+          variant="span"
+          fontSize="subheader"
+          color="secondary"
           text={intl.formatMessage({ id: "welcomeMsg" })}
         />
         <Typography
           variant="span"
-          fontSize="body"
+          fontSize="subtitle"
           color="bodyContrast"
           text={intl.formatMessage({ id: "welcomeSub" })}
         />
-        <Typography
+        {/* <Typography
           variant="span"
           fontSize="subbody"
           color={theme === "dark" ? "primary" : "bodyContrast"}
           text={intl.formatMessage({ id: "infoMessage" })}
-        />
+        /> */}
         <ButtonGroup>
           <StyledButton
             color="primaryContrast"
