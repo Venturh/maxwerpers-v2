@@ -1,26 +1,22 @@
 import React from "react"
 import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
+import styled from "styled-components"
+const StyledIcon = styled.a`
+  width: 2em;
+`
 
 const Socials = () => {
-  const openLink = url => {
-    window.open(url)
-  }
-
   return (
     <React.Fragment>
-      <Github onClick={() => openLink("https://github.com/Venturh")} />
-      <PlayStore
-        onClick={() =>
-          openLink(
-            "https://play.google.com/store/apps/developer?id=Venturh&hl=gsw"
-          )
-        }
-      />
-      <Linkedin
-        onClick={() =>
-          openLink("https://www.linkedin.com/in/max-werpers-9474251a5/")
-        }
-      />
+      <StyledIcon href="https://github.com/Venturh">
+        <Github />
+      </StyledIcon>
+      <StyledIcon href="https://play.google.com/store/apps/developer?id=Venturh&hl=gsw">
+        <PlayStore />
+      </StyledIcon>
+      <StyledIcon href="https://www.linkedin.com/in/max-werpers-9474251a5/">
+        <Linkedin />
+      </StyledIcon>
     </React.Fragment>
   )
 }

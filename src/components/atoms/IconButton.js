@@ -10,14 +10,17 @@ const Card = styled.a`
   align-items: center;
   border-radius: 0.5em;
   padding: 1em;
-  background: ${props =>
-    `rgba(${props.color[0]}, ${props.color[1]}, ${props.color[2]}, 0.1)` ||
-    "blue"};
+  background: ${props => props.theme.colors.toolbar || "blue"};
+  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
   ${StyledIconBase} {
     height: 2em;
-    fill: ${props =>
-      `rgba(${props.color[0]}, ${props.color[1]}, ${props.color[2]}, 1)`};
+    fill: ${props => props.theme.colors.primary};
     opacity: 100;
+  }
+
+  :hover {
+    transform: scale(1.1);
   }
 `
 
