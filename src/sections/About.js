@@ -98,6 +98,10 @@ const Socials = styled.div`
   gap: 0.5em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
+    gap: 0;
+    & > * {
+      margin-right: 0.75em;
+    }
   }
 `
 
@@ -111,7 +115,6 @@ const Mail = styled(IconButton)`
 
 const About = ({ id, refs }) => {
   const theme = useContext(ThemeContext)
-
   const intl = useIntl()
 
   return (

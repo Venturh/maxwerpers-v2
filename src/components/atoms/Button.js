@@ -18,7 +18,9 @@ const Text = styled.a`
 
 const Button = ({ children, link, ...props }) => (
   <StyledButton {...props}>
-    <Text href={link}>{children.toUpperCase()}</Text>
+    <Text href={link} target="_blank" rel="noopener noreferrer">
+      {children.toUpperCase()}
+    </Text>
   </StyledButton>
 )
 
