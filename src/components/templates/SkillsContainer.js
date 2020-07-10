@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 
 const SectionTitle = styled(Typography)`
   text-align: center;
-  margin: ${props => props.theme.spacing.heading} 0;
+  margin: 0.75em 0;
 `
 
 const SectionSkills = styled.div`

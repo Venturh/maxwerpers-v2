@@ -35,25 +35,34 @@ const TypeTime = styled.div`
   justify-content: space-between;
 `
 
+const Info = styled(Typography)`
+  margin-top: 0.5em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin-top: 1em;
+  }
+`
+
 const Place = styled.div`
   display: flex;
   margin-top: 0.5em;
   align-items: center;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    align-self: flex-end;
+  }
 `
 
 const TimeLineCard = ({ type, work, place, time }) => (
   <Card>
     <TypeTime>
-      <Typography variant="p" color="primary" fontSize="caption" text={type} />
-      <Typography variant="p" fontSize="caption" text={time} />
+      <Typography color="primary" fontSize="button" text={type} />
+      <Typography fontSize="button" text={time} />
     </TypeTime>
-    <Typography variant="p" fontSize="subbody" text={work} />
+    <Info fontSize="1em" text={work} />
     <Place>
       <Location size={12} />
       <Typography
-        style={{ marginLeft: "0.5em" }}
-        variant="p"
-        fontSize="caption"
+        style={{ marginLeft: "0.1em" }}
+        fontSize="button"
         text={place}
       />
     </Place>

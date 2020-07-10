@@ -20,13 +20,29 @@ const Card = styled.div`
   }
 `
 
-const TagWrapper = styled.div`
-  position: relative;
+const Tag = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+const LanguageIndicator = styled.div`
   display: flex;
   align-items: center;
   p {
     margin-left: 0.25rem;
   }
+`
+
+const StarWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  margin-left: 0.5em;
+`
+
+const StyledStar = styled(Star)`
+  width: 1em;
+  margin-right: 0.1em;
 `
 
 const StyledDescription = styled(Typography)`
@@ -46,18 +62,6 @@ const ButtonWrapper = styled.div`
   }
 `
 
-const StarWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  position: absolute;
-  right: 0px;
-`
-
-const StyledStar = styled(Star)`
-  width: 1em;
-  margin-right: 0.1em;
-`
-
 const ProjectCard = ({
   url,
   nameWithOwner,
@@ -68,14 +72,16 @@ const ProjectCard = ({
 }) => {
   return (
     <Card>
-      <TagWrapper>
-        <Shape
-          bg={primaryLanguage.color}
-          width={7.5}
-          height={7.5}
-          borderRadius="100%"
-        />
-        <Typography variant="p" fontSize="button" text={primaryLanguage.name} />
+      <Tag>
+        <LanguageIndicator>
+          <Shape
+            bg={primaryLanguage.color}
+            width={7.5}
+            height={7.5}
+            borderRadius="100%"
+          />
+          <Typography fontSize="button" text={primaryLanguage.name} />
+        </LanguageIndicator>
         <StarWrapper>
           <StyledStar />
           <Typography
@@ -84,7 +90,8 @@ const ProjectCard = ({
             text={stargazers.totalCount}
           />
         </StarWrapper>
-      </TagWrapper>
+      </Tag>
+
       <Typography
         variant="p"
         fontWeight="bold"

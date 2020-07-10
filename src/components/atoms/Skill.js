@@ -7,18 +7,13 @@ const Card = styled.div`
   position: relative;
   background-color: ${({ theme }) => theme.colors.toolbar};
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
-  width: 72px;
-  height: 72px;
+  width: 5em;
+  height: 5em;
   border-radius: 1em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
-  @media (min-width: ${props => props.theme.breakpoints.xl}) {
-    width: 92px;
-    height: 92px;
-  }
 `
 
 const Icon = styled.svg`

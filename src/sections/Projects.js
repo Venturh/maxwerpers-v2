@@ -9,9 +9,6 @@ import Button from "../components/atoms/Button"
 
 const Wrapper = styled.section`
   height: 100%;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 100%;
-  }
 `
 
 const Heading = styled(Typography)`
@@ -43,6 +40,7 @@ const Cards = styled.div`
 
 const ShowMore = styled(Button)`
   width: 100%;
+  height: 2.5em;
   margin: 1em 0.1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 10vw;
@@ -97,7 +95,7 @@ const Projects = ({ id, refs }) => {
             color="primaryContrast"
             bg="primary"
             rounded
-            onClick={() => window.open("https://github.com/Venturh")}
+            link="https://github.com/Venturh"
           >
             {intl.formatMessage({ id: "showmore" })}
           </ShowMore>
