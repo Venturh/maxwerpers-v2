@@ -3,16 +3,25 @@ import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 import { LocationOn } from "@styled-icons/material/LocationOn"
+import {
+  Github,
+  Linkedin,
+  GooglePlay,
+  MailCheck,
+} from "@styled-icons/remix-fill/"
 
-import ThemeContext from "../utils/ThemeContext"
+import { ThemeContext } from "styled-components"
 import Typography from "../components/atoms/Typography"
 import Image from "../components/atoms/Image"
-import SocialCard from "../components/atoms/SocialCard"
+import IconButton from "../components/atoms/IconButton"
 
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 100%;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    height: 100vh;
+  }
 `
 
 const Heading = styled(Typography)`
@@ -83,9 +92,28 @@ const Description = styled.article`
   }
 `
 
+const Socials = styled.div`
+  display: grid;
+  grid-template-columns: auto;
+  gap: 0.5em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: flex;
+  }
+`
+
+const Mail = styled(IconButton)`
+  margin-top: 0.5em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin-top: 1em;
+    width: 60%;
+  }
+`
+
 const About = ({ id, refs }) => {
-  const { theme } = useContext(ThemeContext)
+  const theme = useContext(ThemeContext)
+
   const intl = useIntl()
+
   return (
     <Wrapper id={id} ref={refs}>
       <Heading
@@ -97,7 +125,7 @@ const About = ({ id, refs }) => {
 
       <Content>
         <InformationWrapper>
-          <Cover name={theme === "light" ? "about_light" : "about_dark"} />
+          <Cover name={theme.type === "light" ? "about_light" : "about_dark"} />
           <Typography
             color="bodyContrast"
             fontSize="subtitle"
@@ -129,12 +157,37 @@ const About = ({ id, refs }) => {
           />
           <Typography
             color="bodyContrast"
-            fontSize="subtitle"
+            fontSize="body"
             variant="p"
             text={intl.formatMessage({ id: "aboutMeDesc" })}
           />
+          <Socials>
+            <IconButton
+              leftIcon={Github}
+              link="https://github.com/Venturh"
+              text="Venturh"
+              color={theme.colors.secondaryRgba}
+            />
+            <IconButton
+              leftIcon={Linkedin}
+              link="https://www.linkedin.com/in/max-werpers-9474251a5/"
+              text="Max Werpers"
+              color={theme.colors.secondaryRgba}
+            />
+            <IconButton
+              leftIcon={GooglePlay}
+              link="https://play.google.com/store/apps/developer?id=Venturh"
+              text="Venturh"
+              color={theme.colors.secondaryRgba}
+            />
+          </Socials>
+          <Mail
+            leftIcon={MailCheck}
+            link="mailto:contact@maxwerpers.me"
+            text="contact@maxwerpers.me"
+            color={theme.colors.secondaryRgba}
+          />
         </Description>
-        <SocialCard />
       </Content>
     </Wrapper>
   )

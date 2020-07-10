@@ -5,18 +5,20 @@ import Typography from "./Typography"
 
 const StyledButton = styled.button`
   ${color}
-  padding: 10px;
+  
   border-radius: ${props => (props.rounded ? "0.25em" : 0)};
   border: inherit;
   cursor: pointer;
   white-space: nowrap;
 `
 
-const Button = ({ children, ...props }) => (
+const Text = styled.a`
+  font-size: ${props => props.theme.fontSizes.button};
+`
+
+const Button = ({ children, link, ...props }) => (
   <StyledButton {...props}>
-    <Typography fontSize="button" fontWeight="light">
-      {children.toUpperCase()}
-    </Typography>
+    <Text href={link}>{children.toUpperCase()}</Text>
   </StyledButton>
 )
 

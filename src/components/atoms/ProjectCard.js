@@ -93,22 +93,19 @@ const ProjectCard = ({
       />
       <StyledDescription variant="p" fontSize="subbody" text={description} />
       <ButtonWrapper>
-        <Button
-          rounded
-          bg="primary"
-          color="primaryContrast"
-          onClick={() => window.open(url)}
-        >
+        <Button rounded bg="primary" color="primaryContrast" link={url}>
           Link
         </Button>
-        <Button
-          rounded
-          bg="secondary"
-          color="secondaryContrast"
-          onClick={() => window.open(homepageUrl)}
-        >
-          Live-Demo
-        </Button>
+        {homepageUrl ? (
+          <Button
+            rounded
+            bg="secondary"
+            color="secondaryContrast"
+            link={homepageUrl}
+          >
+            Live-Demo
+          </Button>
+        ) : null}
       </ButtonWrapper>
     </Card>
   )
