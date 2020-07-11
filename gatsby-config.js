@@ -20,7 +20,9 @@ module.exports = {
       options: {
         name: `Portfolio Max Werpers`,
         start_url: `/`,
-        display: `minimal-ui`,
+        background_color: "#292929",
+        theme_color: "#85EEA7",
+        icon: `src/images/logo.png`,
       },
     },
     {
