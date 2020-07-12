@@ -16,17 +16,11 @@ const Card = styled.div`
   justify-content: space-around;
   transition: all 0.2s ease-in-out;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 30vw;
-    height: 15vh;
+    width: 25vw;
     :hover {
       transform: scale(1.1) translateY(-10px);
       cursor: default;
     }
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.xl}) {
-    width: 25vw;
-    height: 10vh;
   }
 `
 

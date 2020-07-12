@@ -65,7 +65,7 @@ const StyledTimelineCards = styled.div`
     &:not(:last-child):before {
       width: 3px;
       top: 55%;
-      margin: 1em 0em 0 0em;
+      margin: 1em 0em 0.5em 0em;
       right: 2em;
     }
     &:last-child::before {
