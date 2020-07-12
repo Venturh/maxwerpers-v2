@@ -11,7 +11,12 @@ import {
 } from "@styled-icons/remix-fill/"
 
 import { ThemeContext } from "styled-components"
-import Typography from "../components/atoms/Typography"
+import {
+  Subheader,
+  Text,
+  Subtitle,
+  Title,
+} from "../components/atoms/Typography"
 import Image from "../components/atoms/Image"
 import IconButton from "../components/atoms/IconButton"
 
@@ -24,14 +29,14 @@ const Wrapper = styled.section`
   }
 `
 
-const Heading = styled(Typography)`
+const Heading = styled(Subheader)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }
 `
 
-const DesktopHeader = styled(Typography)`
+const DesktopHeader = styled(Subheader)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
@@ -119,51 +124,22 @@ const About = ({ id, refs }) => {
 
   return (
     <Wrapper id={id} ref={refs}>
-      <Heading
-        color="primary"
-        fontSize="subheader"
-        variant="p"
-        text={intl.formatMessage({ id: "aboutMe" })}
-      />
+      <Heading text={intl.formatMessage({ id: "aboutMe" })} />
 
       <Content>
         <InformationWrapper>
           <Cover name={theme.type === "light" ? "about_light" : "about_dark"} />
-          <Typography
-            color="bodyContrast"
-            fontSize="subtitle"
-            variant="span"
-            text="Max Werpers, 25"
-          />
+          <Subtitle>Max Werpers, 25</Subtitle>
           <LocationWrapper>
             <LocationOn />
-            <Typography
-              color="bodyContrast"
-              fontSize="subtitle"
-              variant="span"
-              text="Wiesbaden, Germany"
-            />
+            <Subtitle>"Wiesbaden, Germany"</Subtitle>
           </LocationWrapper>
         </InformationWrapper>
         <Description>
-          <DesktopHeader
-            color="primary"
-            fontSize="subheader"
-            variant="p"
-            text={intl.formatMessage({ id: "aboutMe" })}
-          />
-          <Typography
-            color="bodyContrast"
-            fontSize="title"
-            variant="p"
-            text="Student - Developer"
-          />
-          <Typography
-            color="bodyContrast"
-            fontSize="body"
-            variant="p"
-            text={intl.formatMessage({ id: "aboutMeDesc" })}
-          />
+          <DesktopHeader text={intl.formatMessage({ id: "aboutMe" })} />
+          <Title>Student - Developer</Title>
+          <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
+          <DesktopHeader>Links</DesktopHeader>
           <Socials>
             <IconButton
               leftIcon={Github}

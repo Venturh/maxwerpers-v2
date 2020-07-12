@@ -1,6 +1,7 @@
 import React from "react"
-import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 import styled from "styled-components"
+import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
+
 const StyledIcon = styled.a`
   width: 2em;
 `

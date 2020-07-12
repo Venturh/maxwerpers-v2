@@ -4,14 +4,14 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
 import ProjectCard from "../components/atoms/ProjectCard"
-import Typography from "../components/atoms/Typography"
+import { Subheader } from "../components/atoms/Typography"
 import Button from "../components/atoms/Button"
 
 const Wrapper = styled.section`
   height: 100%;
 `
 
-const Heading = styled(Typography)`
+const Heading = styled(Subheader)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: ${props => props.theme.spacing.heading} 0
@@ -80,12 +80,7 @@ const Projects = ({ id, refs }) => {
     <Wrapper id={id} ref={refs}>
       <Content>
         <Main>
-          <Heading
-            color="primary"
-            fontSize="subheader"
-            variant="p"
-            text={intl.formatMessage({ id: "projects" })}
-          />
+          <Heading text={intl.formatMessage({ id: "projects" })} />
           <Cards>
             {githubData.data.user.pinnedItems.nodes.map((data, index) => {
               return <ProjectCard key={index} {...data} />

@@ -6,7 +6,7 @@ import { StyledIconBase } from "@styled-icons/styled-icon"
 
 import ThemeContext from "../utils/ThemeContext"
 import Button from "../components/atoms/Button"
-import Typography from "../components/atoms/Typography"
+import { Subheader, Text, Subtitle } from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
 import Image from "../components/atoms/Image"
 import Socials from "../components/atoms/Socials"
@@ -114,24 +114,15 @@ const Start = ({ id, refs }) => {
       </Shapes>
       <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
       <InfoWrapper>
-        <Typography
-          variant="span"
-          fontSize="body"
-          color={theme === "dark" ? "primary" : "bodyContrast"}
-          text={intl.formatMessage({ id: "welcomeTitle" })}
-        />
-        <Typography
-          variant="span"
-          fontSize="subheader"
-          color="secondary"
-          text={intl.formatMessage({ id: "welcomeMsg" })}
-        />
-        <Typography
-          variant="span"
-          fontSize="subtitle"
-          color="bodyContrast"
-          text={intl.formatMessage({ id: "welcomeSub" })}
-        />
+        <Text color={theme === "dark" ? "primary" : "bodyContrast"}>
+          {intl.formatMessage({ id: "welcomeTitle" })}
+        </Text>
+        <Subheader color="secondary">
+          {intl.formatMessage({ id: "welcomeMsg" })}
+        </Subheader>
+        <Subtitle color="bodyContrast">
+          {intl.formatMessage({ id: "welcomeSub" })}
+        </Subtitle>
         {/* <Typography
           variant="span"
           fontSize="subbody"
@@ -154,7 +145,7 @@ const Start = ({ id, refs }) => {
             {intl.formatMessage({ id: "projects" })}
           </StyledButton>
           <StyledButton
-            color="secondaryContrast"
+            color="primary"
             bg="secondary"
             rounded
             onClick={() =>

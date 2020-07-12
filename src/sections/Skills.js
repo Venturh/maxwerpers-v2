@@ -3,13 +3,13 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
-import Typography from "../components/atoms/Typography"
+import { Subheader } from "../components/atoms/Typography"
 import SkillsContainer from "../components/templates/SkillsContainer"
 import ExperienceContainer from "../components/templates/ExperienceContainer"
 
 const Wrapper = styled.div``
 
-const Header = styled(Typography)`
+const Header = styled(Subheader)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
@@ -24,7 +24,7 @@ const Content = styled.div`
   }
 `
 
-const DesktopHeader = styled(Typography)`
+const DesktopHeader = styled(Subheader)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
@@ -74,29 +74,16 @@ const Skills = ({ id, refs }) => {
   )
   return (
     <Wrapper id={id} ref={refs}>
-      <Header
-        color="primary"
-        fontSize="subheader"
-        variant="p"
-        text={intl.formatMessage({ id: "skills" })}
-      />
+      <Header>{intl.formatMessage({ id: "skills" })}</Header>
       <Content>
         <div>
-          <DesktopHeader
-            color="primary"
-            fontSize="subheader"
-            variant="p"
-            text={intl.formatMessage({ id: "skills" })}
-          />
+          <DesktopHeader>{intl.formatMessage({ id: "skills" })}</DesktopHeader>
           <SkillsContainer {...allDataJson} />
         </div>
         <div>
-          <DesktopHeader
-            color="primary"
-            fontSize="subheader"
-            variant="p"
-            text={intl.formatMessage({ id: "experience" })}
-          />
+          <DesktopHeader>
+            {intl.formatMessage({ id: "experience" })}
+          </DesktopHeader>
           <ExperienceContainer {...experienceByLanguage} />
         </div>
       </Content>

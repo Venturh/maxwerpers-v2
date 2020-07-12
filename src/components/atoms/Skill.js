@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 
-import Typography from "./Typography"
+import { Caption } from "./Typography"
 
 const Card = styled.div`
   position: relative;
@@ -25,7 +25,7 @@ const Icon = styled.svg`
   }
 `
 
-const StyledTypography = styled(Typography)`
+const SkillName = styled(Caption)`
   position: absolute;
   bottom: 0.5em;
 `
@@ -35,7 +35,7 @@ const Skill = ({ icon, iconName }) => (
     <Icon viewBox="0 0 24 24">
       <path d={icon} />
     </Icon>
-    <StyledTypography variant="p" fontSize="xs" text={iconName} />
+    <SkillName>{iconName}</SkillName>
   </Card>
 )
 

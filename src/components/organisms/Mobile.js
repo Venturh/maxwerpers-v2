@@ -3,11 +3,11 @@ import styled, { useTheme } from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { Language } from "@styled-icons/material/Language"
-import { animateScroll as scroll, scroller } from "react-scroll"
+import { animateScroll as scroll, Button, scroller } from "react-scroll"
 
 import logoDark from "../../images/logo_dark.svg"
 import logoLight from "../../images/logo_light.svg"
-import Typography from "../atoms/Typography"
+import Typography, { Caption, SubText } from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 import ThemeContext from "../../utils/ThemeContext"
@@ -42,7 +42,7 @@ const Bottom = styled.div`
   overflow: hidden;
   height: 3.5em;
   z-index: 1;
-  bottom: 0;
+  bottom: 0.25em;
   width: 100vw;
   display: flex;
   justify-content: space-around;
@@ -108,13 +108,12 @@ const Mobile = ({ navlinks }) => {
             space={"6vh"}
             iconLeft={<Language />}
             iconRight={<KeyboardArrowDown />}
-            iconSize="1em"
+            iconSize="1.25em"
             iconColor={theme.colors.bodyContrast}
-            fontSize="0.75em"
             dropdownBackground={theme.colors.bodyTint}
             dropdownHoverColor={theme.colors.toolbarBackground}
           />
-          <ThemeToggle iconSize="0.95em" />
+          <ThemeToggle iconSize="1.25em" />
         </TopItems>
       </Top>
       <Bottom>
@@ -123,7 +122,7 @@ const Mobile = ({ navlinks }) => {
             <IconImage selectedItem={selectedItem} position={index}>
               <path d={link.icon} />
             </IconImage>
-            <Typography variant="a" fontSize="button" text={link.name} />
+            <SubText variant="a" text={link.name} />
           </Item>
         ))}
       </Bottom>

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "styled-components"
+import { SubText } from "./Typography"
 
 const StyledDropDown = styled.div`
   position: absolute;
@@ -13,7 +14,6 @@ const StyledDropDown = styled.div`
 
 const StyledDropdownItem = styled.div`
   display: flex;
-
   align-items: center;
   margin-left: 0.8em;
   height: 50px;
@@ -25,7 +25,7 @@ const StyledDropdownItem = styled.div`
   }
 `
 
-const ItemText = styled.p`
+const ItemText = styled(SubText)`
   font-size: ${props => props.fontSize || "1.125rem"};
 `
 
@@ -78,7 +78,7 @@ const DropDownItem = ({
   return (
     <StyledDropdownItem hoverColor={hoverColor} onClick={getItem}>
       <ItemIcon>{iconLeft}</ItemIcon>
-      <ItemText fontSize={fontSize}>{children}</ItemText>
+      <ItemText>{children}</ItemText>
       <ItemIcon>{iconRight}</ItemIcon>
     </StyledDropdownItem>
   )

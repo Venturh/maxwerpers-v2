@@ -1,12 +1,12 @@
 import React, { useState, useRef, useEffect } from "react"
 import styled from "styled-components"
-//import { Language } from "@styled-icons/material/Language"
 import { Language } from "@styled-icons/fa-solid/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { KeyboardArrowUp } from "@styled-icons/material-rounded/KeyboardArrowUp"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 
 import DropDown from "../atoms/DropDown"
+import { Text } from "../atoms/Typography"
 
 const DropdownIcon = ({ open }) =>
   open ? <KeyboardArrowUp /> : <KeyboardArrowDown />
@@ -24,8 +24,7 @@ const Display = styled.div`
   }
 `
 
-const CurrentLanguage = styled.p`
-  font-size: ${props => props.fontSize || "1.125rem"};
+const CurrentLanguage = styled(Text)`
   margin: 0 0.5em;
 `
 
@@ -88,9 +87,7 @@ const LanguageSwitch = ({
     >
       <Display iconColor={iconColor} iconSize={iconSize}>
         <Language />
-        <CurrentLanguage fontSize={fontSize}>
-          {currentLanguage.toUpperCase()}
-        </CurrentLanguage>
+        <CurrentLanguage>{currentLanguage.toUpperCase()}</CurrentLanguage>
         <DropdownIcon
           open={open}
           onClick={() => {

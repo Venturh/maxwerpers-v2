@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Star } from "@styled-icons/remix-line/Star"
 
-import Typography from "./Typography"
+import Typography, { SubText, Text } from "./Typography"
 import Button from "./Button"
 import Shape from "./Shape"
 
@@ -45,7 +45,7 @@ const StyledStar = styled(Star)`
   margin-right: 0.1em;
 `
 
-const StyledDescription = styled(Typography)`
+const StyledDescription = styled(SubText)`
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -80,25 +80,16 @@ const ProjectCard = ({
             height={7.5}
             borderRadius="100%"
           />
-          <Typography fontSize="button" text={primaryLanguage.name} />
+          <Typography fontSize="button">{primaryLanguage.name}</Typography>
         </LanguageIndicator>
         <StarWrapper>
           <StyledStar />
-          <Typography
-            variant="p"
-            fontSize="button"
-            text={stargazers.totalCount}
-          />
+          <Typography fontSize="button">{stargazers.totalCount}</Typography>
         </StarWrapper>
       </Tag>
 
-      <Typography
-        variant="p"
-        fontWeight="bold"
-        fontSize="body"
-        text={nameWithOwner}
-      />
-      <StyledDescription variant="p" fontSize="subbody" text={description} />
+      <Text fontWeight="bold">{nameWithOwner}</Text>
+      <StyledDescription text={description} />
       <ButtonWrapper>
         <Button rounded bg="primary" color="primaryContrast" link={url}>
           Link

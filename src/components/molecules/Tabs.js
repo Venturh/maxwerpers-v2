@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import Typography from "../atoms/Typography"
+import { Text } from "../atoms/Typography"
 
 const TabsWrapper = styled.div`
   display: flex;
@@ -19,7 +19,7 @@ const StyledChild = styled.div`
   color: ${props => props.textColor || "white"};
 `
 
-const StyledTab = styled(Typography)`
+const StyledTab = styled(Text)`
   padding: 10px 10px;
 
   cursor: pointer;
@@ -59,5 +59,5 @@ export const Tabs = ({
 }
 
 export const Tab = ({ label }) => {
-  return <StyledTab fontSize="subbody">{label}</StyledTab>
+  return <StyledTab>{label}</StyledTab>
 }

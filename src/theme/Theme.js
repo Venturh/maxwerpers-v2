@@ -1,9 +1,8 @@
 const fontSizes = {
-  xs: "0.675em",
   caption: "0.675em",
   button: "0.775em",
   subbody: "0.875em",
-  body: "1.1em",
+  body: "1em",
   subtitle: "1.25em",
   title: "1.5em",
   subheader: "2em",

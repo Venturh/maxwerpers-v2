@@ -91,12 +91,12 @@ const Desktop = ({ navlinks }) => {
             iconLeft={<Language />}
             iconRight={<KeyboardArrowDown />}
             iconColor={theme.colors.bodyContrast}
-            iconSize="1em"
+            iconSize="1.4em"
             fontSize="caption"
             dropdownBackground={theme.colors.bodyTint}
             dropdownHoverColor={theme.colors.toolbarBackground}
           ></LanguageSwitch>
-          <ThemeToggle iconSize="1.25em" />
+          <ThemeToggle iconSize="1.4em" />
         </NavTool>
       </NavItems>
     </Nav>

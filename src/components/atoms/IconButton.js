@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { StyledIconBase } from "@styled-icons/styled-icon"
-import Typography from "./Typography"
+import { SubText } from "./Typography"
 
 const Card = styled.a`
   width: ${props => props.width};
@@ -24,7 +24,7 @@ const Card = styled.a`
   }
 `
 
-const Text = styled(Typography)`
+const Text = styled(SubText)`
   margin: 0 0.5em;
 `
 

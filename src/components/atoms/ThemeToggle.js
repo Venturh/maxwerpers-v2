@@ -3,6 +3,7 @@ import styled, { keyframes } from "styled-components"
 import { BrightnessHigh } from "@styled-icons/material/BrightnessHigh"
 import { Brightness4 } from "@styled-icons/material-rounded/Brightness4"
 import { StyledIconBase } from "@styled-icons/styled-icon"
+
 import ThemeContext from "../../utils/ThemeContext"
 
 const scaleUp = keyframes`
