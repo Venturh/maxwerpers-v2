@@ -9,13 +9,19 @@ const StyledIcon = styled.a`
 const Socials = () => {
   return (
     <React.Fragment>
-      <StyledIcon href="https://github.com/Venturh">
+      <StyledIcon aria-label="Github" href="https://github.com/Venturh">
         <Github />
       </StyledIcon>
-      <StyledIcon href="https://play.google.com/store/apps/developer?id=Venturh&hl=gsw">
+      <StyledIcon
+        aria-label="PlayStore"
+        href="https://play.google.com/store/apps/developer?id=Venturh&hl=gsw"
+      >
         <PlayStore />
       </StyledIcon>
-      <StyledIcon href="https://www.linkedin.com/in/max-werpers-9474251a5/">
+      <StyledIcon
+        aria-label="LinkedIn"
+        href="https://www.linkedin.com/in/max-werpers-9474251a5/"
+      >
         <Linkedin />
       </StyledIcon>
     </React.Fragment>

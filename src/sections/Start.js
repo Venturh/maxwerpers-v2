@@ -6,11 +6,7 @@ import { StyledIconBase } from "@styled-icons/styled-icon"
 
 import ThemeContext from "../utils/ThemeContext"
 import { PrimaryButton, SecondaryButton } from "../components/atoms/Button"
-import Button, {
-  Subheader,
-  Text,
-  Subtitle,
-} from "../components/atoms/Typography"
+import { Subheader, Text, Subtitle } from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
 import Image from "../components/atoms/Image"
 import Socials from "../components/atoms/Socials"
