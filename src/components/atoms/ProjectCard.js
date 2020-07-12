@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Star } from "@styled-icons/remix-line/Star"
 
 import Typography, { SubText, Text } from "./Typography"
-import Button from "./Button"
+import { PrimaryButton, SecondaryButton } from "./Button"
 import Shape from "./Shape"
 
 const Card = styled.div`
@@ -57,6 +57,7 @@ const ButtonWrapper = styled.div`
   align-items: center;
   margin-top: 0.5em;
   Button {
+    min-width: 6em;
     margin-right: 0.5em;
     padding: 0.5em 1em;
   }
@@ -91,18 +92,11 @@ const ProjectCard = ({
       <Text fontWeight="bold">{nameWithOwner}</Text>
       <StyledDescription text={description} />
       <ButtonWrapper>
-        <Button rounded bg="primary" color="primaryContrast" link={url}>
-          Link
-        </Button>
+        <PrimaryButton link={url}>Link</PrimaryButton>
         {homepageUrl ? (
-          <Button
-            rounded
-            bg="secondary"
-            color="secondaryContrast"
-            link={homepageUrl}
-          >
+          <SecondaryButton bg="toolbar" link={homepageUrl}>
             Live-Demo
-          </Button>
+          </SecondaryButton>
         ) : null}
       </ButtonWrapper>
     </Card>

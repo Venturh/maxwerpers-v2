@@ -5,8 +5,12 @@ import { scroller } from "react-scroll"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 
 import ThemeContext from "../utils/ThemeContext"
-import Button from "../components/atoms/Button"
-import { Subheader, Text, Subtitle } from "../components/atoms/Typography"
+import { PrimaryButton, SecondaryButton } from "../components/atoms/Button"
+import Button, {
+  Subheader,
+  Text,
+  Subtitle,
+} from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
 import Image from "../components/atoms/Image"
 import Socials from "../components/atoms/Socials"
@@ -61,13 +65,13 @@ const ButtonGroup = styled.div`
     flex-direction: row;
     justify-content: start;
   }
-`
 
-const StyledButton = styled(Button)`
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 12em;
-    padding: 0.75em 0;
-    margin: 0.5em 0.5em 0 0;
+  Button {
+    @media (min-width: ${props => props.theme.breakpoints.lg}) {
+      width: 12em;
+      padding: 0.75em 0;
+      margin: 0.5em 0.5em 0 0;
+    }
   }
 `
 
@@ -114,10 +118,10 @@ const Start = ({ id, refs }) => {
       </Shapes>
       <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
       <InfoWrapper>
-        <Text color={theme === "dark" ? "primary" : "bodyContrast"}>
+        <Text color="bodyContrast">
           {intl.formatMessage({ id: "welcomeTitle" })}
         </Text>
-        <Subheader color="secondary">
+        <Subheader color="primary">
           {intl.formatMessage({ id: "welcomeMsg" })}
         </Subheader>
         <Subtitle color="bodyContrast">
@@ -130,10 +134,8 @@ const Start = ({ id, refs }) => {
           text={intl.formatMessage({ id: "infoMessage" })}
         /> */}
         <ButtonGroup>
-          <StyledButton
-            color="primaryContrast"
-            bg="primary"
-            rounded
+          <PrimaryButton
+            large={true}
             onClick={() =>
               scroller.scrollTo("projects", {
                 duration: 300,
@@ -143,11 +145,9 @@ const Start = ({ id, refs }) => {
             }
           >
             {intl.formatMessage({ id: "projects" })}
-          </StyledButton>
-          <StyledButton
-            color="primary"
-            bg="secondary"
-            rounded
+          </PrimaryButton>
+          <SecondaryButton
+            large
             onClick={() =>
               scroller.scrollTo("skills", {
                 duration: 300,
@@ -157,7 +157,7 @@ const Start = ({ id, refs }) => {
             }
           >
             {intl.formatMessage({ id: "experience" })}
-          </StyledButton>
+          </SecondaryButton>
         </ButtonGroup>
         <Social>
           <Socials />

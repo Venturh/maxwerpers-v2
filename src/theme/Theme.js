@@ -27,16 +27,13 @@ const breakpoints = {
 }
 export const lightTheme = {
   colors: {
-    primary: "#58E887 ",
+    primary: "#62ea8d",
     primaryContrast: "#292929",
-    secondary: "#6C97C1",
-    secondaryRgba: [133, 167, 223],
-    secondaryContrast: "#292929",
-    body: "#F4F2F7;",
+    body: "#FFFFFF;",
     bodyContrast: "#292929",
-    bodyTint: "F4F2F7",
+    bodyTint: "#F4F2F7",
     toolbarContrast: "#1E1E1E",
-    toolbar: "#F1F1EF",
+    toolbar: "#FFFFFF",
   },
   type: "light",
   fontSizes,
@@ -48,9 +45,6 @@ export const darkTheme = {
   colors: {
     primary: "#85EEA7",
     primaryContrast: "#292929",
-    secondary: "#85a7df",
-    secondaryRgba: [108, 151, 193],
-    secondaryContrast: "#292929",
     body: "#121212;",
     bodyContrast: "#f4f5f8",
     bodyTint: "#292929",

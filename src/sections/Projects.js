@@ -5,7 +5,7 @@ import { useIntl } from "gatsby-plugin-intl"
 
 import ProjectCard from "../components/atoms/ProjectCard"
 import { Subheader } from "../components/atoms/Typography"
-import Button from "../components/atoms/Button"
+import { PrimaryButton } from "../components/atoms/Button"
 
 const Wrapper = styled.section`
   height: 100%;
@@ -38,7 +38,7 @@ const Cards = styled.div`
   }
 `
 
-const ShowMore = styled(Button)`
+const ShowMore = styled(PrimaryButton)`
   width: 100%;
   height: 2.5em;
   margin: 1em 0.1em;
@@ -86,12 +86,7 @@ const Projects = ({ id, refs }) => {
               return <ProjectCard key={index} {...data} />
             })}
           </Cards>
-          <ShowMore
-            color="primaryContrast"
-            bg="primary"
-            rounded
-            link="https://github.com/Venturh"
-          >
+          <ShowMore link="https://github.com/Venturh">
             {intl.formatMessage({ id: "showmore" })}
           </ShowMore>
         </Main>
