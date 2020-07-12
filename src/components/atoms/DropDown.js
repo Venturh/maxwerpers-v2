@@ -10,18 +10,20 @@ const StyledDropDown = styled.div`
   background-color: ${props => props.backgroundColor || "#1E1E1E"};
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
     0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  z-index: 1;
 `
 
 const StyledDropdownItem = styled.div`
   display: flex;
   align-items: center;
-  margin-left: 0.8em;
   height: 50px;
+  width: 100%;
   border-radius: 8px;
+  padding: 0.5em;
   transition: background 500ms;
   cursor: pointer;
   :hover {
-    background-color: ${props => props.hoverColor || "#525357"};
+    background-color: ${props => props.theme.colors.primary || "red"};
   }
 `
 
