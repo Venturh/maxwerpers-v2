@@ -132,12 +132,16 @@ const About = ({ id, refs }) => {
           <Subtitle>Max Werpers, 25</Subtitle>
           <LocationWrapper>
             <LocationOn />
-            <Subtitle>"Wiesbaden, Germany"</Subtitle>
+            <Subtitle>Wiesbaden, Germany</Subtitle>
           </LocationWrapper>
         </InformationWrapper>
         <Description>
           <DesktopHeader text={intl.formatMessage({ id: "aboutMe" })} />
-          <Title>Student - Developer</Title>
+          <Title>
+            {intl.formatMessage({
+              id: "aboutMeSub",
+            })}
+          </Title>
           <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
           <DesktopHeader>Links</DesktopHeader>
           <Socials>
