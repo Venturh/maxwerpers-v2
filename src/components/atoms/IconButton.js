@@ -30,7 +30,13 @@ const Text = styled(SubText)`
 
 const IconButton = props => {
   return (
-    <Card className={props.className} href={props.link} {...props}>
+    <Card
+      className={props.className}
+      href={props.link}
+      target="_blank"
+      rel="noopener noreferrer"
+      {...props}
+    >
       {props.leftIcon ? <props.leftIcon /> : null}
       <Text>{props.text}</Text>
       {props.rightIcon ? <props.rightIcon /> : null}

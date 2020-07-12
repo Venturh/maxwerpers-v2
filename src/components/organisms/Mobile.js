@@ -42,7 +42,7 @@ const Bottom = styled.div`
   overflow: hidden;
   height: 3.5em;
   z-index: 1;
-  bottom: 0.25em;
+  bottom: 0em;
   width: 100vw;
   display: flex;
   justify-content: space-around;
