@@ -57,9 +57,9 @@ const ButtonWrapper = styled.div`
   align-items: center;
   margin-top: 0.5em;
   Button {
-    min-width: 6em;
+    min-width: 5em;
     margin-right: 0.5em;
-    padding: 0.5em 1em;
+    padding: 0.25em 0.5em;
   }
 `
 

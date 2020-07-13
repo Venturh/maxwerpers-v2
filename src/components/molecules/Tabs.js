@@ -8,20 +8,26 @@ const TabsWrapper = styled.div`
 `
 
 const StyledChild = styled.div`
-  transition: border-bottom 0.2s cubic-bezier(1, 0, 0, 1);
-  border-bottom: ${props =>
-    props.value === props.tabPosition
-      ? "3px solid " + (props.indicatorColor || "red")
-      : ""};
-  border-bottom-width: 1px;
+  position: relative;
   font-size: ${props => props.fontSize || "1rem"};
-  font-weight: 500;
   color: ${props => props.textColor || "white"};
+
+  &::after {
+    position: absolute;
+    bottom: 0.25em;
+    right: 25%;
+    content: "";
+    display: block;
+    width: 50%;
+    height: 0.25em;
+    border-radius: 1em;
+    background: ${props =>
+      props.value === props.tabPosition ? props.indicatorColor : ""};
+  }
 `
 
-const StyledTab = styled(Text)`
+const TabText = styled(Text)`
   padding: 10px 10px;
-
   cursor: pointer;
 `
 
@@ -59,5 +65,5 @@ export const Tabs = ({
 }
 
 export const Tab = ({ label }) => {
-  return <StyledTab>{label}</StyledTab>
+  return <TabText>{label}</TabText>
 }
