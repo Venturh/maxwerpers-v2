@@ -16,23 +16,42 @@ const Wrapper = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-top: 10%;
     width: 35vw;
-    border-radius: 25px;
-    padding-bottom: 1.75em;
+    border-radius: 1.5em;
+    padding-bottom: 0.75em;
   }
 `
 
+const Section = styled.div``
+
 const SectionTitle = styled(Typography)`
+  width: 100%;
   text-align: center;
   margin: 0.75em 0;
+  @media (min-width: ${props =>
+      props.theme.breakpoints.lg}) and (max-width: ${props =>
+      props.theme.breakpoints.xl}) {
+    margin: 0.5em 0 0 0;
+  }
 `
 
 const SectionSkills = styled.div`
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0px, 1fr));
-  grid-gap: 1em;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 1em;
 
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
-    grid-gap: 1em 2em;
+    margin: 0 8em;
+  }
+`
+
+const SectionSkill = styled(Skill)`
+  margin: 0.5em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin: 0.25em 0.25em;
+  }
+  @media (min-width: ${props => props.theme.breakpoints.xl}) {
+    margin: 0.25em 0.6em;
   }
 `
 
@@ -41,7 +60,7 @@ const SkillsContainer = allDataJson => {
     <Wrapper>
       {Object.keys(allDataJson.nodes[0]).map((section, index) => {
         return (
-          <div key={index}>
+          <Section key={index}>
             <SectionTitle
               color="toolbarContrast"
               fontSize="subtitle"
@@ -49,10 +68,14 @@ const SkillsContainer = allDataJson => {
             />
             <SectionSkills>
               {allDataJson.nodes[0][section].map((skill, index) => (
-                <Skill key={index} iconName={skill.name} icon={skill.path} />
+                <SectionSkill
+                  key={index}
+                  iconName={skill.name}
+                  icon={skill.path}
+                />
               ))}
             </SectionSkills>
-          </div>
+          </Section>
         )
       })}
     </Wrapper>

@@ -30,8 +30,8 @@ const SkillName = styled(Caption)`
   bottom: 0.5em;
 `
 
-const Skill = ({ icon, iconName }) => (
-  <Card>
+const Skill = ({ icon, iconName, ...rest }) => (
+  <Card {...rest}>
     <Icon viewBox="0 0 24 24">
       <path d={icon} />
     </Icon>
