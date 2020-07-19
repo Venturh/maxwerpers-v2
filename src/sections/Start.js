@@ -61,13 +61,21 @@ const ButtonGroup = styled.div`
     flex-direction: row;
     justify-content: start;
   }
+`
 
-  Button {
-    @media (min-width: ${props => props.theme.breakpoints.lg}) {
-      width: 12em;
-      padding: 0.75em 0;
-      margin: 0.5em 0.5em 0 0;
-    }
+const StyledPrimary = styled(PrimaryButton)`
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 12em;
+    padding: 0.75em 0;
+    margin: 0.5em 0.5em 0 0;
+  }
+`
+
+const StyledSecondary = styled(SecondaryButton)`
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 12em;
+    padding: 0.75em 0;
+    margin: 0.5em 0.5em 0 0;
   }
 `
 
@@ -123,14 +131,8 @@ const Start = ({ id, refs }) => {
         <Subtitle color="bodyContrast">
           {intl.formatMessage({ id: "welcomeSub" })}
         </Subtitle>
-        {/* <Typography
-          variant="span"
-          fontSize="subbody"
-          color={theme === "dark" ? "primary" : "bodyContrast"}
-          text={intl.formatMessage({ id: "infoMessage" })}
-        /> */}
         <ButtonGroup>
-          <PrimaryButton
+          <StyledPrimary
             large={true}
             onClick={() =>
               scroller.scrollTo("projects", {
@@ -141,8 +143,8 @@ const Start = ({ id, refs }) => {
             }
           >
             {intl.formatMessage({ id: "projects" })}
-          </PrimaryButton>
-          <SecondaryButton
+          </StyledPrimary>
+          <StyledSecondary
             large
             onClick={() =>
               scroller.scrollTo("skills", {
@@ -153,7 +155,7 @@ const Start = ({ id, refs }) => {
             }
           >
             {intl.formatMessage({ id: "experience" })}
-          </SecondaryButton>
+          </StyledSecondary>
         </ButtonGroup>
         <Social>
           <Socials />

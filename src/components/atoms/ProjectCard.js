@@ -56,11 +56,6 @@ const ButtonWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-top: 0.5em;
-  Button {
-    min-width: 5em;
-    margin-right: 0.5em;
-    padding: 0.25em 0.5em;
-  }
 `
 
 const ProjectCard = ({
@@ -92,7 +87,9 @@ const ProjectCard = ({
       <Text fontWeight="bold">{nameWithOwner}</Text>
       <StyledDescription text={description} />
       <ButtonWrapper>
-        <PrimaryButton link={url}>Link</PrimaryButton>
+        <PrimaryButton style={{ marginRight: "0.5em" }} link={url}>
+          Link
+        </PrimaryButton>
         {homepageUrl ? (
           <SecondaryButton bg="toolbar" link={homepageUrl}>
             Live-Demo

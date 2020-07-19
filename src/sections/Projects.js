@@ -25,8 +25,6 @@ const Content = styled.div`
   align-items: center;
 `
 
-const Main = styled.div``
-
 const Cards = styled.div`
   display: grid;
   grid-template-columns: 100%;
@@ -43,7 +41,8 @@ const ShowMore = styled(PrimaryButton)`
   height: 2.5em;
   margin: 1em 0.1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 10vw;
+    width: 15%;
+    height: 100%;
   }
 `
 
@@ -79,7 +78,7 @@ const Projects = ({ id, refs }) => {
   return (
     <Wrapper id={id} ref={refs}>
       <Content>
-        <Main>
+        <div>
           <Heading text={intl.formatMessage({ id: "projects" })} />
           <Cards>
             {githubData.data.user.pinnedItems.nodes.map((data, index) => {
@@ -89,7 +88,7 @@ const Projects = ({ id, refs }) => {
           <ShowMore link="https://github.com/Venturh">
             {intl.formatMessage({ id: "showmore" })}
           </ShowMore>
-        </Main>
+        </div>
       </Content>
     </Wrapper>
   )
