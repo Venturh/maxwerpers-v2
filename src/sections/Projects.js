@@ -9,6 +9,9 @@ import { PrimaryButton } from "../components/atoms/Button"
 
 const Wrapper = styled.section`
   height: 100%;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin-bottom: 10vh;
+  }
 `
 
 const Heading = styled(Subheader)`
