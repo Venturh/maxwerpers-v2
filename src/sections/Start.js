@@ -34,6 +34,7 @@ const Cover = styled(Image)`
   height: 30vh;
   margin-top: 25vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin-top: 0;
     height: 50vh;
   }
 `
