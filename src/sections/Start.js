@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
 import { scroller } from "react-scroll"
-import { StyledIconBase } from "@styled-icons/styled-icon"
 
 import ThemeContext from "../utils/ThemeContext"
 import { PrimaryButton, SecondaryButton } from "../components/atoms/Button"
@@ -14,7 +13,6 @@ import Socials from "../components/atoms/Socials"
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   height: 100vh;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -34,13 +32,14 @@ const Shapes = styled.div`
 
 const Cover = styled(Image)`
   height: 30vh;
+  margin-top: 25vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     height: 50vh;
   }
 `
 
 const InfoWrapper = styled.div`
-  margin-top: 5%;
+  margin-top: 2em;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,10 +51,8 @@ const InfoWrapper = styled.div`
 `
 
 const ButtonGroup = styled.div`
-  display: none;
+  display: flex;
   flex-direction: column;
-  justify-items: center;
-  align-items: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
     flex-direction: row;
@@ -64,6 +61,9 @@ const ButtonGroup = styled.div`
 `
 
 const StyledPrimary = styled(PrimaryButton)`
+  width: 9em;
+  height: 3em;
+  margin: 1em 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 12em;
     padding: 0.75em 0;
@@ -72,6 +72,8 @@ const StyledPrimary = styled(PrimaryButton)`
 `
 
 const StyledSecondary = styled(SecondaryButton)`
+  width: 9em;
+  height: 3em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: 12em;
     padding: 0.75em 0;
@@ -81,27 +83,14 @@ const StyledSecondary = styled(SecondaryButton)`
 
 const Social = styled.div`
   display: flex;
-  width: 50vw;
+  width: 25vw;
+  height: 15vh;
+  flex-direction: column;
+  align-content: space-around;
   justify-content: space-around;
-  margin-top: 1em;
-  ${StyledIconBase} {
-    width: 2em;
-    color: ${props => props.theme.colors.primary};
-    cursor: pointer;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    width: 25vw;
-  }
-
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 15vh;
-    flex-direction: column;
-    align-content: space-around;
-    position: absolute;
-    left: 1vw;
-    top: 10vh;
-  }
+  position: absolute;
+  left: 1vw;
+  top: 10vh;
 `
 
 const Start = ({ id, refs }) => {

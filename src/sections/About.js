@@ -30,7 +30,7 @@ const Wrapper = styled.section`
 `
 
 const Heading = styled(Subheader)`
-  margin: ${props => props.theme.spacing.heading} 0;
+  margin: 7vh 0 ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }

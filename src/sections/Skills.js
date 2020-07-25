@@ -10,7 +10,7 @@ import ExperienceContainer from "../components/templates/ExperienceContainer"
 const Wrapper = styled.div``
 
 const Header = styled(Subheader)`
-  margin: ${props => props.theme.spacing.heading} 0;
+  margin: 7vh 0 ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }

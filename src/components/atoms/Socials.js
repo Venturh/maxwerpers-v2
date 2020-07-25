@@ -1,9 +1,15 @@
 import React from "react"
 import styled from "styled-components"
+import { StyledIconBase } from "@styled-icons/styled-icon"
 import { Linkedin, PlayStore, Github } from "@styled-icons/boxicons-logos/"
 
 const StyledIcon = styled.a`
   width: 2em;
+  ${StyledIconBase} {
+    width: 2em;
+    color: ${props => props.theme.colors.primary};
+    cursor: pointer;
+  }
 `
 
 const Socials = () => {
