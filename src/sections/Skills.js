@@ -27,10 +27,9 @@ const Content = styled.div`
 const DesktopHeader = styled(Subheader)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin: 7vh 0 ${props => props.theme.spacing.heading} 0;
     display: block;
     text-align: center;
-    margin: ${props => props.theme.spacing.heading} 0
-      ${props => props.theme.spacing.heading} 0;
   }
 `
 const Skills = ({ id, refs }) => {

@@ -14,7 +14,7 @@ const Wrapper = styled.div`
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-top: 10%;
+    margin-top: ${props => props.theme.spacing.heading};
     width: 35vw;
     border-radius: 1.5em;
     padding-bottom: 0.75em;

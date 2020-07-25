@@ -13,7 +13,7 @@ const Wrapper = styled.div`
   border-radius: 0 0 25px 25px;
   padding-bottom: 1.75em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-top: 10%;
+    margin-top: ${props => props.theme.spacing.heading};
     width: 40vw;
     background-color: inherit;
   }
