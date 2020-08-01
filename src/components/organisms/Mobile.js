@@ -11,9 +11,11 @@ import Menu from "../atoms/Menu"
 import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 import ThemeContext from "../../utils/ThemeContext"
+import { Link } from "gatsby"
 
 const Navigation = styled.nav`
   position: fixed;
+  top: 0;
   z-index: 1;
   width: 100vw;
   display: flex;
@@ -45,10 +47,12 @@ const Mobile = ({ navlinks }) => {
 
   return (
     <Navigation>
-      <Logo
-        src={themeMode.theme === "dark" ? logoDark : logoLight}
-        alt="logo-nav"
-      />
+      <Link to={`/${intl.locale}`}>
+        <Logo
+          src={themeMode.theme === "dark" ? logoDark : logoLight}
+          alt="logo-nav"
+        />
+      </Link>
       <Items>
         <LanguageSwitch
           changeLanguage={changeLocale}

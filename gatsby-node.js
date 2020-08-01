@@ -1,29 +1,40 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
-
-// You can delete this file if you're not using it
 exports.onCreatePage = ({ page, actions }) => {
-	const { createPage, deletePage } = actions
-	const oldPage = Object.assign({}, page)
+  const { createPage, deletePage } = actions
+  deletePage(page)
+  createPage({
+    ...page,
+    context: {
+      ...page.context,
+      locale: page.context.intl.language,
+    },
+  })
+}
 
-	if (page.context.language === 'de') {
-		page.context.language = page.context.intl.language + '-' + 'de'
-	} else if (page.context.language === 'en') {
-		page.context.language = page.context.intl.language + '-' + 'gb'
-	}
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const { data } = await graphql(`
+    query {
+      allProjectsYaml {
+        edges {
+          node {
+            slug
+            gitName
+          }
+        }
+      }
+    }
+  `)
 
-	if (page.context.language !== oldPage.context.language) {
-		// Replace new page with old page
-		deletePage(oldPage)
-		createPage({
-			...page,
-			context: {
-				...page.context,
-				locale: page.context.language
-			}
-		})
-	}
+  data.allProjectsYaml.edges.forEach(edge => {
+    const slug = edge.node.slug
+    const gitName = edge.node.gitName
+
+    createPage({
+      path: slug,
+      component: require.resolve(
+        "./src/components/templates/ProjectPost/index.js"
+      ),
+      context: { slug, gitName },
+    })
+  })
 }

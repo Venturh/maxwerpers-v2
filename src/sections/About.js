@@ -3,12 +3,7 @@ import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 import { StyledIconBase } from "@styled-icons/styled-icon"
 import { LocationOn } from "@styled-icons/material/LocationOn"
-import {
-  Github,
-  Linkedin,
-  GooglePlay,
-  MailCheck,
-} from "@styled-icons/remix-fill/"
+import { Github, LinkedIn, PlayStore, MailCheck } from "../icons"
 
 import { ThemeContext } from "styled-components"
 import {
@@ -152,13 +147,13 @@ const About = ({ id, refs }) => {
               color={theme.colors.secondaryRgba}
             />
             <IconButton
-              leftIcon={Linkedin}
+              leftIcon={LinkedIn}
               link="https://www.linkedin.com/in/max-werpers-9474251a5/"
               text="Max Werpers"
               color={theme.colors.secondaryRgba}
             />
             <IconButton
-              leftIcon={GooglePlay}
+              leftIcon={PlayStore}
               link="https://play.google.com/store/apps/developer?id=Venturh"
               text="Venturh"
               color={theme.colors.secondaryRgba}

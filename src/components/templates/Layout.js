@@ -8,9 +8,9 @@ import ThemeContext from "../../utils/ThemeContext"
 import Header from "../organisms/Header"
 
 const MainWrapper = styled.main`
-  margin: 0 ${props => props.theme.spacing.mobile.sides} 20vh
+  margin: 8vh ${props => props.theme.spacing.mobile.sides} 20vh
     ${props => props.theme.spacing.mobile.sides};
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
     margin: 0 ${props => props.theme.spacing.desktop.sides} 0
       ${props => props.theme.spacing.desktop.sides};
   }

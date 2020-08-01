@@ -1,6 +1,8 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
 })
+const fetch = require(`node-fetch`)
+const { createHttpLink } = require(`apollo-link-http`)
 module.exports = {
   siteMetadata: {
     title: `Portfolio Max Werpers`,
@@ -31,7 +33,7 @@ module.exports = {
         path: `${__dirname}/src/intl`,
         languages: [`de`, `en`, `fr`],
         defaultLanguage: `de`,
-        redirect: false,
+        redirect: true,
       },
     },
     `gatsby-plugin-styled-components`,
@@ -57,41 +59,12 @@ module.exports = {
         path: `./src/data/experience.json`,
       },
     },
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
         path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-source-github-api`,
-      options: {
-        token: process.env.GATSBY_GITHUB_TOKEN,
-        variables: {},
-        graphQLQuery: `
-          query {
-            user(login: "Venturh") {
-              pinnedItems(first: 6, types: REPOSITORY) {
-                nodes {
-                  ... on Repository {
-                    url
-                    nameWithOwner
-                    description
-                    homepageUrl
-                    primaryLanguage {
-                      name
-                      color
-                    }
-                    stargazers{
-                      totalCount
-                    }
-                  }
-                }
-              }
-            }
-          }
-          `,
       },
     },
     {
@@ -109,14 +82,26 @@ module.exports = {
         ],
       },
     },
+    `gatsby-transformer-yaml`,
     {
-      resolve: `gatsby-plugin-gdpr-cookies`,
+      resolve: `gatsby-source-filesystem`,
       options: {
-        googleAnalytics: {
-          trackingId: process.env.GATSBY_GA_TOKEN,
-          cookieName: "gatsby-gdpr-google-analytics",
-          anonymize: true, // default
-        },
+        path: `${__dirname}/src/content/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-graphql`,
+      options: {
+        fieldName: `github`,
+        typeName: `GitHub`,
+        createLink: () =>
+          createHttpLink({
+            uri: `https://api.github.com/graphql`,
+            headers: {
+              Authorization: `bearer ${process.env.GATSBY_GITHUB_TOKEN}`,
+            },
+            fetch,
+          }),
       },
     },
   ],

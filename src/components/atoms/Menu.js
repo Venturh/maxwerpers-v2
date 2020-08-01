@@ -1,4 +1,6 @@
 import React, { useState } from "react"
+import { useIntl } from "gatsby-plugin-intl"
+import { navigate } from "gatsby"
 import { animateScroll as scroll, scroller } from "react-scroll"
 import styled, { keyframes } from "styled-components"
 import { StyledIconBase } from "@styled-icons/styled-icon"
@@ -49,14 +51,17 @@ const NavItem = styled(SecondaryButton)`
 `
 
 const Menu = ({ items }) => {
+  const intl = useIntl()
   const [isOpen, setisOpen] = useState(false)
 
-  const scrollTo = (label, index) => {
+  const scrollTo = label => {
     const options = {
       duration: 300,
       delay: 0,
       smooth: "easeInOutQuart",
+      offset: -75,
     }
+    navigate("/" + intl.locale + "/#" + label)
     if (label === "home") {
       scroll.scrollToTop(options)
     } else {

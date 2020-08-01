@@ -5,6 +5,7 @@ import { useTheme } from "styled-components"
 import { Language } from "@styled-icons/material/Language"
 import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
 import { animateScroll as scroll, scroller } from "react-scroll"
+import { Link, navigate } from "gatsby"
 
 import logoDark from "../../images/logo_dark.svg"
 import logoLight from "../../images/logo_light.svg"
@@ -21,7 +22,7 @@ const Nav = styled.div`
   padding: 0 var(--sides-padding-desktop);
   background-color: ${({ theme }) => theme.colors.body};
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.75);
-  @media (max-width: ${props => props.theme.breakpoints.lg}) {
+  @media (max-width: ${props => props.theme.breakpoints.md}) {
     display: none;
   }
 `
@@ -53,6 +54,7 @@ const Desktop = ({ navlinks }) => {
       delay: 0,
       smooth: "easeInOutQuart",
     }
+    navigate("/" + intl.locale + "/#" + label)
     if (label === "home") {
       scroll.scrollToTop(options)
     } else {
@@ -61,10 +63,12 @@ const Desktop = ({ navlinks }) => {
   }
   return (
     <Nav>
-      <Logo
-        src={themeMode.theme === "dark" ? logoDark : logoLight}
-        alt="logo-nav"
-      />
+      <Link to={`/${intl.locale}`}>
+        <Logo
+          src={themeMode.theme === "dark" ? logoDark : logoLight}
+          alt="logo-nav"
+        />
+      </Link>
       <NavItems>
         <Tabs
           indicatorColor={theme.colors.primary}

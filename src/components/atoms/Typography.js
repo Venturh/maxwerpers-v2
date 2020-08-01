@@ -77,5 +77,23 @@ const Subheader = ({ text, color, ...rest }) => (
   />
 )
 
+const Header = ({ text, color, ...rest }) => (
+  <Typography
+    color={color || "primary"}
+    fontSize="header"
+    text={text}
+    {...rest}
+  />
+)
+
 export default Typography
-export { Caption, ButtonText, SubText, Text, Subtitle, Title, Subheader }
+export {
+  Caption,
+  ButtonText,
+  SubText,
+  Text,
+  Subtitle,
+  Title,
+  Subheader,
+  Header,
+}
