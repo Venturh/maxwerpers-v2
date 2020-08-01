@@ -13,7 +13,8 @@ import Socials from "../components/atoms/Socials"
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  justify-content: center;
+  height: 93vh;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row-reverse;
@@ -32,7 +33,6 @@ const Shapes = styled.div`
 
 const Cover = styled(Image)`
   height: 30vh;
-  margin-top: 25vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-top: 0;
     height: 50vh;
