@@ -1,8 +1,8 @@
 import * as React from "react"
 
-const SvgIcon = ({ path, color, size, ...rest }) => (
+const SvgIcon = ({ viewBox, path, color, size, ...rest }) => (
   <svg
-    viewBox="0 0 24 24"
+    viewBox={viewBox || "0 0 24 24"}
     style={{
       height: size,
     }}

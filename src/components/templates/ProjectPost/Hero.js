@@ -2,7 +2,7 @@ import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import { Header, Title } from "../../atoms/Typography"
+import { Subheader, Subtitle } from "../../atoms/Typography"
 import GithubCard from "../../atoms/GithubCard"
 import SvgIcon from "../../atoms/SvgIcon"
 import IconButton from "../../atoms/IconButton"
@@ -23,7 +23,7 @@ const Hero = ({ project, localizations, github }) => {
       <Info>
         <InfoText>
           <HeadingWrapper>
-            <Header>{project.name}</Header>
+            <Subheader>{project.name}</Subheader>
             <Icon path={project.icon} />
           </HeadingWrapper>
           <Description color="bodyContrast">
@@ -31,7 +31,6 @@ const Hero = ({ project, localizations, github }) => {
           </Description>
         </InfoText>
         <Github {...github} />
-
         <Techs>
           {tech.map(({ text, icon }) => (
             <IconButton key={text} leftIcon={icon}>
@@ -84,15 +83,12 @@ const InfoText = styled.div`
 `
 
 const Icon = styled(SvgIcon)`
-  width: 2.5em;
+  width: 2.25em;
   margin-left: 1em;
   fill: ${props => props.theme.colors.primary};
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    width: 3.5em;
-  }
 `
 
-const Description = styled(Title)`
+const Description = styled(Subtitle)`
   margin: 0.5em 0;
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
     width: 90%;

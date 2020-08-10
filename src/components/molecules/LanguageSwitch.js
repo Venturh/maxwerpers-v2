@@ -1,116 +1,56 @@
-import React, { useState, useRef, useEffect } from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
-import { Language } from "@styled-icons/fa-solid/Language"
-import { KeyboardArrowDown } from "@styled-icons/material-rounded/KeyboardArrowDown"
-import { KeyboardArrowUp } from "@styled-icons/material-rounded/KeyboardArrowUp"
-import { StyledIconBase } from "@styled-icons/styled-icon"
 
 import DropDown from "../atoms/DropDown"
 import { Text } from "../atoms/Typography"
+import SvgIcon from "../atoms/SvgIcon"
 
-const DropdownIcon = ({ open }) =>
-  open ? <KeyboardArrowUp /> : <KeyboardArrowDown />
-
-const Wrapper = styled.div`
-  cursor: pointer;
-`
-
-const Display = styled.div`
-  display: flex;
-  align-items: center;
-  ${StyledIconBase} {
-    color: ${props => props.iconColor || "#5ea7f9"};
-    width: ${props => props.iconSize || "1.8em"};
-  }
-`
-
-const CurrentLanguage = styled(Text)`
-  margin: 0 0.5em;
-`
+import { Language, Language2 } from "../../icons"
 
 const LanguageSwitch = ({
   languages,
   currentLanguage,
   changeLanguage,
-  space,
-  fontSize,
-  fontColor,
-  iconColor,
-  iconSize,
-  iconLeft,
-  iconRight,
-  dropdownBackground,
-  dropdownHoverColor,
+  ...rest
 }) => {
-  const [open, setOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState(false)
 
-  const dropdownRef = useRef()
-  const displayRef = useRef()
-
-  const handleClickOutside = e => {
-    if (
-      dropdownRef.current.contains(e.target) ||
-      displayRef.current.contains(e.target)
-    ) {
-      return
-    }
-    setOpen(false)
-  }
-
-  useEffect(() => {
-    if (open) {
-      document.addEventListener("mousedown", handleClickOutside)
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [open])
-
-  const change = item => {
-    let lan
-
-    languages.forEach(language => {
-      if (item === language) {
-        lan = language.toLowerCase().slice(0, 2)
-        changeLanguage(lan)
-      }
-    })
+  const switchLanguage = item => {
+    //gets the language code 'en, de ...' from selected language
+    changeLanguage(
+      languages
+        .find(language => language === item)
+        .toLowerCase()
+        .slice(0, 2)
+    )
   }
   return (
-    <Wrapper
-      ref={displayRef}
-      onClick={() => {
-        setOpen(!open)
-      }}
-    >
-      <Display iconColor={iconColor} iconSize={iconSize}>
-        <Language />
-        <CurrentLanguage>{currentLanguage.toUpperCase()}</CurrentLanguage>
-        <DropdownIcon
-          open={open}
-          onClick={() => {
-            setOpen(!open)
-          }}
-        />
-        {open ? (
-          <div ref={dropdownRef}>
-            <DropDown
-              items={languages}
-              getItem={change}
-              space={space}
-              backgroundColor={dropdownBackground}
-              hoverColor={dropdownHoverColor}
-              iconLeft={iconLeft}
-              fontSize={fontSize}
-              fontColor={fontColor}
-            />
-          </div>
-        ) : null}
-      </Display>
+    <Wrapper onClick={() => setOpenDropdown(!openDropdown)} {...rest}>
+      <LanguageIcon viewBox="0 0 640 512" path={Language} />
+      <CurrentLanguage>{currentLanguage.toUpperCase()}</CurrentLanguage>
+      <DropDown
+        parentToggle={openDropdown}
+        items={languages}
+        getItem={switchLanguage}
+        icon={Language2}
+      />
     </Wrapper>
   )
 }
 
 export default LanguageSwitch
+
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+`
+
+const LanguageIcon = styled(SvgIcon)`
+  height: ${props => props.theme.sizes.navIcons};
+  fill: ${props => props.theme.colors.bodyContrast};
+`
+
+const CurrentLanguage = styled(Text)`
+  margin: 0 0.1em 0 0.5em;
+`

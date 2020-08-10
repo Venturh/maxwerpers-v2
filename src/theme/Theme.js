@@ -9,6 +9,10 @@ const fontSizes = {
   header: "3em",
 }
 
+const sizes = {
+  navIcons: "1.3em",
+}
+
 const spacing = {
   heading: "0.5em",
   desktop: {
@@ -39,6 +43,7 @@ export const lightTheme = {
   fontSizes,
   spacing,
   breakpoints,
+  sizes,
 }
 
 export const darkTheme = {
@@ -55,4 +60,5 @@ export const darkTheme = {
   fontSizes,
   spacing,
   breakpoints,
+  sizes,
 }

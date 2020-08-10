@@ -1,6 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { Location } from "@styled-icons/icomoon/Location"
+
+import SvgIcon from "./SvgIcon"
+
+import { Location } from "../../icons"
 
 import Typography from "./Typography"
 
@@ -45,6 +48,11 @@ const Place = styled.div`
   }
 `
 
+const LocationIcon = styled(SvgIcon)`
+  height: 0.75em;
+  fill: ${props => props.theme.colors.toolbarContrast};
+`
+
 const TimeLineCard = ({ type, work, place, time }) => (
   <Card>
     <TypeTime>
@@ -53,7 +61,7 @@ const TimeLineCard = ({ type, work, place, time }) => (
     </TypeTime>
     <Info fontSize="1em" text={work} />
     <Place>
-      <Location size={12} />
+      <LocationIcon path={Location} />
       <Typography
         style={{ marginLeft: "0.1em" }}
         fontSize="button"

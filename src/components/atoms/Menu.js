@@ -3,54 +3,12 @@ import { useIntl } from "gatsby-plugin-intl"
 import { navigate } from "gatsby"
 import { animateScroll as scroll, scroller } from "react-scroll"
 import styled, { keyframes } from "styled-components"
-import { StyledIconBase } from "@styled-icons/styled-icon"
-import { Menu3, Close } from "@styled-icons/remix-fill/"
 
 import { SecondaryButton } from "./Button"
+import SvgIcon from "./SvgIcon"
+import { Menu1, Close } from "../../icons"
 
-const scaleUp = keyframes`
-  from {
-    transform: scale(0);
-  }
-  to {
-    transform: scale(1);
-  }
-`
-
-const Burger = styled.div`
-  cursor: pointer;
-  transition: all 2ms ease-out;
-  ${StyledIconBase} {
-    height: 1.5em;
-    animation: ${scaleUp} 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
-  }
-`
-
-const Content = styled.div`
-  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
-  position: fixed;
-  right: 0;
-  height: 100vh;
-  width: 100vw;
-  background: ${props => props.theme.colors.body};
-  opacity: ${props => (props.isOpen ? 100 : 0)};
-  transition: visibility 1s, opacity 0.5s ease;
-`
-
-const Nav = styled.nav`
-  margin: 25vh 0;
-  display: grid;
-  grid-auto-columns: 20vw;
-  grid-auto-rows: 10vh;
-  justify-content: center;
-`
-
-const NavItem = styled(SecondaryButton)`
-  min-width: 25vw;
-  margin-top: 1em;
-`
-
-const Menu = ({ items }) => {
+const Menu = ({ items, ...rest }) => {
   const intl = useIntl()
   const [isOpen, setisOpen] = useState(false)
 
@@ -71,8 +29,13 @@ const Menu = ({ items }) => {
   }
 
   return (
-    <div>
-      <MenuIcon isOpen={isOpen} setOpen={setisOpen} />
+    <Wrapper {...rest}>
+      <Burger
+        onClick={() => {
+          setisOpen(!isOpen)
+        }}
+        path={isOpen ? Close : Menu1}
+      />
       <Content isOpen={isOpen}>
         <Nav>
           {items.map((link, index) => (
@@ -82,18 +45,57 @@ const Menu = ({ items }) => {
           ))}
         </Nav>
       </Content>
-    </div>
+    </Wrapper>
   )
 }
 
-const MenuIcon = ({ setOpen, isOpen }) => (
-  <Burger
-    onClick={() => {
-      setOpen(!isOpen)
-    }}
-  >
-    {isOpen ? <Close /> : <Menu3 />}
-  </Burger>
-)
-
 export default Menu
+
+const scaleUp = keyframes`
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+`
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
+const Burger = styled(SvgIcon)`
+  cursor: pointer;
+  justify-self: center;
+  fill: ${props => props.theme.colors.bodyContrast};
+  height: ${props => props.theme.sizes.navIcons};
+  transition: all 2ms ease-out;
+  animation: ${scaleUp} 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+`
+
+const Content = styled.div`
+  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+  position: fixed;
+  top: 6vh;
+  right: 0;
+  height: 94vh;
+  width: 100vw;
+  z-index: 1;
+  background: ${props => props.theme.colors.body};
+  opacity: ${props => (props.isOpen ? 100 : 0)};
+  transition: visibility 1s, opacity 0.5s ease;
+`
+
+const Nav = styled.nav`
+  margin: 25vh 0;
+  display: grid;
+  grid-auto-columns: 20vw;
+  grid-auto-rows: 10vh;
+  justify-content: center;
+`
+
+const NavItem = styled(SecondaryButton)`
+  min-width: 25vw;
+  margin-top: 1em;
+`

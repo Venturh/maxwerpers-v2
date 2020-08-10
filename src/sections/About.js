@@ -1,11 +1,8 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
-import { StyledIconBase } from "@styled-icons/styled-icon"
-import { LocationOn } from "@styled-icons/material/LocationOn"
-import { Github, LinkedIn, PlayStore, MailCheck } from "../icons"
-
 import { ThemeContext } from "styled-components"
+
 import {
   Subheader,
   Text,
@@ -14,6 +11,9 @@ import {
 } from "../components/atoms/Typography"
 import Image from "../components/atoms/Image"
 import IconButton from "../components/atoms/IconButton"
+import SvgIcon from "../components/atoms/SvgIcon"
+
+import { Location, Github, LinkedIn, PlayStore, MailCheck } from "../icons"
 
 const Wrapper = styled.section`
   display: flex;
@@ -74,11 +74,13 @@ const Cover = styled(Image)`
 
 const LocationWrapper = styled.div`
   display: flex;
-  ${StyledIconBase} {
-    width: 1.5em;
-    color: ${props => props.theme.colors.primary};
-    cursor: pointer;
-  }
+  align-items: center;
+`
+
+const LocationIcon = styled(SvgIcon)`
+  height: 1.25em;
+  fill: ${props => props.theme.colors.primary};
+  cursor: pointer;
 `
 
 const Description = styled.article`
@@ -126,7 +128,7 @@ const About = ({ id, refs }) => {
           <Cover name={theme.type === "light" ? "about_light" : "about_dark"} />
           <Subtitle>Max Werpers, 25</Subtitle>
           <LocationWrapper>
-            <LocationOn />
+            <LocationIcon path={Location} />
             <Subtitle>Wiesbaden, Germany</Subtitle>
           </LocationWrapper>
         </InformationWrapper>

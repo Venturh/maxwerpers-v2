@@ -8,13 +8,12 @@ import { PrimaryButton, SecondaryButton } from "../components/atoms/Button"
 import { Subheader, Text, Subtitle } from "../components/atoms/Typography"
 import Shape from "../components/atoms/Shape"
 import Image from "../components/atoms/Image"
-import Socials from "../components/atoms/Socials"
 
 const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 93vh;
+  height: 100vh;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row-reverse;
@@ -82,18 +81,6 @@ const StyledSecondary = styled(SecondaryButton)`
   }
 `
 
-const Social = styled.div`
-  display: flex;
-  width: 25vw;
-  height: 15vh;
-  flex-direction: column;
-  align-content: space-around;
-  justify-content: space-around;
-  position: absolute;
-  left: 1vw;
-  top: 10vh;
-`
-
 const Start = ({ id, refs }) => {
   const { theme } = useContext(ThemeContext)
   const intl = useIntl()
@@ -147,9 +134,6 @@ const Start = ({ id, refs }) => {
             {intl.formatMessage({ id: "experience" })}
           </StyledSecondary>
         </ButtonGroup>
-        <Social>
-          <Socials />
-        </Social>
       </InfoWrapper>
     </Wrapper>
   )

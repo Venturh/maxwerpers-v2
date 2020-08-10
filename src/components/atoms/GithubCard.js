@@ -4,9 +4,9 @@ import styled from "styled-components"
 import { ButtonText, Subtitle, Text } from "./Typography"
 import { PrimaryButton, SecondaryButton } from "./Button"
 import Shape from "./Shape"
+import SvgIcon from "./SvgIcon"
 
-import { Github } from "../../icons"
-import { Star } from "@styled-icons/remix-line/Star"
+import { Github, Star } from "../../icons"
 
 const GithubCard = ({
   url,
@@ -29,7 +29,7 @@ const GithubCard = ({
         <ButtonText color="bodyContrast">{primaryLanguage.name}</ButtonText>
       </LanguageIndicator>
       <StarWrapper>
-        <StyledStar />
+        <StyledStar path={Star} />
         <ButtonText color="bodyContrast">{stargazers.totalCount}</ButtonText>
       </StarWrapper>
     </Tag>
@@ -88,8 +88,9 @@ const StarWrapper = styled.div`
   margin-left: 0.5em;
 `
 
-const StyledStar = styled(Star)`
-  width: 1em;
+const StyledStar = styled(SvgIcon)`
+  fill: ${props => props.theme.colors.bodyContrast};
+  height: 0.8em;
   margin-right: 0.1em;
 `
 
