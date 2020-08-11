@@ -47,7 +47,7 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set core body defaults */
   body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Jost', sans-serif;
     line-height: 1.5;
     min-height: 100vh;
     background: ${({ theme }) => theme.colors.body};

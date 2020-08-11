@@ -66,6 +66,10 @@ module.exports = {
             family: `Quicksand`,
             variants: [`100`, `400`, `500`, `600`, `700`],
           },
+          {
+            family: `Jost`,
+            variants: [`100`, `400`, `500`, `600`, `700`],
+          },
         ],
       },
     },
