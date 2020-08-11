@@ -1,23 +1,22 @@
-import React, { useContext } from "react"
+import React from "react"
 import styled from "styled-components"
 import { useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { useIntl } from "gatsby-plugin-intl"
-import { ThemeContext } from "styled-components"
 
 import { Subheader, Text, Subtitle, Title } from "@components/atoms/Typography"
 import IconButton from "@components/atoms/IconButton"
 import SvgIcon from "@components/atoms/SvgIcon"
 
-import { Location, Github, LinkedIn, PlayStore, MailCheck } from "../icons"
+import socials from "@/content/socials"
+import { Location } from "@/icons"
 
 const About = ({ id, refs }) => {
-  const theme = useContext(ThemeContext)
   const intl = useIntl()
 
   const { avatar } = useStaticQuery(graphql`
     query {
-      avatar: file(relativePath: { eq: "images/sections/avatar2.png" }) {
+      avatar: file(relativePath: { eq: "images/sections/avatar.png" }) {
         childImageSharp {
           fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid
@@ -30,7 +29,6 @@ const About = ({ id, refs }) => {
   return (
     <Wrapper id={id} ref={refs}>
       <Heading text={intl.formatMessage({ id: "aboutMe" })} />
-
       <Content>
         <InformationWrapper>
           <Avatar fluid={avatar.childImageSharp.fluid} />
@@ -49,31 +47,10 @@ const About = ({ id, refs }) => {
           </Title>
           <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
           <Socials>
-            <IconButton
-              leftIcon={Github}
-              link="https://github.com/Venturh"
-              text="Venturh"
-              color={theme.colors.secondaryRgba}
-            />
-            <IconButton
-              leftIcon={LinkedIn}
-              link="https://www.linkedin.com/in/max-werpers-9474251a5/"
-              text="Max Werpers"
-              color={theme.colors.secondaryRgba}
-            />
-            <IconButton
-              leftIcon={PlayStore}
-              link="https://play.google.com/store/apps/developer?id=Venturh"
-              text="Venturh"
-              color={theme.colors.secondaryRgba}
-            />
+            {socials.map(social => (
+              <IconButton {...social} />
+            ))}
           </Socials>
-          <Mail
-            leftIcon={MailCheck}
-            link="mailto:contact@maxwerpers.me"
-            text="contact@maxwerpers.me"
-            color={theme.colors.secondaryRgba}
-          />
         </Description>
       </Content>
     </Wrapper>
@@ -86,13 +63,13 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   height: 100%;
+  margin-top: 2em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     height: 100vh;
   }
 `
 
 const Heading = styled(Subheader)`
-  margin: 7vh 0 ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }
@@ -102,8 +79,7 @@ const DesktopHeader = styled(Subheader)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
-    margin: ${props => props.theme.spacing.heading} 0
-      ${props => props.theme.spacing.heading} 0;
+    margin: ${props => props.theme.spacing.heading} 0;
   }
 `
 
@@ -112,7 +88,7 @@ const Content = styled.div`
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;
@@ -126,11 +102,14 @@ const InformationWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
-  height: 50vh;
+  margin: 0 2em;
 `
 
 const Avatar = styled(Img)`
-  width: 40vh;
+  width: 30vh;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 40vh;
+  }
 `
 
 const LocationWrapper = styled.div`
@@ -146,12 +125,12 @@ const LocationIcon = styled(SvgIcon)`
 
 const Description = styled.article`
   word-wrap: break-word;
-  margin-top: 2vh;
   width: 90%;
+  text-align: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-left: 12vw;
+    text-align: left;
     width: 33vw;
-    margin-top: 0;
+    margin: 0 2em;
   }
 `
 
@@ -161,17 +140,10 @@ const Socials = styled.div`
   gap: 0.5em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
-    gap: 0;
+    flex-wrap: wrap;
     & > * {
-      margin-right: 0.75em;
+      flex-grow: 1;
+      min-width: 25%;
     }
-  }
-`
-
-const Mail = styled(IconButton)`
-  margin-top: 0.5em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-top: 1em;
-    width: 60%;
   }
 `

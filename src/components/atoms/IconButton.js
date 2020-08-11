@@ -10,7 +10,7 @@ const Card = styled.a`
   display: flex;
   align-items: center;
   border-radius: 0.5em;
-  padding: 1em;
+  padding: 0.75em;
   background: ${props => props.theme.colors.toolbar || "blue"};
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
   transition: all 0.2s ease-in-out;

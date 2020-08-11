@@ -85,7 +85,7 @@ export default Expertise
 const Wrapper = styled.div``
 
 const Header = styled(Subheader)`
-  margin: 7vh 0 ${props => props.theme.spacing.heading} 0;
+  margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
   }
