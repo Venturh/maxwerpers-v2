@@ -1,12 +1,12 @@
 import React, { useState } from "react"
+import styled, { keyframes } from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 import { navigate } from "gatsby"
 import { animateScroll as scroll, scroller } from "react-scroll"
-import styled, { keyframes } from "styled-components"
 
 import { SecondaryButton } from "./Button"
 import SvgIcon from "./SvgIcon"
-import { Menu1, Close } from "../../icons"
+import { Menu1, Close } from "@/icons"
 
 const Menu = ({ items, ...rest }) => {
   const intl = useIntl()

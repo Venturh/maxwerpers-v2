@@ -6,7 +6,7 @@ import { PrimaryButton, SecondaryButton } from "./Button"
 import Shape from "./Shape"
 import SvgIcon from "./SvgIcon"
 
-import { Github, Star } from "../../icons"
+import { Github, Star } from "@/icons"
 
 const GithubCard = ({
   url,

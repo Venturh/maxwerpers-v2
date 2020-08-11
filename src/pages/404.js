@@ -1,7 +1,7 @@
 import React, { useState } from "react"
 
-import Layout from "../components/templates/Layout"
-import Seo from "../components/atoms/Seo"
+import Layout from "@components/templates/Layout"
+import Seo from "@components/atoms/Seo"
 
 const NotFoundPage = ({ data }) => {
   const [section, setSection] = useState("error")

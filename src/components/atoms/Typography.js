@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { getFontSize, getColor } from "../../theme/Theme"
+import { getFontSize, getColor } from "@/theme"
 
 const StyledTypography = styled.p`
   color: ${props => props.color};

@@ -3,7 +3,7 @@ import { GlobalStyles } from "../../theme/GlobalStyles"
 import styled, { ThemeProvider } from "styled-components"
 
 import { useToggleTheme } from "../../utils/useToggleTheme"
-import { darkTheme, lightTheme } from "../../theme/Theme"
+import { darkTheme, lightTheme } from "@/theme/"
 import ThemeContext from "../../utils/ThemeContext"
 import Header from "../organisms/Header"
 

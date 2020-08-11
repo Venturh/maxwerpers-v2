@@ -2,12 +2,12 @@ import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import { Subheader, Subtitle } from "../../atoms/Typography"
-import GithubCard from "../../atoms/GithubCard"
-import SvgIcon from "../../atoms/SvgIcon"
-import IconButton from "../../atoms/IconButton"
+import { Subheader, Subtitle } from "@components/atoms/Typography"
+import GithubCard from "@components/atoms/GithubCard"
+import SvgIcon from "@components/atoms/SvgIcon"
+import IconButton from "@components/atoms/IconButton"
 
-import { ArrowDownS } from "../../../icons"
+import { ArrowDownS } from "@/icons"
 
 const Hero = ({ project, localizations, github }) => {
   const { tech } = project

@@ -9,10 +9,10 @@ import { SubText } from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 import Menu from "../atoms/Menu"
-import ThemeContext from "../../utils/ThemeContext"
+import ThemeContext from "@/utils/ThemeContext"
 
-import logoDark from "../../images/logo_dark.svg"
-import logoLight from "../../images/logo_light.svg"
+import logoDark from "@/images/logo_dark.svg"
+import logoLight from "@/images/logo_light.svg"
 
 const Header = () => {
   const { allNavigationJson } = useStaticQuery(

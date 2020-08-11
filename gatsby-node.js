@@ -38,3 +38,15 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 }
+
+const path = require("path")
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        "@components": path.resolve(__dirname, "src/components"),
+        "@": path.resolve(__dirname, "src/"),
+      },
+    },
+  })
+}

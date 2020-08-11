@@ -3,10 +3,10 @@ import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
 import { scroller } from "react-scroll"
 
-import ThemeContext from "../utils/ThemeContext"
-import { PrimaryButton, SecondaryButton } from "../components/atoms/Button"
-import { Subheader, Text, Subtitle } from "../components/atoms/Typography"
-import Image from "../components/atoms/Image"
+import ThemeContext from "@/utils/ThemeContext"
+import { PrimaryButton, SecondaryButton } from "@components/atoms/Button"
+import { Subheader, Text, Subtitle } from "@components/atoms/Typography"
+import Image from "@components/atoms/Image"
 
 const Start = ({ id, refs }) => {
   const { theme } = useContext(ThemeContext)

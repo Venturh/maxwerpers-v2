@@ -3,9 +3,9 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
-import { Subheader } from "../components/atoms/Typography"
-import SkillsContainer from "../components/templates/SkillsContainer"
-import ExperienceContainer from "../components/templates/ExperienceContainer"
+import { Subheader } from "@components/atoms/Typography"
+import Skills from "./Skills"
+import Experience from "./Experience"
 
 const Wrapper = styled.div``
 
@@ -32,7 +32,7 @@ const DesktopHeader = styled(Subheader)`
     text-align: center;
   }
 `
-const Skills = ({ id, refs }) => {
+const Expertise = ({ id, refs }) => {
   const { allDataJson, allExperienceJson } = useStaticQuery(graphql`
     query Skills {
       allDataJson {
@@ -77,17 +77,17 @@ const Skills = ({ id, refs }) => {
       <Content>
         <div>
           <DesktopHeader>{intl.formatMessage({ id: "skills" })}</DesktopHeader>
-          <SkillsContainer {...allDataJson} />
+          <Skills {...allDataJson} />
         </div>
         <div>
           <DesktopHeader>
             {intl.formatMessage({ id: "experience" })}
           </DesktopHeader>
-          <ExperienceContainer {...experienceByLanguage} />
+          <Experience {...experienceByLanguage} />
         </div>
       </Content>
     </Wrapper>
   )
 }
 
-export default Skills
+export default Expertise

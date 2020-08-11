@@ -6,7 +6,7 @@ import { Text, Title } from "./Typography"
 import { SecondaryButton } from "./Button"
 import SvgIcon from "./SvgIcon"
 
-import { ArrowRight } from "../../icons"
+import { ArrowRight } from "@/icons"
 
 const ProjectCard = ({ name, headline, slug, locale, icon }) => {
   return (

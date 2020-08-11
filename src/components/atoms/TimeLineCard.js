@@ -4,7 +4,7 @@ import styled from "styled-components"
 import SvgIcon from "./SvgIcon"
 import { ButtonText, Text } from "./Typography"
 
-import { Location } from "../../icons"
+import { Location } from "@/icons"
 
 const Card = styled.div`
   position: relative;

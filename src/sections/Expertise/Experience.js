@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
-import { Title } from "../atoms/Typography"
-import TimeLineCard from "../atoms/TimeLineCard"
-import Shape from "../atoms/Shape"
 import { useIntl } from "gatsby-plugin-intl"
+
+import { Title } from "@components/atoms/Typography"
+import TimeLineCard from "@components/atoms/TimeLineCard"
+import Shape from "@components/atoms/Shape"
 
 const Wrapper = styled.div`
   display: flex;

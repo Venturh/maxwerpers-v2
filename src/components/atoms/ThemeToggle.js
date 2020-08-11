@@ -1,10 +1,10 @@
 import React, { useContext, useState } from "react"
 import styled, { keyframes } from "styled-components"
 
-import ThemeContext from "../../utils/ThemeContext"
+import ThemeContext from "@/utils/ThemeContext"
 import SvgIcon from "./SvgIcon"
 
-import { BrightDay, BrightNight } from "../../icons"
+import { BrightDay, BrightNight } from "@/icons"
 
 const ThemeToggle = ({ ...rest }) => {
   const { theme, toggleTheme } = useContext(ThemeContext)

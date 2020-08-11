@@ -1,15 +1,13 @@
 import React from "react"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
-import styled from "styled-components"
 
-import { Header, Title } from "../components/atoms/Typography"
-import ProjectCard from "../components/atoms/ProjectCard"
-import { PrimaryButton } from "../components/atoms/Button"
+import { Header, Title } from "@components/atoms/Typography"
+import ProjectCard from "@components/atoms/ProjectCard"
+import { PrimaryButton } from "@components/atoms/Button"
 
-import { ArrowRightUp } from "../icons/index"
-
-const Test = styled.div``
+import { ArrowRightUp } from "@/icons"
 
 const Projects = ({ id, refs }) => {
   const intl = useIntl()
@@ -35,7 +33,6 @@ const Projects = ({ id, refs }) => {
   )
   return (
     <Wrapper id={id} ref={refs}>
-      <Test />
       <Heading>
         <Header text={intl.formatMessage({ id: "projects" })} />
         <Title color="bodyContrast">

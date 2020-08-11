@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-import { getColor } from "../../theme/Theme"
+import { getColor } from "@/theme"
 import { ButtonText } from "./Typography"
 import SvgIcon from "./SvgIcon"
 

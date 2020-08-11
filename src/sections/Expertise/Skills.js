@@ -1,8 +1,8 @@
 import React from "react"
 import styled from "styled-components"
 
-import Skill from "../atoms/Skill"
-import { Subtitle } from "../atoms/Typography"
+import Skill from "@components/atoms/Skill"
+import { Subtitle } from "@components/atoms/Typography"
 
 const Wrapper = styled.div`
   display: flex;

@@ -3,15 +3,10 @@ import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 import { ThemeContext } from "styled-components"
 
-import {
-  Subheader,
-  Text,
-  Subtitle,
-  Title,
-} from "../components/atoms/Typography"
-import Image from "../components/atoms/Image"
-import IconButton from "../components/atoms/IconButton"
-import SvgIcon from "../components/atoms/SvgIcon"
+import { Subheader, Text, Subtitle, Title } from "@components/atoms/Typography"
+import Image from "@components/atoms/Image"
+import IconButton from "@components/atoms/IconButton"
+import SvgIcon from "@components/atoms/SvgIcon"
 
 import { Location, Github, LinkedIn, PlayStore, MailCheck } from "../icons"
 

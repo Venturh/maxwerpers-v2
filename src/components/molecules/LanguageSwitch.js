@@ -5,7 +5,7 @@ import DropDown from "../atoms/DropDown"
 import { Text } from "../atoms/Typography"
 import SvgIcon from "../atoms/SvgIcon"
 
-import { Language, Language2 } from "../../icons"
+import { Language, Language2 } from "@/icons"
 
 const LanguageSwitch = ({
   languages,
