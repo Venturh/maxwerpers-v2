@@ -1,14 +1,86 @@
 import React, { useContext } from "react"
 import styled from "styled-components"
+import { useStaticQuery } from "gatsby"
+import Img from "gatsby-image"
 import { useIntl } from "gatsby-plugin-intl"
 import { ThemeContext } from "styled-components"
 
 import { Subheader, Text, Subtitle, Title } from "@components/atoms/Typography"
-import Image from "@components/atoms/Image"
 import IconButton from "@components/atoms/IconButton"
 import SvgIcon from "@components/atoms/SvgIcon"
 
 import { Location, Github, LinkedIn, PlayStore, MailCheck } from "../icons"
+
+const About = ({ id, refs }) => {
+  const theme = useContext(ThemeContext)
+  const intl = useIntl()
+
+  const { avatar } = useStaticQuery(graphql`
+    query {
+      avatar: file(relativePath: { eq: "images/sections/avatar2.png" }) {
+        childImageSharp {
+          fluid(maxWidth: 800) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <Wrapper id={id} ref={refs}>
+      <Heading text={intl.formatMessage({ id: "aboutMe" })} />
+
+      <Content>
+        <InformationWrapper>
+          <Avatar fluid={avatar.childImageSharp.fluid} />
+          <Subtitle>Max Werpers, 25</Subtitle>
+          <LocationWrapper>
+            <LocationIcon path={Location} />
+            <Subtitle color="bgContrast">Wiesbaden, Germany</Subtitle>
+          </LocationWrapper>
+        </InformationWrapper>
+        <Description>
+          <DesktopHeader text={intl.formatMessage({ id: "aboutMe" })} />
+          <Title>
+            {intl.formatMessage({
+              id: "aboutMeSub",
+            })}
+          </Title>
+          <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
+          <Socials>
+            <IconButton
+              leftIcon={Github}
+              link="https://github.com/Venturh"
+              text="Venturh"
+              color={theme.colors.secondaryRgba}
+            />
+            <IconButton
+              leftIcon={LinkedIn}
+              link="https://www.linkedin.com/in/max-werpers-9474251a5/"
+              text="Max Werpers"
+              color={theme.colors.secondaryRgba}
+            />
+            <IconButton
+              leftIcon={PlayStore}
+              link="https://play.google.com/store/apps/developer?id=Venturh"
+              text="Venturh"
+              color={theme.colors.secondaryRgba}
+            />
+          </Socials>
+          <Mail
+            leftIcon={MailCheck}
+            link="mailto:contact@maxwerpers.me"
+            text="contact@maxwerpers.me"
+            color={theme.colors.secondaryRgba}
+          />
+        </Description>
+      </Content>
+    </Wrapper>
+  )
+}
+
+export default About
 
 const Wrapper = styled.section`
   display: flex;
@@ -54,17 +126,11 @@ const InformationWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   text-align: center;
+  height: 50vh;
 `
 
-const Cover = styled(Image)`
-  height: 25vh;
-  margin-bottom: 1em;
-  background: transparent;
-  border-radius: 100%;
-  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 30vh;
-  }
+const Avatar = styled(Img)`
+  width: 40vh;
 `
 
 const LocationWrapper = styled.div`
@@ -109,63 +175,3 @@ const Mail = styled(IconButton)`
     width: 60%;
   }
 `
-
-const About = ({ id, refs }) => {
-  const theme = useContext(ThemeContext)
-  const intl = useIntl()
-
-  return (
-    <Wrapper id={id} ref={refs}>
-      <Heading text={intl.formatMessage({ id: "aboutMe" })} />
-
-      <Content>
-        <InformationWrapper>
-          <Cover name={theme.type === "light" ? "about_light" : "about_dark"} />
-          <Subtitle>Max Werpers, 25</Subtitle>
-          <LocationWrapper>
-            <LocationIcon path={Location} />
-            <Subtitle color="bgContrast">Wiesbaden, Germany</Subtitle>
-          </LocationWrapper>
-        </InformationWrapper>
-        <Description>
-          <DesktopHeader text={intl.formatMessage({ id: "aboutMe" })} />
-          <Title>
-            {intl.formatMessage({
-              id: "aboutMeSub",
-            })}
-          </Title>
-          <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
-          <DesktopHeader>Links</DesktopHeader>
-          <Socials>
-            <IconButton
-              leftIcon={Github}
-              link="https://github.com/Venturh"
-              text="Venturh"
-              color={theme.colors.secondaryRgba}
-            />
-            <IconButton
-              leftIcon={LinkedIn}
-              link="https://www.linkedin.com/in/max-werpers-9474251a5/"
-              text="Max Werpers"
-              color={theme.colors.secondaryRgba}
-            />
-            <IconButton
-              leftIcon={PlayStore}
-              link="https://play.google.com/store/apps/developer?id=Venturh"
-              text="Venturh"
-              color={theme.colors.secondaryRgba}
-            />
-          </Socials>
-          <Mail
-            leftIcon={MailCheck}
-            link="mailto:contact@maxwerpers.me"
-            text="contact@maxwerpers.me"
-            color={theme.colors.secondaryRgba}
-          />
-        </Description>
-      </Content>
-    </Wrapper>
-  )
-}
-
-export default About

@@ -2,8 +2,8 @@
 - name: Yee
   gitName: Yee
   icon: "M11 18H7.941c-.297-1.273-1.637-2.314-2.187-3a8 8 0 1 1 12.49.002c-.55.685-1.888 1.726-2.185 2.998H13v-5h-2v5zm5 2v1a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-1h8z"
-  titleImage: ./images/yee_cover.png
-  gif: ./images/placeholder.gif
+  titleImage: ./images/projects/yee_cover.png
+  gif: ./images/projects/placeholder.gif
   slug: yee
   localizations:
     - locale: de
@@ -32,8 +32,8 @@
 - name: EIA Note
   gitName: EIANote
   icon: "M6.5 2h11a1 1 0 0 1 .8.4L21 6v15a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V6l2.7-3.6a1 1 0 0 1 .8-.4zm12 4L17 4H7L5.5 6h13zM9 10H7v2a5 5 0 0 0 10 0v-2h-2v2a3 3 0 0 1-6 0v-2z"
-  titleImage: ./images/eia_cover.png
-  gif: ./images/placeholder.gif
+  titleImage: ./images/projects/eia_cover.png
+  gif: ./images/projects/placeholder.gif
   slug: eianote
   localizations:
     - locale: de
@@ -63,8 +63,8 @@
 - name: Portfolio
   gitName: portfolio-gatsby
   icon: "M2 4.007C2 3.45 2.455 3 2.992 3h18.016c.548 0 .992.45.992 1.007V17H2V4.007zM1 19h22v2H1v-2z"
-  titleImage: ./images/portfolio_cover.png
-  gif: ./images/placeholder.gif
+  titleImage: ./images/projects/portfolio_cover.png
+  gif: ./images/projects/placeholder.gif
   slug: portfolio
   localizations:
     - locale: de
@@ -92,8 +92,8 @@
 - name: PokecoinMiner
   gitName: pokecoin-miner
   icon: "M23 12v2c0 3.314-4.925 6-11 6-5.967 0-10.824-2.591-10.995-5.823L1 14v-2c0 3.314 4.925 6 11 6s11-2.686 11-6zM12 4c6.075 0 11 2.686 11 6s-4.925 6-11 6-11-2.686-11-6 4.925-6 11-6z"
-  titleImage: ./images/pokecoin_cover.png
-  gif: ./images/placeholder.gif
+  titleImage: ./images/projects/pokecoin_cover.png
+  gif: ./images/projects/placeholder.gif
   slug: pokecoinminer
   localizations:
     - locale: de
