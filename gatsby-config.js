@@ -15,6 +15,8 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
+    `gatsby-transformer-yaml`,
     `gatsby-plugin-netlify`,
 
     {
@@ -27,36 +29,11 @@ module.exports = {
         icon: `src/images/logo.png`,
       },
     },
-    {
-      resolve: `gatsby-plugin-intl`,
-      options: {
-        path: `${__dirname}/src/intl`,
-        languages: [`de`, `en`, `fr`],
-        defaultLanguage: `de`,
-        redirect: true,
-      },
-    },
-    `gatsby-plugin-styled-components`,
-    `gatsby-transformer-json`,
+
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `navigation`,
-        path: `./src/data/navigation.json`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `skills`,
-        path: `./src/data/skills.json`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `experience`,
-        path: `./src/data/experience.json`,
+        path: `${__dirname}/src/content/`,
       },
     },
 
@@ -68,11 +45,21 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-intl`,
+      options: {
+        path: `${__dirname}/src/intl`,
+        languages: [`de`, `en`, `fr`],
+        defaultLanguage: `de`,
+        redirect: true,
+      },
+    },
+
+    {
       resolve: `gatsby-plugin-prefetch-google-fonts`,
       options: {
         fonts: [
           {
-            family: `Poppins`,
+            family: `Open Sans`,
             variants: [`100`, `400`, `500`, `600`, `700`],
           },
           {
@@ -82,13 +69,7 @@ module.exports = {
         ],
       },
     },
-    `gatsby-transformer-yaml`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        path: `${__dirname}/src/content/`,
-      },
-    },
+
     {
       resolve: `gatsby-source-graphql`,
       options: {

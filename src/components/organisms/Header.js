@@ -15,26 +15,30 @@ import logoDark from "@/images/logo_dark.svg"
 import logoLight from "@/images/logo_light.svg"
 
 const Header = () => {
-  const { allNavigationJson } = useStaticQuery(
+  const { allNavigationYaml } = useStaticQuery(
     graphql`
       query Navigation {
-        allNavigationJson {
+        allNavigationYaml {
           nodes {
-            name
             path
-            icon
-            lang
+            localizations {
+              locale
+              name
+            }
           }
         }
       }
     `
   )
+
   const intl = useIntl()
   const languages = ["Deutsch", "English", "Francais"]
   const themeMode = useContext(ThemeContext)
-  const navlinks = allNavigationJson.nodes.filter(nodes =>
-    nodes.lang.includes(intl.locale)
-  )
+
+  const navlinks = allNavigationYaml.nodes.map(({ localizations, path }) => ({
+    name: localizations.find(local => local.locale === intl.locale).name,
+    path,
+  }))
 
   const scrollTo = label => {
     const options = {
@@ -61,7 +65,7 @@ const Header = () => {
       <NavItems>
         <NavLinks>
           {navlinks.map(({ name, path }) => (
-            <SubText onClick={() => scrollTo(path)} key={name}>
+            <SubText onClick={() => scrollTo(path)} key={path}>
               {name.toUpperCase()}
             </SubText>
           ))}

@@ -4,6 +4,35 @@ import styled from "styled-components"
 import Skill from "@components/atoms/Skill"
 import { Subtitle } from "@components/atoms/Typography"
 
+const SkillsContainer = skills => {
+  console.log("skills", skills.nodes[0])
+  return (
+    <Wrapper>
+      {Object.keys(skills.nodes[0]).map((section, index) => {
+        return (
+          <Section key={index}>
+            <SectionTitle
+              color="toolbarContrast"
+              text={section.replace("_", " ")}
+            />
+            <SectionSkills>
+              {skills.nodes[0][section].map((skill, index) => (
+                <SectionSkill
+                  key={index}
+                  iconName={skill.name}
+                  icon={skill.path}
+                />
+              ))}
+            </SectionSkills>
+          </Section>
+        )
+      })}
+    </Wrapper>
+  )
+}
+
+export default SkillsContainer
+
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
@@ -54,31 +83,3 @@ const SectionSkill = styled(Skill)`
     margin: 0.25em 0.6em;
   }
 `
-
-const SkillsContainer = allDataJson => {
-  return (
-    <Wrapper>
-      {Object.keys(allDataJson.nodes[0]).map((section, index) => {
-        return (
-          <Section key={index}>
-            <SectionTitle
-              color="toolbarContrast"
-              text={section.replace("_", " ")}
-            />
-            <SectionSkills>
-              {allDataJson.nodes[0][section].map((skill, index) => (
-                <SectionSkill
-                  key={index}
-                  iconName={skill.name}
-                  icon={skill.path}
-                />
-              ))}
-            </SectionSkills>
-          </Section>
-        )
-      })}
-    </Wrapper>
-  )
-}
-
-export default SkillsContainer

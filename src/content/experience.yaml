@@ -1,0 +1,75 @@
+---
+- place: Hochschule Rhein Main - Wiesbaden
+  localizations:
+    - locale: de
+      type: Student
+      work: Student der Medieninformatik
+      time: Oktober 2016 - April 2021
+    - locale: en
+      type: Student
+      work: Bachelor of media computer science
+      time: Oktober 2016 - April 2021
+    - locale: fr
+      type: Étudiant
+      work: Bachelier en sciences Informatique des médias
+      time: octobre 2016 - avril 2021
+
+- place: Hochschule Rhein Main - Wiesbaden
+  localizations:
+    - locale: de
+      type: Student
+      work: Student der angewandten Informatik
+      time: Oktober 2015 - August 2016
+    - locale: en
+      type: Student
+      work: Student of applied computer science
+      time: October 2015 - August 2016
+    - locale: fr
+      type: Étudiant
+      work: Étudiant d´informatique appliquée
+      time: octobre 2015 - septembre 2016
+
+- place: gGis - Hannover
+  localizations:
+    - locale: de
+      type: FSJ
+      work: Freiwilliges soziales Jahr
+      time: August 2014 - July 2015
+    - locale: en
+      type: Volunteer
+      work: Voluntary year of social service
+      time: August 2014 - July 2015
+    - locale: fr
+      type: Volontaire
+      work: Année sociale volontaire
+      time: août 2014 - juillet 2015
+
+- place: Wilhelm Busch Gymnasium Stadthagen
+  localizations:
+    - locale: de
+      type: Schüler
+      work: Abitur
+      time: 2007 - 2014
+    - locale: en
+      type: Student
+      work: A-Level
+      time: 2007 - 2014
+    - locale: fr
+      type: Étudiant
+      work: Baccalauréat
+      time: 2007 - 2014
+
+- place: College Saint Joseph - Carpentras
+  localizations:
+    - locale: de
+      type: Schüler
+      work: Ein Jahr an einer französischen Schule
+      time: 2006 - 2007
+    - locale: en
+      type: Student
+      work: One Year at a French School
+      time: 2006 - 2007
+    - locale: fr
+      type: Étudiant
+      work: Une année dans une école française
+      time: 2006 - 2007

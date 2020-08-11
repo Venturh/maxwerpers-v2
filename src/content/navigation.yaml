@@ -1,0 +1,36 @@
+---
+- path: start
+  localizations:
+    - locale: de
+      name: Start
+    - locale: en
+      name: Start
+    - locale: fr
+      name: Accueil
+
+- path: projects
+  localizations:
+    - locale: de
+      name: Projekte
+    - locale: en
+      name: Skills
+    - locale: fr
+      name: Projets
+
+- path: skills
+  localizations:
+    - locale: de
+      name: Erfahrung
+    - locale: en
+      name: Skills
+    - locale: fr
+      name: Expérience
+
+- path: about
+  localizations:
+    - locale: de
+      name: Über mich
+    - locale: en
+      name: About me
+    - locale: fr
+      name: De Moi

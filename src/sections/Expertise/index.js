@@ -7,6 +7,81 @@ import { Subheader } from "@components/atoms/Typography"
 import Skills from "./Skills"
 import Experience from "./Experience"
 
+const Expertise = ({ id, refs }) => {
+  const { allSkillsYaml, allExperienceYaml } = useStaticQuery(graphql`
+    query Skills {
+      allSkillsYaml {
+        nodes {
+          Web {
+            name
+            path
+          }
+
+          Software_Development {
+            name
+            path
+          }
+
+          Database {
+            name
+            path
+          }
+          Other {
+            name
+            path
+          }
+        }
+      }
+      allExperienceYaml {
+        nodes {
+          place
+          localizations {
+            locale
+            time
+            type
+            work
+          }
+        }
+      }
+    }
+  `)
+  const intl = useIntl()
+
+  const experienceByLanguage = allExperienceYaml.nodes.map(
+    ({ place, localizations }) => {
+      const { work, type, time } = localizations.find(
+        local => local.locale === intl.locale
+      )
+      return {
+        place,
+        work,
+        type,
+        time,
+      }
+    }
+  )
+
+  return (
+    <Wrapper id={id} ref={refs}>
+      <Header>{intl.formatMessage({ id: "skills" })}</Header>
+      <Content>
+        <div>
+          <DesktopHeader>{intl.formatMessage({ id: "skills" })}</DesktopHeader>
+          <Skills {...allSkillsYaml} />
+        </div>
+        <div>
+          <DesktopHeader>
+            {intl.formatMessage({ id: "experience" })}
+          </DesktopHeader>
+          <Experience {...experienceByLanguage} />
+        </div>
+      </Content>
+    </Wrapper>
+  )
+}
+
+export default Expertise
+
 const Wrapper = styled.div``
 
 const Header = styled(Subheader)`
@@ -32,62 +107,3 @@ const DesktopHeader = styled(Subheader)`
     text-align: center;
   }
 `
-const Expertise = ({ id, refs }) => {
-  const { allDataJson, allExperienceJson } = useStaticQuery(graphql`
-    query Skills {
-      allDataJson {
-        nodes {
-          Web {
-            name
-            path
-          }
-          Software_Development {
-            name
-            path
-          }
-          Database {
-            name
-            path
-          }
-          Other {
-            name
-            path
-          }
-        }
-      }
-      allExperienceJson {
-        nodes {
-          type
-          place
-          work
-          time
-          lang
-        }
-      }
-    }
-  `)
-  const intl = useIntl()
-  const currentLanguage = useIntl().locale
-  const experienceByLanguage = allExperienceJson.nodes.filter(
-    nodes => nodes.lang === currentLanguage
-  )
-  return (
-    <Wrapper id={id} ref={refs}>
-      <Header>{intl.formatMessage({ id: "skills" })}</Header>
-      <Content>
-        <div>
-          <DesktopHeader>{intl.formatMessage({ id: "skills" })}</DesktopHeader>
-          <Skills {...allDataJson} />
-        </div>
-        <div>
-          <DesktopHeader>
-            {intl.formatMessage({ id: "experience" })}
-          </DesktopHeader>
-          <Experience {...experienceByLanguage} />
-        </div>
-      </Content>
-    </Wrapper>
-  )
-}
-
-export default Expertise
