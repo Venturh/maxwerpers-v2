@@ -1,3 +1,10 @@
+export const getFromTheme = (type, variant) => props =>
+  props.theme[type][variant]
+
+export const getColor = variant => props => props.theme.colors[variant]
+
+export const getFontSize = variant => props => props.theme.fontSizes[variant]
+
 const fontSizes = {
   caption: "0.675em",
   button: "0.775em",

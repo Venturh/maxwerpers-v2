@@ -17,7 +17,12 @@ const ProjectCard = ({ name, headline, slug, locale, icon }) => {
           <TitleText color="primary">{name}</TitleText>
         </IconHeader>
         <Description color="bodyContrast">{headline}</Description>
-        <LearnMoreButton lower rightIcon={ArrowRight} style={{}}>
+        <LearnMoreButton
+          color="primary"
+          bg="toolbar"
+          lower
+          rightIcon={ArrowRight}
+        >
           Learn More
         </LearnMoreButton>
       </Content>

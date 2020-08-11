@@ -129,7 +129,7 @@ const About = ({ id, refs }) => {
           <Subtitle>Max Werpers, 25</Subtitle>
           <LocationWrapper>
             <LocationIcon path={Location} />
-            <Subtitle>Wiesbaden, Germany</Subtitle>
+            <Subtitle color="bgContrast">Wiesbaden, Germany</Subtitle>
           </LocationWrapper>
         </InformationWrapper>
         <Description>

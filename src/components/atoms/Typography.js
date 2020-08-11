@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { color, fontSize, fontWeight } from "styled-system"
+import { getFontSize, getColor } from "../../theme/Theme"
 
 const StyledTypography = styled.p`
-  ${color}
-  ${fontSize}
-  ${fontWeight}
+  color: ${props => props.color};
+  font-size: ${props => props.fontSize};
+  font-weight: ${props => props.fontWeight};
 `
 
 const Typography = ({ children, variant, text, ...props }) => (
@@ -14,77 +14,45 @@ const Typography = ({ children, variant, text, ...props }) => (
   </StyledTypography>
 )
 
-const Caption = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "bodyContrast"}
-    fontSize="caption"
-    text={text}
-    {...rest}
-  />
-)
+const Caption = styled(Typography)`
+  font-size: ${getFontSize("caption")};
+  color: ${props => getColor(props.color || "bodyContrast")};
+`
 
-const ButtonText = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "toolbar"}
-    fontSize="button"
-    text={text}
-    {...rest}
-  />
-)
+const ButtonText = styled(Typography)`
+  font-size: ${getFontSize("button")};
+  color: ${props => getColor(props.color || "bodyContrast")};
+`
 
-const SubText = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "bodyContrast"}
-    fontSize="subbody"
-    text={text}
-    {...rest}
-  />
-)
+const SubText = styled(Typography)`
+  font-size: ${getFontSize("subbody")};
+  color: ${props => getColor(props.color || "bodyContrast")};
+`
 
-const Text = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "bodyContrast"}
-    fontSize="body"
-    text={text}
-    {...rest}
-  />
-)
+const Text = styled(Typography)`
+  font-size: ${getFontSize("body")};
+  color: ${props => getColor(props.color || "bodyContrast")};
+`
 
-const Subtitle = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "primary"}
-    fontSize="subtitle"
-    text={text}
-    {...rest}
-  />
-)
+const Subtitle = styled(Typography)`
+  font-size: ${getFontSize("subtitle")};
+  color: ${props => getColor(props.color || "primary")};
+`
 
-const Title = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "primary"}
-    fontSize="title"
-    text={text}
-    {...rest}
-  />
-)
+const Title = styled(Typography)`
+  font-size: ${getFontSize("title")};
+  color: ${props => getColor(props.color || "primary")};
+`
 
-const Subheader = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "primary"}
-    fontSize="subheader"
-    text={text}
-    {...rest}
-  />
-)
+const Subheader = styled(Typography)`
+  font-size: ${getFontSize("subheader")};
+  color: ${props => getColor(props.color || "primary")};
+`
 
-const Header = ({ text, color, ...rest }) => (
-  <Typography
-    color={color || "primary"}
-    fontSize="header"
-    text={text}
-    {...rest}
-  />
-)
+const Header = styled(Typography)`
+  font-size: ${getFontSize("header")};
+  color: ${props => getColor(props.color || "primary")};
+`
 
 export default Typography
 export {

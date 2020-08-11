@@ -2,10 +2,9 @@ import React from "react"
 import styled from "styled-components"
 
 import SvgIcon from "./SvgIcon"
+import { ButtonText, Text } from "./Typography"
 
 import { Location } from "../../icons"
-
-import Typography from "./Typography"
 
 const Card = styled.div`
   position: relative;
@@ -32,7 +31,7 @@ const TypeTime = styled.div`
   justify-content: space-between;
 `
 
-const Info = styled(Typography)`
+const Info = styled(Text)`
   margin-top: 0.5em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-top: 1em;
@@ -56,17 +55,13 @@ const LocationIcon = styled(SvgIcon)`
 const TimeLineCard = ({ type, work, place, time }) => (
   <Card>
     <TypeTime>
-      <Typography color="primary" fontSize="button" text={type} />
-      <Typography fontSize="button" text={time} />
+      <ButtonText color="primary" text={type} />
+      <ButtonText text={time} />
     </TypeTime>
-    <Info fontSize="1em" text={work} />
+    <Info text={work} />
     <Place>
       <LocationIcon path={Location} />
-      <Typography
-        style={{ marginLeft: "0.1em" }}
-        fontSize="button"
-        text={place}
-      />
+      <ButtonText style={{ marginLeft: "0.1em" }} text={place} />
     </Place>
   </Card>
 )

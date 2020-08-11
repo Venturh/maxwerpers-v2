@@ -22,8 +22,8 @@ const GithubCard = ({
       <LanguageIndicator>
         <Shape
           bg={primaryLanguage.color}
-          width={8}
-          height={8}
+          width="0.5em"
+          height="0.5em"
           borderRadius="100%"
         />
         <ButtonText color="bodyContrast">{primaryLanguage.name}</ButtonText>

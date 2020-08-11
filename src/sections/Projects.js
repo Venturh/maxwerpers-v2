@@ -9,6 +9,8 @@ import { PrimaryButton } from "../components/atoms/Button"
 
 import { ArrowRightUp } from "../icons/index"
 
+const Test = styled.div``
+
 const Projects = ({ id, refs }) => {
   const intl = useIntl()
 
@@ -33,6 +35,7 @@ const Projects = ({ id, refs }) => {
   )
   return (
     <Wrapper id={id} ref={refs}>
+      <Test />
       <Heading>
         <Header text={intl.formatMessage({ id: "projects" })} />
         <Title color="bodyContrast">

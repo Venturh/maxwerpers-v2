@@ -1,13 +1,13 @@
 import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
-import { color } from "styled-system"
 
+import { getColor } from "../../theme/Theme"
 import { ButtonText } from "./Typography"
 import SvgIcon from "./SvgIcon"
 
 const StyledButton = styled.a`
-  ${color}
+  background: ${props => props.bg};
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,7 +23,7 @@ const Text = styled(ButtonText)`
   text-align: center;
   font-size: ${props =>
     props.large ? "0.9em" : props.theme.fontSizes.button || "0.75em"};
-  ${color}
+  color: ${props => props.color};
 `
 
 const Icon = styled(SvgIcon)`
@@ -62,18 +62,20 @@ const Button = ({
   </StyledButton>
 )
 
-const PrimaryButton = ({ children, ...rest }) => (
-  <Button color="primaryContrast" bg="primary" rounded="true" {...rest}>
-    {children}
-  </Button>
-)
+export const PrimaryButton = styled(Button)`
+  background: ${getColor("primary")};
+  border-radius: 0.25em;
+  ${Text} {
+    color: ${getColor("primaryContrast")};
+  }
+`
 
-const SecondaryButton = ({ children, ...rest }) => {
-  return (
-    <Button color="primary" bg="body" rounded="true" {...rest}>
-      {children}
-    </Button>
-  )
-}
+export const SecondaryButton = styled(Button)`
+  background: ${getColor("body")};
+  border-radius: 0.25em;
+  ${Text} {
+    color: ${getColor("primary")};
+  }
+`
+
 export default Button
-export { PrimaryButton, SecondaryButton }

@@ -6,8 +6,57 @@ import { scroller } from "react-scroll"
 import ThemeContext from "../utils/ThemeContext"
 import { PrimaryButton, SecondaryButton } from "../components/atoms/Button"
 import { Subheader, Text, Subtitle } from "../components/atoms/Typography"
-import Shape from "../components/atoms/Shape"
 import Image from "../components/atoms/Image"
+
+const Start = ({ id, refs }) => {
+  const { theme } = useContext(ThemeContext)
+  const intl = useIntl()
+
+  return (
+    <Wrapper id={id} ref={refs}>
+      <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
+      <InfoWrapper>
+        <Text color="bodyContrast">
+          {intl.formatMessage({ id: "welcomeTitle" })}
+        </Text>
+        <Subheader color="primary">
+          {intl.formatMessage({ id: "welcomeMsg" })}
+        </Subheader>
+        <Subtitle color="bodyContrast">
+          {intl.formatMessage({ id: "welcomeSub" })}
+        </Subtitle>
+        <ButtonGroup>
+          <StyledPrimary
+            large={true}
+            onClick={() =>
+              scroller.scrollTo("projects", {
+                duration: 300,
+                delay: 0,
+                smooth: "easeInOutQuart",
+              })
+            }
+          >
+            {intl.formatMessage({ id: "projects" })}
+          </StyledPrimary>
+          <StyledSecondary
+            large
+            onClick={() =>
+              scroller.scrollTo("skills", {
+                duration: 300,
+                delay: 0,
+                smooth: "easeInOutQuart",
+              })
+            }
+          >
+            {intl.formatMessage({ id: "experience" })}
+          </StyledSecondary>
+        </ButtonGroup>
+      </InfoWrapper>
+    </Wrapper>
+  )
+}
+
+export default Start
 
 const Wrapper = styled.section`
   display: flex;
@@ -20,14 +69,6 @@ const Wrapper = styled.section`
     justify-content: space-evenly;
     align-items: center;
   }
-`
-const Shapes = styled.div`
-  position: absolute;
-  right: 0px;
-  top: 8vh;
-  display: flex;
-  flex-direction: row-reverse;
-  z-index: -1;
 `
 
 const Cover = styled(Image)`
@@ -80,63 +121,3 @@ const StyledSecondary = styled(SecondaryButton)`
     margin: 0.5em 0.5em 0 0;
   }
 `
-
-const Start = ({ id, refs }) => {
-  const { theme } = useContext(ThemeContext)
-  const intl = useIntl()
-
-  return (
-    <Wrapper id={id} ref={refs}>
-      <Shapes>
-        <Shape
-          bg="primary"
-          width={100}
-          height={20}
-          borderRadius="10px 0px 0px 10px"
-        />
-        <Shape bg="primary" width={20} height={20} borderRadius="100%" />
-        <Shape bg="primary" width={20} height={20} borderRadius="100%" />
-      </Shapes>
-      <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
-      <InfoWrapper>
-        <Text color="bodyContrast">
-          {intl.formatMessage({ id: "welcomeTitle" })}
-        </Text>
-        <Subheader color="primary">
-          {intl.formatMessage({ id: "welcomeMsg" })}
-        </Subheader>
-        <Subtitle color="bodyContrast">
-          {intl.formatMessage({ id: "welcomeSub" })}
-        </Subtitle>
-        <ButtonGroup>
-          <StyledPrimary
-            large={true}
-            onClick={() =>
-              scroller.scrollTo("projects", {
-                duration: 300,
-                delay: 0,
-                smooth: "easeInOutQuart",
-              })
-            }
-          >
-            {intl.formatMessage({ id: "projects" })}
-          </StyledPrimary>
-          <StyledSecondary
-            large
-            onClick={() =>
-              scroller.scrollTo("skills", {
-                duration: 300,
-                delay: 0,
-                smooth: "easeInOutQuart",
-              })
-            }
-          >
-            {intl.formatMessage({ id: "experience" })}
-          </StyledSecondary>
-        </ButtonGroup>
-      </InfoWrapper>
-    </Wrapper>
-  )
-}
-
-export default Start

@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 
 import Skill from "../atoms/Skill"
-import Typography from "../atoms/Typography"
+import { Subtitle } from "../atoms/Typography"
 
 const Wrapper = styled.div`
   display: flex;
@@ -23,7 +23,7 @@ const Wrapper = styled.div`
 
 const Section = styled.div``
 
-const SectionTitle = styled(Typography)`
+const SectionTitle = styled(Subtitle)`
   width: 100%;
   text-align: center;
   margin: 0.75em 0;
@@ -63,7 +63,6 @@ const SkillsContainer = allDataJson => {
           <Section key={index}>
             <SectionTitle
               color="toolbarContrast"
-              fontSize="subtitle"
               text={section.replace("_", " ")}
             />
             <SectionSkills>

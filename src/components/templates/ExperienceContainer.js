@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import Typography from "../atoms/Typography"
+import { Title } from "../atoms/Typography"
 import TimeLineCard from "../atoms/TimeLineCard"
 import Shape from "../atoms/Shape"
 import { useIntl } from "gatsby-plugin-intl"
@@ -19,7 +19,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Header = styled(Typography)`
+const Heading = styled(Title)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;
@@ -104,22 +104,12 @@ const ExperienceContainer = experienceByLanguage => {
   const intl = useIntl()
   return (
     <Wrapper>
-      <Header
-        color="primary"
-        fontSize="title"
-        variant="p"
-        text={intl.formatMessage({ id: "experience" })}
-      />
+      <Heading text={intl.formatMessage({ id: "experience" })} />
       <LineWrapper>
         <Experiences>
           {Object.values(experienceByLanguage).map((experience, index) => (
             <StyledTimelineCards key={index}>
-              <StyledCircle
-                bg="primary"
-                width={12.5}
-                height={12.5}
-                borderRadius="100%"
-              />
+              <StyledCircle tbg="primary" borderRadius="100%" />
               <TimeLineCard {...experience} />
             </StyledTimelineCards>
           ))}
