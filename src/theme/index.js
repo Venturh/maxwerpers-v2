@@ -23,7 +23,7 @@ const sizes = {
 const spacing = {
   heading: "0.5em",
   desktop: {
-    sides: "10%",
+    sides: "12.5%",
   },
   mobile: {
     sides: "5%",

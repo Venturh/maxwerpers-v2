@@ -18,7 +18,7 @@ const socials = [
   {
     leftIcon: MailCheck,
     link: "mailto:contact@maxwerpers.me",
-    text: "contact@maxwerpers.me",
+    text: "Mail",
   },
 ]
 

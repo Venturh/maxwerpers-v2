@@ -81,10 +81,7 @@ export const GlobalStyles = createGlobalStyle`
     max-width: 100%;
   }
 
-  /* Natural flow and rhythm in articles by default */
-  article > * + * {
-    margin-top: 1em;
-  }
+
 
   /* Inherit fonts for inputs and buttons */
   button,

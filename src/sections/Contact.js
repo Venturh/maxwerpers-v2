@@ -12,7 +12,9 @@ const Contact = ({ id }) => {
   return (
     <Wrapper id={id}>
       <Subheader>What are you working on?</Subheader>
-      <Text>Let´s talk ! Let me know how I can help you</Text>
+      <Text>
+        Let´s find a way how we can work together, I would love to help you.
+      </Text>
       <ChatButton leftIcon={Chat} link="mailto:contact@maxwerpers.me">
         Chat
       </ChatButton>
@@ -34,9 +36,22 @@ const Wrapper = styled(Section)`
   background: ${getColor("toolbar")};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     height: 33vh;
-    align-items: center;
+  }
+
+  ${Subheader} {
+    text-align: center;
+  }
+  ${Text} {
+    @media (min-width: ${props => props.theme.breakpoints.lg}) {
+      text-align: center;
+    }
   }
 `
 const ChatButton = styled(PrimaryButton)`
   fill: ${getColor("toolbar")};
+  align-self: center;
+  width: 100%;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 12em;
+  }
 `

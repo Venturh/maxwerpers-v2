@@ -4,13 +4,13 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { useIntl } from "gatsby-plugin-intl"
 
-import Section from "@components/atoms/Section"
-import { Subheader, Text, Subtitle, Title } from "@components/atoms/Typography"
-import IconButton from "@components/atoms/IconButton"
-import SvgIcon from "@components/atoms/SvgIcon"
+import { Section } from "atoms"
+import { Subheader, Text, Subtitle, Title } from "atoms"
+import { IconButton } from "atoms"
+import { SvgIcon } from "atoms"
 
-import socials from "@/content/socials"
-import { Location } from "@/icons"
+import socials from "content/socials"
+import { Location } from "icons"
 
 const About = ({ id, refs }) => {
   const intl = useIntl()
@@ -30,31 +30,29 @@ const About = ({ id, refs }) => {
   return (
     <Wrapper id={id} ref={refs}>
       <Heading text={intl.formatMessage({ id: "aboutMe" })} />
-      <Content>
-        <InformationWrapper>
-          <Avatar fluid={avatar.childImageSharp.fluid} />
-          <Subtitle>Max Werpers, 25</Subtitle>
-          <LocationWrapper>
-            <LocationIcon path={Location} />
-            <Subtitle color="bgContrast">Wiesbaden, Germany</Subtitle>
-          </LocationWrapper>
-        </InformationWrapper>
+      <AvatarInfo>
+        <Avatar fluid={avatar.childImageSharp.fluid} />
+        <Subtitle>Max Werpers, 25</Subtitle>
+        <LocationWrapper>
+          <LocationIcon path={Location} />
+          <Subtitle color="bgContrast">Wiesbaden, Germany</Subtitle>
+        </LocationWrapper>
+      </AvatarInfo>
 
-        <Description>
-          <DesktopHeader text={intl.formatMessage({ id: "aboutMe" })} />
-          <Title>
-            {intl.formatMessage({
-              id: "aboutMeSub",
-            })}
-          </Title>
-          <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
-          <Socials>
-            {socials.map(social => (
-              <IconButton key={social.link} {...social} />
-            ))}
-          </Socials>
-        </Description>
-      </Content>
+      <Description>
+        <DesktopHeader text={intl.formatMessage({ id: "aboutMe" })} />
+        <Title>
+          {intl.formatMessage({
+            id: "aboutMeSub",
+          })}
+        </Title>
+        <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
+        <Socials>
+          {socials.map(social => (
+            <IconButton key={social.link} {...social} />
+          ))}
+        </Socials>
+      </Description>
     </Wrapper>
   )
 }
@@ -62,10 +60,11 @@ const About = ({ id, refs }) => {
 export default About
 
 const Wrapper = styled(Section)`
-  display: flex;
-  flex-direction: column;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 80vh;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 `
 
@@ -79,29 +78,19 @@ const DesktopHeader = styled(Subheader)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: block;
-    margin: ${props => props.theme.spacing.heading} 0;
+    margin-bottom: 0.5em;
   }
 `
 
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 100%;
-    flex-direction: row;
-  }
-`
-
-const InformationWrapper = styled.div`
+const AvatarInfo = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin: 0 2em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin: 0 2em;
     height: 50vh;
+    width: 25%;
   }
 `
 
@@ -124,14 +113,13 @@ const LocationIcon = styled(SvgIcon)`
 `
 
 const Description = styled.article`
-  word-wrap: break-word;
+  margin-top: 1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    width: 75%;
     height: 50vh;
-    width: 33%;
-    margin: 0 2em;
   }
 `
 
@@ -139,12 +127,8 @@ const Socials = styled.div`
   display: grid;
   grid-template-columns: auto;
   gap: 0.5em;
+  margin-top: 1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: flex;
-    flex-wrap: wrap;
-    & > * {
-      flex-grow: 1;
-      min-width: 25%;
-    }
+    grid-template-columns: repeat(3, 25%);
   }
 `

@@ -1,11 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { getFontSize, getColor } from "@/theme"
+import { getFontSize, getColor } from "theme"
 
 const StyledTypography = styled.p`
-  color: ${props => props.color};
-  font-size: ${props => props.fontSize};
-  font-weight: ${props => props.fontWeight};
+  color: ${p => p.color};
+  font-size: ${p => p.fontSize};
+  font-weight: ${p => (p.bold ? 700 : 400)};
 `
 
 const Typography = ({ children, variant, text, ...props }) => (
@@ -36,7 +36,7 @@ const Text = styled(Typography)`
 
 const Subtitle = styled(Typography)`
   font-size: ${getFontSize("subtitle")};
-  color: ${props => getColor(props.color || "primary")};
+  color: ${props => getColor(props.color || "bodyContrast")};
 `
 
 const Title = styled(Typography)`
@@ -46,6 +46,7 @@ const Title = styled(Typography)`
 
 const Subheader = styled(Typography)`
   font-size: ${getFontSize("subheader")};
+  font-weight: 600;
   color: ${props => getColor(props.color || "primary")};
 `
 
