@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": false,
+    "baseUrl": "./",
+    "paths": {
+      "atoms": ["src/components/atoms/index"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

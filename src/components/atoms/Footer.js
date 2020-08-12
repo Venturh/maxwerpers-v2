@@ -32,7 +32,7 @@ const Footer = () => {
 }
 
 const Wrapper = styled.footer`
-  padding: 2em;
+  padding: 2em 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

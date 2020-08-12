@@ -8,16 +8,17 @@ import ThemeContext from "../../utils/ThemeContext"
 import Header from "../organisms/Header"
 import Footer from "@components/atoms/Footer"
 
-const MainWrapper = styled.main`
+const Wrapper = styled.div`
   position: relative;
+`
+
+const Content = styled.main`
   margin: ${props => props.theme.spacing.mobile.sides};
   margin-bottom: 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0 ${props => props.theme.spacing.desktop.sides};
   }
 `
-
-const Content = styled.div``
 
 const Layout = ({ children }) => {
   const [theme, toggleTheme] = useToggleTheme()
@@ -29,11 +30,13 @@ const Layout = ({ children }) => {
     <ThemeContext.Provider value={themeValue}>
       <ThemeProvider theme={themeMode}>
         <GlobalStyles />
-        <Header />
-        <MainWrapper>
-          <Content>{children}</Content>
-          <Footer />
-        </MainWrapper>
+        <Wrapper>
+          <Header />
+          <Content>
+            {children}
+            <Footer />
+          </Content>
+        </Wrapper>
       </ThemeProvider>
     </ThemeContext.Provider>
   )

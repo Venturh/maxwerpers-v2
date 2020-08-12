@@ -45,6 +45,7 @@ const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 100vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row-reverse;
     justify-content: space-evenly;

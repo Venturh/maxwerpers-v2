@@ -5,6 +5,7 @@ import Start from "@/sections/Start"
 import Projects from "@/sections/Projects"
 import Expertise from "@/sections/Expertise"
 import About from "@/sections/About"
+import Contact from "../sections/Contact"
 
 const Portfolio = () => {
   return (
@@ -14,6 +15,7 @@ const Portfolio = () => {
       <Projects id="projects" />
       <Expertise id="skills" />
       <About id="about" />
+      <Contact id="contact" />
     </Layout>
   )
 }

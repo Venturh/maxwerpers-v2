@@ -3,7 +3,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { useLocation } from "@reach/router"
 import styled from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
-import { navigate } from "gatsby"
+import { navigate, Link as GLink } from "gatsby"
 import { Link } from "react-scroll"
 
 import ThemeToggle from "../atoms/ThemeToggle"
@@ -43,12 +43,12 @@ const Header = () => {
 
   return (
     <Nav>
-      <Link to={`/${intl.locale}`}>
+      <GLink to={`/${intl.locale}`}>
         <Logo
           src={themeMode.theme === "dark" ? logoDark : logoLight}
           alt="logo-nav"
         />
-      </Link>
+      </GLink>
       <NavItems>
         <NavLinks>
           {navlinks.map(link => (
@@ -75,7 +75,7 @@ const NavLink = ({ path, name }) => {
   const intl = useIntl()
   const [active, setActive] = useState(0)
   const click = label => {
-    if (pathname.search("projects") != -1)
+    if (pathname.search("projects") !== -1)
       navigate("/" + intl.locale + "/#" + label)
   }
   return (
@@ -135,6 +135,7 @@ const NavLinks = styled.li`
 `
 
 const SLink = styled(Link)`
+  font-size: 1.25em;
   color: ${p => (p.active ? getColor("primary") : "")};
 `
 const NavTools = styled.div`

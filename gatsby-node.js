@@ -46,6 +46,14 @@ exports.onCreateWebpackConfig = ({ actions }) => {
       alias: {
         "@components": path.resolve(__dirname, "src/components"),
         "@": path.resolve(__dirname, "src/"),
+        components: path.resolve(__dirname, "src/components"),
+        theme: path.resolve(__dirname, "src/theme"),
+        icons: path.resolve(__dirname, "src/icons"),
+        utils: path.resolve(__dirname, "src/utils"),
+        atoms: path.resolve(__dirname, "src/components/atoms"),
+        molecules: path.resolve(__dirname, "src/components/molecules"),
+        organisms: path.resolve(__dirname, "src/components/organisms"),
+        templates: path.resolve(__dirname, "src/components/templates"),
       },
     },
   })

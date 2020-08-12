@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
-import { Header, Title } from "@components/atoms/Typography"
+import { Subheader, Title } from "@components/atoms/Typography"
 import ProjectCard from "@components/atoms/ProjectCard"
 import { PrimaryButton } from "@components/atoms/Button"
 import Section from "@components/atoms/Section"
@@ -35,7 +35,7 @@ const Projects = ({ id, refs }) => {
   return (
     <Wrapper id={id} ref={refs}>
       <Heading>
-        <Header text={intl.formatMessage({ id: "projects" })} />
+        <Subheader text={intl.formatMessage({ id: "projects" })} />
         <Title color="bodyContrast">
           {intl.formatMessage({ id: "projectsSub" })}
         </Title>
@@ -62,13 +62,14 @@ export default Projects
 const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
+  justify-content: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     min-height: 100vh;
   }
 `
 
 const Heading = styled.div`
-  margin: 7vh 0 2em 0;
+  margin-bottom: 1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     text-align: center;
   }
@@ -78,20 +79,18 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    align-items: center;
+  }
 `
 
 const Cards = styled.div`
   display: grid;
+  gap: 1em;
   grid-template-columns: 100%;
 
-  justify-content: center;
-  gap: 1em;
-
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    grid-template-columns: repeat(2, 1fr);
-  }
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    justify-content: center;
     grid-template-columns: repeat(3, 25%);
   }
 `
