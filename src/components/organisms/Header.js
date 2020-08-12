@@ -1,20 +1,22 @@
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 import { useStaticQuery, graphql } from "gatsby"
+import { useLocation } from "@reach/router"
 import styled from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
-import { animateScroll as scroll, scroller } from "react-scroll"
-import { Link, navigate } from "gatsby"
+import { navigate } from "gatsby"
+import { Link } from "react-scroll"
 
-import { Text } from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 import Menu from "../atoms/Menu"
 import ThemeContext from "@/utils/ThemeContext"
 
+import { getColor } from "@/theme"
 import logoDark from "@/images/logo_dark.svg"
 import logoLight from "@/images/logo_light.svg"
 
 const Header = () => {
+  const intl = useIntl()
   const { allNavigationYaml } = useStaticQuery(
     graphql`
       query Navigation {
@@ -31,7 +33,6 @@ const Header = () => {
     `
   )
 
-  const intl = useIntl()
   const languages = ["Deutsch", "English", "Francais"]
   const themeMode = useContext(ThemeContext)
 
@@ -39,20 +40,6 @@ const Header = () => {
     name: localizations.find(local => local.locale === intl.locale).name,
     path,
   }))
-
-  const scrollTo = label => {
-    const options = {
-      duration: 300,
-      delay: 0,
-      smooth: "easeInOutQuart",
-    }
-    navigate("/" + intl.locale + "/#" + label)
-    if (label === "home") {
-      scroll.scrollToTop(options)
-    } else {
-      scroller.scrollTo(label, options)
-    }
-  }
 
   return (
     <Nav>
@@ -64,10 +51,8 @@ const Header = () => {
       </Link>
       <NavItems>
         <NavLinks>
-          {navlinks.map(({ name, path }) => (
-            <Text onClick={() => scrollTo(path)} key={path}>
-              {name}
-            </Text>
+          {navlinks.map(link => (
+            <NavLink key={link.name} {...link} />
           ))}
         </NavLinks>
 
@@ -82,6 +67,35 @@ const Header = () => {
         </NavTools>
       </NavItems>
     </Nav>
+  )
+}
+
+const NavLink = ({ path, name }) => {
+  const { pathname } = useLocation()
+  const intl = useIntl()
+  const [active, setActive] = useState(0)
+  const click = label => {
+    if (pathname.search("projects") != -1)
+      navigate("/" + intl.locale + "/#" + label)
+  }
+  return (
+    <SLink
+      key={path}
+      active={active}
+      to={path}
+      spy
+      smooth
+      duration={400}
+      onSetActive={() => {
+        setActive(1)
+      }}
+      onSetInactive={() => {
+        setActive(0)
+      }}
+      onClick={() => click(path)}
+    >
+      {name}
+    </SLink>
   )
 }
 
@@ -118,6 +132,10 @@ const NavLinks = styled.li`
   @media (max-width: ${props => props.theme.breakpoints.md}) {
     display: none;
   }
+`
+
+const SLink = styled(Link)`
+  color: ${p => (p.active ? getColor("primary") : "")};
 `
 const NavTools = styled.div`
   display: flex;

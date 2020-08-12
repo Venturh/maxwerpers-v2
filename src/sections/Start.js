@@ -1,12 +1,13 @@
 import React, { useContext } from "react"
 import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
-import { scroller } from "react-scroll"
 
 import ThemeContext from "@/utils/ThemeContext"
 import { PrimaryButton, SecondaryButton } from "@components/atoms/Button"
 import { Subheader, Text, Subtitle } from "@components/atoms/Typography"
+import Section from "@components/atoms/Section"
 import Image from "@components/atoms/Image"
+import scrollTo from "@/utils/scrollTo"
 
 const Start = ({ id, refs }) => {
   const { theme } = useContext(ThemeContext)
@@ -26,28 +27,10 @@ const Start = ({ id, refs }) => {
           {intl.formatMessage({ id: "welcomeSub" })}
         </Subtitle>
         <ButtonGroup>
-          <StyledPrimary
-            large={true}
-            onClick={() =>
-              scroller.scrollTo("projects", {
-                duration: 300,
-                delay: 0,
-                smooth: "easeInOutQuart",
-              })
-            }
-          >
+          <StyledPrimary large={true} onClick={() => scrollTo("projects")}>
             {intl.formatMessage({ id: "projects" })}
           </StyledPrimary>
-          <StyledSecondary
-            large
-            onClick={() =>
-              scroller.scrollTo("skills", {
-                duration: 300,
-                delay: 0,
-                smooth: "easeInOutQuart",
-              })
-            }
-          >
+          <StyledSecondary large onClick={() => scrollTo("skills")}>
             {intl.formatMessage({ id: "experience" })}
           </StyledSecondary>
         </ButtonGroup>
@@ -58,12 +41,10 @@ const Start = ({ id, refs }) => {
 
 export default Start
 
-const Wrapper = styled.section`
+const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  height: 100vh;
-
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row-reverse;
     justify-content: space-evenly;

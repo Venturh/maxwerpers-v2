@@ -6,6 +6,7 @@ import { useIntl } from "gatsby-plugin-intl"
 import { Header, Title } from "@components/atoms/Typography"
 import ProjectCard from "@components/atoms/ProjectCard"
 import { PrimaryButton } from "@components/atoms/Button"
+import Section from "@components/atoms/Section"
 
 import { ArrowRightUp } from "@/icons"
 
@@ -58,12 +59,10 @@ const Projects = ({ id, refs }) => {
 
 export default Projects
 
-const Wrapper = styled.section`
+const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
-  height: 100%;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-bottom: 10vh;
     min-height: 100vh;
   }
 `

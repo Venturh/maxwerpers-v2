@@ -4,6 +4,7 @@ import { useStaticQuery } from "gatsby"
 import Img from "gatsby-image"
 import { useIntl } from "gatsby-plugin-intl"
 
+import Section from "@components/atoms/Section"
 import { Subheader, Text, Subtitle, Title } from "@components/atoms/Typography"
 import IconButton from "@components/atoms/IconButton"
 import SvgIcon from "@components/atoms/SvgIcon"
@@ -60,11 +61,9 @@ const About = ({ id, refs }) => {
 
 export default About
 
-const Wrapper = styled.section`
+const Wrapper = styled(Section)`
   display: flex;
   flex-direction: column;
-  height: 100%;
-  margin: 2em 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     height: 80vh;
   }

@@ -10,7 +10,7 @@ import { ArrowRight } from "@/icons"
 
 const ProjectCard = ({ name, headline, slug, locale, icon }) => {
   return (
-    <Card to={`/${locale}/${slug}`}>
+    <Card to={`/${locale}/projects/${slug}`}>
       <Content>
         <IconHeader>
           <Icon path={icon} />

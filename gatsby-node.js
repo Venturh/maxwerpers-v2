@@ -30,7 +30,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const gitName = edge.node.gitName
 
     createPage({
-      path: slug,
+      path: `/projects/${slug}`,
       component: require.resolve(
         "./src/components/templates/ProjectPost/index.js"
       ),

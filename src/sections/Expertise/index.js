@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
+import Section from "@components/atoms/Section"
 import { Subheader } from "@components/atoms/Typography"
 import Skills from "./Skills"
 import Experience from "./Experience"
@@ -82,7 +83,7 @@ const Expertise = ({ id, refs }) => {
 
 export default Expertise
 
-const Wrapper = styled.div``
+const Wrapper = styled(Section)``
 
 const Header = styled(Subheader)`
   margin: ${props => props.theme.spacing.heading} 0;
