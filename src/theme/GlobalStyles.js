@@ -47,15 +47,16 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set core body defaults */
   body {
-    font-family: 'Jost', sans-serif;
+    font-family: 'QuickSand', sans-serif;
+    font-weight: 400;
     line-height: 1.5;
     min-height: 100vh;
     background: ${({ theme }) => theme.colors.body};
     color:  ${({ theme }) => theme.colors.bodyContrast};
     transition: background 0.25s linear;
-    font-size: 16px;
+    font-size: 15px;
     @media (min-width: ${props => props.theme.breakpoints.lg}) {
-      font-size: 18px;
+      font-size: 17px;
     }
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;

@@ -23,7 +23,7 @@ const sizes = {
 const spacing = {
   heading: "0.5em",
   desktop: {
-    sides: "3%",
+    sides: "10%",
   },
   mobile: {
     sides: "5%",
@@ -39,6 +39,7 @@ const breakpoints = {
 export const lightTheme = {
   colors: {
     primary: "#62ea8d",
+    primaryGlow: "#58d37f",
     primaryContrast: "#292929",
     body: "#FFFFFF;",
     bodyContrast: "#292929",
@@ -57,6 +58,7 @@ export const darkTheme = {
   colors: {
     primary: "#85EEA7",
     primaryContrast: "#292929",
+    primaryGlow: "#b0fbbc",
     body: "#121212;",
     bodyContrast: "#f4f5f8",
     bodyTint: "#292929",

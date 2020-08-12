@@ -19,7 +19,7 @@ const About = ({ id, refs }) => {
       avatar: file(relativePath: { eq: "images/sections/avatar.png" }) {
         childImageSharp {
           fluid(maxWidth: 800) {
-            ...GatsbyImageSharpFluid
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
@@ -38,6 +38,7 @@ const About = ({ id, refs }) => {
             <Subtitle color="bgContrast">Wiesbaden, Germany</Subtitle>
           </LocationWrapper>
         </InformationWrapper>
+
         <Description>
           <DesktopHeader text={intl.formatMessage({ id: "aboutMe" })} />
           <Title>
@@ -48,7 +49,7 @@ const About = ({ id, refs }) => {
           <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
           <Socials>
             {socials.map(social => (
-              <IconButton {...social} />
+              <IconButton key={social.link} {...social} />
             ))}
           </Socials>
         </Description>
@@ -63,9 +64,9 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   height: 100%;
-  margin-top: 2em;
+  margin: 2em 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 100vh;
+    height: 80vh;
   }
 `
 
@@ -84,16 +85,13 @@ const DesktopHeader = styled(Subheader)`
 `
 
 const Content = styled.div`
-  width: 100%;
-  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    height: 100%;
     flex-direction: row;
-    align-items: center;
-    justify-content: center;
   }
 `
 
@@ -103,6 +101,9 @@ const InformationWrapper = styled.div`
   align-items: center;
   text-align: center;
   margin: 0 2em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    height: 50vh;
+  }
 `
 
 const Avatar = styled(Img)`
@@ -125,11 +126,12 @@ const LocationIcon = styled(SvgIcon)`
 
 const Description = styled.article`
   word-wrap: break-word;
-  width: 90%;
-  text-align: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    text-align: left;
-    width: 33vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 50vh;
+    width: 33%;
     margin: 0 2em;
   }
 `

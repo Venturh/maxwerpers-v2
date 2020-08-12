@@ -6,11 +6,14 @@ import { useToggleTheme } from "../../utils/useToggleTheme"
 import { darkTheme, lightTheme } from "@/theme/"
 import ThemeContext from "../../utils/ThemeContext"
 import Header from "../organisms/Header"
+import Footer from "@components/atoms/Footer"
 
 const MainWrapper = styled.main`
+  position: relative;
   margin: ${props => props.theme.spacing.mobile.sides};
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    margin: ${props => props.theme.spacing.desktop.sides};
+  margin-bottom: 0;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin: 0 ${props => props.theme.spacing.desktop.sides};
   }
 `
 
@@ -29,6 +32,7 @@ const Layout = ({ children }) => {
         <Header />
         <MainWrapper>
           <Content>{children}</Content>
+          <Footer />
         </MainWrapper>
       </ThemeProvider>
     </ThemeContext.Provider>

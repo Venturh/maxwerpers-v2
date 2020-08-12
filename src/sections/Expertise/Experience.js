@@ -29,13 +29,13 @@ const Heading = styled(Title)`
 
 const Experiences = styled.div`
   display: grid;
+  grid-template-columns: auto;
   grid-gap: 1em;
   :last-child {
     margin-bottom: ${props => props.theme.spacing.heading};
   }
 
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
-    grid-template-columns: repeat(1, minmax(100px, 25vw));
     grid-gap: 1.5em;
   }
 `
@@ -82,7 +82,6 @@ const LineWrapper = styled.div`
     align-self: center;
     position: relative;
     left: -9px;
-    z-index: 1;
   }
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     span {

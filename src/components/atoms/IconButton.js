@@ -38,4 +38,14 @@ const IconButton = ({ children, text, link, rightIcon, leftIcon, ...rest }) => {
   )
 }
 
+export const IconOnlyButton = styled(IconButton)`
+  background: inherit;
+  box-shadow: unset;
+  justify-content: center;
+  padding: 0;
+  ${Icon} {
+    height: 1.5em;
+  }
+`
+
 export default IconButton

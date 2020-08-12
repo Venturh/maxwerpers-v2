@@ -5,7 +5,7 @@ import { useIntl, changeLocale } from "gatsby-plugin-intl"
 import { animateScroll as scroll, scroller } from "react-scroll"
 import { Link, navigate } from "gatsby"
 
-import { SubText } from "../atoms/Typography"
+import { Text } from "../atoms/Typography"
 import ThemeToggle from "../atoms/ThemeToggle"
 import LanguageSwitch from "../molecules/LanguageSwitch"
 import Menu from "../atoms/Menu"
@@ -65,9 +65,9 @@ const Header = () => {
       <NavItems>
         <NavLinks>
           {navlinks.map(({ name, path }) => (
-            <SubText onClick={() => scrollTo(path)} key={path}>
-              {name.toUpperCase()}
-            </SubText>
+            <Text onClick={() => scrollTo(path)} key={path}>
+              {name}
+            </Text>
           ))}
         </NavLinks>
 

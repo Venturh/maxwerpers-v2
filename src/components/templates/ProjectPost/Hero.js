@@ -54,13 +54,13 @@ const Hero = ({ project, localizations, github }) => {
 export default Hero
 
 const Wrapper = styled.section`
+  height: 100vh;
   @media (min-width: ${props => props.theme.breakpoints.md}) {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
-    height: 93vh;
   }
 `
 
@@ -105,7 +105,6 @@ const Github = styled(GithubCard)`
 const HeroImgWrapperMobile = styled.div`
   display: block;
   width: 100%;
-  height: 50%;
   margin: 1em auto;
   overflow: hidden;
   @media (min-width: ${props => props.theme.breakpoints.md}) {
@@ -143,7 +142,7 @@ const Techs = styled.div`
 
 const ArrowDown = styled(SvgIcon)`
   display: none;
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
+  /* @media (min-width: ${props => props.theme.breakpoints.md}) {
     display: block;
     fill: ${props => props.theme.colors.primary};
     height: 2em;
@@ -153,5 +152,5 @@ const ArrowDown = styled(SvgIcon)`
     left: 0;
     right: 0;
     bottom: 1.5em;
-  }
+  } */
 `
