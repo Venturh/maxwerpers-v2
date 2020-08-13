@@ -1,17 +1,15 @@
-import React, { useState } from "react"
+import React from "react"
 
-import Layout from "@components/templates/Layout"
-import Seo from "@components/atoms/Seo"
+import { ProjectLayout } from "templates"
+import { Seo } from "atoms"
 
 const NotFoundPage = ({ data }) => {
-  const [section, setSection] = useState("error")
-  const sectionValue = { section, setSection }
   return (
-    <Layout Layout section={sectionValue}>
+    <ProjectLayout>
       <Seo title="404: Not found" />
       <h1>NOT FOUND</h1>
       <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
-    </Layout>
+    </ProjectLayout>
   )
 }
 

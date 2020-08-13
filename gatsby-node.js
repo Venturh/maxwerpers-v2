@@ -47,6 +47,7 @@ exports.onCreateWebpackConfig = ({ actions }) => {
         "@components": path.resolve(__dirname, "src/components"),
         "@": path.resolve(__dirname, "src/"),
         components: path.resolve(__dirname, "src/components"),
+        sections: path.resolve(__dirname, "src/sections"),
         theme: path.resolve(__dirname, "src/theme"),
         icons: path.resolve(__dirname, "src/icons"),
         content: path.resolve(__dirname, "src/content"),

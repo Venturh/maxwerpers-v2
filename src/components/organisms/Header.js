@@ -1,49 +1,25 @@
 import React, { useContext, useState } from "react"
-import { useStaticQuery, graphql } from "gatsby"
-import { useLocation } from "@reach/router"
 import styled from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
-import { navigate, Link as GLink } from "gatsby"
+import { Link as GLink } from "gatsby"
 import { Link } from "react-scroll"
 
-import ThemeToggle from "../atoms/ThemeToggle"
-import LanguageSwitch from "../molecules/LanguageSwitch"
-import Menu from "../atoms/Menu"
-import ThemeContext from "@/utils/ThemeContext"
+import { ThemeToggle, Menu } from "atoms"
+import { LanguageSwitch } from "molecules"
+import { ThemeContext } from "utils"
 
-import { getColor } from "@/theme"
+import { getColor } from "theme"
 import logoDark from "@/images/logo_dark.svg"
 import logoLight from "@/images/logo_light.svg"
 
-const Header = () => {
-  const intl = useIntl()
-  const { allNavigationYaml } = useStaticQuery(
-    graphql`
-      query Navigation {
-        allNavigationYaml {
-          nodes {
-            path
-            localizations {
-              locale
-              name
-            }
-          }
-        }
-      }
-    `
-  )
-
+const Header = ({ navlinks, hash }) => {
+  const { locale } = useIntl()
   const languages = ["Deutsch", "English", "Francais"]
   const themeMode = useContext(ThemeContext)
 
-  const navlinks = allNavigationYaml.nodes.map(({ localizations, path }) => ({
-    name: localizations.find(local => local.locale === intl.locale).name,
-    path,
-  }))
-
   return (
     <Nav>
-      <GLink to={`/${intl.locale}`}>
+      <GLink to={`/${locale}`}>
         <Logo
           src={themeMode.theme === "dark" ? logoDark : logoLight}
           alt="logo-nav"
@@ -52,14 +28,14 @@ const Header = () => {
       <NavItems>
         <NavLinks>
           {navlinks.map(link => (
-            <NavLink key={link.name} {...link} />
+            <NavLink key={link.name} hash={hash} {...link} />
           ))}
         </NavLinks>
 
         <NavTools>
           <LanguageSwitch
             changeLanguage={changeLocale}
-            currentLanguage={intl.locale}
+            currentLanguage={locale}
             languages={languages}
           />
           <ThemeToggle style={{ marginLeft: "0.5em", marginRight: "0.5em" }} />
@@ -70,33 +46,32 @@ const Header = () => {
   )
 }
 
-const NavLink = ({ path, name }) => {
-  const { pathname } = useLocation()
-  const intl = useIntl()
+const NavLink = ({ path, name, hash }) => {
+  const { locale } = useIntl()
   const [active, setActive] = useState(0)
-  const click = label => {
-    if (pathname.search("projects") !== -1)
-      navigate("/" + intl.locale + "/#" + label)
+
+  if (hash) {
+    return (
+      <SLink
+        key={path}
+        active={active}
+        to={path}
+        spy
+        smooth
+        duration={400}
+        onSetActive={() => {
+          setActive(1)
+        }}
+        onSetInactive={() => {
+          setActive(0)
+        }}
+      >
+        {name}
+      </SLink>
+    )
+  } else {
+    return <NLink to={`${path}${locale}/`}>{name}</NLink>
   }
-  return (
-    <SLink
-      key={path}
-      active={active}
-      to={path}
-      spy
-      smooth
-      duration={400}
-      onSetActive={() => {
-        setActive(1)
-      }}
-      onSetInactive={() => {
-        setActive(0)
-      }}
-      onClick={() => click(path)}
-    >
-      {name}
-    </SLink>
-  )
 }
 
 export default Header
@@ -137,6 +112,11 @@ const NavLinks = styled.li`
 const SLink = styled(Link)`
   font-size: 1.25em;
   color: ${p => (p.active ? getColor("primary") : "")};
+`
+
+const NLink = styled(GLink)`
+  font-size: 1.25em;
+  color: ${getColor("bodyContrast")};
 `
 const NavTools = styled.div`
   display: flex;
