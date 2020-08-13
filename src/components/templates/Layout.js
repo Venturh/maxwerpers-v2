@@ -1,6 +1,6 @@
 import React from "react"
 import styled, { ThemeProvider } from "styled-components"
-import { useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
 import { GlobalStyles } from "theme/GlobalStyles"
@@ -34,6 +34,7 @@ const PortfolioLayout = ({ children }) => {
         allNavigationYaml {
           nodes {
             path
+            icon
             localizations {
               locale
               name
@@ -43,10 +44,13 @@ const PortfolioLayout = ({ children }) => {
       }
     `
   )
-  const navlinks = allNavigationYaml.nodes.map(({ localizations, path }) => ({
-    name: localizations.find(local => local.locale === locale).name,
-    path,
-  }))
+  const navlinks = allNavigationYaml.nodes.map(
+    ({ localizations, path, icon }) => ({
+      name: localizations.find(local => local.locale === locale).name,
+      path,
+      icon,
+    })
+  )
   return (
     <Base>
       <Wrapper>

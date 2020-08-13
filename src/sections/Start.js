@@ -2,36 +2,41 @@ import React, { useContext } from "react"
 import { useIntl } from "gatsby-plugin-intl"
 import styled from "styled-components"
 
-import ThemeContext from "@/utils/ThemeContext"
-import { PrimaryButton, SecondaryButton } from "@components/atoms/Button"
-import { Subheader, Text, Subtitle } from "@components/atoms/Typography"
-import Section from "@components/atoms/Section"
-import Image from "@components/atoms/Image"
+import ThemeContext from "utils/ThemeContext"
+import {
+  PrimaryButton,
+  SecondaryButton,
+  Section,
+  Image,
+  Subheader,
+  Text,
+  Subtitle,
+} from "atoms"
 import scrollTo from "@/utils/scrollTo"
 
 const Start = ({ id, refs }) => {
   const { theme } = useContext(ThemeContext)
-  const intl = useIntl()
+  const { formatMessage } = useIntl()
 
   return (
     <Wrapper id={id} ref={refs}>
       <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
       <InfoWrapper>
         <Text color="bodyContrast">
-          {intl.formatMessage({ id: "welcomeTitle" })}
+          {formatMessage({ id: "welcomeTitle" })}
         </Text>
         <Subheader color="primary">
-          {intl.formatMessage({ id: "welcomeMsg" })}
+          {formatMessage({ id: "welcomeMsg" })}
         </Subheader>
         <Subtitle color="bodyContrast">
-          {intl.formatMessage({ id: "welcomeSub" })}
+          {formatMessage({ id: "welcomeSub" })}
         </Subtitle>
         <ButtonGroup>
           <StyledPrimary large={true} onClick={() => scrollTo("projects")}>
-            {intl.formatMessage({ id: "projects" })}
+            {formatMessage({ id: "projects" })}
           </StyledPrimary>
           <StyledSecondary large onClick={() => scrollTo("skills")}>
-            {intl.formatMessage({ id: "experience" })}
+            {formatMessage({ id: "experience" })}
           </StyledSecondary>
         </ButtonGroup>
       </InfoWrapper>

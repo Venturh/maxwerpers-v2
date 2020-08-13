@@ -23,7 +23,7 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Remove default padding */
   ol[class],
-  ul[class] {
+  ul {
     padding: 0;
   }
 
@@ -41,7 +41,7 @@ export const GlobalStyles = createGlobalStyle`
   li,
   ol[class],
   p,
-  ul[class] {
+  ul {
     margin: 0;
   }
 

@@ -5,6 +5,11 @@ export const getColor = variant => props => props.theme.colors[variant]
 
 export const getFontSize = variant => props => props.theme.fontSizes[variant]
 
+export const getSpacing = (variant, second) => props => {
+  if (second) return props.theme.spacing[variant][second]
+  else return props.theme.spacing[variant]
+}
+
 const fontSizes = {
   caption: "0.675em",
   button: "0.775em",
@@ -22,6 +27,7 @@ const sizes = {
 
 const spacing = {
   heading: "0.5em",
+  nav: "3%",
   desktop: {
     sides: "12.5%",
   },
