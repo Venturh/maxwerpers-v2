@@ -60,6 +60,9 @@ const Burger = styled(SvgIcon)`
   height: ${props => props.theme.sizes.navIcons};
   transition: all 2ms ease-out;
   animation: ${scaleUp} 0.1s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+  @media (min-width: ${props => props.theme.breakpoints.md}) {
+    display: none;
+  }
 `
 
 const Content = styled.div`
