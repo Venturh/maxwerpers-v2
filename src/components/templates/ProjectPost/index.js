@@ -30,7 +30,7 @@ export const projectQuery = graphql`
       icon
       titleImage {
         childImageSharp {
-          fluid(maxHeight: 1000) {
+          fluid(maxWidth: 800) {
             ...GatsbyImageSharpFluid
           }
         }

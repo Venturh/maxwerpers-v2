@@ -29,10 +29,10 @@ const spacing = {
   heading: "0.5em",
   nav: "3%",
   desktop: {
-    sides: "12.5%",
+    sides: "15vw",
   },
   mobile: {
-    sides: "5%",
+    sides: "5vw",
   },
 }
 

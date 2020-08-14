@@ -29,12 +29,13 @@ const Wrapper = styled(Section)`
   flex-direction: column;
   justify-content: space-evenly;
   min-height: 0;
-  margin-bottom: 2em;
+  margin-top: 6vh;
   padding: 2em;
   height: 40vh;
   border-radius: 1em;
   background: ${getColor("toolbar")};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin: 0;
     height: 33vh;
   }
 

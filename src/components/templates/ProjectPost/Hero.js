@@ -113,9 +113,9 @@ const HeroImgWrapperMobile = styled.div`
 `
 
 const HeroImg = styled(Img)`
-  height: 25vh;
+  width: 100vw;
   @media (min-width: ${props => props.theme.breakpoints.md}) {
-    height: 100%;
+    width: 40vw;
   }
 `
 

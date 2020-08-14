@@ -52,7 +52,7 @@ const Header = ({ navlinks, hash }) => {
 export default Header
 
 const TopNav = styled.ul`
-  padding: 0 ${getSpacing("nav")};
+  width: 100%;
   position: fixed;
   top: 0;
   z-index: 1;
@@ -60,9 +60,12 @@ const TopNav = styled.ul`
   justify-content: space-between;
   align-items: center;
   height: 6vh;
-  width: 100vw;
   background-color: ${getColor("body")};
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.75);
+  padding: 0 ${getSpacing("mobile", "sides")};
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    padding: 0 ${getSpacing("desktop", "sides")};
+  }
 `
 
 const Left = styled.li`
