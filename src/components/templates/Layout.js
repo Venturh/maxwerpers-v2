@@ -3,12 +3,13 @@ import styled, { ThemeProvider } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
-import { GlobalStyles } from "theme/GlobalStyles"
-import { useToggleTheme } from "utils/useToggleTheme"
-import { darkTheme, lightTheme } from "@/theme/"
-import ThemeContext from "utils/ThemeContext"
 import { Header } from "organisms"
 import { Footer } from "atoms"
+
+import { GlobalStyles } from "theme/GlobalStyles"
+import { useToggleTheme } from "utils/useToggleTheme"
+import { darkTheme, lightTheme } from "theme/"
+import ThemeContext from "utils/ThemeContext"
 
 const Base = ({ children }) => {
   const [theme, toggleTheme] = useToggleTheme()

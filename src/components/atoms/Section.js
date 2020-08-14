@@ -1,9 +1,10 @@
 import React from "react"
 import styled from "styled-components"
+import { Element } from "react-scroll"
 
 const Section = ({ id, children, className }) => {
   return (
-    <Wrapper className={className} id={id}>
+    <Wrapper className={className} id={id} name={id}>
       {children}
     </Wrapper>
   )
@@ -11,8 +12,8 @@ const Section = ({ id, children, className }) => {
 
 export default Section
 
-const Wrapper = styled.section`
-  margin-bottom: 2em;
+const Wrapper = styled(Element)`
+  padding-top: 6vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0;
   }

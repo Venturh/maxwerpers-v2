@@ -2,11 +2,10 @@ import React from "react"
 import styled from "styled-components"
 import { useIntl, changeLocale, Link as LLink } from "gatsby-plugin-intl"
 
-import { ThemeToggle, Pill, Title } from "atoms"
+import { ThemeToggle, Pill, Title, Menu } from "atoms"
 import { LanguageSwitch } from "molecules"
 
 import { getColor, getSpacing } from "theme"
-import BottomNav from "./BottomNav"
 import NavLink from "./NavLink"
 
 const Header = ({ navlinks, hash }) => {
@@ -43,9 +42,9 @@ const Header = ({ navlinks, hash }) => {
               style={{ marginLeft: "0.5em", marginRight: "0.5em" }}
             />
           </NavTools>
+          <Menu hash={hash} navlinks={navlinks} />
         </NavItems>
       </TopNav>
-      <BottomNav navlinks={navlinks} />
     </nav>
   )
 }

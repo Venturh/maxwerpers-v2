@@ -1,46 +1,34 @@
 import React, { useState } from "react"
 import styled, { keyframes } from "styled-components"
-import { useIntl } from "gatsby-plugin-intl"
-import { navigate } from "gatsby"
-import { animateScroll as scroll, scroller } from "react-scroll"
 
 import { SecondaryButton } from "./Button"
 import SvgIcon from "./SvgIcon"
-import { Menu1, Close } from "@/icons"
+import NavLink from "organisms/Header/NavLink"
 
-const Menu = ({ items, ...rest }) => {
-  const intl = useIntl()
-  const [isOpen, setisOpen] = useState(false)
+import { Menu1, Close } from "icons"
 
-  const scrollTo = label => {
-    const options = {
-      duration: 300,
-      delay: 0,
-      smooth: "easeInOutQuart",
-      offset: -75,
-    }
-    navigate("/" + intl.locale + "/#" + label)
-    if (label === "home") {
-      scroll.scrollToTop(options)
-    } else {
-      scroller.scrollTo(label, options)
-    }
-    setisOpen(false)
-  }
+const Menu = ({ navlinks, hash, ...rest }) => {
+  const [open, setOpen] = useState(false)
 
   return (
     <Wrapper {...rest}>
       <Burger
         onClick={() => {
-          setisOpen(!isOpen)
+          setOpen(!open)
         }}
-        path={isOpen ? Close : Menu1}
+        path={open ? Close : Menu1}
       />
-      <Content isOpen={isOpen}>
+      <Content open={open}>
         <Nav>
-          {items.map((link, index) => (
-            <NavItem onClick={() => scrollTo(link.path, index)} key={index}>
-              {link.name}
+          {navlinks.map(link => (
+            <NavItem key={link.name} {...link} hash={hash}>
+              <SecondaryButton
+                onClick={() => {
+                  setOpen(!open)
+                }}
+              >
+                {link.name}
+              </SecondaryButton>
             </NavItem>
           ))}
         </Nav>
@@ -75,7 +63,7 @@ const Burger = styled(SvgIcon)`
 `
 
 const Content = styled.div`
-  visibility: ${props => (props.isOpen ? "visible" : "hidden")};
+  visibility: ${props => (props.open ? "visible" : "hidden")};
   position: fixed;
   top: 6vh;
   right: 0;
@@ -83,7 +71,7 @@ const Content = styled.div`
   width: 100vw;
   z-index: 1;
   background: ${props => props.theme.colors.body};
-  opacity: ${props => (props.isOpen ? 100 : 0)};
+  opacity: ${props => (props.open ? 100 : 0)};
   transition: visibility 1s, opacity 0.5s ease;
 `
 
@@ -95,7 +83,13 @@ const Nav = styled.nav`
   justify-content: center;
 `
 
-const NavItem = styled(SecondaryButton)`
-  min-width: 25vw;
-  margin-top: 1em;
+const NavItem = styled(NavLink)`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  ${SecondaryButton} {
+    width: 33vw;
+  }
 `
