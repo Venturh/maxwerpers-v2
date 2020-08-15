@@ -2,12 +2,9 @@ import React from "react"
 import Img from "gatsby-image"
 import styled from "styled-components"
 
-import { Subheader, Subtitle } from "@components/atoms/Typography"
-import GithubCard from "@components/atoms/GithubCard"
-import SvgIcon from "@components/atoms/SvgIcon"
-import IconButton from "@components/atoms/IconButton"
+import { Subheader, Subtitle, GithubCard, SvgIcon, TertiaryButton } from "atoms"
 
-import { ArrowDownS } from "@/icons"
+import { ArrowDownS } from "icons"
 
 const Hero = ({ project, localizations, github }) => {
   const { tech } = project
@@ -33,9 +30,9 @@ const Hero = ({ project, localizations, github }) => {
         <Github {...github} />
         <Techs>
           {tech.map(({ text, icon }) => (
-            <IconButton key={text} leftIcon={icon}>
+            <TertiaryButton key={text} leftIcon={icon}>
               {text}
-            </IconButton>
+            </TertiaryButton>
           ))}
         </Techs>
       </Info>

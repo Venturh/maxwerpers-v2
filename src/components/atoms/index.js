@@ -1,10 +1,14 @@
 export { default as Button } from "./Button"
-export { PrimaryButton, SecondaryButton } from "./Button"
+export {
+  PrimaryButton,
+  SecondaryButton,
+  TertiaryButton,
+  IconOnlyButton,
+} from "./Button"
 export { default as Cookie } from "./Cookie"
 export { default as DropDown } from "./DropDown"
 export { default as Footer } from "./Footer"
 export { default as GithubCard } from "./GithubCard"
-export { default as IconButton } from "./IconButton"
 export { default as Image } from "./Image"
 export { default as Menu } from "./Menu"
 export { default as Pill } from "./Pill"

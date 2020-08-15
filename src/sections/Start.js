@@ -9,8 +9,8 @@ import {
   Span,
   Subheader,
   Text,
-  IconButton,
   Subtitle,
+  TertiaryButton,
 } from "atoms"
 import { useIntl } from "gatsby-plugin-intl"
 
@@ -81,7 +81,9 @@ const Start = ({ id }) => {
             <Subheader>{formatMessage({ id: "socialsTitle" })}</Subheader>
             <SocialsCards>
               {socials.map(social => (
-                <IconButton key={social.link} {...social} />
+                <TertiaryButton key={social.link} {...social}>
+                  {social.text}
+                </TertiaryButton>
               ))}
             </SocialsCards>
           </Socials>

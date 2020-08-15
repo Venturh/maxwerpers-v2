@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Link } from "gatsby"
 
 import { Text } from "./Typography"
-import { IconOnlyButton } from "./IconButton"
+import { IconOnlyButton } from "./Button"
 import SvgIcon from "./SvgIcon"
 import { getColor } from "@/theme"
 import socials from "@/content/socials"
@@ -24,7 +24,12 @@ const Footer = () => {
       </Credits>
       <Socials>
         {socials.map(({ leftIcon, link }) => (
-          <IconOnlyButton key={link} leftIcon={leftIcon} link={link} />
+          <IconOnlyButton
+            color="primary"
+            key={link}
+            leftIcon={leftIcon}
+            link={link}
+          />
         ))}
       </Socials>
     </Wrapper>

@@ -4,12 +4,8 @@ import { useStaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 import { useIntl } from "gatsby-plugin-intl"
 
-import { Section } from "atoms"
-import { Subheader, Text, Subtitle, Title } from "atoms"
-import { IconButton } from "atoms"
-import { SvgIcon } from "atoms"
+import { Section, Subheader, Text, Subtitle, Title, SvgIcon } from "atoms"
 
-import socials from "content/socials"
 import { Location } from "icons"
 
 const About = ({ id, refs }) => {
@@ -47,11 +43,6 @@ const About = ({ id, refs }) => {
           })}
         </Title>
         <Text>{intl.formatMessage({ id: "aboutMeDesc" })}</Text>
-        <Socials>
-          {socials.map(social => (
-            <IconButton key={social.link} {...social} />
-          ))}
-        </Socials>
       </Description>
     </Wrapper>
   )
@@ -120,15 +111,5 @@ const Description = styled.article`
     justify-content: center;
     width: 75%;
     height: 50vh;
-  }
-`
-
-const Socials = styled.div`
-  display: grid;
-  grid-template-columns: auto;
-  gap: 0.5em;
-  margin-top: 1em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    grid-template-columns: repeat(3, 25%);
   }
 `

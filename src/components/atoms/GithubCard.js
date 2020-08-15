@@ -6,7 +6,8 @@ import { PrimaryButton, SecondaryButton } from "./Button"
 import Shape from "./Shape"
 import SvgIcon from "./SvgIcon"
 
-import { Github, Star } from "@/icons"
+import { Github, Star } from "icons"
+import { c1 } from "theme/styles"
 
 const GithubCard = ({
   url,
@@ -59,9 +60,7 @@ const GithubCard = ({
 export default GithubCard
 
 const Card = styled.div`
-  background-color: ${props => props.theme.colors.toolbar};
-  border-radius: 1em;
-  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
+  ${c1};
   padding: 1em;
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
     padding: 1.25em;

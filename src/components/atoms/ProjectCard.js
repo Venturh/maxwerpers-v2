@@ -4,7 +4,7 @@ import { Link } from "gatsby-plugin-intl"
 
 import { Caption, Text, Title } from "./Typography"
 import SvgIcon from "./SvgIcon"
-import { getColor } from "theme"
+import { c2 } from "theme/styles"
 
 const ProjectCard = ({ name, headline, slug, locale, icon }) => {
   return (
@@ -27,14 +27,11 @@ const ProjectCard = ({ name, headline, slug, locale, icon }) => {
 export default ProjectCard
 
 const Card = styled(Link)`
+  ${c2};
   width: 100%;
   display: flex;
   align-items: center;
   padding: 0.5em 0;
-  background-color: ${getColor("body")};
-  border-radius: 1em;
-  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
-  border: 0.1px solid ${getColor("bodyTint")};
   :hover {
     transform: translateY(-1px);
   }

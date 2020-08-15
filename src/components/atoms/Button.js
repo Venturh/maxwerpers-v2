@@ -2,43 +2,46 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-import { getColor } from "@/theme"
-import { ButtonText } from "./Typography"
+import { getColor, getFontSize } from "theme"
+import { c1 } from "theme/styles"
+import Typography from "./Typography"
 import SvgIcon from "./SvgIcon"
 
 const StyledButton = styled.a`
-  background: ${props => props.bg};
+  background: ${p => p.bg};
   display: flex;
-  justify-content: center;
+  justify-content: ${p => (p.justify === "start" ? "flex-start" : "center")};
   align-items: center;
   padding: 0.5em 0.5em;
   min-width: 5em;
-  border-radius: ${props => (props.rounded ? "0.3em" : 0)};
-  border: 1px solid ${props => props.theme.colors.primary};
+  border-radius: ${p => (p.rounded ? "0.5em" : 0)};
   cursor: pointer;
+
+  :hover {
+    transform: translateY(-1px);
+  }
 `
 
-const Text = styled(ButtonText)`
-  max-width: 20em;
-  text-align: center;
-  font-size: ${props =>
-    props.large ? "0.9em" : props.theme.fontSizes.button || "0.75em"};
-  color: ${props => props.color};
+const Text = styled(Typography)`
+  font-size: ${p =>
+    p.fontSize ? getFontSize(p.fontSize) : getFontSize("button")};
+  color: ${p => getColor(p.color)};
 `
 
 const Icon = styled(SvgIcon)`
-  height: ${props => props.iconsize || "1.5em"};
-  margin-right: ${props => (props.left ? "0.25em" : 0)};
-  margin-left: ${props => (props.right ? "0.25em" : 0)};
-  fill: ${props => props.theme.colors[props.color]};
+  height: ${p => p.iconsize || "1.5em"};
+  margin-right: ${p => (p.left ? "0.25em" : 0)};
+  margin-left: ${p => (p.right ? "0.25em" : 0)};
+  fill: ${p => getColor(p.color)};
 `
 
 const Button = ({
   children,
+  text,
   link,
-  large,
   color,
   lower,
+  fontSize,
   navigate,
   rightIcon,
   leftIcon,
@@ -55,9 +58,11 @@ const Button = ({
     {leftIcon ? (
       <Icon path={leftIcon} color={color} left="true" iconsize={iconsize} />
     ) : null}
-    <Text color={color} large={large}>
-      {lower ? children : children.toUpperCase()}
-    </Text>
+    {children ? (
+      <Text color={color} fontSize={fontSize}>
+        {lower ? children : children.toUpperCase()}
+      </Text>
+    ) : null}
     {rightIcon ? <Icon path={rightIcon} color={color} right="true" /> : null}
   </StyledButton>
 )
@@ -65,6 +70,7 @@ const Button = ({
 export const PrimaryButton = styled(Button)`
   background: ${getColor("primary")};
   border-radius: 0.25em;
+  border: inherit;
   ${Text} {
     color: ${getColor("primaryContrast")};
   }
@@ -75,6 +81,34 @@ export const SecondaryButton = styled(Button)`
   border-radius: 0.25em;
   ${Text} {
     color: ${getColor("primary")};
+  }
+`
+
+export const TertiaryButton = styled(Button).attrs({
+  justify: "start",
+  lower: true,
+  fontSize: "subbody",
+})`
+  ${c1}
+  fill: ${getColor("primary")};
+  & > * {
+    margin-left: 0.5em;
+  }
+  ${Text} {
+    color: ${getColor("bodyContrast")};
+  }
+`
+
+export const IconOnlyButton = styled(Button)`
+  background: inherit;
+  border: none;
+  border-radius: 0.25em;
+  box-shadow: unset;
+  justify-content: center;
+  padding: 0;
+  color: ${p => getColor(p.color)};
+  :hover {
+    background-color: ${getColor("toolbar")};
   }
 `
 
