@@ -15,6 +15,6 @@ export default Section
 const Wrapper = styled(Element)`
   padding-top: 6vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 0;
+    padding: 0;
   }
 `

@@ -1,11 +1,6 @@
 import { createGlobalStyle } from "styled-components"
 
 export const GlobalStyles = createGlobalStyle`
-  :root {
-    --sides-padding-desktop: 3%;
-    --sides-padding-mobile: 5%;
-  }
-
 
   a {
     color: inherit;
@@ -19,6 +14,7 @@ export const GlobalStyles = createGlobalStyle`
   *::after,
   *::before {
     box-sizing: border-box;
+  
   }
 
   /* Remove default padding */
@@ -47,16 +43,15 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set core body defaults */
   body {
-    font-family: 'QuickSand', sans-serif;
-    font-weight: 400;
+    font-family: 'Jost';
     line-height: 1.5;
     min-height: 100vh;
     background: ${({ theme }) => theme.colors.body};
     color:  ${({ theme }) => theme.colors.bodyContrast};
     transition: background 0.25s linear;
-    font-size: 15px;
+    font-size: 16px;
     @media (min-width: ${props => props.theme.breakpoints.lg}) {
-      font-size: 17px;
+      font-size: 18px;
     }
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;

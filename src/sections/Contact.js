@@ -15,7 +15,11 @@ const Contact = ({ id }) => {
       <Text>
         Let´s find a way how we can work together, I would love to help you.
       </Text>
-      <ChatButton leftIcon={Chat} link="mailto:contact@maxwerpers.me">
+      <ChatButton
+        color="primaryContrast"
+        leftIcon={Chat}
+        link="mailto:contact@maxwerpers.me"
+      >
         Chat
       </ChatButton>
     </Wrapper>
@@ -32,8 +36,10 @@ const Wrapper = styled(Section)`
   margin-top: 6vh;
   padding: 2em;
   height: 40vh;
+  background-color: ${getColor("body")};
   border-radius: 1em;
-  background: ${getColor("toolbar")};
+  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
+  border: 0.1px solid ${getColor("bodyTint")};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0;
     height: 33vh;

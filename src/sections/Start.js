@@ -1,45 +1,98 @@
-import React, { useContext } from "react"
-import { useIntl } from "gatsby-plugin-intl"
+import React from "react"
 import styled from "styled-components"
 
-import ThemeContext from "utils/ThemeContext"
 import {
+  Header,
   PrimaryButton,
-  SecondaryButton,
+  ProjectCard,
   Section,
-  Image,
+  Span,
   Subheader,
   Text,
+  IconButton,
   Subtitle,
 } from "atoms"
-import scrollTo from "@/utils/scrollTo"
+import { useIntl } from "gatsby-plugin-intl"
 
-const Start = ({ id, refs }) => {
-  const { theme } = useContext(ThemeContext)
-  const { formatMessage } = useIntl()
+import placeholder from "content/images/sections/placeholder.png"
+import { useStaticQuery, graphql } from "gatsby"
+import { ArrowRightS } from "icons"
+import { getFontSize } from "theme"
+import socials from "content/socials"
 
+const Start = ({ id }) => {
+  const { allProjectsYaml } = useStaticQuery(
+    graphql`
+      query AllProjectsQuery {
+        allProjectsYaml(limit: 4) {
+          edges {
+            node {
+              name
+              slug
+              icon
+              localizations {
+                locale
+                headline
+              }
+            }
+          }
+        }
+      }
+    `
+  )
+  const { formatMessage, locale } = useIntl()
   return (
-    <Wrapper id={id} ref={refs}>
-      <Cover name={theme === "light" ? "cover_light" : "cover_dark"} />
-      <InfoWrapper>
-        <Text color="bodyContrast">
-          {formatMessage({ id: "welcomeTitle" })}
-        </Text>
-        <Subheader color="primary">
-          {formatMessage({ id: "welcomeMsg" })}
-        </Subheader>
-        <Subtitle color="bodyContrast">
-          {formatMessage({ id: "welcomeSub" })}
-        </Subtitle>
-        <ButtonGroup>
-          <StyledPrimary large={true} onClick={() => scrollTo("projects")}>
-            {formatMessage({ id: "projects" })}
-          </StyledPrimary>
-          <StyledSecondary large onClick={() => scrollTo("skills")}>
-            {formatMessage({ id: "experience" })}
-          </StyledSecondary>
-        </ButtonGroup>
-      </InfoWrapper>
+    <Wrapper id={id}>
+      <Hero>
+        <TextWrapper>
+          <Heading color="bodyContrast">
+            {formatMessage({ id: "hey" })}{" "}
+            <Span fontSize="header" color="primary">
+              Max Werpers,
+            </Span>
+            <br />
+            {formatMessage({ id: "whatS" })}
+          </Heading>
+          <Text>{formatMessage({ id: "whatL" })}</Text>
+        </TextWrapper>
+        <HeroImgContainer>
+          <HeroImg src={placeholder} alt="" />
+        </HeroImgContainer>
+      </Hero>
+      <Content>
+        <Projects>
+          <ProjectsHead>
+            <Subheader> {formatMessage({ id: "projects" })}</Subheader>
+            <PrimaryButton lower rightIcon={ArrowRightS}>
+              {formatMessage({ id: "showmore" })}
+            </PrimaryButton>
+          </ProjectsHead>
+          <ProjectsCards>
+            {allProjectsYaml.edges.map(({ node }) => {
+              const localization = node.localizations.find(
+                project => project.locale === locale
+              )
+              return <ProjectCard key={node.name} {...localization} {...node} />
+            })}
+          </ProjectsCards>
+        </Projects>
+        <SocialsBlog>
+          <Socials>
+            <Subheader>{formatMessage({ id: "socialsTitle" })}</Subheader>
+            <SocialsCards>
+              {socials.map(social => (
+                <IconButton key={social.link} {...social} />
+              ))}
+            </SocialsCards>
+          </Socials>
+          <Blog>
+            <Subheader>Blog</Subheader>
+            <BlogCards>
+              <Subtitle>{formatMessage({ id: "soon" })}</Subtitle>
+            </BlogCards>
+          </Blog>
+        </SocialsBlog>
+      </Content>
     </Wrapper>
   )
 }
@@ -47,64 +100,112 @@ const Start = ({ id, refs }) => {
 export default Start
 
 const Wrapper = styled(Section)`
+  height: 100%;
+  min-height: 88vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 100vh;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    flex-direction: row-reverse;
-    justify-content: space-evenly;
-    align-items: center;
-  }
-`
-
-const Cover = styled(Image)`
-  height: 30vh;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-top: 0;
-    height: 50vh;
-  }
-`
-
-const InfoWrapper = styled.div`
-  margin-top: 2em;
-  display: flex;
-  flex-direction: column;
+  justify-content: space-evenly;
   align-items: center;
-  text-align: center;
+`
+
+const Hero = styled.div`
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-top: 0;
-    align-items: start;
+    flex-direction: row;
+    justify-content: space-between;
   }
 `
 
-const ButtonGroup = styled.div`
-  display: flex;
-  flex-direction: column;
+const TextWrapper = styled.div`
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 55%;
+  }
+`
+
+const Heading = styled(Header)`
+  margin-bottom: 0.5em;
+  font-size: ${getFontSize("title")};
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    font-size: ${getFontSize("header")};
+  }
+`
+
+const HeroImgContainer = styled.div`
+  display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
+    justify-content: center;
+    width: 40%;
+  }
+`
+
+const HeroImg = styled.img`
+  width: 100%;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 50%;
+  }
+`
+
+const Content = styled.div`
+  margin-top: 2em;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;
-    justify-content: start;
+    justify-content: space-between;
   }
 `
 
-const StyledPrimary = styled(PrimaryButton)`
-  width: 9em;
-  height: 3em;
-  margin: 1em 0;
+const Projects = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 12em;
-    padding: 0.75em 0;
-    margin: 0.5em 0.5em 0 0;
+    width: 55%;
+    margin-top: 0;
   }
 `
 
-const StyledSecondary = styled(SecondaryButton)`
-  width: 9em;
-  height: 3em;
+const ProjectsHead = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const ProjectsCards = styled.div`
+  margin-top: 0.5em;
+  display: grid;
+  gap: 0.5em;
+`
+
+const SocialsBlog = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 12em;
-    padding: 0.75em 0;
-    margin: 0.5em 0.5em 0 0;
+    width: 40%;
   }
 `
+
+const Socials = styled.div`
+  margin-top: 2em;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    margin-top: 0;
+  }
+`
+
+const SocialsCards = styled.div`
+  display: grid;
+  gap: 0.5em;
+  margin-top: 0.5em;
+  @media (min-width: ${p => p.theme.breakpoints.lg}) {
+    wdith: 80%;
+    grid-template-columns: repeat(2, 50%);
+    grid-template-rows: repeat(2, 3em);
+  }
+`
+
+const Blog = styled.div`
+  margin-top: 2em;
+`
+
+const BlogCards = styled.div``

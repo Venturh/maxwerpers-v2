@@ -1,31 +1,25 @@
 import React from "react"
-import { Link } from "gatsby"
 import styled from "styled-components"
+import { Link } from "gatsby-plugin-intl"
 
-import { Text, Title } from "./Typography"
-import { SecondaryButton } from "./Button"
+import { Caption, Text, Title } from "./Typography"
 import SvgIcon from "./SvgIcon"
-
-import { ArrowRight } from "@/icons"
+import { getColor } from "theme"
 
 const ProjectCard = ({ name, headline, slug, locale, icon }) => {
   return (
-    <Card to={`/${locale}/projects/${slug}`}>
-      <Content>
-        <IconHeader>
-          <Icon path={icon} />
-          <TitleText color="primary">{name}</TitleText>
-        </IconHeader>
-        <Description color="bodyContrast">{headline}</Description>
-        <LearnMoreButton
-          color="primary"
-          bg="toolbar"
-          lower
-          rightIcon={ArrowRight}
-        >
-          Learn More
-        </LearnMoreButton>
-      </Content>
+    <Card to={`/projects/${slug}`}>
+      <SvgIcon
+        style={{ padding: "0 1.5em" }}
+        color="primary"
+        height="2.5em"
+        path={icon}
+      />
+      <CardInfo>
+        <Caption>Open Source</Caption>
+        <Title color="primary">{name}</Title>
+        <Text color="bodyContrast">{headline}</Text>
+      </CardInfo>
     </Card>
   )
 }
@@ -33,63 +27,21 @@ const ProjectCard = ({ name, headline, slug, locale, icon }) => {
 export default ProjectCard
 
 const Card = styled(Link)`
-  background-color: ${props => props.theme.colors.toolbar};
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0.5em 0;
+  background-color: ${getColor("body")};
   border-radius: 1em;
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
-  padding: 0.5em 0.5em 1em 0.5em;
-`
-
-const Content = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 0 0.5em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    text-align: center;
+  border: 0.1px solid ${getColor("bodyTint")};
+  :hover {
+    transform: translateY(-1px);
   }
 `
-
-const IconHeader = styled.div`
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 0.5em;
+const CardInfo = styled.div`
+  width: 60%;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    flex-direction: column;
-    margin: 0;
-  }
-`
-const Icon = styled(SvgIcon)`
-  width: 2.25em;
-  fill: ${props => props.theme.colors.primary};
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 3.5em;
-    margin: 1em 0 0.25em 0;
-  }
-`
-
-const TitleText = styled(Title)`
-  margin-left: 0.25em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 0;
-  }
-`
-
-const Description = styled(Text)`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 3em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    height: 4.5em;
-  }
-`
-
-const LearnMoreButton = styled(SecondaryButton)`
-  align-self: flex-end;
-  height: 2em;
-  margin-top: 0.5em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    border-radius: 0.5em;
-    align-self: center;
+    width: initial;
   }
 `

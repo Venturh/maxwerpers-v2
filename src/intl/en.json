@@ -1,10 +1,10 @@
 {
   "lang": "en",
-  "welcomeTitle": "Hello, my name is",
-  "welcomeMsg": "Max Werpers.",
-  "welcomeSub": " Welcome to my portfolio !",
+  "hey": "Hey, I´m",
+  "whatS": "Frontend Developer and Student.",
+  "whatL": "I am a developer pasionated in web development. Currently in my last year of studying media science. Thank you for visiting my portfolio.",
+  "socialsTitle": "Find me here",
   "projects": "Projects",
-  "projectsSub": "A selection of my recent projects",
   "skills": "Skills",
   "experience": "Experience",
   "aboutMe": "About Me",
@@ -15,5 +15,6 @@
   "infoMessage": "Currently looking for an internship in frontend development",
   "aboutMeDesc": "I am currently studying media informatics at Rhein Main university in Wiesbaden.\n During my studies i felt in love with web development and now i follow my own projects in my free time. I balance this out with doing lots of sports and traveling.",
   "aboutMeSub": "Student - Developer",
-  "infoPill": "Currently avaible"
+  "infoPill": "Currently avaible",
+  "soon": "Coming soon"
 }

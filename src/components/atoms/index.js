@@ -1,6 +1,5 @@
 export { default as Button } from "./Button"
-export { PrimaryButton } from "./Button"
-export { SecondaryButton } from "./Button"
+export { PrimaryButton, SecondaryButton } from "./Button"
 export { default as Cookie } from "./Cookie"
 export { default as DropDown } from "./DropDown"
 export { default as Footer } from "./Footer"
@@ -27,4 +26,5 @@ export {
   Title,
   Subheader,
   Header,
+  Span,
 } from "./Typography"

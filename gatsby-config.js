@@ -48,32 +48,20 @@ module.exports = {
       resolve: `gatsby-plugin-intl`,
       options: {
         path: `${__dirname}/src/intl`,
-        languages: [`de`, `en`, `fr`],
+        languages: [`de`, `en`],
         defaultLanguage: `de`,
         redirect: true,
       },
     },
 
     {
-      resolve: `gatsby-plugin-prefetch-google-fonts`,
+      resolve: "gatsby-plugin-web-font-loader",
       options: {
-        fonts: [
-          {
-            family: `Open Sans`,
-            variants: [`100`, `400`, `500`, `600`, `700`],
-          },
-          {
-            family: `Quicksand`,
-            variants: [`100`, `400`, `500`, `600`, `700`],
-          },
-          {
-            family: `Jost`,
-            variants: [`100`, `400`, `500`, `600`, `700`],
-          },
-        ],
+        google: {
+          families: ["Jost:300,400, 500,700", "Quicksand:400,500,700"],
+        },
       },
     },
-
     {
       resolve: `gatsby-source-graphql`,
       options: {

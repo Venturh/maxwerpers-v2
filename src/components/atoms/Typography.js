@@ -5,7 +5,7 @@ import { getFontSize, getColor } from "theme"
 const StyledTypography = styled.p`
   color: ${p => p.color};
   font-size: ${p => p.fontSize};
-  font-weight: ${p => (p.bold ? 700 : 400)};
+  font-weight: ${p => (p.bold ? 700 : 500)};
 `
 
 const Typography = ({ children, variant, text, ...props }) => (
@@ -46,13 +46,19 @@ const Title = styled(Typography)`
 
 const Subheader = styled(Typography)`
   font-size: ${getFontSize("subheader")};
-  font-weight: 600;
+  font-weight: 500;
   color: ${props => getColor(props.color || "primary")};
 `
 
 const Header = styled(Typography)`
   font-size: ${getFontSize("header")};
+  font-family: "Jost";
+  font-weight: 700;
   color: ${props => getColor(props.color || "primary")};
+`
+
+const Span = styled.span`
+  color: ${props => getColor(props.color || "bodyContrast")};
 `
 
 export default Typography
@@ -65,4 +71,5 @@ export {
   Title,
   Subheader,
   Header,
+  Span,
 }

@@ -18,7 +18,7 @@ const fontSizes = {
   subtitle: "1.25em",
   title: "1.5em",
   subheader: "2em",
-  header: "3em",
+  header: "2.5em",
 }
 
 const sizes = {
@@ -49,7 +49,7 @@ export const lightTheme = {
     primaryContrast: "#292929",
     body: "#FFFFFF;",
     bodyContrast: "#292929",
-    bodyTint: "#F4F2F7",
+    bodyTint: "#E2E8F0",
     toolbarContrast: "#1E1E1E",
     toolbar: "#FFFFFF",
   },

@@ -10,7 +10,7 @@ import NavLink from "./NavLink"
 
 const Header = ({ navlinks, hash }) => {
   const { locale, formatMessage } = useIntl()
-  const languages = ["Deutsch", "English", "Francais"]
+  const languages = ["Deutsch", "English"]
 
   return (
     <nav>
