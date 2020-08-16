@@ -1,14 +1,14 @@
 import { css } from "styled-components"
 import { getColor } from ".."
 
-export const c1 = css`
+export const card1 = css`
   background-color: ${getColor("body")};
   border-radius: 0.75em;
   padding: 1em;
-  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 6px 5px 2px rgba(0, 0, 0, 0.25);
 `
 
-export const c2 = css`
+export const card2 = css`
   background-color: ${getColor("body")};
   border-radius: 1em;
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);

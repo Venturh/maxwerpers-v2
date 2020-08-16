@@ -4,7 +4,7 @@ import { Link } from "gatsby-plugin-intl"
 
 import { Caption, Text, Title } from "./Typography"
 import SvgIcon from "./SvgIcon"
-import { c2 } from "theme/styles"
+import { card1 } from "theme/styles"
 
 const ProjectCard = ({ name, headline, slug, locale, icon }) => {
   return (
@@ -27,7 +27,7 @@ const ProjectCard = ({ name, headline, slug, locale, icon }) => {
 export default ProjectCard
 
 const Card = styled(Link)`
-  ${c2};
+  ${card1};
   width: 100%;
   display: flex;
   align-items: center;

@@ -7,7 +7,7 @@ import Shape from "./Shape"
 import SvgIcon from "./SvgIcon"
 
 import { Github, Star } from "icons"
-import { c1 } from "theme/styles"
+import { card1 } from "theme/styles"
 
 const GithubCard = ({
   url,
@@ -60,7 +60,7 @@ const GithubCard = ({
 export default GithubCard
 
 const Card = styled.div`
-  ${c1};
+  ${card1};
   padding: 1em;
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
     padding: 1.25em;

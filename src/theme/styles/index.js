@@ -1,1 +1,1 @@
-export { c1, c2 } from "./cards"
+export { card1, card2 } from "./cards"

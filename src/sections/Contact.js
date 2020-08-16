@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "styled-components"
 
-import { Section } from "atoms"
-import { PrimaryButton } from "atoms"
-import { Subheader, Text } from "atoms"
+import { Section, PrimaryButton, Subheader, Text } from "atoms"
 
 import { Chat } from "icons"
 import { getColor } from "theme"
+import { card2 } from "theme/styles"
 
 const Contact = ({ id }) => {
   return (
@@ -29,6 +28,7 @@ const Contact = ({ id }) => {
 export default Contact
 
 const Wrapper = styled(Section)`
+  ${card2};
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
@@ -36,10 +36,6 @@ const Wrapper = styled(Section)`
   margin-top: 6vh;
   padding: 2em;
   height: 40vh;
-  background-color: ${getColor("body")};
-  border-radius: 1em;
-  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
-  border: 0.1px solid ${getColor("bodyTint")};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0;
     height: 33vh;

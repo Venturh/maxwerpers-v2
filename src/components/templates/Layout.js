@@ -8,7 +8,7 @@ import { Footer } from "atoms"
 
 import { GlobalStyles } from "theme/GlobalStyles"
 import { useToggleTheme } from "utils/useToggleTheme"
-import { darkTheme, lightTheme } from "theme/"
+import { darkTheme, lightTheme } from "theme"
 import ThemeContext from "utils/ThemeContext"
 
 const Base = ({ children }) => {
@@ -90,6 +90,6 @@ const Content = styled.main`
   margin: ${props => props.theme.spacing.mobile.sides};
   margin-bottom: 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 4em ${props => props.theme.spacing.desktop.sides};
+    margin: 0 ${props => props.theme.spacing.desktop.sides};
   }
 `

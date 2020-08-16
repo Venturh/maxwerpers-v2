@@ -4,23 +4,33 @@ import styled from "styled-components"
 import SvgIcon from "./SvgIcon"
 import { ButtonText, Text } from "./Typography"
 
-import { Location } from "@/icons"
-import { getColor } from "theme"
+import { Location } from "icons"
+import { card1 } from "theme/styles"
+
+export default ({ type, work, place, time }) => (
+  <Card>
+    <TypeTime>
+      <ButtonText color="primary" text={type} />
+      <ButtonText text={time} />
+    </TypeTime>
+    <Info text={work} />
+    <Place>
+      <SvgIcon color="bodyContrast" height="0.75em" path={Location} />
+      <ButtonText style={{ marginLeft: "0.1em" }} text={place} />
+    </Place>
+  </Card>
+)
 
 const Card = styled.div`
+  ${card1}
+  width: 100%;
+  padding: 0.75em;
   position: relative;
-  background-color: ${getColor("body")};
-  border-radius: 1em;
-  box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
-  border: 0.1px solid ${getColor("bodyTint")};
-  width: 80vw;
-  padding: 15px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   transition: all 0.2s ease-in-out;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    width: 25vw;
     :hover {
       transform: scale(1.1) translateY(-10px);
       cursor: default;
@@ -48,24 +58,3 @@ const Place = styled.div`
     align-self: flex-end;
   }
 `
-
-const LocationIcon = styled(SvgIcon)`
-  height: 0.75em;
-  fill: ${props => props.theme.colors.toolbarContrast};
-`
-
-const TimeLineCard = ({ type, work, place, time }) => (
-  <Card>
-    <TypeTime>
-      <ButtonText color="primary" text={type} />
-      <ButtonText text={time} />
-    </TypeTime>
-    <Info text={work} />
-    <Place>
-      <LocationIcon path={Location} />
-      <ButtonText style={{ marginLeft: "0.1em" }} text={place} />
-    </Place>
-  </Card>
-)
-
-export default TimeLineCard

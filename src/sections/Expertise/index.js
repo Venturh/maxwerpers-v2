@@ -3,22 +3,21 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
-import Section from "@components/atoms/Section"
-import { Subheader } from "@components/atoms/Typography"
+import { Section, Subheader } from "atoms"
 import Skills from "./Skills"
 import Experience from "./Experience"
 
-const Expertise = ({ id, refs }) => {
+export default ({ id }) => {
   const { allSkillsYaml, allExperienceYaml } = useStaticQuery(graphql`
     query Skills {
       allSkillsYaml {
         nodes {
-          Web {
+          Frameworks {
             name
             path
           }
 
-          Software_Development {
+          Languages {
             name
             path
           }
@@ -63,25 +62,23 @@ const Expertise = ({ id, refs }) => {
   )
 
   return (
-    <Wrapper id={id} ref={refs}>
+    <Wrapper id={id}>
       <Header>{intl.formatMessage({ id: "skills" })}</Header>
       <Content>
-        <div>
+        <SkillsWrapper>
           <DesktopHeader>{intl.formatMessage({ id: "skills" })}</DesktopHeader>
           <Skills {...allSkillsYaml} />
-        </div>
-        <div>
+        </SkillsWrapper>
+        <ExperienceWrapper>
           <DesktopHeader>
             {intl.formatMessage({ id: "experience" })}
           </DesktopHeader>
           <Experience {...experienceByLanguage} />
-        </div>
+        </ExperienceWrapper>
       </Content>
     </Wrapper>
   )
 }
-
-export default Expertise
 
 const Wrapper = styled(Section)``
 
@@ -95,8 +92,20 @@ const Header = styled(Subheader)`
 const Content = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-direction: row-reverse;
+  }
+`
+
+const SkillsWrapper = styled.div`
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 40%;
+  }
+`
+
+const ExperienceWrapper = styled.div`
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    width: 55%;
   }
 `
 

@@ -2,21 +2,39 @@ import React from "react"
 import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 
-import { Title } from "@components/atoms/Typography"
-import TimeLineCard from "@components/atoms/TimeLineCard"
-import Shape from "@components/atoms/Shape"
+import { Title, TimeLineCard, Shape } from "atoms"
+
+const ExperienceContainer = experienceByLanguage => {
+  const intl = useIntl()
+  return (
+    <Wrapper>
+      <Heading text={intl.formatMessage({ id: "experience" })} />
+      <LineWrapper>
+        <Experiences>
+          {Object.values(experienceByLanguage).map((experience, index) => (
+            <StyledTimelineCards key={index}>
+              <StyledCircle tbg="primary" borderRadius="100%" />
+              <TimeLineCard {...experience} />
+            </StyledTimelineCards>
+          ))}
+        </Experiences>
+      </LineWrapper>
+    </Wrapper>
+  )
+}
+
+export default ExperienceContainer
 
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${props => props.theme.colors.toolbar};
-  border-radius: 0 0 25px 25px;
   padding-bottom: 1.75em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-top: ${props => props.theme.spacing.heading};
-    width: 40vw;
-    background-color: inherit;
+    align-items: flex-start;
+    padding-left: 2em;
+    width: 100%;
   }
 `
 
@@ -36,6 +54,7 @@ const Experiences = styled.div`
   }
 
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
+    width: 100%;
     grid-gap: 1.5em;
   }
 `
@@ -77,6 +96,7 @@ const StyledTimelineCards = styled.div`
 `
 
 const LineWrapper = styled.div`
+  width: 100%;
   //circle
   span {
     align-self: center;
@@ -99,24 +119,3 @@ const StyledCircle = styled(Shape)`
     height: 12.5px;
   }
 `
-
-const ExperienceContainer = experienceByLanguage => {
-  const intl = useIntl()
-  return (
-    <Wrapper>
-      <Heading text={intl.formatMessage({ id: "experience" })} />
-      <LineWrapper>
-        <Experiences>
-          {Object.values(experienceByLanguage).map((experience, index) => (
-            <StyledTimelineCards key={index}>
-              <StyledCircle tbg="primary" borderRadius="100%" />
-              <TimeLineCard {...experience} />
-            </StyledTimelineCards>
-          ))}
-        </Experiences>
-      </LineWrapper>
-    </Wrapper>
-  )
-}
-
-export default ExperienceContainer

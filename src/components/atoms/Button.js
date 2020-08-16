@@ -2,10 +2,11 @@ import React from "react"
 import styled from "styled-components"
 import { Link } from "gatsby"
 
-import { getColor, getFontSize } from "theme"
-import { c1 } from "theme/styles"
 import Typography from "./Typography"
 import SvgIcon from "./SvgIcon"
+
+import { getColor, getFontSize } from "theme"
+import { card1 } from "theme/styles"
 
 const StyledButton = styled.a`
   background: ${p => p.bg};
@@ -89,7 +90,7 @@ export const TertiaryButton = styled(Button).attrs({
   lower: true,
   fontSize: "subbody",
 })`
-  ${c1}
+  ${card1}
   fill: ${getColor("primary")};
   & > * {
     margin-left: 0.5em;
