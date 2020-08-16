@@ -1,12 +1,11 @@
 import React from "react"
 import styled from "styled-components"
-import { useIntl, changeLocale, Link as LLink } from "gatsby-plugin-intl"
+import { useIntl, changeLocale } from "gatsby-plugin-intl"
 
-import { ThemeToggle, Pill, Title, Menu } from "atoms"
+import { ThemeToggle, Pill, Title, Menu, Link, Text } from "atoms"
 import { LanguageSwitch } from "molecules"
 
 import { getColor, getSpacing } from "theme"
-import NavLink from "./NavLink"
 
 const Header = ({ navlinks, hash }) => {
   const { locale, formatMessage } = useIntl()
@@ -16,20 +15,26 @@ const Header = ({ navlinks, hash }) => {
     <nav>
       <TopNav>
         <Left>
-          <LLink to="/">
+          <Link nav to="/">
             <Logo>
               <Title color="primary">max</Title>
               <Title color="bodyContrast">werpers</Title>
             </Logo>
-          </LLink>
+          </Link>
           <InfoPill>{formatMessage({ id: "infoPill" })}</InfoPill>
         </Left>
         <NavItems>
           <NavLinks>
             {navlinks.map(link => (
-              <NavLink key={link.name} hash={hash} {...link}>
-                {link.name}
-              </NavLink>
+              <Link
+                nav
+                color="bodyContrast"
+                activecolor="primary"
+                key={link.name}
+                {...link}
+              >
+                <Text color="bodyContrast">{link.name}</Text>
+              </Link>
             ))}
           </NavLinks>
           <NavTools>

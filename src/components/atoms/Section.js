@@ -13,8 +13,5 @@ const Section = ({ id, children, className }) => {
 export default Section
 
 const Wrapper = styled(Element)`
-  padding-top: 6vh;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    padding: 0;
-  }
+  margin-bottom: 4em;
 `

@@ -45,9 +45,13 @@ const Title = styled(Typography)`
 `
 
 const Subheader = styled(Typography)`
+  text-align: center;
   font-size: ${getFontSize("subheader")};
   font-weight: 500;
   color: ${props => getColor(props.color || "primary")};
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    text-align: start;
+  }
 `
 
 const Header = styled(Typography)`

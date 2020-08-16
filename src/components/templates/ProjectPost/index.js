@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import { ProjectLayout } from "templates"
+import { BaseLayout } from "templates"
 import Hero from "./Hero.js"
 
 const ProjectPost = ({ pageContext, data }) => {
@@ -10,13 +10,13 @@ const ProjectPost = ({ pageContext, data }) => {
     data => data.locale === pageContext.language
   )
   return (
-    <ProjectLayout>
+    <BaseLayout>
       <Hero
         project={projectsYaml}
         localizations={localizations}
         github={data.github.repository}
       />
-    </ProjectLayout>
+    </BaseLayout>
   )
 }
 

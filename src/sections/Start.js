@@ -103,14 +103,10 @@ export default Start
 
 const Wrapper = styled(Section)`
   height: 100%;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  align-items: center;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    padding-top: 7vh;
-  }
 `
 
 const Hero = styled.div`

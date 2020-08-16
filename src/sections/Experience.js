@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 
-import { Title, TimeLineCard, Shape } from "atoms"
+import { Subheader, TimeLineCard, Shape } from "atoms"
 
 const ExperienceContainer = experienceByLanguage => {
   const intl = useIntl()
@@ -28,7 +28,6 @@ export default ExperienceContainer
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: center;
   padding-bottom: 1.75em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin-top: ${props => props.theme.spacing.heading};
@@ -38,7 +37,7 @@ const Wrapper = styled.div`
   }
 `
 
-const Heading = styled(Title)`
+const Heading = styled(Subheader)`
   margin: ${props => props.theme.spacing.heading} 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     display: none;

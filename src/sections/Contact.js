@@ -33,8 +33,6 @@ const Wrapper = styled(Section)`
   flex-direction: column;
   justify-content: space-evenly;
   min-height: 0;
-  margin-top: 6vh;
-  padding: 2em;
   height: 40vh;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     margin: 0;

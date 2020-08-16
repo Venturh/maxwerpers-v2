@@ -11,7 +11,7 @@ import { useToggleTheme } from "utils/useToggleTheme"
 import { darkTheme, lightTheme } from "theme"
 import ThemeContext from "utils/ThemeContext"
 
-const Base = ({ children }) => {
+const Theme = ({ children }) => {
   const [theme, toggleTheme] = useToggleTheme()
 
   const themeValue = { theme, toggleTheme }
@@ -27,7 +27,7 @@ const Base = ({ children }) => {
   )
 }
 
-const PortfolioLayout = ({ children }) => {
+const BaseLayout = ({ children }) => {
   const { locale } = useIntl()
   const { allNavigationYaml } = useStaticQuery(
     graphql`
@@ -35,7 +35,6 @@ const PortfolioLayout = ({ children }) => {
         allNavigationYaml {
           nodes {
             path
-            icon
             localizations {
               locale
               name
@@ -53,43 +52,24 @@ const PortfolioLayout = ({ children }) => {
     })
   )
   return (
-    <Base>
-      <Wrapper>
-        <Header hash navlinks={navlinks} />
-        <Content>
-          {children}
-          <Footer />
-        </Content>
-      </Wrapper>
-    </Base>
-  )
-}
-
-const ProjectLayout = ({ children }) => {
-  const navlinks = [{ path: "/", name: "Portfolio" }]
-  return (
-    <Base>
+    <Theme>
       <Wrapper>
         <Header navlinks={navlinks} />
-        <Content>
-          {children}
-          <Footer />
-        </Content>
+        <Content>{children}</Content>
+        <Footer />
       </Wrapper>
-    </Base>
+    </Theme>
   )
 }
 
-export { PortfolioLayout, ProjectLayout }
+export { BaseLayout }
 
-const Wrapper = styled.div`
-  position: relative;
-`
+const Wrapper = styled.div``
 
 const Content = styled.main`
-  margin: ${props => props.theme.spacing.mobile.sides};
+  margin: 8vh ${props => props.theme.spacing.mobile.sides};
   margin-bottom: 0;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 0 ${props => props.theme.spacing.desktop.sides};
+    margin: 8vh ${props => props.theme.spacing.desktop.sides};
   }
 `

@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components"
 
 import { SecondaryButton } from "./Button"
 import SvgIcon from "./SvgIcon"
-import NavLink from "organisms/Header/NavLink"
+import Link from "./Link"
 
 import { Menu1, Close } from "icons"
 
@@ -86,7 +86,7 @@ const Nav = styled.nav`
   justify-content: center;
 `
 
-const NavItem = styled(NavLink)`
+const NavItem = styled(Link)`
   display: flex;
   flex-direction: column;
   justify-content: center;
