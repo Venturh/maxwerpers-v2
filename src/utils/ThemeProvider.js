@@ -3,6 +3,7 @@ import { ThemeProvider } from "styled-components"
 
 import { darkTheme, lightTheme } from "theme"
 import { useToggleTheme } from "./useToggleTheme"
+import { GlobalStyles } from "theme/GlobalStyles"
 
 export default ({ children }) => {
   const [theme, toggleTheme] = useToggleTheme()
@@ -12,7 +13,10 @@ export default ({ children }) => {
 
   return (
     <ThemeContext.Provider value={themeValue}>
-      <ThemeProvider theme={themeMode}>{children}</ThemeProvider>
+      <ThemeProvider theme={themeMode}>
+        <GlobalStyles />
+        {children}
+      </ThemeProvider>
     </ThemeContext.Provider>
   )
 }
