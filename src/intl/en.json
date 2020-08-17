@@ -16,5 +16,15 @@
   "aboutMeDesc": "I am currently studying media informatics at Rhein Main university in Wiesbaden.\n During my studies i felt in love with web development and now i follow my own projects in my free time. I balance this out with doing lots of sports and traveling.",
   "aboutMeSub": "Student - Developer",
   "infoPill": "Currently avaible",
-  "soon": "Coming soon"
+  "soon": "Coming soon",
+  "frameworks": "Frameworks",
+  "languages": "Languages",
+  "database": "Databases",
+  "other": "Others",
+  "contactH": "What are you working on?",
+  "contactM": "Let´s find a way how we can work together, I would love to help you..",
+  "footer1": "Coded with ",
+  "footer2": " by Max Werpers.",
+  "footer3": "Build with ",
+  "footer4": "and hostet on "
 }

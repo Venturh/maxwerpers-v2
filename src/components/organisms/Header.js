@@ -7,56 +7,50 @@ import { LanguageSwitch } from "molecules"
 
 import { getColor, getSpacing } from "theme"
 
-const Header = ({ navlinks, hash }) => {
+export default ({ navlinks, hash }) => {
   const { locale, formatMessage } = useIntl()
   const languages = ["Deutsch", "English"]
 
   return (
-    <nav>
-      <TopNav>
-        <Left>
-          <Link nav to="/">
-            <Logo>
-              <Title color="primary">max</Title>
-              <Title color="bodyContrast">werpers</Title>
-            </Logo>
-          </Link>
-          <InfoPill>{formatMessage({ id: "infoPill" })}</InfoPill>
-        </Left>
-        <NavItems>
-          <NavLinks>
-            {navlinks.map(link => (
-              <Link
-                nav
-                color="bodyContrast"
-                activecolor="primary"
-                key={link.name}
-                {...link}
-              >
-                <Text color="bodyContrast">{link.name}</Text>
-              </Link>
-            ))}
-          </NavLinks>
-          <NavTools>
-            <LanguageSwitch
-              changeLanguage={changeLocale}
-              currentLanguage={locale}
-              languages={languages}
-            />
-            <ThemeToggle
-              style={{ marginLeft: "0.5em", marginRight: "0.5em" }}
-            />
-          </NavTools>
-          <Menu hash={hash} navlinks={navlinks} />
-        </NavItems>
-      </TopNav>
-    </nav>
+    <Nav>
+      <Left>
+        <Link nav to="/">
+          <Logo>
+            <Title color="primary">max</Title>
+            <Title color="bodyContrast">werpers</Title>
+          </Logo>
+        </Link>
+        <InfoPill>{formatMessage({ id: "infoPill" })}</InfoPill>
+      </Left>
+      <NavItems>
+        <NavLinks>
+          {navlinks.map(link => (
+            <Link
+              nav
+              color="bodyContrast"
+              activecolor="primary"
+              key={link.name}
+              {...link}
+            >
+              <Text color="bodyContrast">{link.name}</Text>
+            </Link>
+          ))}
+        </NavLinks>
+        <NavTools>
+          <LanguageSwitch
+            changeLanguage={changeLocale}
+            currentLanguage={locale}
+            languages={languages}
+          />
+          <ThemeToggle style={{ marginLeft: "0.5em", marginRight: "0.5em" }} />
+        </NavTools>
+        <Menu hash={hash} navlinks={navlinks} />
+      </NavItems>
+    </Nav>
   )
 }
 
-export default Header
-
-const TopNav = styled.ul`
+const Nav = styled.nav`
   width: 100%;
   position: fixed;
   top: 0;
@@ -95,6 +89,7 @@ const NavItems = styled.ul`
   display: flex;
   align-items: center;
 `
+
 const NavLinks = styled.li`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.md}) {

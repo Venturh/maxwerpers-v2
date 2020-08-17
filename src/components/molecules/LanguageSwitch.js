@@ -25,7 +25,7 @@ const LanguageSwitch = ({
   return (
     <Wrapper onClick={() => setOpenDropdown(!openDropdown)} {...rest}>
       <LanguageIcon viewBox="0 0 640 512" path={Language} />
-      <CurrentLanguage>{currentLanguage.toUpperCase()}</CurrentLanguage>
+      <CurrentLanguage>{currentLanguage}</CurrentLanguage>
       <DropDown
         parentToggle={openDropdown}
         items={languages}
@@ -50,5 +50,6 @@ const LanguageIcon = styled(SvgIcon)`
 `
 
 const CurrentLanguage = styled(Text)`
+  text-transform: capitalize;
   margin: 0 0.1em 0 0.5em;
 `

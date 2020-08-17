@@ -65,7 +65,7 @@ export const darkTheme = {
     primaryGlow: "#b0fbbc",
     body: "#333333;",
     bodyContrast: "#f4f5f8",
-    bodyTint: "#292929",
+    bodyTint: "#474747",
   },
   type: "dark",
   fontSizes,

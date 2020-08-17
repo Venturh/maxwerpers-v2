@@ -1,23 +1,28 @@
 import React from "react"
 import styled from "styled-components"
+import { useIntl } from "gatsby-plugin-intl"
 
 import { Skill, Subtitle } from "atoms"
-import { card1 } from "theme/styles"
 
-export default skills => (
-  <Wrapper>
-    {Object.keys(skills.nodes[0]).map((section, index) => (
-      <Section key={index}>
-        <SectionTitle>{section}</SectionTitle>
-        <SectionSkills>
-          {skills.nodes[0][section].map((skill, index) => (
-            <Skill key={index} iconName={skill.name} icon={skill.path} />
-          ))}
-        </SectionSkills>
-      </Section>
-    ))}
-  </Wrapper>
-)
+export default skills => {
+  const { formatMessage } = useIntl()
+  return (
+    <Wrapper>
+      {Object.keys(skills.nodes[0]).map((section, index) => (
+        <Section key={index}>
+          <SectionTitle>
+            {formatMessage({ id: section.toLowerCase() })}
+          </SectionTitle>
+          <SectionSkills>
+            {skills.nodes[0][section].map((skill, index) => (
+              <Skill key={index} iconName={skill.name} icon={skill.path} />
+            ))}
+          </SectionSkills>
+        </Section>
+      ))}
+    </Wrapper>
+  )
+}
 
 const Wrapper = styled.div`
   display: flex;
@@ -37,8 +42,6 @@ const SectionSkills = styled.div`
   margin-top: 0.5em;
   display: grid;
   gap: 0.5em;
-  grid-template-columns: repeat(auto-fit, 25%);
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    grid-template-columns: repeat(auto-fill, 20%);
-  }
+  grid-template-columns: repeat(auto-fit, 4.5em);
+  grid-auto-rows: 4em;
 `

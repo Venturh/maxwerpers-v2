@@ -16,5 +16,15 @@
   "aboutMeDesc": "Ich studiere derzeit Medieninformatik an der Hochschule Rhein Main. Im Laufe des Studiums habe ich meine Leidenschaft für die Webentwicklung endeckt und verfolge seitdem in meiner Freizeit meine eigenen kleinen Projekte. Als Ausgleich treibe ich viel Sport und reise gerne.",
   "aboutMeSub": "Student - Entwickler",
   "infoPill": "Derzeit verfügbar",
-  "soon": "Bald verfügbar"
+  "soon": "Bald verfügbar",
+  "frameworks": "Frameworks",
+  "languages": "Sprachen",
+  "database": "Datenbanken",
+  "other": "Sonstiges",
+  "contactH": "Woran arbeitest du gerade?",
+  "contactM": "Melde dich bei mir, ich freue mich gemeinsam einen Weg zu Finden, zusammen zu Arbeiten.",
+  "footer1": "Programmiert mit ",
+  "footer2": " von Max Werpers.",
+  "footer3": "Gebaut mit ",
+  "footer4": "und gehostet mit "
 }

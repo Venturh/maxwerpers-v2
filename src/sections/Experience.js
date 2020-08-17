@@ -46,7 +46,7 @@ const Heading = styled(Subheader)`
 
 const Experiences = styled.div`
   display: grid;
-  grid-template-columns: auto;
+  grid-template-columns: 100%;
   grid-gap: 1em;
   :last-child {
     margin-bottom: ${props => props.theme.spacing.heading};

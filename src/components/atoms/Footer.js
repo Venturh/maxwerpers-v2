@@ -1,27 +1,36 @@
 import React from "react"
 import styled from "styled-components"
+import { useIntl } from "gatsby-plugin-intl"
 
 import { Text } from "./Typography"
 import SvgIcon from "./SvgIcon"
 import Link from "./Link"
+
 import { getColor } from "theme"
 import socials from "content/socials"
-
-import { Love } from "@/icons"
+import { Love } from "icons"
 
 const Footer = () => {
+  const { formatMessage } = useIntl()
   return (
     <Wrapper>
       <Credits>
         <Text style={{ display: "flex", alignItems: "center" }}>
-          Coded with <LoveIcon path={Love} /> by Max Werpers.
+          {formatMessage({ id: "footer1" })}
+          <SvgIcon
+            style={{ margin: "0 0.25em" }}
+            height="1em"
+            color="primary"
+            path={Love}
+          />
+          {formatMessage({ id: "footer2" })}
         </Text>
         <Text>
-          Build with{" "}
+          {formatMessage({ id: "footer3" })}
           <Link color="primary" underline="true" to="https://www.gatsbyjs.org/">
-            Gatsby{" "}
-          </Link>
-          and hosted on{" "}
+            Gatsby
+          </Link>{" "}
+          {formatMessage({ id: "footer4" })}
           <Link color="primary" underline="true" to="https://www.netlify.com/">
             Netlify.
           </Link>
@@ -58,11 +67,6 @@ const Credits = styled.div`
       color: ${getColor("primaryGlow")};
     }
   }
-`
-
-const LoveIcon = styled(SvgIcon)`
-  fill: ${getColor("primary")};
-  height: 1em;
 `
 
 const Socials = styled.div`

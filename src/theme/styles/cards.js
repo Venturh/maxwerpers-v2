@@ -9,8 +9,9 @@ export const card1 = css`
 `
 
 export const card2 = css`
+  color: red;
   background-color: ${getColor("body")};
   border-radius: 1em;
   box-shadow: 0px 6px 5px -1px rgba(0, 0, 0, 0.25);
-  border: 0.1px solid ${getColor("bodyTint")};
+  border: 1px solid ${getColor("bodyTint")};
 `

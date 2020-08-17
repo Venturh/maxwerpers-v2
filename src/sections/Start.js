@@ -14,7 +14,6 @@ import {
 } from "atoms"
 import { useIntl } from "gatsby-plugin-intl"
 
-import placeholder from "content/images/sections/placeholder.png"
 import { useStaticQuery, graphql } from "gatsby"
 import { ArrowRightS } from "icons"
 import { getFontSize } from "theme"
@@ -56,14 +55,18 @@ const Start = ({ id }) => {
           <Text>{formatMessage({ id: "whatL" })}</Text>
         </TextWrapper>
         <HeroImgContainer>
-          <HeroImg src={placeholder} alt="" />
+          {/* <HeroImg src={placeholder} alt="" /> */}
         </HeroImgContainer>
       </Hero>
       <Content>
         <Projects>
           <ProjectsHead>
             <Subheader> {formatMessage({ id: "projects" })}</Subheader>
-            <PrimaryButton lower rightIcon={ArrowRightS}>
+            <PrimaryButton
+              link="https://github.com/Venturh"
+              rightIcon={ArrowRightS}
+              lower
+            >
               {formatMessage({ id: "showmore" })}
             </PrimaryButton>
           </ProjectsHead>
