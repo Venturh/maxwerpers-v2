@@ -109,7 +109,7 @@ export const IconOnlyButton = styled(Button)`
   padding: 0;
   color: ${p => getColor(p.color)};
   :hover {
-    background-color: ${getColor("toolbar")};
+    background-color: ${getColor("body")};
   }
 `
 

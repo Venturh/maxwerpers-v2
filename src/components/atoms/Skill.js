@@ -4,6 +4,8 @@ import styled from "styled-components"
 import SvgIcon from "./SvgIcon"
 import { SubText } from "./Typography"
 
+import { card1 } from "theme/styles"
+
 export default ({ icon, iconName, ...rest }) => (
   <Card {...rest}>
     <SvgIcon color="primary" height="1.75em" path={icon} />
@@ -12,7 +14,8 @@ export default ({ icon, iconName, ...rest }) => (
 )
 
 const Card = styled.div`
-  border-radius: 1em;
+  ${card1};
+  padding: 0;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -3,8 +3,8 @@ import { getColor } from ".."
 
 export const card1 = css`
   background-color: ${getColor("body")};
+  color: ${getColor("bodyContrast")};
   border-radius: 0.75em;
-  padding: 1em;
   box-shadow: 0px 6px 5px 2px rgba(0, 0, 0, 0.25);
 `
 

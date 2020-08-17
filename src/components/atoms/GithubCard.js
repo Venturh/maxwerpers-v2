@@ -49,7 +49,7 @@ const GithubCard = ({
         Github
       </PrimaryButton>
       {homepageUrl ? (
-        <SecondaryButton bg="toolbar" link={homepageUrl}>
+        <SecondaryButton bg="body" link={homepageUrl}>
           Live-Demo
         </SecondaryButton>
       ) : null}

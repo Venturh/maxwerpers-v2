@@ -21,7 +21,7 @@ const Menu = ({ navlinks, hash, ...rest }) => {
       <Content open={open}>
         <Nav>
           {navlinks.map(link => (
-            <NavItem key={link.name} {...link} hash={hash}>
+            <NavItem key={link.name} {...link} nav>
               <SecondaryButton
                 onClick={() => {
                   setOpen(!open)

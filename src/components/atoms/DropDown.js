@@ -4,7 +4,8 @@ import styled from "styled-components"
 import { Text } from "./Typography"
 import SvgIcon from "./SvgIcon"
 
-import { ArrowUpS, ArrowDownS } from "../../icons"
+import { ArrowUpS, ArrowDownS } from "icons"
+import { card1 } from "theme/styles"
 
 const DropDown = ({ items, getItem, icon, parentToggle }) => {
   const [open, setOpen] = useState(parentToggle)
@@ -55,7 +56,12 @@ const DropDown = ({ items, getItem, icon, parentToggle }) => {
                 icon={icon}
                 key={item}
               >
-                <ItemIcon path={icon} />
+                <SvgIcon
+                  style={{ paddingRight: "0.5em" }}
+                  color="bodyContrast"
+                  height="1.5em"
+                  path={icon}
+                />
                 <Text>{item}</Text>
               </DropDownItem>
             )
@@ -75,17 +81,15 @@ const Wrapper = styled.div`
 
 const DropdownIcon = styled(SvgIcon)`
   height: ${props => props.theme.sizes.navIcons};
-  fill: ${props => props.theme.colors.toolbarContrast};
+  fill: ${props => props.theme.colors.bodyContrast};
 `
 
 const StyledDropDown = styled.div`
+  ${card1};
   position: absolute;
   top: 6vh;
   transform: translateX(-80%);
-  border-radius: 5%;
-  background-color: ${props => props.theme.colors.toolbar};
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+
   z-index: 1;
 `
 
@@ -101,10 +105,4 @@ const DropDownItem = styled.div`
   :hover {
     background-color: ${props => props.theme.colors.primary};
   }
-`
-
-const ItemIcon = styled(SvgIcon)`
-  fill: ${props => props.theme.colors.bodyContrast};
-  height: 1.5em;
-  padding-right: 0.5em;
 `

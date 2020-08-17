@@ -1,11 +1,9 @@
 import React, { useState } from "react"
 import styled from "styled-components"
 
-import DropDown from "../atoms/DropDown"
-import { Text } from "../atoms/Typography"
-import SvgIcon from "../atoms/SvgIcon"
+import { DropDown, Text, SvgIcon } from "atoms"
 
-import { Language, Language2 } from "@/icons"
+import { Language, Language2 } from "icons"
 
 const LanguageSwitch = ({
   languages,

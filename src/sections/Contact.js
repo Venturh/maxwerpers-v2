@@ -49,7 +49,7 @@ const Wrapper = styled(Section)`
   }
 `
 const ChatButton = styled(PrimaryButton)`
-  fill: ${getColor("toolbar")};
+  fill: ${getColor("primaryContrast")};
   align-self: center;
   width: 100%;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {

@@ -1,7 +1,9 @@
-import { useEffect, useState } from "react"
+import { useState } from "react"
 
 export const useToggleTheme = () => {
-  const [theme, setTheme] = useState("dark")
+  const localTheme = window.localStorage.getItem("theme")
+  const [theme, setTheme] = useState(localTheme || "dark")
+
   const toggleTheme = () => {
     if (theme === "light") {
       window.localStorage.setItem("theme", "dark")
@@ -11,11 +13,6 @@ export const useToggleTheme = () => {
       setTheme("light")
     }
   }
-
-  useEffect(() => {
-    const localTheme = window.localStorage.getItem("theme")
-    localTheme && setTheme(localTheme)
-  }, [])
 
   return [theme, toggleTheme]
 }

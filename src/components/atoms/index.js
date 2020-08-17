@@ -5,7 +5,6 @@ export {
   TertiaryButton,
   IconOnlyButton,
 } from "./Button"
-export { default as Cookie } from "./Cookie"
 export { default as DropDown } from "./DropDown"
 export { default as Footer } from "./Footer"
 export { default as GithubCard } from "./GithubCard"
