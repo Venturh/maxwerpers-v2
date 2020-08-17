@@ -12,7 +12,7 @@ const getLocalStorageTheme = () => {
 }
 
 export const useToggleTheme = () => {
-  const [theme, setTheme] = useState(null)
+  const [theme, setTheme] = useState("dark")
 
   useEffect(() => {
     if (theme === null) {
