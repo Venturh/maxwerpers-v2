@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
+import { GlobalStyles } from "theme/GlobalStyles"
 import { Header } from "organisms"
 import { Footer } from "atoms"
 
@@ -33,6 +34,7 @@ const BaseLayout = ({ children }) => {
 
   return (
     <Wrapper>
+      <GlobalStyles />
       <Header navlinks={navlinks} />
       <Content>{children}</Content>
       <Footer />

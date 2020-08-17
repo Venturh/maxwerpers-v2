@@ -1,7 +1,6 @@
 import React, { createContext } from "react"
 import { ThemeProvider } from "styled-components"
 
-import { GlobalStyles } from "theme/GlobalStyles"
 import { darkTheme, lightTheme } from "theme"
 import { useToggleTheme } from "./useToggleTheme"
 
@@ -13,10 +12,7 @@ export default ({ children }) => {
 
   return (
     <ThemeContext.Provider value={themeValue}>
-      <ThemeProvider theme={themeMode}>
-        <GlobalStyles />
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={themeMode}>{children}</ThemeProvider>
     </ThemeContext.Provider>
   )
 }
