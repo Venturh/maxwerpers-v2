@@ -44,7 +44,7 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set core body defaults */
   body {
-    font-family: "Jost";
+    font-family: "Jost", 'Roboto', sans-serif;
     line-height: 1.5;
     min-height: 100vh;
     background: ${({ theme }) => theme.colors.body};
