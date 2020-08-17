@@ -53,15 +53,6 @@ module.exports = {
         redirect: true,
       },
     },
-
-    {
-      resolve: "gatsby-plugin-web-font-loader",
-      options: {
-        google: {
-          families: ["Jost:300,400, 500,700", "Quicksand:400,500,700"],
-        },
-      },
-    },
     {
       resolve: `gatsby-source-graphql`,
       options: {

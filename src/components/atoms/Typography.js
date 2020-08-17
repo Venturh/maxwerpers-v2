@@ -56,7 +56,6 @@ const Subheader = styled(Typography)`
 
 const Header = styled(Typography)`
   font-size: ${getFontSize("header")};
-  font-family: "Jost";
   font-weight: 700;
   color: ${props => getColor(props.color || "primary")};
 `
