@@ -49,7 +49,7 @@ export const lightTheme = {
     primaryContrast: "#292929",
     body: "#FFFFFF;",
     bodyContrast: "#292929",
-    bodyTint: "#E2E8F0",
+    bodyTint: "#b3b3b3",
   },
   type: "light",
   fontSizes,

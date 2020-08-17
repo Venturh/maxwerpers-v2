@@ -5,6 +5,7 @@ import styled from "styled-components"
 import { Subheader, Subtitle, GithubCard, SvgIcon, TertiaryButton } from "atoms"
 
 import { ArrowDownS } from "icons"
+import { card2 } from "theme/styles"
 
 const Hero = ({ project, localizations, github }) => {
   const { tech } = project
@@ -21,7 +22,12 @@ const Hero = ({ project, localizations, github }) => {
         <InfoText>
           <HeadingWrapper>
             <Subheader>{project.name}</Subheader>
-            <Icon path={project.icon} />
+            <SvgIcon
+              style={{ marginLeft: "1em" }}
+              height="2.25em"
+              color="primary"
+              path={project.icon}
+            />
           </HeadingWrapper>
           <Description color="bodyContrast">
             {localizations.headline}
@@ -30,9 +36,9 @@ const Hero = ({ project, localizations, github }) => {
         <Github {...github} />
         <Techs>
           {tech.map(({ text, icon }) => (
-            <TertiaryButton key={text} leftIcon={icon}>
+            <Tech key={text} leftIcon={icon}>
               {text}
-            </TertiaryButton>
+            </Tech>
           ))}
         </Techs>
       </Info>
@@ -79,12 +85,6 @@ const InfoText = styled.div`
   margin-left: 0.75em;
 `
 
-const Icon = styled(SvgIcon)`
-  width: 2.25em;
-  margin-left: 1em;
-  fill: ${props => props.theme.colors.primary};
-`
-
 const Description = styled(Subtitle)`
   margin: 0.5em 0;
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
@@ -128,13 +128,15 @@ const Techs = styled.div`
   margin-top: 1em;
   display: grid;
   gap: 1em;
-
   grid-template-columns: repeat(auto-fill, 45%);
-
   @media (min-width: ${props => props.theme.breakpoints.xl}) {
     width: 90%;
     grid-template-columns: repeat(auto-fit, 30%);
   }
+`
+
+const Tech = styled(TertiaryButton)`
+  ${card2}
 `
 
 const ArrowDown = styled(SvgIcon)`
