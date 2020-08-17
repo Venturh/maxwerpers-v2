@@ -1,31 +1,10 @@
 import React from "react"
-import styled, { ThemeProvider } from "styled-components"
+import styled from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
 
 import { Header } from "organisms"
 import { Footer } from "atoms"
-
-import { GlobalStyles } from "theme/GlobalStyles"
-import { useToggleTheme } from "utils/useToggleTheme"
-import { darkTheme, lightTheme } from "theme"
-import ThemeContext from "utils/ThemeContext"
-
-const Theme = ({ children }) => {
-  const [theme, toggleTheme] = useToggleTheme()
-
-  const themeValue = { theme, toggleTheme }
-
-  const themeMode = theme === "light" ? lightTheme : darkTheme
-  return (
-    <ThemeContext.Provider value={themeValue}>
-      <ThemeProvider theme={themeMode}>
-        <GlobalStyles />
-        {children}
-      </ThemeProvider>
-    </ThemeContext.Provider>
-  )
-}
 
 const BaseLayout = ({ children }) => {
   const { locale } = useIntl()
@@ -51,14 +30,13 @@ const BaseLayout = ({ children }) => {
       icon,
     })
   )
+
   return (
-    <Theme>
-      <Wrapper>
-        <Header navlinks={navlinks} />
-        <Content>{children}</Content>
-        <Footer />
-      </Wrapper>
-    </Theme>
+    <Wrapper>
+      <Header navlinks={navlinks} />
+      <Content>{children}</Content>
+      <Footer />
+    </Wrapper>
   )
 }
 

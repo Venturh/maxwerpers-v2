@@ -1,8 +1,24 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
+
+const getLocalStorageTheme = () => {
+  try {
+    const localTheme = localStorage && localStorage.getItem("theme")
+    if (localTheme && ["light", "dark"].includes(localTheme)) {
+      return localTheme
+    }
+  } catch (err) {
+    console.warn("Can’t access local storage:", err.message)
+  }
+}
 
 export const useToggleTheme = () => {
-  const localTheme = window.localStorage.getItem("theme")
-  const [theme, setTheme] = useState(localTheme || "dark")
+  const [theme, setTheme] = useState(null)
+
+  useEffect(() => {
+    if (theme === null) {
+      setTheme(getLocalStorageTheme())
+    }
+  }, [theme])
 
   const toggleTheme = () => {
     if (theme === "light") {

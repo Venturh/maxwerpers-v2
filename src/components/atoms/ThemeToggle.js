@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react"
 import styled, { keyframes } from "styled-components"
 
-import ThemeContext from "@/utils/ThemeContext"
+import { ThemeContext } from "utils"
 import SvgIcon from "./SvgIcon"
 
 import { BrightDay, BrightNight } from "@/icons"
