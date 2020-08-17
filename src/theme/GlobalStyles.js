@@ -1,5 +1,4 @@
 import { createGlobalStyle } from "styled-components"
-import "content/fonts/font.css"
 
 export const GlobalStyles = createGlobalStyle`
 
@@ -44,7 +43,7 @@ export const GlobalStyles = createGlobalStyle`
 
   /* Set core body defaults */
   body {
-    font-family: "Jost", 'Roboto', sans-serif;
+    font-family: "Jost", sans-serif;
     line-height: 1.5;
     min-height: 100vh;
     background: ${({ theme }) => theme.colors.body};

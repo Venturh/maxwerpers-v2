@@ -5,7 +5,7 @@ import { getFontSize, getColor } from "theme"
 const StyledTypography = styled.p`
   color: ${p => p.color};
   font-size: ${p => p.fontSize};
-  font-weight: ${p => (p.bold ? 700 : 500)};
+  font-weight: ${p => (p.bold ? 700 : 400)};
 `
 
 const Typography = ({ children, variant, text, ...props }) => (
