@@ -5,11 +5,11 @@ import { useIntl } from "gatsby-plugin-intl"
 import { Text } from "./Typography"
 import SvgIcon from "./SvgIcon"
 import Link from "./Link"
+import { IconOnlyButton } from "./Button"
 
 import { getColor } from "theme"
 import socials from "content/socials"
 import { Love } from "icons"
-import { card2 } from "theme/styles"
 
 const Footer = ({ ...rest }) => {
   const { formatMessage } = useIntl()
@@ -39,9 +39,13 @@ const Footer = ({ ...rest }) => {
       </Credits>
       <Socials>
         {socials.map(({ leftIcon, link }) => (
-          <Link key={link} to={link}>
-            <Social color="primary" height="1.5em" path={leftIcon} />
-          </Link>
+          <IconOnlyButton
+            color="bodyContrast"
+            iconSize="1.5em"
+            key={link}
+            to={link}
+            leftIcon={leftIcon}
+          ></IconOnlyButton>
         ))}
       </Socials>
     </Wrapper>
@@ -53,7 +57,7 @@ const Wrapper = styled.footer`
   padding: 0 ${props => props.theme.spacing.mobile.sides};
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: center;
   border: 1px solid ${getColor("bodyTint")};
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -77,16 +81,9 @@ const Socials = styled.div`
   display: flex;
   margin-top: 0.5em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin-top: 0;
-    width: 15%;
+    width: 20%;
     justify-content: space-between;
-  }
-`
-
-const Social = styled(SvgIcon)`
-  margin-right: 1em;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 0 0 0 1em;
+    margin-top: 0;
   }
 `
 

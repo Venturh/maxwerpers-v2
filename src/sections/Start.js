@@ -18,6 +18,7 @@ import { useStaticQuery, graphql } from "gatsby"
 import { ArrowRightS } from "icons"
 import { getFontSize } from "theme"
 import socials from "content/socials"
+import { getColor } from "theme"
 
 const Start = ({ id }) => {
   const { allProjectsYaml } = useStaticQuery(

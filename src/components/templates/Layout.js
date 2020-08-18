@@ -49,7 +49,7 @@ const Wrapper = styled.div`
 
 const Content = styled.main`
   flex: 1 0 auto;
-  padding: 3.5em ${p => (p.small ? "10%" : "5%")};
+  padding: 3.5em 5%;
   padding-bottom: 0;
 
   @media (min-width: ${p => p.theme.breakpoints.lg}) {

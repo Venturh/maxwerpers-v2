@@ -6,6 +6,7 @@ const StyledTypography = styled.p`
   color: ${p => p.color};
   font-size: ${p => p.fontSize};
   font-weight: ${p => (p.bold ? 700 : 400)};
+  white-space: pre-line;
 `
 
 const Typography = ({ children, variant, text, ...props }) => (

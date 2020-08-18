@@ -25,7 +25,7 @@ export default ({ navlinks, hash }) => {
       <NavItems>
         <NavLinks>
           {navlinks.map(link => (
-            <Link
+            <StyledLink
               nav
               color="bodyContrast"
               activecolor="primary"
@@ -33,7 +33,7 @@ export default ({ navlinks, hash }) => {
               {...link}
             >
               <Text color="bodyContrast">{link.name}</Text>
-            </Link>
+            </StyledLink>
           ))}
         </NavLinks>
         <NavTools>
@@ -96,12 +96,21 @@ const NavLinks = styled.li`
     display: flex;
     cursor: pointer;
     & > * {
-      margin-right: 1em;
+      margin-right: 0.5em;
     }
+  }
+`
+
+const StyledLink = styled(Link)`
+  padding: 0.5em;
+  border-radius: 0.25em;
+  :hover {
+    background-color: ${getColor("bodyGlow")};
   }
 `
 
 const NavTools = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 0.5em;
 `

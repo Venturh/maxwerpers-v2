@@ -14,7 +14,6 @@ const StyledButton = styled.a`
   justify-content: ${p => (p.justify === "start" ? "flex-start" : "center")};
   align-items: center;
   padding: 0.5em 0.5em;
-  min-width: 5em;
   border-radius: ${p => (p.rounded ? "0.5em" : 0)};
   cursor: pointer;
 
@@ -30,10 +29,8 @@ const Text = styled(Typography)`
 `
 
 const Icon = styled(SvgIcon)`
-  height: ${p => p.iconsize || "1.5em"};
   margin-right: ${p => (p.left ? "0.25em" : 0)};
   margin-left: ${p => (p.right ? "0.25em" : 0)};
-  fill: ${p => getColor(p.color)};
 `
 
 const Button = ({
@@ -46,7 +43,7 @@ const Button = ({
   navigate,
   rightIcon,
   leftIcon,
-  iconsize,
+  iconSize,
   ...rest
 }) => (
   <StyledButton
@@ -58,14 +55,26 @@ const Button = ({
     {...rest}
   >
     {leftIcon ? (
-      <Icon path={leftIcon} color={color} left="true" iconsize={iconsize} />
+      <Icon
+        path={leftIcon}
+        color={color}
+        left="true"
+        size={iconSize || "1.5em"}
+      />
     ) : null}
     {children ? (
       <Text color={color} fontSize={fontSize}>
         {lower ? children : children.toUpperCase()}
       </Text>
     ) : null}
-    {rightIcon ? <Icon path={rightIcon} color={color} right="true" /> : null}
+    {rightIcon ? (
+      <Icon
+        path={rightIcon}
+        color={color}
+        left="true"
+        size={iconSize || "1.5em"}
+      />
+    ) : null}
   </StyledButton>
 )
 
@@ -80,6 +89,7 @@ export const PrimaryButton = styled(Button)`
 
 export const SecondaryButton = styled(Button)`
   background: ${getColor("body")};
+  border: 1px solid ${getColor("primary")};
   border-radius: 0.25em;
   ${Text} {
     color: ${getColor("primary")};
@@ -107,10 +117,9 @@ export const IconOnlyButton = styled(Button)`
   border-radius: 0.25em;
   box-shadow: unset;
   justify-content: center;
-  padding: 0;
   color: ${p => getColor(p.color)};
   :hover {
-    background-color: ${getColor("body")};
+    background-color: ${getColor("bodyGlow")};
   }
 `
 
