@@ -17,7 +17,4 @@ export default ({ id }) => {
   )
 }
 
-const Wrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-`
+const Wrapper = styled.main``

@@ -1,5 +1,5 @@
 ---
-- path: /
+- to: /
   localizations:
     - locale: de
       name: Portfolio
@@ -8,7 +8,7 @@
     - locale: fr
       name: Portfolio
 
-- path: /projects
+- to: /projects
   localizations:
     - locale: de
       name: Projekte
@@ -17,7 +17,7 @@
     - locale: fr
       name: Projets
 
-- path: /about
+- to: /about
   localizations:
     - locale: de
       name: Über mich

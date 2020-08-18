@@ -10,10 +10,10 @@ import { getColor } from "theme"
 import socials from "content/socials"
 import { Love } from "icons"
 
-const Footer = () => {
+const Footer = ({ ...rest }) => {
   const { formatMessage } = useIntl()
   return (
-    <Wrapper>
+    <Wrapper {...rest}>
       <Credits>
         <Text style={{ display: "flex", alignItems: "center" }}>
           {formatMessage({ id: "footer1" })}
@@ -48,10 +48,11 @@ const Footer = () => {
 }
 
 const Wrapper = styled.footer`
-  padding: 2em ${props => props.theme.spacing.mobile.sides};
+  padding: 0 ${props => props.theme.spacing.mobile.sides};
   display: flex;
   flex-direction: column;
   justify-content: center;
+  height: 5em;
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;

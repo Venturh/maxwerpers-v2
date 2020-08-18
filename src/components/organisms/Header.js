@@ -58,7 +58,7 @@ const Nav = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  height: 6vh;
+  height: 3em;
   background-color: ${getColor("body")};
   box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.75);
   padding: 0 ${getSpacing("mobile", "sides")};

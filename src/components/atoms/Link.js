@@ -4,10 +4,10 @@ import { Link } from "gatsby-plugin-intl"
 
 import { getColor } from "theme"
 
-export default ({ path, to, children, nav, ...props }) => {
+export default ({ to, children, nav, ...props }) => {
   if (nav)
     return (
-      <NavLink activeClassName="active" to={path} {...props}>
+      <NavLink activeClassName="active" to={to} {...props}>
         {children}
       </NavLink>
     )

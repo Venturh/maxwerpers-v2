@@ -46,6 +46,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: "Jost", sans-serif;
     line-height: 1.5;
     min-height: 100vh;
+    height: 100%;
     background: ${({ theme }) => theme.colors.body};
     color:  ${({ theme }) => theme.colors.bodyContrast};
     transition: background 0.25s linear;

@@ -13,7 +13,7 @@ const BaseLayout = ({ children }) => {
       query Navigation {
         allNavigationYaml {
           nodes {
-            path
+            to
             localizations {
               locale
               name
@@ -24,9 +24,9 @@ const BaseLayout = ({ children }) => {
     `
   )
   const navlinks = allNavigationYaml.nodes.map(
-    ({ localizations, path, icon }) => ({
+    ({ localizations, to, icon }) => ({
       name: localizations.find(local => local.locale === locale).name,
-      path,
+      to,
       icon,
     })
   )
@@ -42,12 +42,20 @@ const BaseLayout = ({ children }) => {
 
 export { BaseLayout }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`
 
 const Content = styled.main`
-  margin: 8vh ${props => props.theme.spacing.mobile.sides};
-  margin-bottom: 0;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 8vh ${props => props.theme.spacing.desktop.sides};
+  padding: 3.5em ${p => p.theme.spacing.mobile.sides} 0
+    ${p => p.theme.spacing.mobile.sides};
+  flex: 1 0 auto;
+  @media (min-width: ${p => p.theme.breakpoints.lg}) {
+    margin: 0;
+    padding: 3.5em ${p => p.theme.spacing.desktop.sides} 0
+      ${p => p.theme.spacing.desktop.sides};
   }
 `

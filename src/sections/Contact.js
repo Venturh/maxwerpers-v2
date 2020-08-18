@@ -36,7 +36,7 @@ const Wrapper = styled(Section)`
   min-height: 0;
   padding: 2em 1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 0;
+    margin-bottom: 10%;
   }
 
   ${Subheader} {

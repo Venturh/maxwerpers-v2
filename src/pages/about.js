@@ -5,7 +5,7 @@ import { useIntl } from "gatsby-plugin-intl"
 import { BaseLayout } from "templates"
 import { Subheader, Text, Title } from "atoms"
 
-export default ({ id }) => {
+export default () => {
   const intl = useIntl()
 
   return (
@@ -25,10 +25,7 @@ export default ({ id }) => {
   )
 }
 
-const Wrapper = styled.main`
-  display: flex;
-  flex-direction: column;
-`
+const Wrapper = styled.main``
 
 const Description = styled.article`
   margin: 1em 0;
