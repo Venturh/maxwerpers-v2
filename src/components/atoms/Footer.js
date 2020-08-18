@@ -9,6 +9,7 @@ import Link from "./Link"
 import { getColor } from "theme"
 import socials from "content/socials"
 import { Love } from "icons"
+import { card2 } from "theme/styles"
 
 const Footer = ({ ...rest }) => {
   const { formatMessage } = useIntl()
@@ -48,11 +49,12 @@ const Footer = ({ ...rest }) => {
 }
 
 const Wrapper = styled.footer`
+  height: 10em;
   padding: 0 ${props => props.theme.spacing.mobile.sides};
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  height: 5em;
+  justify-content: space-evenly;
+  border: 1px solid ${getColor("bodyTint")};
 
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;
@@ -82,9 +84,9 @@ const Socials = styled.div`
 `
 
 const Social = styled(SvgIcon)`
-  margin-right: 0.5em;
+  margin-right: 1em;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    margin: 0 0 0 0.5em;
+    margin: 0 0 0 1em;
   }
 `
 

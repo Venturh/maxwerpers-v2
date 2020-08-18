@@ -12,7 +12,6 @@ const LanguageSwitch = ({
   ...rest
 }) => {
   const [openDropdown, setOpenDropdown] = useState(false)
-
   const switchLanguage = item => {
     //gets the language code 'en, de ...' from selected language
     changeLanguage(
@@ -25,7 +24,9 @@ const LanguageSwitch = ({
   return (
     <Wrapper onClick={() => setOpenDropdown(!openDropdown)} {...rest}>
       <LanguageIcon viewBox="0 0 640 512" path={Language} />
-      <CurrentLanguage>{currentLanguage}</CurrentLanguage>
+      <CurrentLanguage>
+        {currentLanguage === "de" ? "Deutsch" : "English"}
+      </CurrentLanguage>
       <DropDown
         parentToggle={openDropdown}
         items={languages}

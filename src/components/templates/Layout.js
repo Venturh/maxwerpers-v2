@@ -6,7 +6,7 @@ import { useIntl } from "gatsby-plugin-intl"
 import { Header } from "organisms"
 import { Footer } from "atoms"
 
-const BaseLayout = ({ children }) => {
+export const BaseLayout = ({ children, ...props }) => {
   const { locale } = useIntl()
   const { allNavigationYaml } = useStaticQuery(
     graphql`
@@ -32,15 +32,13 @@ const BaseLayout = ({ children }) => {
   )
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <Header navlinks={navlinks} />
-      <Content>{children}</Content>
+      <Content {...props}>{children}</Content>
       <Footer />
     </Wrapper>
   )
 }
-
-export { BaseLayout }
 
 const Wrapper = styled.div`
   height: 100%;
@@ -50,12 +48,13 @@ const Wrapper = styled.div`
 `
 
 const Content = styled.main`
-  padding: 3.5em ${p => p.theme.spacing.mobile.sides} 0
-    ${p => p.theme.spacing.mobile.sides};
   flex: 1 0 auto;
+  padding: 3.5em ${p => (p.small ? "10%" : "5%")};
+  padding-bottom: 0;
+
   @media (min-width: ${p => p.theme.breakpoints.lg}) {
     margin: 0;
-    padding: 3.5em ${p => p.theme.spacing.desktop.sides} 0
-      ${p => p.theme.spacing.desktop.sides};
+    padding: 5em ${p => (p.small ? "30%" : "15%")};
+    padding-bottom: 0;
   }
 `

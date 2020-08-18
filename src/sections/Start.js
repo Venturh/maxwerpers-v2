@@ -41,7 +41,7 @@ const Start = ({ id }) => {
   )
   const { formatMessage, locale } = useIntl()
   return (
-    <Wrapper id={id}>
+    <Section id={id}>
       <Hero>
         <TextWrapper>
           <Heading color="bodyContrast">
@@ -63,7 +63,8 @@ const Start = ({ id }) => {
           <ProjectsHead>
             <Subheader> {formatMessage({ id: "projects" })}</Subheader>
             <PrimaryButton
-              link="https://github.com/Venturh"
+              navigate
+              link="/projects"
               rightIcon={ArrowRightS}
               lower
             >
@@ -98,19 +99,11 @@ const Start = ({ id }) => {
           </Blog>
         </SocialsBlog>
       </Content>
-    </Wrapper>
+    </Section>
   )
 }
 
 export default Start
-
-const Wrapper = styled(Section)`
-  height: 100%;
-  min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-`
 
 const Hero = styled.div`
   display: flex;

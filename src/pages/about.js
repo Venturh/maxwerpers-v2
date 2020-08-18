@@ -3,13 +3,13 @@ import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 
 import { BaseLayout } from "templates"
-import { Subheader, Text, Title } from "atoms"
+import { Header, Text, Title } from "atoms"
 
 export default () => {
   const intl = useIntl()
 
   return (
-    <BaseLayout>
+    <BaseLayout small>
       <Wrapper>
         <Heading text={intl.formatMessage({ id: "aboutMe" })} />
         <Description>
@@ -29,11 +29,6 @@ const Wrapper = styled.main``
 
 const Description = styled.article`
   margin: 1em 0;
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    display: flex;
-    flex-direction: column;
-    width: 55%;
-  }
 `
 
-const Heading = styled(Subheader)``
+const Heading = styled(Header)``

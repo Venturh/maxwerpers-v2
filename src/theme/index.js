@@ -10,7 +10,7 @@ export const getSpacing = (variant, second) => props => {
   else return props.theme.spacing[variant]
 }
 
-const fontSizes = {
+export const fontSizes = {
   caption: "0.675em",
   button: "0.775em",
   subbody: "0.875em",
@@ -21,18 +21,18 @@ const fontSizes = {
   header: "2.5em",
 }
 
-const sizes = {
+export const sizes = {
   navIcons: "1.3em",
 }
 
-const spacing = {
+export const spacing = {
   heading: "0.5em",
   nav: "3%",
   desktop: {
-    sides: "15vw",
+    sides: "15%",
   },
   mobile: {
-    sides: "5vw",
+    sides: "5%",
   },
 }
 
@@ -50,6 +50,7 @@ export const lightTheme = {
     body: "#FFFFFF;",
     bodyContrast: "#292929",
     bodyTint: "#b3b3b3",
+    toolbar: "#f2f2f2",
   },
   type: "light",
   fontSizes,
@@ -64,8 +65,9 @@ export const darkTheme = {
     primaryContrast: "#292929",
     primaryGlow: "#b0fbbc",
     body: "#333333;",
-    bodyContrast: "#f4f5f8",
+    bodyContrast: "#E8E8E8",
     bodyTint: "#474747",
+    toolbar: "#242424",
   },
   type: "dark",
   fontSizes,
