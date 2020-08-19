@@ -2,12 +2,12 @@ import React from "react"
 import styled from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 
-import { ThemeToggle, Pill, Title, Subtitle, Link, Text, Span } from "atoms"
+import { ThemeToggle, Pill, Title, Link, Text, Span } from "atoms"
 import { LanguageSwitch } from "molecules"
 
-import { getColor, getSpacing } from "theme"
+import { getColor, spacing } from "theme"
 
-export default ({ navlinks, hash }) => {
+export default ({ navlinks }) => {
   const { locale, formatMessage } = useIntl()
   const languages = ["Deutsch", "English"]
 
@@ -64,9 +64,9 @@ const Nav = styled.nav`
   height: 3em;
   background-color: ${getColor("body")};
   border-bottom: 1px solid ${getColor("bodyTint")};
-  padding: 0 ${getSpacing("mobile", "sides")};
+  padding: 0 ${spacing.mobile.sides};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    padding: 0 ${getSpacing("desktop", "sides")};
+    padding: 0 ${spacing.desktop.sides};
   }
 `
 

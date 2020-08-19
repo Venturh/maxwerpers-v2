@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { getFontSize, getColor } from "theme"
+import { fontSizes, getColor } from "theme"
 
 const StyledTypography = styled.p`
   color: ${p => p.color};
@@ -16,38 +16,33 @@ const Typography = ({ children, variant, text, ...props }) => (
 )
 
 const Caption = styled(Typography)`
-  font-size: ${getFontSize("caption")};
+  font-size: ${fontSizes.xs};
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
 const ButtonText = styled(Typography)`
-  font-size: ${getFontSize("button")};
-  color: ${props => getColor(props.color || "bodyContrast")};
-`
-
-const SubText = styled(Typography)`
-  font-size: ${getFontSize("subbody")};
+  font-size: ${fontSizes.sm};
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
 const Text = styled(Typography)`
-  font-size: ${getFontSize("body")};
+  font-size: ${fontSizes.md};
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
 const Subtitle = styled(Typography)`
-  font-size: ${getFontSize("subtitle")};
+  font-size: ${fontSizes.lg};
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
 const Title = styled(Typography)`
-  font-size: ${getFontSize("title")};
+  font-size: ${fontSizes["title"]};
   color: ${props => getColor(props.color || "primary")};
 `
 
 const Subheader = styled(Typography)`
   text-align: center;
-  font-size: ${getFontSize("subheader")};
+  font-size: ${fontSizes.subheader};
   font-weight: 500;
   color: ${props => getColor(props.color || "primary")};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
@@ -56,7 +51,7 @@ const Subheader = styled(Typography)`
 `
 
 const Header = styled(Typography)`
-  font-size: ${getFontSize("header")};
+  font-size: ${fontSizes.header};
   font-weight: 700;
   color: ${props => getColor(props.color || "primary")};
 `
@@ -66,14 +61,4 @@ const Span = styled.span`
 `
 
 export default Typography
-export {
-  Caption,
-  ButtonText,
-  SubText,
-  Text,
-  Subtitle,
-  Title,
-  Subheader,
-  Header,
-  Span,
-}
+export { Caption, ButtonText, Text, Subtitle, Title, Subheader, Header, Span }

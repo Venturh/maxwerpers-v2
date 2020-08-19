@@ -5,7 +5,7 @@ import { Link } from "gatsby-plugin-intl"
 import Typography from "./Typography"
 import SvgIcon from "./SvgIcon"
 
-import { getColor, getFontSize } from "theme"
+import { getColor, fontSizes } from "theme"
 import { card1 } from "theme/styles"
 
 const StyledButton = styled.a`
@@ -23,8 +23,7 @@ const StyledButton = styled.a`
 `
 
 const Text = styled(Typography)`
-  font-size: ${p =>
-    p.fontSize ? getFontSize(p.fontSize) : getFontSize("button")};
+  font-size: ${p => (p.fontSize ? fontSizes[p.fontSize] : fontSizes["sm"])};
   color: ${p => getColor(p.color)};
 `
 
@@ -88,7 +87,7 @@ export const PrimaryButton = styled(Button)`
 `
 
 export const SecondaryButton = styled(Button)`
-  background: ${getColor("body")};
+  background: ${getColor("md")};
   border: 1px solid ${getColor("primary")};
   border-radius: 0.25em;
   ${Text} {
@@ -99,7 +98,7 @@ export const SecondaryButton = styled(Button)`
 export const TertiaryButton = styled(Button).attrs({
   justify: "start",
   lower: true,
-  fontSize: "subbody",
+  fontSize: "sm",
 })`
   ${card1}
   fill: ${getColor("primary")};

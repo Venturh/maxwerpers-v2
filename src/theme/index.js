@@ -1,24 +1,15 @@
-export const getFromTheme = (type, variant) => props =>
-  props.theme[type][variant]
-
 export const getColor = variant => props => props.theme.colors[variant]
 
-export const getFontSize = variant => props => props.theme.fontSizes[variant]
-
-export const getSpacing = (variant, second) => props => {
-  if (second) return props.theme.spacing[variant][second]
-  else return props.theme.spacing[variant]
-}
-
 export const fontSizes = {
-  caption: "0.675em",
-  button: "0.775em",
-  subbody: "0.875em",
-  body: "1em",
-  subtitle: "1.25em",
-  title: "1.5em",
-  subheader: "2em",
-  header: "2.5em",
+  xs: "0.69em",
+  sm: "0.83em",
+  md: "1em",
+  lg: "1.2em",
+  title: "1.44em",
+  subheader: "1.73em",
+  header: "2.07em",
+  "4xl": "2.49em",
+  "5xl": "2.99em",
 }
 
 export const sizes = {

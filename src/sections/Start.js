@@ -16,9 +16,8 @@ import { useIntl } from "gatsby-plugin-intl"
 
 import { useStaticQuery, graphql } from "gatsby"
 import { ArrowRightS } from "icons"
-import { getFontSize } from "theme"
+import { fontSizes } from "theme"
 import socials from "content/socials"
-import { getColor } from "theme"
 
 const Start = ({ id }) => {
   const { allProjectsYaml } = useStaticQuery(
@@ -42,7 +41,7 @@ const Start = ({ id }) => {
   )
   const { formatMessage, locale } = useIntl()
   return (
-    <Section id={id}>
+    <Wrapper id={id}>
       <Hero>
         <TextWrapper>
           <Heading color="bodyContrast">
@@ -100,17 +99,24 @@ const Start = ({ id }) => {
           </Blog>
         </SocialsBlog>
       </Content>
-    </Section>
+    </Wrapper>
   )
 }
 
 export default Start
+
+const Wrapper = styled(Section)`
+  min-height: calc(100vh - 5em);
+  display: flex;
+  flex-direction: column;
+`
 
 const Hero = styled.div`
   display: flex;
   flex-direction: column-reverse;
   justify-content: center;
   align-items: center;
+
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;
     justify-content: space-between;
@@ -125,9 +131,9 @@ const TextWrapper = styled.div`
 
 const Heading = styled(Header)`
   margin-bottom: 0.5em;
-  font-size: ${getFontSize("title")};
+  font-size: ${fontSizes.subheader};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    font-size: ${getFontSize("header")};
+    font-size: ${fontSizes.header};
   }
 `
 
@@ -148,7 +154,7 @@ const HeroImg = styled.img`
 `
 
 const Content = styled.div`
-  margin-top: 2em;
+  margin-top: 10%;
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 
 import { BaseLayout } from "templates"
-import { Subheader } from "atoms"
+import { Header } from "atoms"
 
 export default ({ id }) => {
   const intl = useIntl()
@@ -11,7 +11,7 @@ export default ({ id }) => {
   return (
     <BaseLayout>
       <Wrapper id={id}>
-        <Subheader text={intl.formatMessage({ id: "projects" })} />
+        <Header text={intl.formatMessage({ id: "projects" })} />
       </Wrapper>
     </BaseLayout>
   )

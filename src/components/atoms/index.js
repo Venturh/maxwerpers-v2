@@ -1,5 +1,5 @@
-export { default as Button } from "./Button"
 export {
+  default as Button,
   PrimaryButton,
   SecondaryButton,
   TertiaryButton,
@@ -20,11 +20,10 @@ export { default as Skill } from "./Skill"
 export { default as SvgIcon } from "./SvgIcon"
 export { default as ThemeToggle } from "./ThemeToggle"
 export { default as TimeLineCard } from "./TimeLineCard"
-export { default as Typography } from "./Typography"
 export {
+  default as Typography,
   Caption,
   ButtonText,
-  SubText,
   Text,
   Subtitle,
   Title,

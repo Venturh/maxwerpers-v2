@@ -3,14 +3,7 @@ import styled from "styled-components"
 import { useIntl } from "gatsby-plugin-intl"
 
 import { BaseLayout } from "templates"
-import {
-  Button,
-  Header,
-  PrimaryButton,
-  SecondaryButton,
-  Text,
-  Title,
-} from "atoms"
+import { Header, PrimaryButton, SecondaryButton, Text, Title } from "atoms"
 
 import cv from "content/downloads/cv.pdf"
 
