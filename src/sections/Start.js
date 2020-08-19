@@ -202,9 +202,7 @@ const SocialsCards = styled.div`
   gap: 0.5em;
   margin-top: 0.5em;
   @media (min-width: ${p => p.theme.breakpoints.lg}) {
-    wdith: 80%;
     grid-template-columns: repeat(2, 50%);
-    grid-template-rows: repeat(2, 3em);
   }
 `
 

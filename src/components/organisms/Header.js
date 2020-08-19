@@ -118,7 +118,7 @@ const NavLinks = styled.li`
 `
 
 const StyledLink = styled(Link)`
-  padding: 0.1em;
+  padding: 0.5em 0.25em;
   border-radius: 0.25em;
   :hover {
     background-color: ${getColor("bodyGlow")};

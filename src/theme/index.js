@@ -20,7 +20,7 @@ export const spacing = {
   heading: "0.5em",
   nav: "3%",
   desktop: {
-    sides: "15%",
+    sides: "20%",
   },
   mobile: {
     sides: "5%",

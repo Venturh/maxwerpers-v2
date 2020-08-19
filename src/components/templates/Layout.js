@@ -5,6 +5,7 @@ import { useIntl } from "gatsby-plugin-intl"
 
 import { Header } from "organisms"
 import { Footer } from "atoms"
+import { spacing } from "theme"
 
 export const BaseLayout = ({ children, ...props }) => {
   const { locale } = useIntl()
@@ -49,12 +50,12 @@ const Wrapper = styled.div`
 
 const Content = styled.main`
   flex: 1 0 auto;
-  padding: 3.5em 5%;
+  padding: 3.5em ${spacing.mobile.sides};
   padding-bottom: 0;
 
   @media (min-width: ${p => p.theme.breakpoints.lg}) {
     margin: 0;
-    padding: 5em ${p => (p.small ? "30%" : "15%")};
+    padding: 5em ${p => (p.small ? "30%" : spacing.desktop.sides)};
     padding-bottom: 0;
   }
 `

@@ -1,4 +1,7 @@
 import { createGlobalStyle } from "styled-components"
+import "fontsource-jost"
+import "fontsource-open-sans"
+import "fontsource-archivo"
 
 export const GlobalStyles = createGlobalStyle`
 
