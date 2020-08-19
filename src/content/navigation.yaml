@@ -20,8 +20,8 @@
 - to: /about
   localizations:
     - locale: de
-      name: Über mich
+      name: Über
     - locale: en
-      name: About me
+      name: About
     - locale: fr
-      name: De Moi
+      name: Moi

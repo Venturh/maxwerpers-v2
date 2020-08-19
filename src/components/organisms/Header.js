@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { useIntl, changeLocale } from "gatsby-plugin-intl"
 
-import { ThemeToggle, Pill, Title, Menu, Link, Text } from "atoms"
+import { ThemeToggle, Pill, Title, Subtitle, Link, Text, Span } from "atoms"
 import { LanguageSwitch } from "molecules"
 
 import { getColor, getSpacing } from "theme"
@@ -15,10 +15,15 @@ export default ({ navlinks, hash }) => {
     <Nav>
       <Left>
         <Link nav to="/">
-          <Logo>
+          <DesktopLogo>
             <Title color="primary">max</Title>
             <Title color="bodyContrast">werpers</Title>
-          </Logo>
+          </DesktopLogo>
+          <MobileLogo>
+            <Text color="primary">
+              M<Span color="bodyContrast">W</Span>
+            </Text>
+          </MobileLogo>
         </Link>
         <InfoPill>{formatMessage({ id: "infoPill" })}</InfoPill>
       </Left>
@@ -44,7 +49,6 @@ export default ({ navlinks, hash }) => {
           />
           <ThemeToggle style={{ marginLeft: "0.5em", marginRight: "0.5em" }} />
         </NavTools>
-        <Menu hash={hash} navlinks={navlinks} />
       </NavItems>
     </Nav>
   )
@@ -57,7 +61,6 @@ const Nav = styled.nav`
   z-index: 1;
   display: flex;
   justify-content: space-between;
-  align-items: center;
   height: 3em;
   background-color: ${getColor("body")};
   border-bottom: 1px solid ${getColor("bodyTint")};
@@ -68,6 +71,7 @@ const Nav = styled.nav`
 `
 
 const Left = styled.li`
+  height: 100%;
   display: flex;
   align-items: center;
 `
@@ -80,29 +84,41 @@ const InfoPill = styled(Pill)`
   }
 `
 
-const Logo = styled.div`
+const DesktopLogo = styled.div`
+  display: none;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: flex;
+    align-items: center;
+  }
+`
+
+const MobileLogo = styled.div`
+  height: 3em;
   display: flex;
   align-items: center;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: none;
+  }
 `
 
 const NavItems = styled.ul`
   display: flex;
-  align-items: center;
 `
 
 const NavLinks = styled.li`
-  display: none;
-  @media (min-width: ${props => props.theme.breakpoints.md}) {
-    display: flex;
-    cursor: pointer;
-    & > * {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  & > * {
+    margin-right: 0.5em;
+    @media (min-width: ${props => props.theme.breakpoints.lg}) {
       margin-right: 0.5em;
     }
   }
 `
 
 const StyledLink = styled(Link)`
-  padding: 0.5em;
+  padding: 0.1em;
   border-radius: 0.25em;
   :hover {
     background-color: ${getColor("bodyGlow")};
@@ -113,4 +129,5 @@ const NavTools = styled.div`
   display: flex;
   align-items: center;
   margin-left: 0.5em;
+  height: 100%;
 `

@@ -70,7 +70,7 @@ const Content = styled.div`
   position: fixed;
   top: 6vh;
   right: 0;
-  height: 94vh;
+  height: 50vh;
   width: 100vw;
   z-index: 1;
   background: ${props => props.theme.colors.body};
