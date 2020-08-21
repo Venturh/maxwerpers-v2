@@ -70,7 +70,7 @@ const Button = ({
       <Icon
         path={rightIcon}
         color={color}
-        left="true"
+        right="true"
         size={iconSize || "1.5em"}
       />
     ) : null}

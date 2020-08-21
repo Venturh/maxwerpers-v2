@@ -5,7 +5,7 @@ import { fontSizes, getColor } from "theme"
 const StyledTypography = styled.p`
   color: ${p => p.color};
   font-size: ${p => p.fontSize};
-  font-weight: ${p => (p.bold ? 700 : 400)};
+  font-weight: ${p => (p.bold ? 700 : 300)};
   white-space: pre-line;
 `
 
@@ -30,17 +30,17 @@ const Text = styled(Typography)`
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
-const Subtitle = styled(Typography)`
+const Subtitle = styled(Typography).attrs({ variant: "h4" })`
   font-size: ${fontSizes.lg};
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
-const Title = styled(Typography)`
+const Title = styled(Typography).attrs({ variant: "h3" })`
   font-size: ${fontSizes["title"]};
   color: ${props => getColor(props.color || "primary")};
 `
 
-const Subheader = styled(Typography)`
+const Subheader = styled(Typography).attrs({ variant: "h2" })`
   text-align: center;
   font-size: ${fontSizes.subheader};
   font-weight: 500;
@@ -50,8 +50,9 @@ const Subheader = styled(Typography)`
   }
 `
 
-const Header = styled(Typography)`
+const Header = styled(Typography).attrs({ variant: "h1" })`
   font-size: ${fontSizes.header};
+  font-family: "Archivo";
   font-weight: 700;
   color: ${props => getColor(props.color || "primary")};
 `
