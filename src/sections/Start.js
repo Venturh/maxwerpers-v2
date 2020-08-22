@@ -52,7 +52,7 @@ const Start = ({ id }) => {
             <br />
             {formatMessage({ id: "whatS" })}
           </Heading>
-          <Subtitle>{formatMessage({ id: "whatL" })}</Subtitle>
+          <Text>{formatMessage({ id: "whatL" })}</Text>
         </TextWrapper>
         <HeroImgContainer>
           {/* <HeroImg src={placeholder} alt="" /> */}
