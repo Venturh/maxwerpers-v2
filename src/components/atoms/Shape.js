@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { getColor } from "@/theme/"
+import { getColor } from "theme"
 
 export const StyledShape = styled.span`
   background: ${p => p.bg || getColor(p.tbg)};

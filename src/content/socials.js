@@ -1,4 +1,4 @@
-import { Github, LinkedIn, PlayStore, MailCheck } from "@/icons"
+import { Github, LinkedIn, PlayStore, MailCheck } from "icons"
 const socials = [
   {
     leftIcon: Github,

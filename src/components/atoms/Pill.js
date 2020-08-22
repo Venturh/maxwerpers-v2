@@ -3,7 +3,6 @@ import styled from "styled-components"
 
 import { Caption } from "./Typography"
 
-import { getColor } from "theme"
 import { card2 } from "theme/styles"
 
 const Pill = ({ children, className }) => (

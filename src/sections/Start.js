@@ -1,5 +1,5 @@
 import React from "react"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 
 import {
   Header,
@@ -11,6 +11,7 @@ import {
   Text,
   Subtitle,
   TertiaryButton,
+  Typography,
 } from "atoms"
 import { useIntl } from "gatsby-plugin-intl"
 
@@ -19,7 +20,7 @@ import { ArrowRightS } from "icons"
 import { fontSizes } from "theme"
 import socials from "content/socials"
 
-const Start = ({ id }) => {
+export default ({ id }) => {
   const { allProjectsYaml } = useStaticQuery(
     graphql`
       query AllProjectsQuery {
@@ -56,6 +57,12 @@ const Start = ({ id }) => {
         </TextWrapper>
         <HeroImgContainer>
           {/* <HeroImg src={placeholder} alt="" /> */}
+          <M fontSize="8vh" fontWeight="700" color="primary">
+            m
+          </M>
+          <W fontSize="8vh" fontWeight="700" color="bodyContrast">
+            w
+          </W>
         </HeroImgContainer>
       </Hero>
       <Content>
@@ -103,7 +110,39 @@ const Start = ({ id }) => {
   )
 }
 
-export default Start
+const floating = keyframes`
+	0% {
+		transform: translatey(0px);
+	}
+	50% {
+		transform: translatey(-20px);
+	}
+	100% {
+		transform: translatey(0px);
+	}
+`
+
+const floating2 = keyframes`
+	0% {
+		transform: translatey(-20px);
+	}
+	50% {
+		transform: translatey(0px);
+	}
+	100% {
+		transform: translatey(-20px);
+	}
+`
+
+const M = styled(Typography)`
+  animation: ${floating} 6s ease-in-out infinite;
+  font-family: "Archivo";
+`
+
+const W = styled(Typography)`
+  animation: ${floating2} 6s ease-in-out infinite;
+  font-family: "Archivo";
+`
 
 const Wrapper = styled(Section)`
   display: flex;
@@ -119,6 +158,7 @@ const Hero = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
   }
 `
 

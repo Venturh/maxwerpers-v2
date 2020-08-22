@@ -30,7 +30,12 @@ const GithubCard = ({
         <ButtonText color="bodyContrast">{primaryLanguage.name}</ButtonText>
       </LanguageIndicator>
       <StarWrapper>
-        <StyledStar path={Star} />
+        <SvgIcon
+          style={{ marginRight: "0.1em" }}
+          color="bodyContrast"
+          size="0.85em"
+          path={Star}
+        />
         <ButtonText color="bodyContrast">{stargazers.totalCount}</ButtonText>
       </StarWrapper>
     </Tag>
@@ -85,12 +90,6 @@ const StarWrapper = styled.div`
   display: flex;
   align-items: center;
   margin-left: 0.5em;
-`
-
-const StyledStar = styled(SvgIcon)`
-  fill: ${props => props.theme.colors.bodyContrast};
-  height: 0.8em;
-  margin-right: 0.1em;
 `
 
 const StyledDescription = styled(Text)`

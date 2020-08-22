@@ -57,13 +57,13 @@ const Hero = ({ project, localizations, github }) => {
 export default Hero
 
 const Wrapper = styled.section`
-  height: 100vh;
   @media (min-width: ${props => props.theme.breakpoints.md}) {
     position: relative;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     align-items: center;
+    min-height: calc(94vh - 7em);
   }
 `
 

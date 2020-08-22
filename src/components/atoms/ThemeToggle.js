@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components"
 import { ThemeContext } from "utils"
 import SvgIcon from "./SvgIcon"
 
-import { BrightDay, BrightNight } from "@/icons"
+import { BrightDay, BrightNight } from "icons"
 
 const ThemeToggle = ({ ...rest }) => {
   const { theme, toggleTheme } = useContext(ThemeContext)

@@ -44,18 +44,16 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
-        "@components": path.resolve(__dirname, "src/components"),
-        "@": path.resolve(__dirname, "src/"),
         components: path.resolve(__dirname, "src/components"),
+        atoms: path.resolve(__dirname, "src/components/atoms"),
+        molecules: path.resolve(__dirname, "src/components/molecules"),
+        organisms: path.resolve(__dirname, "src/components/organisms"),
+        templates: path.resolve(__dirname, "src/components/templates"),
         sections: path.resolve(__dirname, "src/sections"),
         theme: path.resolve(__dirname, "src/theme"),
         icons: path.resolve(__dirname, "src/icons"),
         content: path.resolve(__dirname, "src/content"),
         utils: path.resolve(__dirname, "src/utils"),
-        atoms: path.resolve(__dirname, "src/components/atoms"),
-        molecules: path.resolve(__dirname, "src/components/molecules"),
-        organisms: path.resolve(__dirname, "src/components/organisms"),
-        templates: path.resolve(__dirname, "src/components/templates"),
       },
     },
   })

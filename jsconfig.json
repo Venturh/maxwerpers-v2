@@ -3,7 +3,15 @@
     "allowSyntheticDefaultImports": false,
     "baseUrl": "./",
     "paths": {
-      "atoms": ["src/components/atoms/index"]
+      "atoms": ["src/components/atoms/index"],
+      "molecules": ["src/components/molecules/index"],
+      "organisms": ["src/components/organisms/index"],
+      "templates": ["src/components/templates/index"],
+      "sections": ["src/sections"],
+      "icons": ["src/icons/index"],
+      "utils": ["src/utils/index"],
+      "content": ["src/content"],
+      "theme": ["src/theme/index"]
     }
   },
   "exclude": ["node_modules", "dist"]

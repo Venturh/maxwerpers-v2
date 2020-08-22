@@ -1,5 +1,5 @@
 import React from "react"
-import Seo from "@components/atoms/Seo"
+import { Seo } from "atoms"
 import { BaseLayout } from "templates"
 import { Start, Expertise, Contact } from "sections"
 

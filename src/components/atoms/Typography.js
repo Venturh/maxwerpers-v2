@@ -3,8 +3,9 @@ import styled from "styled-components"
 import { fontSizes, getColor } from "theme"
 
 const StyledTypography = styled.p`
-  color: ${p => p.color};
-  font-size: ${p => p.fontSize};
+  color: ${p => getColor(p.color)};
+  font-size: ${p => fontSizes[p.fontSize] || p.fontSize};
+  font-weight: ${p => p.fontWeight};
   white-space: pre-line;
 `
 

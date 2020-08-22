@@ -22,7 +22,6 @@ const ProjectCard = ({ name, headline, slug, locale, icon }) => {
           <Text color="bodyContrast">{headline}</Text>
         </CardInfo>
       </Content>
-      {/* <Divider /> */}
     </Card>
   )
 }
@@ -46,8 +45,4 @@ const CardInfo = styled.div`
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     width: initial;
   }
-`
-
-const Divider = styled.hr`
-  width: 100%;
 `
