@@ -50,12 +50,18 @@ const Wrapper = styled.div`
 
 const Content = styled.main`
   flex: 1 0 auto;
-  padding: 3.5em ${spacing.mobile.sides};
+  padding: 5em ${spacing.mobile.sides};
   padding-bottom: 0;
 
   @media (min-width: ${p => p.theme.breakpoints.lg}) {
     margin: 0;
-    padding: 5em ${p => (p.small ? "30%" : spacing.desktop.sides)};
+    padding: 7em ${p => (p.small ? "30%" : spacing.lg.sides)};
+    padding-bottom: 0;
+  }
+
+  @media (min-width: ${p => p.theme.breakpoints.xl}) {
+    margin: 0;
+    padding: 7em ${p => (p.small ? "30%" : spacing.xl.sides)};
     padding-bottom: 0;
   }
 `

@@ -55,6 +55,7 @@ export default ({ navlinks }) => {
 }
 
 const Nav = styled.nav`
+  font-family: "Archivo";
   width: 100%;
   position: fixed;
   top: 0;
@@ -65,8 +66,12 @@ const Nav = styled.nav`
   background-color: ${getColor("body")};
   border-bottom: 1px solid ${getColor("bodyTint")};
   padding: 0 ${spacing.mobile.sides};
+
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
-    padding: 0 ${spacing.desktop.sides};
+    padding: 1.5em ${spacing.lg.sides};
+  }
+  @media (min-width: ${props => props.theme.breakpoints.xl}) {
+    padding: 1.5em ${spacing.xl.sides};
   }
 `
 
@@ -108,6 +113,7 @@ const NavItems = styled.ul`
 const NavLinks = styled.li`
   display: flex;
   align-items: center;
+  font-weight: 400;
   cursor: pointer;
   & > * {
     margin-right: 0.5em;
@@ -130,4 +136,5 @@ const NavTools = styled.div`
   align-items: center;
   margin-left: 0.5em;
   height: 100%;
+  font-weight: 400;
 `

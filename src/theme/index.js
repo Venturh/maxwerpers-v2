@@ -1,15 +1,15 @@
 export const getColor = variant => props => props.theme.colors[variant]
 
 export const fontSizes = {
-  xs: "0.69em",
-  sm: "0.83em",
+  xs: "0.64em",
+  sm: "0.8em",
   md: "1em",
-  lg: "1.2em",
-  title: "1.44em",
-  subheader: "1.73em",
-  header: "2.07em",
-  "4xl": "2.49em",
-  "5xl": "2.99em",
+  lg: "1.25em",
+  title: "1.56em",
+  subheader: "1.95em",
+  header: "2.44em",
+  "4xl": "3.05em",
+  "5xl": "3.81em",
 }
 
 export const sizes = {
@@ -19,9 +19,14 @@ export const sizes = {
 export const spacing = {
   heading: "0.5em",
   nav: "3%",
-  desktop: {
+  xl: {
     sides: "20%",
   },
+
+  lg: {
+    sides: "15%",
+  },
+
   mobile: {
     sides: "5%",
   },
@@ -55,10 +60,10 @@ export const darkTheme = {
     primary: "#85EEA7",
     primaryContrast: "#292929",
     primaryGlow: "#b0fbbc",
-    body: "#333333;",
-    bodyContrast: "#E8E8E8",
-    bodyTint: "#474747",
-    bodyGlow: "#474747",
+    body: "#161821;",
+    bodyContrast: "#FFFFFF",
+    bodyTint: "#272932",
+    bodyGlow: "#272932",
   },
   type: "dark",
   fontSizes,

@@ -64,7 +64,10 @@ const Wrapper = styled.footer`
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 2em ${props => props.theme.spacing.desktop.sides};
+    padding: 2em ${props => props.theme.spacing.lg.sides};
+  }
+  @media (min-width: ${props => props.theme.breakpoints.xl}) {
+    padding: 2em ${props => props.theme.spacing.xl.sides};
   }
 `
 

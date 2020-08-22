@@ -1,9 +1,11 @@
 import { createGlobalStyle } from "styled-components"
 import "fontsource-jost"
-import "fontsource-open-sans"
+import "fontsource-open-sans/300.css"
+import "fontsource-open-sans/700.css"
 import "fontsource-archivo"
 
 export const GlobalStyles = createGlobalStyle`
+
 
   a {
     color: inherit;
@@ -47,6 +49,7 @@ export const GlobalStyles = createGlobalStyle`
   /* Set core body defaults */
   body {
     font-family: "Open Sans", sans-serif;
+    font-weight: 300;
     line-height: 1.5;
     min-height: 100vh;
     height: 100%;

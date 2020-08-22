@@ -24,6 +24,7 @@ const StyledButton = styled.a`
 
 const Text = styled(Typography)`
   font-size: ${p => (p.fontSize ? fontSizes[p.fontSize] : fontSizes["sm"])};
+  font-weight: 600;
   color: ${p => getColor(p.color)};
 `
 

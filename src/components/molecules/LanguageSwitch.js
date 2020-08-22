@@ -53,6 +53,7 @@ const LanguageIcon = styled(SvgIcon)`
 const CurrentLanguage = styled(Text)`
   display: none;
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    display: block;
     text-transform: capitalize;
     margin: 0 0.1em 0 0.5em;
   }

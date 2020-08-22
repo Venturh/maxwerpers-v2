@@ -52,7 +52,7 @@ const Start = ({ id }) => {
             <br />
             {formatMessage({ id: "whatS" })}
           </Heading>
-          <Text>{formatMessage({ id: "whatL" })}</Text>
+          <Subtitle>{formatMessage({ id: "whatL" })}</Subtitle>
         </TextWrapper>
         <HeroImgContainer>
           {/* <HeroImg src={placeholder} alt="" /> */}
@@ -106,7 +106,6 @@ const Start = ({ id }) => {
 export default Start
 
 const Wrapper = styled(Section)`
-  min-height: calc(100vh - 5em);
   display: flex;
   flex-direction: column;
 `
@@ -132,7 +131,7 @@ const TextWrapper = styled.div`
 const Heading = styled(Header)`
   margin-bottom: 0.5em;
   font-size: ${fontSizes.subheader};
-  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+  @media (min-width: ${props => props.theme.breakpoints.xl}) {
     font-size: ${fontSizes.header};
   }
 `

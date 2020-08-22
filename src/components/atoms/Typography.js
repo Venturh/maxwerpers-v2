@@ -5,7 +5,6 @@ import { fontSizes, getColor } from "theme"
 const StyledTypography = styled.p`
   color: ${p => p.color};
   font-size: ${p => p.fontSize};
-  font-weight: ${p => (p.bold ? 700 : 300)};
   white-space: pre-line;
 `
 
@@ -32,6 +31,7 @@ const Text = styled(Typography)`
 
 const Subtitle = styled(Typography).attrs({ variant: "h4" })`
   font-size: ${fontSizes.lg};
+  font-weight: 400;
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
@@ -43,7 +43,7 @@ const Title = styled(Typography).attrs({ variant: "h3" })`
 const Subheader = styled(Typography).attrs({ variant: "h2" })`
   text-align: center;
   font-size: ${fontSizes.subheader};
-  font-weight: 500;
+  font-weight: 400;
   color: ${props => getColor(props.color || "primary")};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     text-align: start;
