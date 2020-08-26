@@ -8,8 +8,8 @@ export default skills => {
   const { formatMessage } = useIntl()
   return (
     <Wrapper>
-      {Object.keys(skills.nodes[0]).map((section, index) => (
-        <Section key={index}>
+      {Object.keys(skills.nodes[0]).map(section => (
+        <Section key={section}>
           <SkillCard
             title={formatMessage({ id: section.toLowerCase() })}
             skills={skills.nodes[0][section]}

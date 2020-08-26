@@ -1,7 +1,7 @@
 import React from "react"
 import { Seo } from "atoms"
 import { BaseLayout } from "templates"
-import { Start, Expertise, Contact } from "sections"
+import { Start, Expertise, Contact } from "sections/portfolio"
 
 const Portfolio = () => {
   return (

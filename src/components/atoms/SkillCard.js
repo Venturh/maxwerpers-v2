@@ -17,7 +17,7 @@ export default ({ title, skills }) => {
       <Subtitle style={{ marginLeft: "1em" }}>{title}</Subtitle>
       <Skills toggle={open}>
         {skills.map(skill => (
-          <Skill>
+          <Skill key={skill.name}>
             <SvgIcon color="primary" size="1.5em" path={skill.path} />
             {open ? (
               <Caption style={{ paddingTop: "0.5em" }}>{skill.name}</Caption>

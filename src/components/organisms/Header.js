@@ -75,7 +75,7 @@ const Nav = styled.nav`
   }
 `
 
-const Left = styled.li`
+const Left = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
@@ -106,11 +106,11 @@ const MobileLogo = styled.div`
   }
 `
 
-const NavItems = styled.ul`
+const NavItems = styled.div`
   display: flex;
 `
 
-const NavLinks = styled.li`
+const NavLinks = styled.div`
   display: flex;
   align-items: center;
   font-weight: 400;
