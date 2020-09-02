@@ -3,22 +3,19 @@ import styled from "styled-components"
 
 import { FilterCard, Search as BasicSearch } from "atoms"
 
-export default () => {
+export default ({ setFilters }) => {
   const filters = ["React", "Vue", "Electron", "Gatsby", "TypeScript"]
-
-  const [appliedFilters, setAppliedFilters] = useState([])
-  console.log("appliedFilters", appliedFilters)
-
-  const addFilter = name => {
-    setAppliedFilters(appliedFilters => [...appliedFilters, name])
-  }
 
   return (
     <Wrapper>
       <Search />
       <Filters>
         {filters.map(filter => (
-          <FilterCard key={filter} name={filter} callback={addFilter} />
+          <FilterCard
+            key={filter}
+            name={filter}
+            callback={name => setFilters(name)}
+          />
         ))}
       </Filters>
     </Wrapper>
@@ -33,7 +30,9 @@ const Wrapper = styled.div`
 
 const Search = styled(BasicSearch)``
 const Filters = styled.div`
+  margin-top: 1em;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 45%);
-  grid-gap: 0.25em;
+  grid-template-columns: repeat(auto-fit, minmax(20%, 45%));
+  gap: 0.5em;
+  justify-content: space-between;
 `

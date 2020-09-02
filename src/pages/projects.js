@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components"
 import { graphql } from "gatsby"
 import { useIntl } from "gatsby-plugin-intl"
@@ -10,13 +10,30 @@ import { ProjectsList, ProjectsSearch } from "sections/projects"
 export default ({ id, data }) => {
   const intl = useIntl()
 
+  const [appliedFilters, setAppliedFilters] = useState([])
+
+  const setFilters = name => {
+    const find = appliedFilters.findIndex(n => n === name)
+
+    if (find !== -1) {
+      setAppliedFilters(appliedFilters =>
+        appliedFilters.filter(n => n !== name)
+      )
+    } else {
+      setAppliedFilters(appliedFilters => [...appliedFilters, name])
+    }
+  }
+
   return (
     <BaseLayout>
       <Wrapper id={id}>
         {/* <Header text={intl.formatMessage({ id: "projects" })} /> */}
         <Content>
-          <ProjectsSearch />
-          <ProjectsList projects={data.allProjectsYaml.nodes} />
+          <ProjectsSearch setFilters={setFilters} />
+          <ProjectsList
+            filter={appliedFilters}
+            projects={data.allProjectsYaml.nodes}
+          />
         </Content>
       </Wrapper>
     </BaseLayout>
@@ -42,6 +59,7 @@ export const projecstQuery = graphql`
         year
         url
         homepageUrl
+        slug
         tech {
           icon
           text

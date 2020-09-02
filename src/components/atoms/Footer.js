@@ -53,7 +53,7 @@ const Footer = ({ ...rest }) => {
 }
 
 const Wrapper = styled.footer`
-  height: 10em;
+  height: 8em;
   padding: 0 ${props => props.theme.spacing.mobile.sides};
   display: flex;
   flex-direction: column;
