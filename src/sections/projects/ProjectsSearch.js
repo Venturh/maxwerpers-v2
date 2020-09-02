@@ -1,17 +1,17 @@
-import React, { useState } from "react"
+import React from "react"
 import styled from "styled-components"
 
-import { FilterCard, Search as BasicSearch } from "atoms"
+import { FilterCard } from "atoms"
 
 export default ({ setFilters }) => {
   const filters = ["React", "Vue", "Electron", "Gatsby", "TypeScript"]
 
   return (
     <Wrapper>
-      <Search />
       <Filters>
         {filters.map(filter => (
           <FilterCard
+            style={{ marginBottom: "0.5em" }}
             key={filter}
             name={filter}
             callback={name => setFilters(name)}
@@ -28,11 +28,8 @@ const Wrapper = styled.div`
   }
 `
 
-const Search = styled(BasicSearch)``
 const Filters = styled.div`
   margin-top: 1em;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20%, 45%));
-  gap: 0.5em;
-  justify-content: space-between;
+  display: flex;
+  flex-wrap: wrap;
 `

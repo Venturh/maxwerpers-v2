@@ -8,7 +8,8 @@ import { Header } from "atoms"
 import { ProjectsList, ProjectsSearch } from "sections/projects"
 
 export default ({ id, data }) => {
-  const intl = useIntl()
+  console.log("data", data)
+  const { locale } = useIntl()
 
   const [appliedFilters, setAppliedFilters] = useState([])
 
@@ -60,6 +61,10 @@ export const projecstQuery = graphql`
         url
         homepageUrl
         slug
+        localizations {
+          locale
+          progress
+        }
         tech {
           icon
           text

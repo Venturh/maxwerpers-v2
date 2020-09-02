@@ -11,16 +11,19 @@
   localizations:
     - locale: de
       headline: Kontrolliere deine Yeelight Geräte vom Desktop.
+      progress: In Arbeit
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: en
       headline: Control your Yeelight Smart Devices from anywhere.
+      progress: in Progress
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: fr
       headline: Control tes Yeelight Smart ampoule partout.
+      progress: .
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
@@ -44,16 +47,19 @@
   localizations:
     - locale: de
       headline: Eine Einkaufsliste für alle Geräte.
+      progress: Fertiggestellt
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: en
       headline: One Shoppinglist for all your devices.
+      progress: finished
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: fr
       headline: Une liste pour toutes vous appareiles.
+      progress: .
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
@@ -78,16 +84,19 @@
   localizations:
     - locale: de
       headline: Hier stelle ich meine Erfahrungen aus.
+      progress: Fertiggestellt
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: en
       headline: My personal portfolio where I show my latest work.
+      progress: finished
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: fr
       headline: Ici j´expose mes project actuel.
+      progress: .
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
@@ -110,16 +119,19 @@
   localizations:
     - locale: de
       headline: Ein kleines Spiel basierend auf Pokemon und Blockchain.
+      progress: Fertiggestellt
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: en
       headline: A little game based on Pokemon and Blockchain.
+      progress: finished
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
     - locale: fr
       headline: Un petit jeu sur Pokemon et les chaînes des blocs.
+      progress: .
       ideas:
         - title: PlaceHolder
           text: PlaceholderText
