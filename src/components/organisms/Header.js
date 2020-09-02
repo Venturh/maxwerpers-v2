@@ -114,7 +114,6 @@ const NavLinks = styled.div`
   display: flex;
   align-items: center;
   font-weight: 400;
-  cursor: pointer;
   & > * {
     margin-right: 0.5em;
     @media (min-width: ${props => props.theme.breakpoints.lg}) {

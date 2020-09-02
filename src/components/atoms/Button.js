@@ -115,6 +115,7 @@ export const IconOnlyButton = styled(Button)`
   background: inherit;
   border: none;
   border-radius: 0.25em;
+  padding: 0;
   box-shadow: unset;
   justify-content: center;
   color: ${p => getColor(p.color)};

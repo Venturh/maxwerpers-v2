@@ -32,7 +32,7 @@ const Text = styled(Typography)`
 
 const Subtitle = styled(Typography).attrs({ variant: "h4" })`
   font-size: ${fontSizes.lg};
-  font-weight: 400;
+  font-weight: 500;
   color: ${props => getColor(props.color || "bodyContrast")};
 `
 
@@ -44,7 +44,7 @@ const Title = styled(Typography).attrs({ variant: "h3" })`
 const Subheader = styled(Typography).attrs({ variant: "h2" })`
   text-align: center;
   font-size: ${fontSizes.subheader};
-  font-weight: 400;
+  font-weight: 600;
   color: ${props => getColor(props.color || "primary")};
   @media (min-width: ${props => props.theme.breakpoints.lg}) {
     text-align: start;

@@ -5,7 +5,7 @@ import { useIntl } from "gatsby-plugin-intl"
 
 import { BaseLayout } from "templates"
 import { Header } from "atoms"
-import { ProjectsList } from "sections/projects"
+import { ProjectsList, ProjectsSearch } from "sections/projects"
 
 export default ({ id, data }) => {
   const intl = useIntl()
@@ -13,14 +13,26 @@ export default ({ id, data }) => {
   return (
     <BaseLayout>
       <Wrapper id={id}>
-        <Header text={intl.formatMessage({ id: "projects" })} />
-        <ProjectsList projects={data.allProjectsYaml.nodes} />
+        {/* <Header text={intl.formatMessage({ id: "projects" })} /> */}
+        <Content>
+          <ProjectsSearch />
+          <ProjectsList projects={data.allProjectsYaml.nodes} />
+        </Content>
       </Wrapper>
     </BaseLayout>
   )
 }
 
 const Wrapper = styled.main``
+
+const Content = styled.div`
+  display: flex;
+  flex-direction: column;
+  @media (min-width: ${props => props.theme.breakpoints.lg}) {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+`
 
 export const projecstQuery = graphql`
   query ProjectsQuery {
