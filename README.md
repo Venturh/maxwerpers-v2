@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://www.maxwerpers.me">
-    <img alt="logo" src="./logo.svg" width="300px" />
+  <a href="https://maxwerpers-v2.netlify.app/en/">
+    <img alt="logo" src="https://user-images.githubusercontent.com/33336634/93456642-43137c00-f8de-11ea-98a2-736ae2716f04.png" width="300px" />
   </a>
 </p>
 <h1 align="center">
@@ -9,15 +9,22 @@
 
 ## About
 
-This is the second version of my personal portfolio. It replaces the first one that was build with pure React.
+This is the second version of my personal portfolio. It replaces the first one that was build with create-react-app.
 
-For this project i used Gatsby to benefit from the static page benefits, since i really didn´t need any dynamic content on my portfolio. When I have to update the portfolio i can just rebuild it with Netlify build hooks.
-If you want to check out my portfolio yourself you can check it out [here](https://maxwerpers.me/en "Title")
+For this project i used Gatsby to benefit from the static page benefits.
+If you want to check out my portfolio yourself you can check it out [here](https://maxwerpers-v2.netlify.app/en/ "Title")
 
-## Built With
+## Built Using
 
 - [Gatsby](https://www.gatsbyjs.org/) - Static Web Framework based on React
 - [Netlify](https://www.netlify.com/) - Service to deploy the site
-- [StyledComponents](https://styled-components.com/) - Styling
+- [StyledComponents](https://styled-components.com/) - CSS in JS Solution to style the App
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/89795ad2-f4d0-49df-93e9-abe51960ecb8/deploy-status)](https://app.netlify.com/sites/gportfolio/deploys)
+## Running Locally
+
+```bash
+$ git clone https://github.com/Venturh/maxwerpers-v2
+$ cd maxwerpers-v2
+$ npm i
+$ gatsby develop or npm run develop
+```
