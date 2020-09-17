@@ -1,4 +1,5 @@
 <p align="center">
+  <br/>
   <a href="https://maxwerpers-v2.netlify.app/en/">
     <img alt="logo" src="https://user-images.githubusercontent.com/33336634/93456642-43137c00-f8de-11ea-98a2-736ae2716f04.png" width="300px" />
   </a>
